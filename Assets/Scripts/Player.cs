@@ -55,6 +55,18 @@ public class Player : MonoBehaviour
         if (mouseAngle < 0) mouseAngle += 360;
         // 각도에 맞는 애니메이션
         animator.SetFloat("MouseAngle", mouseAngle);
+
+        // 테스트용 구르기 애니메이션 실행
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetBool("Roll", true);
+        }
+    }
+
+    // test
+    public void StopRolling()
+    {
+        animator.SetBool("Roll", false);
     }
 
     void FixedUpdate()
