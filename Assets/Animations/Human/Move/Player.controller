@@ -103,10 +103,10 @@ AnimatorStateMachine:
     m_Position: {x: 280, y: 90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6863563084580068007}
-    m_Position: {x: 560, y: 10, z: 0}
+    m_Position: {x: 550, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8841408591980384081}
-    m_Position: {x: 560, y: 90, z: 0}
+    m_Position: {x: 550, y: 150, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions:
@@ -252,6 +252,12 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: Roll
     m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: MoveAngle
+    m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -425,10 +431,10 @@ AnimatorStateTransition:
     m_ConditionEvent: Roll
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: MouseAngle
+    m_ConditionEvent: MoveAngle
     m_EventTreshold: 240
   - m_ConditionMode: 4
-    m_ConditionEvent: MouseAngle
+    m_ConditionEvent: MoveAngle
     m_EventTreshold: 300
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6863563084580068007}
@@ -659,10 +665,10 @@ AnimatorStateTransition:
     m_ConditionEvent: Roll
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: MouseAngle
+    m_ConditionEvent: MoveAngle
     m_EventTreshold: 180
   - m_ConditionMode: 4
-    m_ConditionEvent: MouseAngle
+    m_ConditionEvent: MoveAngle
     m_EventTreshold: 240
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8841408591980384081}

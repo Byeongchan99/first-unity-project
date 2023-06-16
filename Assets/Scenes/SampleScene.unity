@@ -242,6 +242,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: {x: 0, y: 0}
   moveSpeed: 250
+  moveAngle: 0
+  rollDirection: {x: 0, y: 0}
+  rollSpeed: 4
+  rollCoolDown: 0.3
   mousePos: {x: 0, y: 0, z: 0}
   mouseDirection: {x: 0, y: 0, z: 0}
   mouseAngle: 0

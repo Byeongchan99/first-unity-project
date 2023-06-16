@@ -10,6 +10,13 @@ public class Player : MonoBehaviour
 
     public Vector2 moveDirection;   // 이동 방향값
     [SerializeField] public float moveSpeed = 250f; // 이동 속도
+    public float moveAngle;
+
+    bool isRolling = false;   // 구르기 여부
+    public Vector2 rollDirection;
+    [SerializeField] float rollSpeed = 1.2f;   // 구르기 속도
+    [SerializeField] float rollCoolDown = 0.3f;   // 구르기 쿨타임
+    float rollCoolDownTimer = 0f;
 
     public Vector3 mousePos;   // 마우스 위치
     public Vector3 mouseDirection;   // 마우스 방향
@@ -32,12 +39,35 @@ public class Player : MonoBehaviour
         animator.SetFloat("Speed", moveDirection.magnitude);
     }
 
+    void Roll()
+    {
+        // 구르기 방향을 이동 방향으로 설정
+        rollDirection = moveDirection.normalized;
+        // 구르기 방향으로 힘을 가해 이동
+        rb.AddForce(rollDirection * rollSpeed * Time.deltaTime, ForceMode2D.Impulse);
+    }
+
+    // 구르기 애니메이션을 멈추는 애니메이션 이벤트
+    public void StopRolling()
+    {
+        // 구르기 멈추기
+        isRolling = false;
+        animator.SetBool("Roll", false);
+    }
+
     // Update is called once per frame
     void Update()
     {
         // 이동 입력값
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.y = Input.GetAxisRaw("Vertical");
+
+        // 이동 벡터의 각도
+        moveAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+        // 각도 범위 [0, 360]으로 설정
+        if (moveAngle < 0) moveAngle += 360;
+        // 각도에 맞는 애니메이션
+        animator.SetFloat("MoveAngle", moveAngle);
 
         // 마우스 위치
         mousePos = Input.mousePosition;
@@ -56,21 +86,32 @@ public class Player : MonoBehaviour
         // 각도에 맞는 애니메이션
         animator.SetFloat("MouseAngle", mouseAngle);
 
-        // 테스트용 구르기 애니메이션 실행
-        if (Input.GetKeyDown(KeyCode.Space))
+        // 구르기
+        if (Input.GetKeyDown(KeyCode.Space) && rollCoolDownTimer <= 0f) 
         {
             animator.SetBool("Roll", true);
+            isRolling = true;
+            // 구르기 쿨타임 설정
+            rollCoolDownTimer = rollCoolDown;
         }
-    }
-
-    // test
-    public void StopRolling()
-    {
-        animator.SetBool("Roll", false);
     }
 
     void FixedUpdate()
     {
-        Move();
+        // 구르는 중일 때는 다른 조작 불가능
+        if (isRolling)
+        {
+            Roll();
+        }
+        else
+        {
+            Move();
+
+            // 구르기 쿨타임 타이머 감소
+            if (rollCoolDownTimer > 0f)
+            {
+                rollCoolDownTimer -= Time.fixedDeltaTime;
+            }
+        }
     }
 }
