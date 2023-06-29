@@ -9,13 +9,13 @@ public class Player : MonoBehaviour
     Animator animator;
 
     public Vector2 moveDirection;   // 이동 방향값
-    [SerializeField] public float moveSpeed = 250f; // 이동 속도
+    [SerializeField] public float moveSpeed; // 이동 속도
     public float moveAngle;
 
     bool isRolling = false;   // 구르기 여부
     public Vector2 rollDirection;
-    [SerializeField] float rollSpeed = 1.2f;   // 구르기 속도
-    [SerializeField] float rollCoolDown = 0.3f;   // 구르기 쿨타임
+    [SerializeField] float rollSpeed;   // 구르기 속도
+    [SerializeField] float rollCoolDown;   // 구르기 쿨타임
     float rollCoolDownTimer = 0f;
 
     public Vector3 mousePos;   // 마우스 위치
@@ -87,8 +87,9 @@ public class Player : MonoBehaviour
         animator.SetFloat("MouseAngle", mouseAngle);
 
         // 구르기
-        if (Input.GetKeyDown(KeyCode.Space) && rollCoolDownTimer <= 0f) 
+        if (Input.GetKeyDown(KeyCode.Space) && rollCoolDownTimer <= 0f && moveDirection.magnitude > 0) 
         {
+            // 구르기 실행
             animator.SetBool("Roll", true);
             isRolling = true;
             // 구르기 쿨타임 설정
