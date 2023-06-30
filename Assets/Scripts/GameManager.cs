@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [Header("# Game Control")]   // 인스펙터의 속성들을 구분시켜주는 타이틀
     public bool isLive;   // 시간 흐름 조절
-    public bool isRolling = false;
     public float gameTime;
     public float maxGameTime = 3 * 10f;
 
@@ -43,7 +42,7 @@ public class GameManager : MonoBehaviour
     }
     */
 
-    /*
+    
     public void GameOver()
     {
         StartCoroutine(GameOverRoutine());
@@ -54,16 +53,20 @@ public class GameManager : MonoBehaviour
         isLive = false;
 
         // 사망 애니메이션을 적용하기 위한 딜레이
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(3f);
 
+        /*
         uiResult.gameObject.SetActive(true);
         uiResult.Lose();
         Stop();
 
         AudioManager.instance.PlayBgm(false);
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Lose);
+        */
+
+        GameRetry();
     }
-    */
+    
 
     /*
     public void GameVictory()

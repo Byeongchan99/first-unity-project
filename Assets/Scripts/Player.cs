@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer renderer;
     Animator animator;
+    public Animator shadowAnimator;   // 그림자의 애니메이터
 
     public Vector2 moveDirection;   // 이동 방향값
     [SerializeField] public float moveSpeed; // 이동 속도
@@ -26,10 +27,15 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        shadowAnimator = transform.Find("Shadow").GetComponent<Animator>();
+        Debug.Log(GameManager.instance.isLive);
     }
 
     void Move()
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         // 방향 벡터 정규화
         moveDirection.Normalize();
         // 플레이어 이동(속도 변경 방식)
@@ -41,6 +47,9 @@ public class Player : MonoBehaviour
 
     void Roll()
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         // 구르기 방향을 이동 방향으로 설정
         rollDirection = moveDirection.normalized;
         // 구르기 방향으로 힘을 가해 이동
@@ -53,6 +62,7 @@ public class Player : MonoBehaviour
         // 구르기 멈추기
         isRolling = false;
         animator.SetBool("Roll", false);
+        shadowAnimator.SetBool("Roll", false);
     }
 
     // Update is called once per frame
@@ -91,9 +101,17 @@ public class Player : MonoBehaviour
         {
             // 구르기 실행
             animator.SetBool("Roll", true);
+            shadowAnimator.SetBool("Roll", true);
             isRolling = true;
             // 구르기 쿨타임 설정
             rollCoolDownTimer = rollCoolDown;
+        }
+
+        // 사망 테스트 코드
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            animator.SetTrigger("Dead");
+            GameManager.instance.GameOver();
         }
     }
 
