@@ -4667,7 +4667,8 @@ GameObject:
   - component: {fileID: 2127830138}
   - component: {fileID: 2127830143}
   - component: {fileID: 2127830137}
-  - component: {fileID: 2127830142}
+  - component: {fileID: 2127830145}
+  - component: {fileID: 2127830144}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4786,7 +4787,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2127830142
+--- !u!70 &2127830143
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127830136}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 0.78}
+  m_Direction: 0
+--- !u!95 &2127830144
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -4807,22 +4824,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!70 &2127830143
-CapsuleCollider2D:
+--- !u!114 &2127830145
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127830136}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 0.78}
-  m_Direction: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6c88aeb8feb2747b4516e6a6230894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numOfAttack: 0
+  maxComboDelay: 0.9
 --- !u!1 &2135036144
 GameObject:
   m_ObjectHideFlags: 0

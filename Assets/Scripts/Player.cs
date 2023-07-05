@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         shadowAnimator = transform.Find("Shadow").GetComponent<Animator>();
-        Debug.Log(GameManager.instance.isLive);
     }
 
     void Move()
