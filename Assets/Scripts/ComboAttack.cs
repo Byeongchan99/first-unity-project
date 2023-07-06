@@ -7,7 +7,7 @@ public class ComboAttack : MonoBehaviour
     Animator animator;
     public int numOfAttack = 0;
     float lastAttackedTime = 0;
-    public float maxComboDelay = 0.9f;
+    public float maxComboDelay = 1.3f;
 
     void Awake()
     {
@@ -16,14 +16,14 @@ public class ComboAttack : MonoBehaviour
 
     void Update()
     {
-        if (Time.deltaTime - lastAttackedTime > maxComboDelay)
+        if (Time.time - lastAttackedTime > maxComboDelay)
         {
             numOfAttack = 0;
         }
 
         if (Input.GetMouseButtonDown(0))
         {
-            lastAttackedTime = Time.deltaTime;
+            lastAttackedTime = Time.time;
             numOfAttack++;
             if (numOfAttack == 1)
             {
