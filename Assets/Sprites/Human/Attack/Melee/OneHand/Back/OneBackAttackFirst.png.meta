@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ea4c54d13c753d34ea203fb2e9271f69
+guid: 886b666208ca17b46beca77b413113e0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OneFrontAttackFirst_0
+      name: OneBackAttackFirst_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb7c074b3135b664ab8a7dcacbfdf165
-      internalID: 1074160366
+      spriteID: faf7ef48a437b9c45a913c14c7f4f30a
+      internalID: -1086413812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OneFrontAttackFirst_1
+      name: OneBackAttackFirst_1
       rect:
         serializedVersion: 2
         x: 25
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a59433a2f523e4b48b572df6d80881b2
-      internalID: -1818015984
+      spriteID: 125c38c69eafbeb45998b56e66a59860
+      internalID: -1807480821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OneFrontAttackFirst_2
+      name: OneBackAttackFirst_2
       rect:
         serializedVersion: 2
         x: 50
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ba3ff61b976eb7489913c0bddc29707
-      internalID: -1597691662
+      spriteID: dd1210e82073d5643a639d1740ab1b87
+      internalID: 1557815208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OneFrontAttackFirst_3
+      name: OneBackAttackFirst_3
       rect:
         serializedVersion: 2
         x: 75
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99fb411b4bb874d46aadc22153dddc6a
-      internalID: 2043564778
+      spriteID: b39995cd1102e574c997a96aa0dd40f7
+      internalID: -1035920504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OneFrontAttackFirst_4
+      name: OneBackAttackFirst_4
       rect:
         serializedVersion: 2
         x: 100
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d825f5aa19929c428bee320479d31fd
-      internalID: 1317163335
+      spriteID: 70c200c918007a94b9f50f938d948538
+      internalID: 1719194157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OneFrontAttackFirst_5
+      name: OneBackAttackFirst_5
       rect:
         serializedVersion: 2
         x: 125
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7028ab36cbe4b049a1e6b3ffa31ad4b
-      internalID: 635454685
+      spriteID: b1a0080fb335c9a4a95707ee8ffd1e3b
+      internalID: -199168434
       vertices: []
       indices: 
       edges: []
@@ -241,12 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      OneFrontAttackFirst_0: 1074160366
-      OneFrontAttackFirst_1: -1818015984
-      OneFrontAttackFirst_2: -1597691662
-      OneFrontAttackFirst_3: 2043564778
-      OneFrontAttackFirst_4: 1317163335
-      OneFrontAttackFirst_5: 635454685
+      OneBackAttackFirst_0: -1086413812
+      OneBackAttackFirst_1: -1807480821
+      OneBackAttackFirst_2: 1557815208
+      OneBackAttackFirst_3: -1035920504
+      OneBackAttackFirst_4: 1719194157
+      OneBackAttackFirst_5: -199168434
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

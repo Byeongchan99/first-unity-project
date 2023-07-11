@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86b23b74168968a4ba2dda5ebb5b8b3b
-      internalID: -64707427
+      spriteID: dbabfa0e7a0bdbe4fa830b6de55fb264
+      internalID: -486758485
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 023f25fa0c935d74a87cfe15eeabba67
-      internalID: -456345460
+      spriteID: 6fc34a97a0f96e3479209524ebec6402
+      internalID: -1564727319
       vertices: []
       indices: 
       edges: []
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5883af7521b0d2340b0c2ede6708302c
-      internalID: -1977319507
+      spriteID: 25c22741c6b81c54e9372f96e93bc4a2
+      internalID: 1259259982
       vertices: []
       indices: 
       edges: []
@@ -182,176 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 522830e58f798a24aac60f76435de5b2
-      internalID: -2111746409
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OneFrontAttackSecond_4
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d396dfb7cbc5614bbfa5f9d3c0261f8
-      internalID: 1090394786
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OneFrontAttackSecond_5
-      rect:
-        serializedVersion: 2
-        x: 125
-        y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d6c2f0bc18dc634086102a11ac8efd2
-      internalID: 555873824
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OneFrontAttackSecond_6
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a42efabe9145ec44fb87954ba9fe6adb
-      internalID: 582584122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OneFrontAttackSecond_7
-      rect:
-        serializedVersion: 2
-        x: 175
-        y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 849d0f070b8bfaf4298e9156cef7e99e
-      internalID: 859054926
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OneFrontAttackSecond_8
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8bf876aaed8239c44ad876a5b2f16ea4
-      internalID: 209111369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OneFrontAttackSecond_9
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 402e77d19a47bda459dd64dcddaf1231
-      internalID: -1717594847
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OneFrontAttackSecond_10
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b7ed607c19884cc438995a9396d62922
-      internalID: 865571128
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: OneFrontAttackSecond_11
-      rect:
-        serializedVersion: 2
-        x: 275
-        y: 0
-        width: 25
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 75f2b98c2b451c348ab50035d501a867
-      internalID: 1490367508
+      spriteID: 4be1a71bbd43a784b8643df7130d4b3d
+      internalID: 824442537
       vertices: []
       indices: 
       edges: []
@@ -367,18 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      OneFrontAttackSecond_0: -64707427
-      OneFrontAttackSecond_1: -456345460
-      OneFrontAttackSecond_10: 865571128
-      OneFrontAttackSecond_11: 1490367508
-      OneFrontAttackSecond_2: -1977319507
-      OneFrontAttackSecond_3: -2111746409
-      OneFrontAttackSecond_4: 1090394786
-      OneFrontAttackSecond_5: 555873824
-      OneFrontAttackSecond_6: 582584122
-      OneFrontAttackSecond_7: 859054926
-      OneFrontAttackSecond_8: 209111369
-      OneFrontAttackSecond_9: -1717594847
+      OneFrontAttackSecond_0: -486758485
+      OneFrontAttackSecond_1: -1564727319
+      OneFrontAttackSecond_2: 1259259982
+      OneFrontAttackSecond_3: 824442537
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

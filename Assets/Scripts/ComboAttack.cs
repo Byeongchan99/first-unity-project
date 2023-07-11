@@ -9,6 +9,9 @@ public class ComboAttack : MonoBehaviour
     float lastAttackedTime = 0;
     public float maxComboDelay = 1.3f;
 
+    public Transform pos;
+    public Vector2 boxSize;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -23,15 +26,27 @@ public class ComboAttack : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            animator.SetBool("IsAttack", true);
             lastAttackedTime = Time.time;
             numOfAttack++;
             if (numOfAttack == 1)
             {
                 animator.SetBool("Attack1", true);
-            }
+                Collider2D[] colider2Ds = Physics2D.OverlapBoxAll(pos.position, boxSize, 0);
+                foreach (Collider2D colider in colider2Ds)
+                {
+                    Debug.Log(colider.tag);
+                }
+;            }
             // 최대 최소 범위 설정
             numOfAttack = Mathf.Clamp(numOfAttack, 0, 3);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(pos.position, boxSize);
     }
 
     public void return1()
