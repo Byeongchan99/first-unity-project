@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
         // 마우스 방향 벡터 정규화
         mouseDirection = (mousePos - transform.position).normalized;
         // 방향 벡터 각도 구하기
-        float mouseAngle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg;
+        mouseAngle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg;
 
         // 각도 범위 [0, 360]으로 설정
         if (mouseAngle < 0) mouseAngle += 360;
