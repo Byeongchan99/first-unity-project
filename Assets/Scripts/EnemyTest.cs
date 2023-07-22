@@ -54,7 +54,7 @@ public class EnemyTest : MonoBehaviour
 
     void OnEnable()   // 스크립트가 활성화될 때 호출되는 이벤트 함수
     {
-        target = GameManager.instance.player.GetComponent<Rigidbody2D>();
+        target = GameManager.instance.playerController.GetComponent<Rigidbody2D>();
         isLive = true;
         coll.enabled = true;   // Collider 활성화
         rigid.simulated = true;   // Rigidbody2D 활성화
@@ -108,7 +108,7 @@ public class EnemyTest : MonoBehaviour
     {
         int KnockBackRate = 3;
         yield return wait;   // 다음 하나의 물리 프레임 딜레이
-        Vector3 playorPos = GameManager.instance.player.transform.position;
+        Vector3 playorPos = GameManager.instance.playerController.transform.position;
         Vector3 dirVec = transform.position - playorPos;
         rigid.AddForce(dirVec.normalized * KnockBackRate, ForceMode2D.Impulse);
     }

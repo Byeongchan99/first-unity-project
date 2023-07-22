@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     SpriteRenderer renderer;
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
         animator.SetFloat("MoveAngle", moveAngle);
 
         // 마우스 위치
-        mousePos = Input.mousePosition;
+        mousePos = Mouse.current.position.ReadValue();
         // 스크린 좌표를 월드 좌표로 변환
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
         // 2D 게임이므로 z좌표 0으로 변경
@@ -89,9 +89,18 @@ public class Player : MonoBehaviour
         if (mouseAngle < 0) mouseAngle += 360;
         // 각도에 맞는 애니메이션
         animator.SetFloat("MouseAngle", mouseAngle);
+    }
 
+    void OnMove(InputValue value)
+    {
+        // 후처리로 normalized 해줌
+        inputVec = value.Get<Vector2>();
+    }
+
+    void OnRoll()
+    {
         // 구르기
-        if (Input.GetKeyDown(KeyCode.Space) && rollCoolDownTimer <= 0f && inputVec.magnitude > 0) 
+        if (rollCoolDownTimer <= 0f && inputVec.magnitude > 0)
         {
             // 구르기 실행
             animator.SetBool("Roll", true);
@@ -100,19 +109,13 @@ public class Player : MonoBehaviour
             // 구르기 쿨타임 설정
             rollCoolDownTimer = rollCoolDown;
         }
-
-        // 사망 테스트 코드
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            animator.SetTrigger("Dead");
-            GameManager.instance.GameOver();
-        }
     }
 
-    void OnMove(InputValue value)
+    // 사망 테스트 코드
+    void OnTestDead()
     {
-        // 후처리로 normalized 해줌
-        inputVec = value.Get<Vector2>();
+        animator.SetTrigger("Dead");
+        GameManager.instance.GameOver();
     }
 
     void FixedUpdate()

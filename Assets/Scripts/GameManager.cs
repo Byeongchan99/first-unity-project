@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     [Header("# Game Object")]
     // public PoolManager pool;
-    public Player player;
+    public PlayerController playerController;
     // public Result uiResult;
 
     void Awake()
