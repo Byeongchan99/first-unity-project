@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Player : MonoBehaviour
     Animator animator;
     public Animator shadowAnimator;   // 그림자의 애니메이터
 
-    public Vector2 moveDirection;   // 이동 방향값
+    public Vector2 inputVec;   // 이동 방향값
     [SerializeField] public float moveSpeed; // 이동 속도
     public float moveAngle;
 
@@ -34,14 +35,12 @@ public class Player : MonoBehaviour
     {
         if (!GameManager.instance.isLive)
             return;
-
-        // 방향 벡터 정규화
-        moveDirection.Normalize();
+    
         // 플레이어 이동(속도 변경 방식)
-        rb.velocity = moveDirection * moveSpeed * Time.fixedDeltaTime;
+        rb.velocity = inputVec * moveSpeed * Time.fixedDeltaTime;
 
         // 속도 애니메이션 설정
-        animator.SetFloat("Speed", moveDirection.magnitude);
+        animator.SetFloat("Speed", inputVec.magnitude);
     }
 
     void Roll()
@@ -50,7 +49,7 @@ public class Player : MonoBehaviour
             return;
 
         // 구르기 방향을 이동 방향으로 설정
-        rollDirection = moveDirection.normalized;
+        rollDirection = inputVec;
         // 구르기 방향으로 힘을 가해 이동
         rb.AddForce(rollDirection * rollSpeed * Time.deltaTime, ForceMode2D.Impulse);
     }
@@ -67,12 +66,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 이동 입력값
-        moveDirection.x = Input.GetAxisRaw("Horizontal");
-        moveDirection.y = Input.GetAxisRaw("Vertical");
-
         // 이동 벡터의 각도
-        moveAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+        moveAngle = Mathf.Atan2(inputVec.y, inputVec.x) * Mathf.Rad2Deg;
         // 각도 범위 [0, 360]으로 설정
         if (moveAngle < 0) moveAngle += 360;
         // 각도에 맞는 애니메이션
@@ -96,7 +91,7 @@ public class Player : MonoBehaviour
         animator.SetFloat("MouseAngle", mouseAngle);
 
         // 구르기
-        if (Input.GetKeyDown(KeyCode.Space) && rollCoolDownTimer <= 0f && moveDirection.magnitude > 0) 
+        if (Input.GetKeyDown(KeyCode.Space) && rollCoolDownTimer <= 0f && inputVec.magnitude > 0) 
         {
             // 구르기 실행
             animator.SetBool("Roll", true);
@@ -112,6 +107,12 @@ public class Player : MonoBehaviour
             animator.SetTrigger("Dead");
             GameManager.instance.GameOver();
         }
+    }
+
+    void OnMove(InputValue value)
+    {
+        // 후처리로 normalized 해줌
+        inputVec = value.Get<Vector2>();
     }
 
     void FixedUpdate()
