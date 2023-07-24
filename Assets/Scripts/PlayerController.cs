@@ -5,13 +5,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    protected PlayerStat playerStat;
     Rigidbody2D rb;
     SpriteRenderer renderer;
     Animator animator;
     public Animator shadowAnimator;   // 그림자의 애니메이터
 
     public Vector2 inputVec;   // 이동 방향값
-    [SerializeField] public float moveSpeed; // 이동 속도
     public float moveAngle;
 
     bool isRolling = false;   // 구르기 여부
@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        playerStat = GetComponent<PlayerStat>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         shadowAnimator = transform.Find("Shadow").GetComponent<Animator>();
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
             return;
     
         // 플레이어 이동(속도 변경 방식)
-        rb.velocity = inputVec * moveSpeed * Time.fixedDeltaTime;
+        rb.velocity = inputVec * playerStat.MoveSpeed * Time.fixedDeltaTime;
 
         // 속도 애니메이션 설정
         animator.SetFloat("Speed", inputVec.magnitude);

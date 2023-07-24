@@ -11,13 +11,6 @@ public class GameManager : MonoBehaviour
     public float gameTime;
     public float maxGameTime = 3 * 10f;
 
-    [Header("# Player Info")]
-    public int playerId;
-    public float health;
-    public float maxHealth = 100;
-    public int level;   // 레벨
-    public int kill;   // 킬 수
-
     [Header("# Game Object")]
     // public PoolManager pool;
     public PlayerController playerController;

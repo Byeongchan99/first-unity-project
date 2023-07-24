@@ -4781,11 +4781,6 @@ MonoBehaviour:
   isLive: 1
   gameTime: 0
   maxGameTime: 30
-  playerId: 0
-  health: 0
-  maxHealth: 100
-  level: 0
-  kill: 0
   playerController: {fileID: 0}
 --- !u!4 &2062460085
 Transform:
@@ -4814,6 +4809,7 @@ GameObject:
   - component: {fileID: 2127830140}
   - component: {fileID: 2127830138}
   - component: {fileID: 2127830143}
+  - component: {fileID: 2127830148}
   - component: {fileID: 2127830147}
   - component: {fileID: 2127830145}
   - component: {fileID: 2127830144}
@@ -5069,7 +5065,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowAnimator: {fileID: 0}
   inputVec: {x: 0, y: 0}
-  moveSpeed: 250
   moveAngle: 0
   rollDirection: {x: 0, y: 0}
   rollSpeed: 0
@@ -5077,6 +5072,25 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   mouseDirection: {x: 0, y: 0, z: 0}
   mouseAngle: 0
+--- !u!114 &2127830148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127830136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a5b8ddb808e014da66b7913ffc9e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerID: 0
+  maxHP: 0
+  currentHP: 0
+  armor: 0
+  moveSpeed: 250
+  level: 0
+  kill: 0
 --- !u!1 &2135036144
 GameObject:
   m_ObjectHideFlags: 0
