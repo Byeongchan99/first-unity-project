@@ -6,45 +6,30 @@ using CharacterController;
 
 public class PlayerController : MonoBehaviour
 {
-    protected PlayerStat playerStat;
-    Rigidbody2D rb;
-    SpriteRenderer renderer;
-    Animator animator;
-    public Animator shadowAnimator;   // 그림자의 애니메이터
+    public PlayerStat playerStat;
 
+    [Header("이동 관련")]
     public Vector2 inputVec;   // 이동 방향값
     public float moveAngle;
 
+    [Header("구르기 관련")]
     bool isRolling = false;   // 구르기 여부
     public Vector2 rollDirection;
     [SerializeField] float rollSpeed;   // 구르기 속도
     [SerializeField] float rollCoolDown;   // 구르기 쿨타임
     float rollCoolDownTimer = 0f;
 
+    [Header("마우스 위치")]
     public Vector3 mousePos;   // 마우스 위치
     public Vector3 mouseDirection;   // 마우스 방향
     public float mouseAngle;   // 마우스 각도
 
-    void Awake()
+    void Start()
     {
         playerStat = GetComponent<PlayerStat>();
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        shadowAnimator = transform.Find("Shadow").GetComponent<Animator>();
     }
 
-    void Move()
-    {
-        if (!GameManager.instance.isLive)
-            return;
-    
-        // 플레이어 이동(속도 변경 방식)
-        rb.velocity = inputVec * playerStat.MoveSpeed * Time.fixedDeltaTime;
-
-        // 속도 애니메이션 설정
-        animator.SetFloat("Speed", inputVec.magnitude);
-    }
-
+    /*
     void Roll()
     {
         if (!GameManager.instance.isLive)
@@ -55,6 +40,7 @@ public class PlayerController : MonoBehaviour
         // 구르기 방향으로 힘을 가해 이동
         rb.AddForce(rollDirection * rollSpeed * Time.deltaTime, ForceMode2D.Impulse);
     }
+    
 
     // 구르기 애니메이션을 멈추는 애니메이션 이벤트
     public void StopRolling()
@@ -64,6 +50,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Roll", false);
         shadowAnimator.SetBool("Roll", false);
     }
+    */
 
     // Update is called once per frame
     void Update()
@@ -73,7 +60,7 @@ public class PlayerController : MonoBehaviour
         // 각도 범위 [0, 360]으로 설정
         if (moveAngle < 0) moveAngle += 360;
         // 각도에 맞는 애니메이션
-        animator.SetFloat("MoveAngle", moveAngle);
+        playerStat.animator.SetFloat("MoveAngle", moveAngle);
 
         // 마우스 위치
         mousePos = Mouse.current.position.ReadValue();
@@ -90,7 +77,7 @@ public class PlayerController : MonoBehaviour
         // 각도 범위 [0, 360]으로 설정
         if (mouseAngle < 0) mouseAngle += 360;
         // 각도에 맞는 애니메이션
-        animator.SetFloat("MouseAngle", mouseAngle);
+        playerStat.animator.SetFloat("MouseAngle", mouseAngle);
     }
 
     void OnMove(InputValue value)
@@ -99,8 +86,9 @@ public class PlayerController : MonoBehaviour
         inputVec = value.Get<Vector2>();
     }
 
+    /*
     void OnRoll()
-    {
+    {      
         // 구르기
         if (rollCoolDownTimer <= 0f && inputVec.magnitude > 0)
         {
@@ -111,6 +99,7 @@ public class PlayerController : MonoBehaviour
             // 구르기 쿨타임 설정
             rollCoolDownTimer = rollCoolDown;
         }
+        
     }
 
     // 사망 테스트 코드
@@ -119,6 +108,7 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("Dead");
         GameManager.instance.GameOver();
     }
+    
 
     void FixedUpdate()
     {
@@ -129,8 +119,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Move();
-
             // 구르기 쿨타임 타이머 감소
             if (rollCoolDownTimer > 0f)
             {
@@ -138,4 +126,5 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    */
 }

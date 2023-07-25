@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CharacterController
 {
-    public class StateMachine : MonoBehaviour
+    public class StateMachine
     {
         // 현재 상태
         public BaseState CurrentState { get; private set; }

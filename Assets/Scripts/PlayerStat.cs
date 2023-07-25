@@ -5,10 +5,11 @@ using CharacterController;
 
 public class PlayerStat : MonoBehaviour
 {
-    public static PlayerStat Instance { get { return Instance; } }
+    public static PlayerStat Instance { get { return instance; } }
     public StateMachine stateMachine { get; private set; }
     public Rigidbody2D rigidBody { get; private set; }
     public Animator animator { get; private set; }
+    public Animator shadowAnimator { get; private set; }
 
     private static PlayerStat instance;
 
@@ -36,6 +37,7 @@ public class PlayerStat : MonoBehaviour
             instance = this;
             rigidBody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
+            shadowAnimator = transform.Find("Shadow").GetComponent<Animator>();
             // 씬 전환 시에 파괴되지 않도록 지정하는 함수
             DontDestroyOnLoad(gameObject);
             return;
@@ -75,5 +77,8 @@ public class PlayerStat : MonoBehaviour
     private void InitStateMachine()
     {
         // 상태들을 만들고 등록
+        PlayerController controller = GetComponent<PlayerController>();
+        stateMachine = new StateMachine(StateName.MOVE, new MoveState(controller));
+        stateMachine.AddState(StateName.ROLL, new RollState(controller));
     }
 }
