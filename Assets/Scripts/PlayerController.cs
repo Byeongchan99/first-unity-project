@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using CharacterController;
 
 public class PlayerController : MonoBehaviour
 {
