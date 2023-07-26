@@ -43,6 +43,7 @@ public class PlayerStat : MonoBehaviour
             rigidBody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             shadowAnimator = transform.Find("Shadow").GetComponent<Animator>();
+            InitStateMachine();
             // 씬 전환 시에 파괴되지 않도록 지정하는 함수
             DontDestroyOnLoad(gameObject);
             return;
@@ -53,7 +54,7 @@ public class PlayerStat : MonoBehaviour
 
     void Start()
     {
-        InitStateMachine();
+        // InitStateMachine();
     }
 
 
