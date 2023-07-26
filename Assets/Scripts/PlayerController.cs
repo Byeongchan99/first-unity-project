@@ -7,16 +7,14 @@ using CharacterController;
 public class PlayerController : MonoBehaviour
 {
     public PlayerStat playerStat;
+    RollState rollState;
 
     [Header("이동 관련")]
-    public Vector2 inputVec;   // 이동 방향값
+    public Vector2 inputVec;   // 입력 방향값
     public float moveAngle;
 
     [Header("구르기 관련")]
-    bool isRolling = false;   // 구르기 여부
     public Vector2 rollDirection;
-    [SerializeField] float rollSpeed;   // 구르기 속도
-    [SerializeField] float rollCoolDown;   // 구르기 쿨타임
     float rollCoolDownTimer = 0f;
 
     [Header("마우스 위치")]
@@ -30,18 +28,6 @@ public class PlayerController : MonoBehaviour
     }
 
     /*
-    void Roll()
-    {
-        if (!GameManager.instance.isLive)
-            return;
-
-        // 구르기 방향을 이동 방향으로 설정
-        rollDirection = inputVec;
-        // 구르기 방향으로 힘을 가해 이동
-        rb.AddForce(rollDirection * rollSpeed * Time.deltaTime, ForceMode2D.Impulse);
-    }
-    
-
     // 구르기 애니메이션을 멈추는 애니메이션 이벤트
     public void StopRolling()
     {
@@ -85,46 +71,27 @@ public class PlayerController : MonoBehaviour
         // 후처리로 normalized 해줌
         inputVec = value.Get<Vector2>();
     }
-
-    /*
     void OnRoll()
-    {      
-        // 구르기
-        if (rollCoolDownTimer <= 0f && inputVec.magnitude > 0)
+    {
+        rollDirection = inputVec;
+       if (rollState.CanAddInputBuffer)
         {
-            // 구르기 실행
-            animator.SetBool("Roll", true);
-            shadowAnimator.SetBool("Roll", true);
-            isRolling = true;
-            // 구르기 쿨타임 설정
-            rollCoolDownTimer = rollCoolDown;
+            rollState.inputVecBuffer.Enqueue(rollDirection);
         }
-        
+
+       if (!rollState.IsRoll)
+        {
+            rollState.inputVecBuffer.Enqueue(rollDirection);
+            playerStat.stateMachine.ChangeState(StateName.ROLL);
+        } 
     }
 
+    /*
     // 사망 테스트 코드
     void OnTestDead()
     {
         animator.SetTrigger("Dead");
         GameManager.instance.GameOver();
-    }
-    
-
-    void FixedUpdate()
-    {
-        // 구르는 중일 때는 다른 조작 불가능
-        if (isRolling)
-        {
-            Roll();
-        }
-        else
-        {
-            // 구르기 쿨타임 타이머 감소
-            if (rollCoolDownTimer > 0f)
-            {
-                rollCoolDownTimer -= Time.fixedDeltaTime;
-            }
-        }
     }
     */
 }

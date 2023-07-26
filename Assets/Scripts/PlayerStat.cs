@@ -17,18 +17,23 @@ public class PlayerStat : MonoBehaviour
     public float MaxHP { get { return maxHP; } }
     public float CurrentHP { get { return currentHP; } }
     public float Armor { get { return armor; } }
-    public float MoveSpeed { get { return moveSpeed; } }
     public int Level { get { return level; } }
     public int Kill { get { return kill; } }
+    public float MoveSpeed { get { return moveSpeed; } }
+    public float RollSpeed { get { return rollSpeed; } }
+    public float RollCooltime { get { return rollCooltime; } }
 
     [Header("Ä³¸¯ÅÍ ½ºÅÈ")]
     [SerializeField] protected int playerID;
     [SerializeField] protected float maxHP;
     [SerializeField] protected float currentHP;
     [SerializeField] protected float armor;
-    [SerializeField] protected float moveSpeed;
     [SerializeField] protected int level;
     [SerializeField] protected int kill;
+    [SerializeField] protected float moveSpeed;
+    [SerializeField] protected float rollSpeed;
+    [SerializeField] protected float rollCooltime;
+
 
     void Awake()
     {
@@ -63,15 +68,17 @@ public class PlayerStat : MonoBehaviour
         stateMachine?.FixedUpdateState();
     }
 
-    public void OnUpdateStat(int playerID, float maxHP, float currentHP, float armor, float moveSpeed, float dashCount, int level, int kill)
+    public void OnUpdateStat(int playerID, float maxHP, float currentHP, float armor, int level, int kill, float moveSpeed, float rollSpeed, float rollCooltime)
     {
         this.playerID = playerID;
         this.maxHP = maxHP;
         this.currentHP = currentHP;
-        this.armor = armor;
-        this.moveSpeed = moveSpeed;
+        this.armor = armor;  
         this.level = level;
         this.kill = kill;
+        this.moveSpeed = moveSpeed;
+        this.rollSpeed = rollSpeed;
+        this.rollCooltime = rollCooltime;
     }
 
     private void InitStateMachine()
