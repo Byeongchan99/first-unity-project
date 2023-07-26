@@ -21,7 +21,7 @@ public class RollAnimationEvents : MonoBehaviour
 
         if (rollCoolTimeCoroutine != null) 
             StopCoroutine(rollCoolTimeCoroutine);
-        rollCoolTimeCoroutine = StartCoroutine(RollCooltimeTimer(PlayerStat.Instance.RollCooltime);
+        rollCoolTimeCoroutine = StartCoroutine(RollCooltimeTimer(PlayerStat.Instance.RollCooltime));
     }
 
     private IEnumerator RollCooltimeTimer(float coolTime)

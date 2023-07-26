@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("구르기 관련")]
     public Vector2 rollDirection;
-    float rollCoolDownTimer = 0f;
 
     [Header("마우스 위치")]
     public Vector3 mousePos;   // 마우스 위치
@@ -26,17 +25,6 @@ public class PlayerController : MonoBehaviour
     {
         playerStat = GetComponent<PlayerStat>();
     }
-
-    /*
-    // 구르기 애니메이션을 멈추는 애니메이션 이벤트
-    public void StopRolling()
-    {
-        // 구르기 멈추기
-        isRolling = false;
-        animator.SetBool("Roll", false);
-        shadowAnimator.SetBool("Roll", false);
-    }
-    */
 
     // Update is called once per frame
     void Update()
