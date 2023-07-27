@@ -88,5 +88,6 @@ public class PlayerStat : MonoBehaviour
         PlayerController controller = GetComponent<PlayerController>();
         stateMachine = new StateMachine(StateName.MOVE, new MoveState(controller));
         stateMachine.AddState(StateName.ROLL, new RollState(controller));
+        stateMachine.AddState(StateName.ATTACK, new AttackState(controller));
     }
 }
