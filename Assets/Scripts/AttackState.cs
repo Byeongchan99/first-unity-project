@@ -6,15 +6,15 @@ namespace CharacterController
 {
     public class AttackState : BaseState
     {
-        public bool IsAttack { get; set; }   // 공격 여부
-        public float CanReInputTime { get; set; } = 1f;
+        public static bool IsAttack = false;
+        public const float CanReInputTime = 1f;
 
         public AttackState(PlayerController controller) : base(controller) { }
        
         public override void OnEnterState()
         {
             IsAttack = true;
-
+            PlayerStat.Instance.weaponManager.Weapon?.Attack(this);
         }
         public override void OnUpdateState()
         {

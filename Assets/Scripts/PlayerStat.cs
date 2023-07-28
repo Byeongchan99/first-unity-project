@@ -6,11 +6,13 @@ using CharacterController;
 public class PlayerStat : MonoBehaviour
 {
     public static PlayerStat Instance { get { return instance; } }
+    public WeaponManager weaponManager { get; private set; }
     public StateMachine stateMachine { get; private set; }
     public Rigidbody2D rigidBody { get; private set; }
     public Animator animator { get; private set; }
     public Animator shadowAnimator { get; private set; }
 
+    private Transform rightHand;
     private static PlayerStat instance;
 
     public int PlayerID { get { return playerID; } }
@@ -40,6 +42,7 @@ public class PlayerStat : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            weaponManager = new WeaponManager(rightHand);
             rigidBody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             shadowAnimator = transform.Find("Shadow").GetComponent<Animator>();

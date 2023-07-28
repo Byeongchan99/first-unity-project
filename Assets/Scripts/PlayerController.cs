@@ -113,6 +113,16 @@ public class PlayerController : MonoBehaviour
         } 
     }
 
+    void OnAttack()
+    {
+        bool isAvailableAttack = !AttackState.IsAttack && (playerStat.weaponManager.Weapon.ComboCount < 3);
+        
+        if (isAvailableAttack)
+        {
+            playerStat.stateMachine.ChangeState(StateName.ATTACK);
+        }
+    }
+
     /*
     // 사망 테스트 코드
     void OnTestDead()

@@ -42,7 +42,7 @@ public class ComboAttack : MonoBehaviour
         numOfAttack++;
         if (numOfAttack == 1)
         {
-            animator.SetBool("Attack1", true);
+            animator.SetInteger("AttackCombo", 1);
             // mouseAngle에 따라 pos.position을 바꿔야 함, 회전은 일단 없이 하게 하기 위해 boxSize는 정사각형
             pos.position = playerTransform.position + mouseDirection;
             Collider2D[] colider2Ds = Physics2D.OverlapBoxAll(pos.position, boxSize, 0);
@@ -66,11 +66,11 @@ public class ComboAttack : MonoBehaviour
     {
         if (numOfAttack >= 2)
         {
-            animator.SetBool("Attack2", true);
+            animator.SetInteger("AttackCombo", 2);
         }
         else
         {
-            animator.SetBool("Attack1", false);
+            animator.SetInteger("AttackCombo", 0);
             numOfAttack = 0;
         }
     }
@@ -79,21 +79,18 @@ public class ComboAttack : MonoBehaviour
     {
         if (numOfAttack >= 3)
         {
-            animator.SetBool("Attack3", true);
+            animator.SetInteger("AttackCombo", 3);
         }
         else
         {
-            animator.SetBool("Attack1", false);
-            animator.SetBool("Attack2", false);
+            animator.SetInteger("AttackCombo", 0);
             numOfAttack = 0;
         }
     }
 
     public void return3()
     {
-        animator.SetBool("Attack1", false);
-        animator.SetBool("Attack2", false);
-        animator.SetBool("Attack3", false);
+        animator.SetInteger("AttackCombo", 0);
         numOfAttack = 0;
     }
 }
