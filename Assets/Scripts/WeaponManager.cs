@@ -7,6 +7,8 @@ public class WeaponManager
 {
     // 현재 무기 스크립트
     public BaseWeapon Weapon { get; private set; }
+    // Action<T>를 사용하면 특정 함수를 참조하거나 "가리키는" 변수처럼 사용 가능
+    public Action<GameObject> unRegisterWeapon { get; set; }
     // 무기를 쥐는 손의 트랜스폼
     private Transform handPosition;
     // 현재 내 무기 오브젝트
@@ -37,12 +39,16 @@ public class WeaponManager
     // 무기 삭제
     public void UnRegisterWeapon(GameObject weapon)
     {
-        if (weapons.Contains(weapon)) { 
+        if (weapons.Contains(weapon)) {
+            // 등록된 무기를 리스트에서 제거 후 해당 무기 파괴
             weapons.Remove(weapon);
+            // Invoke는 unRegisterWeapon이 참조하는 메서드(현재 Destroy(weapon))를 호출하라는 의미
+            unRegisterWeapon.Invoke(weapon);
         }
     }
 
-    //// 무기 변경
+    // 무기 변경
+    // 현재 내가 사용하는 무기만 활성화, 나머지 무기들은 비활성화된 채로 쥐고 있음
     public void SetWeapon(GameObject weapon)
     {
         if (Weapon == null)
@@ -50,7 +56,7 @@ public class WeaponManager
             weaponObject = weapon;
             Weapon = weapon.GetComponent<BaseWeapon>();
             weaponObject.SetActive(true);
-            PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
+            // PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
             return;
         }
 
@@ -61,7 +67,7 @@ public class WeaponManager
                 weaponObject = weapon;
                 weaponObject.SetActive(true);
                 Weapon = weapon.GetComponent<BaseWeapon>();
-                PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
+                // PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
                 continue;
             }
             weapons[i].SetActive(false);

@@ -12,6 +12,7 @@ public class PlayerStat : MonoBehaviour
     public Animator animator { get; private set; }
     public Animator shadowAnimator { get; private set; }
 
+    [SerializeField]
     private Transform rightHand;
     private static PlayerStat instance;
 
@@ -43,6 +44,9 @@ public class PlayerStat : MonoBehaviour
         {
             instance = this;
             weaponManager = new WeaponManager(rightHand);
+            // 등록된 무기가 WeaponManager에서 제거되는 경우 해당 무기를 게임에서 완전히 파괴
+            // unRegisterWeapon에 Destroy(weapon) 할당 -> unRegisterWeapon 호출 시 Destroy(weapon) 수행
+            weaponManager.unRegisterWeapon = (weapon) => { Destroy(weapon); };
             rigidBody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             shadowAnimator = transform.Find("Shadow").GetComponent<Animator>();

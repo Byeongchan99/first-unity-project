@@ -10,7 +10,7 @@ public abstract class BaseWeapon : MonoBehaviour
     // 이 무기를 쥘 때 손의 로컬 좌표 정보
     public WeaponHandleData HandleData { get { return weaponhandleData; } }
     // 이 무기를 사용할 때의 애니메이터
-    public RuntimeAnimatorController WeaponAnimator { get { return WeaponAnimator; } }
+    public RuntimeAnimatorController WeaponAnimator { get { return weaponAnimator; } }
 
     public string WeaponName { get { return weaponName; } }
     public float AttackDamage { get { return attackDamage; } }
@@ -35,7 +35,10 @@ public abstract class BaseWeapon : MonoBehaviour
         this.attackRange = attackRange;
     }
 
+    // 기본 공격
     public abstract void Attack(BaseState state);
+    // 차지 공격
     public abstract void ChargingAttack(BaseState state);
+    // 스킬
     public abstract void Skill(BaseState state);
 }
