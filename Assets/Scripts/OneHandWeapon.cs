@@ -16,6 +16,7 @@ public class OneHandWeapon : BaseWeapon
         PlayerStat.Instance.animator.SetFloat(hashAttackSpeedAnimation, AttackSpeed);
         PlayerStat.Instance.animator.SetBool(hashIsAttackAnimation, true);
         PlayerStat.Instance.animator.SetInteger(hashAttackAnimation, ComboCount);
+        CheckAttackInput(AttackState.CanReInputTime);
     }
 
     public override void ChargingAttack(BaseState state)
