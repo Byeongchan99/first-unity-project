@@ -123,12 +123,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*
+    
     // 사망 테스트 코드
     void OnTestDead()
     {
-        animator.SetTrigger("Dead");
-        GameManager.instance.GameOver();
+        playerStat.stateMachine.ChangeState(StateName.DEAD);
     }
-    */
 }

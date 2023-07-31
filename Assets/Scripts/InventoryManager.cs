@@ -17,7 +17,7 @@ public class InventoryManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             return;
         }
-        DestroyImmediate(gameObject);
+        Destroy(gameObject);
     }
 
      void Start()

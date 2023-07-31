@@ -56,7 +56,7 @@ public class PlayerStat : MonoBehaviour
             return;
         }
         // 이미 instance가 있을 시 파괴
-        DestroyImmediate(gameObject);
+        Destroy(gameObject);
     }
 
     void Start()
@@ -96,5 +96,6 @@ public class PlayerStat : MonoBehaviour
         stateMachine = new StateMachine(StateName.MOVE, new MoveState(controller));
         stateMachine.AddState(StateName.ROLL, new RollState(controller));
         stateMachine.AddState(StateName.ATTACK, new AttackState(controller));
+        stateMachine.AddState(StateName.DEAD, new DeadState(controller));
     }
 }
