@@ -37,6 +37,10 @@ public abstract class BaseWeapon : MonoBehaviour
 
     // 기본 공격
     public abstract void Attack(BaseState state);
+    // 무기 활성화 시작
+    public abstract void BeginAttack();
+    // 무기 활성화 종료
+    public abstract void EndAttack();
     // 차지 공격
     public abstract void ChargingAttack(BaseState state);
     // 스킬

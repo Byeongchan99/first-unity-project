@@ -14,6 +14,7 @@ namespace CharacterController
         public override void OnEnterState()
         {
             IsAttack = true;
+            PlayerStat.Instance.weaponManager.Weapon.BeginAttack();
             PlayerStat.Instance.weaponManager.Weapon?.Attack(this);
         }
         public override void OnUpdateState()
@@ -26,7 +27,7 @@ namespace CharacterController
         }
         public override void OnExitState()
         {
-
+            PlayerStat.Instance.weaponManager.Weapon.EndAttack();
         }
     }
 }

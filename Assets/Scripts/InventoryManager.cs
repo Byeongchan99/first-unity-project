@@ -37,6 +37,7 @@ public class InventoryManager : MonoBehaviour
         */
 
         // 한손검 테스트용
+        // 프리팹 소환
         GameObject weapon = Instantiate(oneHandSword);
         PlayerStat.Instance.weaponManager.RegisterWeapon(weapon);
         PlayerStat.Instance.weaponManager.SetWeapon(weapon);

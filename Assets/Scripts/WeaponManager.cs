@@ -55,7 +55,7 @@ public class WeaponManager
         {
             weaponObject = weapon;
             Weapon = weapon.GetComponent<BaseWeapon>();
-            weaponObject.SetActive(true);
+            // weaponObject.SetActive(true);
             // PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
             return;
         }
@@ -66,7 +66,7 @@ public class WeaponManager
             {
                 weaponObject = weapon;
                 weaponObject.SetActive(true);
-                Weapon = weapon.GetComponent<BaseWeapon>();
+                // Weapon = weapon.GetComponent<BaseWeapon>();
                 // PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
                 continue;
             }

@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("이동 관련")]
     public Vector2 inputVec;   // 입력 방향값
-    public float moveAngle;
+    public float moveDirection;
 
     [Header("구르기 관련")]
     public Vector2 rollDirection;
@@ -31,11 +31,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // 이동 벡터의 각도
-        moveAngle = Mathf.Atan2(inputVec.y, inputVec.x) * Mathf.Rad2Deg;
+        moveDirection = Mathf.Atan2(inputVec.y, inputVec.x) * Mathf.Rad2Deg;
         // 각도 범위 [0, 360]으로 설정
-        if (moveAngle < 0) moveAngle += 360;
+        if (moveDirection < 0) moveDirection += 360;
         // 각도에 맞는 애니메이션
-        playerStat.animator.SetFloat("MoveAngle", moveAngle);
+        playerStat.animator.SetFloat("MoveDirection", moveDirection);
 
         // 마우스 위치
         mousePos = Mouse.current.position.ReadValue();

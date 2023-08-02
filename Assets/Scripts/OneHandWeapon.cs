@@ -19,6 +19,18 @@ public class OneHandWeapon : BaseWeapon
         CheckAttackInput(AttackState.CanReInputTime);
     }
 
+    // 무기 활성화 시작
+    public override void BeginAttack()
+    {
+        gameObject.SetActive(true);
+    }
+
+    // 무기 활성화 종료
+    public override void EndAttack()
+    {
+        gameObject.SetActive(false);
+    }
+
     public override void ChargingAttack(BaseState state)
     {
 
