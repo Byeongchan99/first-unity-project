@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -119,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c188ed730f2355e49a51fb468be6eed2
-      internalID: 916067513
+      spriteID: ff3bccd8fa93a3440872567113654101
+      internalID: -2083793011
       vertices: []
       indices: 
       edges: []
@@ -140,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6edf7dd2f0e083942b980a880dba9144
-      internalID: -1865851197
+      spriteID: aaea055089cc1c24ebc35d85f5d0067a
+      internalID: 399407747
       vertices: []
       indices: 
       edges: []
@@ -161,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae99bfc6d2d1fd242b2284998f70a629
-      internalID: -1020993403
+      spriteID: 952005188d8d3e840bae73eb5a3122b0
+      internalID: 761243216
       vertices: []
       indices: 
       edges: []
@@ -182,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 217be3ae453dd0e4eac0e1b61bd1c9c5
-      internalID: -334088487
+      spriteID: 70dd2b41e6c5ec0438b413899cd2c8b5
+      internalID: 1286307907
       vertices: []
       indices: 
       edges: []
@@ -203,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78b8788ee24f0344498b57de9c32e572
-      internalID: -935373848
+      spriteID: d0c456429d0de924aa6078c797b6f88e
+      internalID: 2022159275
       vertices: []
       indices: 
       edges: []
@@ -224,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8207ac6bd1fb1f4f8fddad4c61c3f97
-      internalID: -449102488
+      spriteID: 6abb6326636cbe5449cfd2407f048be6
+      internalID: -1511682293
       vertices: []
       indices: 
       edges: []
@@ -245,8 +257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fedd5a742738ad4bbbf2e9728ea80b0
-      internalID: -1750167119
+      spriteID: 24de04d9a04874c4380d3c8d5b18e296
+      internalID: -280665278
       vertices: []
       indices: 
       edges: []
@@ -266,8 +278,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 470720bbb01b8044dabe49d13f4b3b3f
-      internalID: -893021115
+      spriteID: 2d8dce93703bba24ab92a2e9c98432b5
+      internalID: -166580405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightStand_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5fa6b384d455ed4d9cffd9e757a6e7d
+      internalID: -479384042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightStand_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4126b412c3dad74bb1dd965a7a8a391
+      internalID: 599000720
       vertices: []
       indices: 
       edges: []
@@ -283,14 +337,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RightStand_0: 916067513
-      RightStand_1: -1865851197
-      RightStand_2: -1020993403
-      RightStand_3: -334088487
-      RightStand_4: -935373848
-      RightStand_5: -449102488
-      RightStand_6: -1750167119
-      RightStand_7: -893021115
+      RightStand_0: -2083793011
+      RightStand_1: 399407747
+      RightStand_2: 761243216
+      RightStand_3: 1286307907
+      RightStand_4: 2022159275
+      RightStand_5: -1511682293
+      RightStand_6: -280665278
+      RightStand_7: -166580405
+      RightStand_8: -479384042
+      RightStand_9: 599000720
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
