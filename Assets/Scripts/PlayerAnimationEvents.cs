@@ -5,7 +5,7 @@ using CharacterController;
 
 public class PlayerAnimationEvents : MonoBehaviour
 {
-   public void FinishedAttack()
+    public void FinishedAttack()
     {
         AttackState.IsAttack = false;
         PlayerStat.Instance.animator.SetBool("IsAttack", false);

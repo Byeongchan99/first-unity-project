@@ -16,6 +16,7 @@ public abstract class BaseWeapon : MonoBehaviour
     public float AttackDamage { get { return attackDamage; } }
     public float AttackSpeed { get { return attackSpeed; } }
     public float AttackRange { get { return attackRange; } }
+    public float AdvanceDistance { get { return advanceDistance; } }
 
     [Header("생성 정보"), Tooltip("무기를 쥐었을 때의 Local Transform 정보")]
     [SerializeField] protected WeaponHandleData weaponhandleData;
@@ -26,13 +27,16 @@ public abstract class BaseWeapon : MonoBehaviour
     [SerializeField] protected float attackDamage;
     [SerializeField] protected float attackSpeed;
     [SerializeField] protected float attackRange;
+    // 공격 시 전진 거리
+    [SerializeField] protected float advanceDistance;
 
-    public void SetWeaponData(string weaponName, float attackDamage, float attackSpeed, float attackRange)
+    public void SetWeaponData(string weaponName, float attackDamage, float attackSpeed, float attackRange, float advanceDistance)
     {
         this.weaponName = weaponName;
         this.attackDamage = attackDamage;
         this.attackSpeed = attackSpeed;
         this.attackRange = attackRange;
+        this.advanceDistance = advanceDistance;
     }
 
     // 기본 공격

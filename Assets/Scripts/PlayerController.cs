@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     public Vector3 mouseDirection;   // 마우스 방향
     public float mouseAngle;   // 마우스 각도
 
+    [Header("공격 관련")]
+    public Vector2 attackDirection;   // 공격 방향
+
     void Start()
     {
         playerStat = GetComponent<PlayerStat>();
@@ -123,7 +126,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+    public void StartAttack()
+    {
+        attackDirection = mouseDirection;
+    }
+
+    public void MoveForward()
+    {
+        float advanceDistance = PlayerStat.Instance.weaponManager.Weapon.AdvanceDistance;
+        Vector2 targetPos = (Vector2)PlayerStat.Instance.transform.position + attackDirection * advanceDistance;
+        int layerMask = 1 << LayerMask.NameToLayer("Player");
+        layerMask = ~layerMask;
+
+        RaycastHit2D hit = Physics2D.Raycast(PlayerStat.Instance.transform.position, attackDirection, PlayerStat.Instance.weaponManager.Weapon.AdvanceDistance, layerMask);
+
+        if (hit.collider == null)
+        {
+            Debug.Log("No object detected, moving to target position.");
+            PlayerStat.Instance.rigidBody.MovePosition(targetPos);
+        }
+        else
+        {
+            Debug.Log("Object hit by Raycast: " + hit.collider.gameObject.name);
+            PlayerStat.Instance.rigidBody.MovePosition(hit.point);
+        }
+    }
+
     // 사망 테스트 코드
     void OnTestDead()
     {
