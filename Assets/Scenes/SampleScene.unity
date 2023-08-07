@@ -5103,11 +5103,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStat: {fileID: 0}
   inputVec: {x: 0, y: 0}
-  moveDirection: 0
   rollDirection: {x: 0, y: 0}
   mousePos: {x: 0, y: 0, z: 0}
   mouseDirection: {x: 0, y: 0, z: 0}
-  mouseAngle: 0
   attackDirection: {x: 0, y: 0}
 --- !u!114 &2127830148
 MonoBehaviour:
@@ -5129,7 +5127,7 @@ MonoBehaviour:
   level: 0
   kill: 0
   moveSpeed: 250
-  rollSpeed: 0
+  rollSpeed: 1
   rollCooltime: 0.3
 --- !u!114 &2127830149
 MonoBehaviour:
