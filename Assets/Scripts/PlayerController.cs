@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("이동 관련")]
     public Vector2 inputVec;   // 입력 방향값
-    public float moveDirection;
 
     [Header("구르기 관련")]
     public Vector2 rollDirection;
@@ -19,7 +18,6 @@ public class PlayerController : MonoBehaviour
     [Header("마우스 위치")]
     public Vector3 mousePos;   // 마우스 위치
     public Vector3 mouseDirection;   // 마우스 방향
-    public float mouseAngle;   // 마우스 각도
 
     [Header("공격 관련")]
     public Vector2 attackDirection;   // 공격 방향
@@ -33,13 +31,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 이동 벡터의 각도
-        moveDirection = Mathf.Atan2(inputVec.y, inputVec.x) * Mathf.Rad2Deg;
-        // 각도 범위 [0, 360]으로 설정
-        if (moveDirection < 0) moveDirection += 360;
-        // 각도에 맞는 애니메이션
-        playerStat.animator.SetFloat("MoveDirection", moveDirection);
-
         // 마우스 위치
         mousePos = Mouse.current.position.ReadValue();
         // 스크린 좌표를 월드 좌표로 변환
@@ -49,13 +40,9 @@ public class PlayerController : MonoBehaviour
 
         // 마우스 방향 벡터 정규화
         mouseDirection = (mousePos - transform.position).normalized;
-        // 방향 벡터 각도 구하기
-        mouseAngle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg;
-
-        // 각도 범위 [0, 360]으로 설정
-        if (mouseAngle < 0) mouseAngle += 360;
         // 각도에 맞는 애니메이션
-        playerStat.animator.SetFloat("MouseAngle", mouseAngle);
+        playerStat.animator.SetFloat("MouseDirection.X", mouseDirection.x);
+        playerStat.animator.SetFloat("MouseDirection.Y", mouseDirection.y);
     }
 
     void OnMove(InputValue value)
@@ -119,14 +106,14 @@ public class PlayerController : MonoBehaviour
     void OnAttack()
     {
         bool isAvailableAttack = !AttackState.IsAttack && (playerStat.weaponManager.Weapon.ComboCount < 3);
-        
+
         if (isAvailableAttack)
         {
             playerStat.stateMachine.ChangeState(StateName.ATTACK);
         }
     }
 
-    public void StartAttack()
+    public void GetAttackDirection()
     {
         attackDirection = mouseDirection;
     }

@@ -11,15 +11,16 @@ namespace CharacterController
         // 연속 공격 입력 시간
         public const float CanReInputTime = 1f;
         // 공격 각도(방향)
-        public float attackAngle;
+        public Vector2 attackDirection;
 
         public AttackState(PlayerController controller) : base(controller) { }
        
         public override void OnEnterState()
         {
             IsAttack = true;
-            attackAngle = Controller.mouseAngle;
-            PlayerStat.Instance.animator.SetFloat("AttackAngle", attackAngle);
+            attackDirection = Controller.mouseDirection;
+            PlayerStat.Instance.animator.SetFloat("AttackDirection.X", attackDirection.x);
+            PlayerStat.Instance.animator.SetFloat("AttackDirection.Y", attackDirection.y);
 
             PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
             PlayerStat.Instance.weaponManager.Weapon.BeginAttack();

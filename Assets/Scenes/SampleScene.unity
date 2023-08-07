@@ -5108,6 +5108,7 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   mouseDirection: {x: 0, y: 0, z: 0}
   mouseAngle: 0
+  attackDirection: {x: 0, y: 0}
 --- !u!114 &2127830148
 MonoBehaviour:
   m_ObjectHideFlags: 0
