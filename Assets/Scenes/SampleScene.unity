@@ -5127,7 +5127,7 @@ MonoBehaviour:
   level: 0
   kill: 0
   moveSpeed: 250
-  rollSpeed: 1
+  rollSpeed: 0.02
   rollCooltime: 0.3
 --- !u!114 &2127830149
 MonoBehaviour:

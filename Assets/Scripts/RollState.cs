@@ -25,10 +25,10 @@ namespace CharacterController
         private void Roll()
         {           
             Vector2 rollDirection = inputVecBuffer.Dequeue();
+            
             PlayerStat.Instance.animator.SetBool("IsRoll", true);
             PlayerStat.Instance.shadowAnimator.SetBool("IsRoll", true);
-            Debug.Log("Roll Speed"+ PlayerStat.Instance.RollSpeed);
-            PlayerStat.Instance.rigidBody.AddForce(rollDirection * PlayerStat.Instance.RollSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            PlayerStat.Instance.rigidBody.velocity = rollDirection * PlayerStat.Instance.RollSpeed * PlayerStat.Instance.MoveSpeed;
         }
 
         public override void OnUpdateState()
@@ -43,6 +43,7 @@ namespace CharacterController
 
         public override void OnExitState()
         {
+            PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
             PlayerStat.Instance.animator.SetBool("IsRoll", false);
             PlayerStat.Instance.shadowAnimator.SetBool("IsRoll", false);
         }

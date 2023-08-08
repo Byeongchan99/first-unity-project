@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 inputVec;   // 입력 방향값
 
     [Header("구르기 관련")]
-    public Vector2 rollDirection;
+    public Vector2 rollDirection;   // 구르기 방향
 
     [Header("마우스 위치")]
     public Vector3 mousePos;   // 마우스 위치
@@ -91,7 +91,15 @@ public class PlayerController : MonoBehaviour
     void OnRoll()
     {
         rollDirection = inputVec;
-       if (rollState.CanAddInputBuffer)
+
+        // 입력 방향이 (0, 0)이면 리턴
+        if (rollDirection == Vector2.zero)
+        {
+            Debug.Log("Player is standing still, can't roll.");
+            return;
+        }
+
+        if (rollState.CanAddInputBuffer)
         {
             rollState.inputVecBuffer.Enqueue(rollDirection);
         }
