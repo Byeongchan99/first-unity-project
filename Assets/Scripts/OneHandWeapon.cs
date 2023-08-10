@@ -22,13 +22,12 @@ public class OneHandWeapon : BaseWeapon
     // 무기 활성화 시작
     public override void BeginAttack()
     {
-        gameObject.SetActive(true);
+        GetComponent<SpriteRenderer>().enabled = true;
     }
 
-    // 무기 활성화 종료
     public override void EndAttack()
     {
-        gameObject.SetActive(false);
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     public override void ChargingAttack(BaseState state)

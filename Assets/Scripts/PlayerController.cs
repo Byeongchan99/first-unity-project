@@ -137,12 +137,12 @@ public class PlayerController : MonoBehaviour
 
         if (hit.collider == null)
         {
-            Debug.Log("No object detected, moving to target position.");
+            // Debug.Log("No object detected, moving to target position.");
             PlayerStat.Instance.rigidBody.MovePosition(targetPos);
         }
         else
         {
-            Debug.Log("Object hit by Raycast: " + hit.collider.gameObject.name);
+            // Debug.Log("Object hit by Raycast: " + hit.collider.gameObject.name);
             PlayerStat.Instance.rigidBody.MovePosition(hit.point);
         }
     }
