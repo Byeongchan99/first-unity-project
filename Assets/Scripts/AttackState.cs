@@ -24,6 +24,7 @@ namespace CharacterController
 
             PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
             PlayerStat.Instance.weaponManager.Weapon.BeginAttack();
+            Controller.AttackRange();
             PlayerStat.Instance.weaponManager.Weapon?.Attack(this);
         }
 

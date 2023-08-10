@@ -21,10 +21,13 @@ public class PlayerController : MonoBehaviour
 
     [Header("공격 관련")]
     public Vector2 attackDirection;   // 공격 방향
+    private Vector2 boxCenter;   // 공격 위치
+    private Vector2 boxSize;   // 공격 범위
 
     void Start()
     {
         playerStat = GetComponent<PlayerStat>();
+        
         rollState = playerStat.stateMachine.GetState(StateName.ROLL) as RollState;
     }
 
@@ -117,13 +120,9 @@ public class PlayerController : MonoBehaviour
 
         if (isAvailableAttack)
         {
+            attackDirection = mouseDirection;
             playerStat.stateMachine.ChangeState(StateName.ATTACK);
         }
-    }
-
-    public void GetAttackDirection()
-    {
-        attackDirection = mouseDirection;
     }
 
     public void MoveForward()
@@ -145,6 +144,32 @@ public class PlayerController : MonoBehaviour
             // Debug.Log("Object hit by Raycast: " + hit.collider.gameObject.name);
             PlayerStat.Instance.rigidBody.MovePosition(hit.point);
         }
+    }
+
+    public void AttackRange()
+    {
+        float weaponRange = PlayerStat.Instance.weaponManager.Weapon.AttackRange;
+
+        // 플레이어의 위치에서 attackDirection 방향으로 weaponRange만큼 이동한 위치를 계산합니다.
+        boxCenter = (Vector2)transform.position + attackDirection * weaponRange / 2;
+        boxSize = new Vector2(weaponRange, weaponRange); // 'new Vector2'를 추가했습니다.
+
+        // OverlapBoxAll을 사용하여 해당 위치에서 weaponRange 크기의 박스 내에 있는 모든 콜라이더를 검색합니다.
+        int playerLayerMask = 1 << LayerMask.NameToLayer("Player");
+        playerLayerMask = ~playerLayerMask;
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(boxCenter, boxSize, 0, playerLayerMask);
+
+        foreach (var collider in hitColliders)
+        {
+            // 각 콜라이더의 태그를 출력하거나 검사합니다.
+            Debug.Log(collider.tag);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(boxCenter, boxSize);
     }
 
     // 사망 테스트 코드
