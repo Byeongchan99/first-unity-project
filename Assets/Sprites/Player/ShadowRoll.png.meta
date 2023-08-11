@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2555c4a437957be49898666e8c71aa8e
+guid: ef82b1ea8506e6443ab9863b6b293bbd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,8 +110,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 20
-        height: 10
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4cabf12ac04866498d26501d9ba612d
-      internalID: -227401802
+      spriteID: ef85288f3fa82634fb58377d28870b7d
+      internalID: 1559171540
       vertices: []
       indices: 
       edges: []
@@ -129,10 +129,10 @@ TextureImporter:
       name: ShadowRoll_1
       rect:
         serializedVersion: 2
-        x: 20
+        x: 32
         y: 0
-        width: 20
-        height: 10
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e74affb3e0b97841a65c0865b5767b3
-      internalID: -1484781667
+      spriteID: a5a118e8e6997074db028f8e1599a506
+      internalID: 1169447020
       vertices: []
       indices: 
       edges: []
@@ -150,10 +150,10 @@ TextureImporter:
       name: ShadowRoll_2
       rect:
         serializedVersion: 2
-        x: 40
+        x: 64
         y: 0
-        width: 20
-        height: 10
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e6cccabcc7998e4abf834eaa5451e95
-      internalID: 1297794417
+      spriteID: d3f51bdf6a5f3ae48b5e837c76089c76
+      internalID: 1709900136
       vertices: []
       indices: 
       edges: []
@@ -171,10 +171,10 @@ TextureImporter:
       name: ShadowRoll_3
       rect:
         serializedVersion: 2
-        x: 60
+        x: 96
         y: 0
-        width: 20
-        height: 10
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56f345d930cec4c4e84663605246d875
-      internalID: -1915035391
+      spriteID: 10c28fd39a839aa4ca4db19247cdeaee
+      internalID: 1952787052
       vertices: []
       indices: 
       edges: []
@@ -192,10 +192,10 @@ TextureImporter:
       name: ShadowRoll_4
       rect:
         serializedVersion: 2
-        x: 80
+        x: 128
         y: 0
-        width: 20
-        height: 10
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2d86abb3be6b404a88864268d654453
-      internalID: 1907925239
+      spriteID: 8f45020d945deee469b538fdbf326e6f
+      internalID: -449205644
       vertices: []
       indices: 
       edges: []
@@ -213,10 +213,10 @@ TextureImporter:
       name: ShadowRoll_5
       rect:
         serializedVersion: 2
-        x: 100
+        x: 160
         y: 0
-        width: 20
-        height: 10
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3236288806ee2fa4b8d263500b52eeb7
-      internalID: -277438592
+      spriteID: 85c4bd77c9904af4296a4dc3ee5f1ab9
+      internalID: 1454543008
       vertices: []
       indices: 
       edges: []
@@ -234,10 +234,10 @@ TextureImporter:
       name: ShadowRoll_6
       rect:
         serializedVersion: 2
-        x: 120
+        x: 192
         y: 0
-        width: 20
-        height: 10
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,8 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fec7b4d3e6eaeb64cb629d6cf1b19b48
-      internalID: 308357582
+      spriteID: 77aa49685591b894eaa0915bd4fc643c
+      internalID: 1858754437
       vertices: []
       indices: 
       edges: []
@@ -255,10 +255,10 @@ TextureImporter:
       name: ShadowRoll_7
       rect:
         serializedVersion: 2
-        x: 140
+        x: 224
         y: 0
-        width: 20
-        height: 10
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b78f95e0ec1779243bf486edc57f81d4
-      internalID: -939554198
+      spriteID: 378f90995bafc254e99597d5b0688834
+      internalID: 961972895
       vertices: []
       indices: 
       edges: []
@@ -276,10 +276,10 @@ TextureImporter:
       name: ShadowRoll_8
       rect:
         serializedVersion: 2
-        x: 160
+        x: 256
         y: 0
-        width: 20
-        height: 10
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,8 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4180f87a56c09da4684ac6416aee7a14
-      internalID: -432236599
+      spriteID: 4a4ce6533da4bea4a81d432f55837095
+      internalID: 1069540424
       vertices: []
       indices: 
       edges: []
@@ -297,10 +297,10 @@ TextureImporter:
       name: ShadowRoll_9
       rect:
         serializedVersion: 2
-        x: 180
+        x: 288
         y: 0
-        width: 20
-        height: 10
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,8 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5d9d53b90b485447825159fcee7a199
-      internalID: -785642327
+      spriteID: afff74dff05c06546b3b04c7c4996bb2
+      internalID: -1665447121
       vertices: []
       indices: 
       edges: []
@@ -318,10 +318,10 @@ TextureImporter:
       name: ShadowRoll_10
       rect:
         serializedVersion: 2
-        x: 200
+        x: 320
         y: 0
-        width: 20
-        height: 10
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,8 +329,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c7b6bf7462cabc41bc7b33cca210a7b
-      internalID: 1101148176
+      spriteID: 70007b4e57bf1a247ada6f5b1c59c2bc
+      internalID: 1843068924
       vertices: []
       indices: 
       edges: []
@@ -339,10 +339,10 @@ TextureImporter:
       name: ShadowRoll_11
       rect:
         serializedVersion: 2
-        x: 220
+        x: 352
         y: 0
-        width: 20
-        height: 10
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,8 +350,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7703851ea693b0443a89feb492c4205a
-      internalID: -2014451233
+      spriteID: cdf97a4c32118a14aa02060a61c82816
+      internalID: -1030596285
       vertices: []
       indices: 
       edges: []
@@ -367,18 +367,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ShadowRoll_0: -227401802
-      ShadowRoll_1: -1484781667
-      ShadowRoll_10: 1101148176
-      ShadowRoll_11: -2014451233
-      ShadowRoll_2: 1297794417
-      ShadowRoll_3: -1915035391
-      ShadowRoll_4: 1907925239
-      ShadowRoll_5: -277438592
-      ShadowRoll_6: 308357582
-      ShadowRoll_7: -939554198
-      ShadowRoll_8: -432236599
-      ShadowRoll_9: -785642327
+      ShadowRoll_0: 1559171540
+      ShadowRoll_1: 1169447020
+      ShadowRoll_10: 1843068924
+      ShadowRoll_11: -1030596285
+      ShadowRoll_2: 1709900136
+      ShadowRoll_3: 1952787052
+      ShadowRoll_4: -449205644
+      ShadowRoll_5: 1454543008
+      ShadowRoll_6: 1858754437
+      ShadowRoll_7: 961972895
+      ShadowRoll_8: 1069540424
+      ShadowRoll_9: -1665447121
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
