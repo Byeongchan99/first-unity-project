@@ -7,12 +7,4 @@ namespace CharacterController
         ATTACK,
         DEAD,
     }
-
-    public enum MonsterStateName
-    {
-        IDLE,
-        CHASE,
-        ATTACK,
-        DEAD,
-    }
 }
