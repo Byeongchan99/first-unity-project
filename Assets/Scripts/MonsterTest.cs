@@ -6,6 +6,7 @@ public class MonsterTest : MonoBehaviour
 {
     Transform target;
     Animator anim;
+    Rigidbody2D rb;
 
     public float speed;
     public float health;
@@ -27,6 +28,7 @@ public class MonsterTest : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         astar = GetComponent<Astar>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Start()
@@ -58,7 +60,9 @@ public class MonsterTest : MonoBehaviour
             {
                 Vector2 nextPosition = new Vector2(path[1].x, path[1].y);
                 Vector2 direction = (nextPosition - (Vector2)transform.position).normalized;
-                transform.position += (Vector3)direction * speed * Time.deltaTime;
+                anim.SetFloat("Direction.X", direction.x);
+                anim.SetFloat("Direction.Y", direction.y);
+                rb.velocity = direction * speed;
 
                 // 몬스터가 플레이어와 충분히 가까워지면 ATTACK 상태로 전환
                 if (Vector2.Distance(transform.position, target.position) < 1.0f)
