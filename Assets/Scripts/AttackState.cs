@@ -12,8 +12,11 @@ namespace CharacterController
         public const float CanReInputTime = 1f;
         // 공격 각도(방향)
         public Vector2 attackDirection;
+        private AttackArea attackArea;
 
-        public AttackState(PlayerController controller) : base(controller) { }
+        public AttackState(PlayerController controller) : base(controller) {
+            attackArea = controller.gameObject.GetComponentInChildren<AttackArea>();
+        }
        
         public override void OnEnterState()
         {
@@ -24,7 +27,7 @@ namespace CharacterController
 
             PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
             PlayerStat.Instance.weaponManager.Weapon.BeginAttack();
-            Controller.AttackRange();
+            attackArea.AttackRange();
             PlayerStat.Instance.weaponManager.Weapon?.Attack(this);
         }
 
@@ -32,10 +35,12 @@ namespace CharacterController
         {
 
         }
+
         public override void OnFixedUpdateState()
         {
 
         }
+
         public override void OnExitState()
         {
             PlayerStat.Instance.weaponManager.Weapon.EndAttack();
