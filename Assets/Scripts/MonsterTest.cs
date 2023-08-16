@@ -88,7 +88,7 @@ public class MonsterTest : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Player의 공격 영역과 충돌한 경우
-        if (collision.gameObject.CompareTag("AttackArea") && gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("AttackArea"))
         {
             // Player의 무기 참조 가져오기 
             // 체력 감소
