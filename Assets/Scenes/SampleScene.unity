@@ -332,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 466166930}
   - component: {fileID: 466166931}
+  - component: {fileID: 466166932}
   m_Layer: 3
   m_Name: StandArea
   m_TagString: Untagged
@@ -380,6 +381,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.185, y: 0.06}
   m_EdgeRadius: 0
+--- !u!50 &466166932
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466166929}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,8 +977,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  health: 10
-  maxHealth: 10
+  health: 30
+  maxHealth: 30
   playerTransform: {fileID: 2127830141}
 --- !u!114 &774759320
 MonoBehaviour:
@@ -1393,7 +1415,7 @@ GameObject:
   - component: {fileID: 1329977113}
   m_Layer: 3
   m_Name: AttackArea
-  m_TagString: Untagged
+  m_TagString: AttackArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4755,6 +4777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1526640809}
   - component: {fileID: 1526640810}
+  - component: {fileID: 1526640811}
   m_Layer: 0
   m_Name: StandArea
   m_TagString: Untagged
@@ -4803,6 +4826,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.65625, y: 0.65625}
   m_EdgeRadius: 0
+--- !u!50 &1526640811
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526640808}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1533094295
 GameObject:
   m_ObjectHideFlags: 0

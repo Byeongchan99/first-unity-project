@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class MonsterTest : MonoBehaviour
@@ -8,6 +9,7 @@ public class MonsterTest : MonoBehaviour
     Animator anim;
     Rigidbody2D rb;
 
+    bool IsLive;
     public float speed;
     public float health;
     public float maxHealth;
@@ -34,6 +36,7 @@ public class MonsterTest : MonoBehaviour
     void Start()
     {
         target = playerTransform;
+        IsLive = true;
         health = maxHealth;
         monsterState = MonsterState.CHASE;   // 소환된 몬스터는 곧바로 추적 상태
         StartCoroutine(StateMachine());
@@ -41,7 +44,7 @@ public class MonsterTest : MonoBehaviour
 
     IEnumerator StateMachine()
     {
-        while (health > 0)
+        while (IsLive)
         {
             yield return StartCoroutine(monsterState.ToString());
         }
@@ -77,13 +80,33 @@ public class MonsterTest : MonoBehaviour
     IEnumerator ATTACK()
     {
         // 공격 범위에 들어올 시, 콘솔창으로 공격했다고 출력
-        Debug.Log("Attacking Player");
+        Debug.Log("플레이어 공격");
         yield return new WaitForSeconds(1); // 1초 후에 다시 CHASE 상태로 전환
         ChangeState(MonsterState.CHASE);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Player의 공격 영역과 충돌한 경우
+        if (collision.gameObject.CompareTag("AttackArea") && gameObject.CompareTag("Enemy"))
+        {
+            // Player의 무기 참조 가져오기 
+            // 체력 감소
+            health -= PlayerStat.Instance.weaponManager.Weapon.AttackDamage;
+            Debug.Log("체력 감소! 남은 체력 " + health);
+            // 체력이 0 이하가 되면 처리 (예: 죽음 애니메이션 재생 등)
+            if (health <= 0)
+            {
+                ChangeState(MonsterState.DEAD);
+            }
+        }
+    }
+
     IEnumerator DEAD()
     {
+        Debug.Log("몬스터 사망");
+        IsLive = false;
+        Destroy(gameObject);
         yield return null;
     }
 

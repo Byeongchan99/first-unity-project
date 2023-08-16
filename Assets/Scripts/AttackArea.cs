@@ -7,6 +7,7 @@ public class AttackArea : MonoBehaviour
 {
     public PlayerController playerController;
     public PolygonCollider2D attackRangeCollider;
+    float attackDamage;
 
     void Awake()
     {
@@ -19,13 +20,19 @@ public class AttackArea : MonoBehaviour
         attackRangeCollider.enabled = false;
     }
 
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
+        /*
         if (collision.CompareTag("Enemy"))
         {
             Debug.Log("Enemy detected in attack area!");
         }
+        
+        Debug.Log("Collided with: " + collision.gameObject.name);
+        */
     }
+    
 
     public void AttackRange()
     {
