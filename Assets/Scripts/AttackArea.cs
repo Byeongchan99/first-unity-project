@@ -7,7 +7,8 @@ public class AttackArea : MonoBehaviour
 {
     public PlayerController playerController;
     public PolygonCollider2D attackRangeCollider;
-    float attackDamage;
+
+    private int attackID = 0; // 공격 ID 변수
 
     void Awake()
     {
@@ -36,6 +37,8 @@ public class AttackArea : MonoBehaviour
 
     public void AttackRange()
     {
+        attackID++; // 공격이 발동될 때마다 공격 ID 증가
+
         float weaponRange = PlayerStat.Instance.weaponManager.Weapon.AttackRange;
 
         Vector2[] semiCirclePoints = CalculateSemiCirclePoints(weaponRange);
@@ -46,6 +49,12 @@ public class AttackArea : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angle - 90);  // -90은 반원이 위쪽을 향하게 하기 위함입니다.
 
         attackRangeCollider.enabled = true;  // 공격 콜라이더 활성화
+    }
+
+    // 다른 객체가 공격 ID를 참조할 수 있도록 getter 제공
+    public int GetAttackID()
+    {
+        return attackID;
     }
 
     private Vector2[] CalculateSemiCirclePoints(float radius, int resolution = 30)

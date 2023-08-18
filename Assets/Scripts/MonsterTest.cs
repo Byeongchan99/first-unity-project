@@ -8,11 +8,13 @@ public class MonsterTest : MonoBehaviour
     Transform target;
     Animator anim;
     Rigidbody2D rb;
+    WaitForFixedUpdate wait;   // 다음 FixedUpdate까지 기다림
 
     bool IsLive;
     public float speed;
     public float health;
     public float maxHealth;
+    private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
 
     private Astar astar;
     public Transform playerTransform;
@@ -31,6 +33,7 @@ public class MonsterTest : MonoBehaviour
         anim = GetComponent<Animator>();
         astar = GetComponent<Astar>();
         rb = GetComponent<Rigidbody2D>();
+        wait = new WaitForFixedUpdate();
     }
 
     void Start()
@@ -79,28 +82,54 @@ public class MonsterTest : MonoBehaviour
 
     IEnumerator ATTACK()
     {
+        rb.velocity = Vector2.zero;
+        rb.constraints = RigidbodyConstraints2D.FreezePosition;  // 위치 고정
+
         // 공격 범위에 들어올 시, 콘솔창으로 공격했다고 출력
-        Debug.Log("플레이어 공격");
+        Debug.Log("플레이어 공격 중");
         yield return new WaitForSeconds(1); // 1초 후에 다시 CHASE 상태로 전환
+        rb.constraints = RigidbodyConstraints2D.None;
         ChangeState(MonsterState.CHASE);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Player의 공격 영역과 충돌한 경우
         if (collision.gameObject.CompareTag("AttackArea"))
         {
-            // Player의 무기 참조 가져오기 
-            // 체력 감소
-            health -= PlayerStat.Instance.weaponManager.Weapon.AttackDamage;
-            Debug.Log("체력 감소! 남은 체력 " + health);
-            // 체력이 0 이하가 되면 처리 (예: 죽음 애니메이션 재생 등)
-            if (health <= 0)
+            // Player의 공격 영역과 충돌한 경우
+            AttackArea attackArea = collision.GetComponent<AttackArea>();
+            int currentAttackID = attackArea.GetAttackID();
+
+            // 만약 현재의 공격 ID가 몬스터가 마지막으로 받은 공격 ID와 다르면 데미지 처리
+            if (currentAttackID != lastAttackID)
             {
-                ChangeState(MonsterState.DEAD);
+                health -= PlayerStat.Instance.weaponManager.Weapon.AttackDamage;
+                StartCoroutine(KnockBack());
+                Debug.Log("체력 감소! 남은 체력 " + health);
+
+                if (health <= 0)
+                {
+                    ChangeState(MonsterState.DEAD);
+                }
+
+                lastAttackID = currentAttackID;  // 현재 공격 ID로 업데이트
             }
         }
     }
+
+    // 피격 시 약간 밀려남
+    IEnumerator KnockBack()
+    {
+        Vector2 playerPos = target.position;
+        Vector2 dirVec = ((Vector2)transform.position - playerPos).normalized;
+
+        float knockbackSpeed = 3.0f;  // 조절 가능한 넉백 속도
+        rb.velocity = Vector2.zero;  // 넉백 전 정지
+        rb.velocity = dirVec * knockbackSpeed;
+
+        yield return new WaitForSeconds(0.1f);  // 넉백 지속 시간 (0.1초로 설정)   
+    }
+
 
     IEnumerator DEAD()
     {

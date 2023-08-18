@@ -956,7 +956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   health: 30
-  maxHealth: 30
+  maxHealth: 50
   playerTransform: {fileID: 2127830141}
 --- !u!114 &774759320
 MonoBehaviour:
