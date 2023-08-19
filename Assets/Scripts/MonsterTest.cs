@@ -8,16 +8,22 @@ public class MonsterTest : MonoBehaviour
     Transform target;
     Animator anim;
     Rigidbody2D rb;
+    SpriteRenderer spriteRenderer;
     WaitForFixedUpdate wait;   // 다음 FixedUpdate까지 기다림
 
     bool IsLive;
     public float speed;
     public float health;
     public float maxHealth;
+    public float attackRange;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
+    private int attackID = 0; // 몬스터의 공격 ID 변수
+    public Vector2 attackDirection;   // 공격 방향
+    public Vector2 moveDirection;
 
     private Astar astar;
     public Transform playerTransform;
+    public BoxCollider2D attackRangeCollider;
 
     enum MonsterState
     {
@@ -33,6 +39,8 @@ public class MonsterTest : MonoBehaviour
         anim = GetComponent<Animator>();
         astar = GetComponent<Astar>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        attackRangeCollider = GetComponent<BoxCollider2D>();
         wait = new WaitForFixedUpdate();
     }
 
@@ -41,6 +49,8 @@ public class MonsterTest : MonoBehaviour
         target = playerTransform;
         IsLive = true;
         health = maxHealth;
+        // 초기 상태에서는 공격 범위 콜라이더를 비활성화
+        attackRangeCollider.enabled = false;
         monsterState = MonsterState.CHASE;   // 소환된 몬스터는 곧바로 추적 상태
         StartCoroutine(StateMachine());
     }
@@ -65,10 +75,10 @@ public class MonsterTest : MonoBehaviour
             if (path != null && path.Count > 1) // 첫 번째 노드는 현재 위치이므로 두 번째 노드로 이동
             {
                 Vector2 nextPosition = new Vector2(path[1].x, path[1].y);
-                Vector2 direction = (nextPosition - (Vector2)transform.position).normalized;
-                anim.SetFloat("Direction.X", direction.x);
-                anim.SetFloat("Direction.Y", direction.y);
-                rb.velocity = direction * speed;
+                moveDirection = (nextPosition - (Vector2)transform.position).normalized;
+                anim.SetFloat("Direction.X", moveDirection.x);
+                anim.SetFloat("Direction.Y", moveDirection.y);
+                rb.velocity = moveDirection * speed;
 
                 // 몬스터가 플레이어와 충분히 가까워지면 ATTACK 상태로 전환
                 if (Vector2.Distance(transform.position, target.position) < 1.0f)
@@ -76,7 +86,7 @@ public class MonsterTest : MonoBehaviour
                     ChangeState(MonsterState.ATTACK);
                 }
             }
-            yield return new WaitForSeconds(0.2f); // 0.2초마다 경로를 업데이트 (빈도 조절 가능)
+            yield return new WaitForSeconds(0.1f); // 0.1초마다 경로를 업데이트 (빈도 조절 가능)
         }
     }
 
@@ -86,10 +96,31 @@ public class MonsterTest : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezePosition;  // 위치 고정
 
         // 공격 범위에 들어올 시, 콘솔창으로 공격했다고 출력
+        attackDirection = moveDirection;
+        AttackRange();
         Debug.Log("플레이어 공격 중");
         yield return new WaitForSeconds(1); // 1초 후에 다시 CHASE 상태로 전환
         rb.constraints = RigidbodyConstraints2D.None;
         ChangeState(MonsterState.CHASE);
+    }
+
+    public void AttackRange()
+    {
+        attackID++; // 공격이 발동될 때마다 공격 ID 증가
+
+        attackRange = 1f;
+        // BoxCollider의 크기를 attackRange에 맞게 수정
+        attackRangeCollider.size = new Vector2(attackRange, attackRange);
+        // attackDirection을 사용하여 AttackRangeObject를 회전시킵니다.
+        float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+        attackRangeCollider.enabled = true;  // 공격 콜라이더 활성화
+    }
+
+    // 다른 객체가 공격 ID를 참조할 수 있도록 getter 제공
+    public int GetAttackID()
+    {
+        return attackID;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -104,6 +135,7 @@ public class MonsterTest : MonoBehaviour
             if (currentAttackID != lastAttackID)
             {
                 health -= PlayerStat.Instance.weaponManager.Weapon.AttackDamage;
+                StartCoroutine(FlashSprite());  // 깜빡거림 시작
                 StartCoroutine(KnockBack());
                 Debug.Log("체력 감소! 남은 체력 " + health);
 
@@ -117,6 +149,21 @@ public class MonsterTest : MonoBehaviour
         }
     }
 
+    // 스프라이트 깜빡거리기
+    IEnumerator FlashSprite()
+    {
+        for (int i = 0; i < 4; i++) // 4번 깜빡이게 함 (필요에 따라 조정)
+        {
+            if (i % 2 == 0)
+                spriteRenderer.color = Color.red;  // 빨간색으로 변경
+            else
+                spriteRenderer.color = new Color32(255, 255, 255, 90);
+            yield return new WaitForSeconds(0.1f);
+        }
+        spriteRenderer.color = Color.white;  // 마지막으로 스프라이트 색상을 원래대로 (흰색) 변경
+    }
+
+
     // 피격 시 약간 밀려남
     IEnumerator KnockBack()
     {
@@ -129,7 +176,6 @@ public class MonsterTest : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);  // 넉백 지속 시간 (0.1초로 설정)   
     }
-
 
     IEnumerator DEAD()
     {

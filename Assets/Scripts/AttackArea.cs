@@ -21,7 +21,6 @@ public class AttackArea : MonoBehaviour
         attackRangeCollider.enabled = false;
     }
 
-    
     void OnTriggerEnter2D(Collider2D collision)
     {
         /*
@@ -32,8 +31,7 @@ public class AttackArea : MonoBehaviour
         
         Debug.Log("Collided with: " + collision.gameObject.name);
         */
-    }
-    
+    }    
 
     public void AttackRange()
     {
