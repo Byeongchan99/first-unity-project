@@ -6,12 +6,12 @@ using CharacterController;
 public class PlayerAnimationEvents : MonoBehaviour
 {
     public PlayerController playerController;
-    public AttackArea attackArea;
+    public PlayerAttackArea playerAttackArea;
 
     public void FinishedAttack()
     {
         AttackState.IsAttack = false;
-        attackArea.attackRangeCollider.enabled = false;
+        playerAttackArea.attackRangeCollider.enabled = false;
         PlayerStat.Instance.animator.SetBool("IsAttack", false);
         PlayerStat.Instance.stateMachine.ChangeState(StateName.MOVE);
     }

@@ -17,13 +17,12 @@ public class MonsterTest : MonoBehaviour
     public float maxHealth;
     public float attackRange;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
-    private int attackID = 0; // 몬스터의 공격 ID 변수
     public Vector2 attackDirection;   // 공격 방향
     public Vector2 moveDirection;
 
     private Astar astar;
     public Transform playerTransform;
-    public BoxCollider2D attackRangeCollider;
+    private MonsterAttackArea monsterAttackArea;
 
     enum MonsterState
     {
@@ -40,7 +39,7 @@ public class MonsterTest : MonoBehaviour
         astar = GetComponent<Astar>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        attackRangeCollider = GetComponent<BoxCollider2D>();
+        monsterAttackArea= gameObject.GetComponentInChildren<MonsterAttackArea>();
         wait = new WaitForFixedUpdate();
     }
 
@@ -49,8 +48,6 @@ public class MonsterTest : MonoBehaviour
         target = playerTransform;
         IsLive = true;
         health = maxHealth;
-        // 초기 상태에서는 공격 범위 콜라이더를 비활성화
-        attackRangeCollider.enabled = false;
         monsterState = MonsterState.CHASE;   // 소환된 몬스터는 곧바로 추적 상태
         StartCoroutine(StateMachine());
     }
@@ -93,34 +90,15 @@ public class MonsterTest : MonoBehaviour
     IEnumerator ATTACK()
     {
         rb.velocity = Vector2.zero;
-        rb.constraints = RigidbodyConstraints2D.FreezePosition;  // 위치 고정
+        rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;   // 위치 고정
 
         // 공격 범위에 들어올 시, 콘솔창으로 공격했다고 출력
         attackDirection = moveDirection;
-        AttackRange();
+        monsterAttackArea.ActivateAttackRange(attackDirection, attackRange);
         Debug.Log("플레이어 공격 중");
         yield return new WaitForSeconds(1); // 1초 후에 다시 CHASE 상태로 전환
-        rb.constraints = RigidbodyConstraints2D.None;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         ChangeState(MonsterState.CHASE);
-    }
-
-    public void AttackRange()
-    {
-        attackID++; // 공격이 발동될 때마다 공격 ID 증가
-
-        attackRange = 1f;
-        // BoxCollider의 크기를 attackRange에 맞게 수정
-        attackRangeCollider.size = new Vector2(attackRange, attackRange);
-        // attackDirection을 사용하여 AttackRangeObject를 회전시킵니다.
-        float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
-        attackRangeCollider.enabled = true;  // 공격 콜라이더 활성화
-    }
-
-    // 다른 객체가 공격 ID를 참조할 수 있도록 getter 제공
-    public int GetAttackID()
-    {
-        return attackID;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -128,7 +106,7 @@ public class MonsterTest : MonoBehaviour
         if (collision.gameObject.CompareTag("AttackArea"))
         {
             // Player의 공격 영역과 충돌한 경우
-            AttackArea attackArea = collision.GetComponent<AttackArea>();
+            PlayerAttackArea attackArea = collision.GetComponent<PlayerAttackArea>();
             int currentAttackID = attackArea.GetAttackID();
 
             // 만약 현재의 공격 ID가 몬스터가 마지막으로 받은 공격 ID와 다르면 데미지 처리
