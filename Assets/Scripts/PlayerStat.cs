@@ -18,7 +18,10 @@ public class PlayerStat : MonoBehaviour
 
     public int PlayerID { get { return playerID; } }
     public float MaxHP { get { return maxHP; } }
-    public float CurrentHP { get { return currentHP; } }
+    public float CurrentHP { 
+        get { return currentHP; }
+        set { currentHP = value; }
+    }
     public float Armor { get { return armor; } }
     public int Level { get { return level; } }
     public int Kill { get { return kill; } }

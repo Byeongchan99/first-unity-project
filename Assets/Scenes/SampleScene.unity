@@ -4909,8 +4909,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHand: {fileID: 257092321}
   playerID: 0
-  maxHP: 0
-  currentHP: 0
+  maxHP: 100
+  currentHP: 100
   armor: 0
   level: 0
   kill: 0

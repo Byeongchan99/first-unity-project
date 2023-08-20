@@ -6,6 +6,8 @@ using CharacterController;
 
 public class PlayerController : MonoBehaviour
 {
+    SpriteRenderer spriteRenderer;
+
     public PlayerStat playerStat;
     RollState rollState;
 
@@ -21,9 +23,11 @@ public class PlayerController : MonoBehaviour
 
     [Header("공격 관련")]
     public Vector2 attackDirection;   // 공격 방향
+    private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
 
     void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         playerStat = GetComponent<PlayerStat>();
     }
 
@@ -124,6 +128,45 @@ public class PlayerController : MonoBehaviour
             attackDirection = mouseDirection;
             playerStat.stateMachine.ChangeState(StateName.ATTACK);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("AttackArea"))
+        {
+            // Player의 공격 영역과 충돌한 경우
+            MonsterAttackArea monsterAttackArea = collision.GetComponent<MonsterAttackArea>();
+            int currentAttackID = monsterAttackArea.GetAttackID();
+
+            // 만약 현재의 공격 ID가 몬스터가 마지막으로 받은 공격 ID와 다르면 데미지 처리
+            if (currentAttackID != lastAttackID)
+            {
+                PlayerStat.Instance.CurrentHP -= 10;   // 나중에 몬스터의 공격력을 넣어주도록 업데이트
+                StartCoroutine(FlashSprite());  // 깜빡거림 시작 
+                Debug.Log("체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
+
+                if (PlayerStat.Instance.CurrentHP <= 0)
+                {
+                    playerStat.stateMachine.ChangeState(StateName.DEAD);
+                }
+
+                lastAttackID = currentAttackID;  // 현재 공격 ID로 업데이트
+            }
+        }
+    }
+
+    // 스프라이트 깜빡거리기
+    IEnumerator FlashSprite()
+    {
+        for (int i = 0; i < 4; i++) // 4번 깜빡이게 함 (필요에 따라 조정)
+        {
+            if (i % 2 == 0)
+                spriteRenderer.color = Color.red;  // 빨간색으로 변경
+            else
+                spriteRenderer.color = new Color32(255, 255, 255, 90);
+            yield return new WaitForSeconds(0.1f);
+        }
+        spriteRenderer.color = Color.white;  // 마지막으로 스프라이트 색상을 원래대로 (흰색) 변경
     }
 
     // 사망 테스트 코드

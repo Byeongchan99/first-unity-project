@@ -106,8 +106,8 @@ public class MonsterTest : MonoBehaviour
         if (collision.gameObject.CompareTag("AttackArea"))
         {
             // Player의 공격 영역과 충돌한 경우
-            PlayerAttackArea attackArea = collision.GetComponent<PlayerAttackArea>();
-            int currentAttackID = attackArea.GetAttackID();
+            PlayerAttackArea playerAttackArea = collision.GetComponent<PlayerAttackArea>();
+            int currentAttackID = playerAttackArea.GetAttackID();
 
             // 만약 현재의 공격 ID가 몬스터가 마지막으로 받은 공격 ID와 다르면 데미지 처리
             if (currentAttackID != lastAttackID)
