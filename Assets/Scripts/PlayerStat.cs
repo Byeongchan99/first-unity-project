@@ -28,6 +28,7 @@ public class PlayerStat : MonoBehaviour
     public float MoveSpeed { get { return moveSpeed; } }
     public float RollSpeed { get { return rollSpeed; } }
     public float RollCooltime { get { return rollCooltime; } }
+    public float InvincibleTime { get { return invincibleTime; } }   // 무적 시간
 
     [Header("캐릭터 스탯")]
     [SerializeField] protected int playerID;
@@ -39,6 +40,7 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float rollSpeed;
     [SerializeField] protected float rollCooltime;
+    [SerializeField] protected float invincibleTime;
 
 
     void Awake()

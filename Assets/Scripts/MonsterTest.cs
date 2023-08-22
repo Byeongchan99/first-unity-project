@@ -130,14 +130,26 @@ public class MonsterTest : MonoBehaviour
     // 스프라이트 깜빡거리기
     IEnumerator FlashSprite()
     {
-        for (int i = 0; i < 4; i++) // 4번 깜빡이게 함 (필요에 따라 조정)
+        float elapsedTime = 0;
+        float flashTime = 0.5f;
+        bool isRed = false;
+
+        while (elapsedTime < flashTime) 
         {
-            if (i % 2 == 0)
+            if (isRed)
+            {
                 spriteRenderer.color = Color.red;  // 빨간색으로 변경
+                isRed = false;
+            }
             else
+            {
                 spriteRenderer.color = new Color32(255, 255, 255, 90);
+                isRed = true;
+            }
             yield return new WaitForSeconds(0.1f);
+            elapsedTime += 0.1f;
         }
+
         spriteRenderer.color = Color.white;  // 마지막으로 스프라이트 색상을 원래대로 (흰색) 변경
     }
 

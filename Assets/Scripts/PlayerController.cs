@@ -141,8 +141,11 @@ public class PlayerController : MonoBehaviour
             // 만약 현재의 공격 ID가 몬스터가 마지막으로 받은 공격 ID와 다르면 데미지 처리
             if (currentAttackID != lastAttackID)
             {
+                // 현재 무적 시간이면 피해 무시
+                if (GameManager.instance.isInvincible) 
+                    return;
+
                 PlayerStat.Instance.CurrentHP -= 10;   // 나중에 몬스터의 공격력을 넣어주도록 업데이트
-                StartCoroutine(FlashSprite());  // 깜빡거림 시작 
                 Debug.Log("체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
 
                 if (PlayerStat.Instance.CurrentHP <= 0)
@@ -150,22 +153,60 @@ public class PlayerController : MonoBehaviour
                     playerStat.stateMachine.ChangeState(StateName.DEAD);
                 }
 
+                // 피격 이벤트 실행
+                StartCoroutine(GetHitRoutine());
                 lastAttackID = currentAttackID;  // 현재 공격 ID로 업데이트
             }
         }
     }
 
-    // 스프라이트 깜빡거리기
+    // 무적 시간 코루틴
+    private IEnumerator GetHitRoutine()
+    {
+        GameManager.instance.isInvincible = true;
+
+        // Player와 Monster 레이어 간의 충돌을 무시
+        int playerStandLayer = LayerMask.NameToLayer("PlayerStandArea");
+        int monsterStandLayer = LayerMask.NameToLayer("MonsterStandArea");
+        Physics2D.IgnoreLayerCollision(playerStandLayer, monsterStandLayer, true);
+
+        // 무적 시간 동안 깜빡거리게 함
+        StartCoroutine(FlashSprite());
+        yield return new WaitForSeconds(PlayerStat.Instance.InvincibleTime);  // 1.5초 대기 - 무적 시간 1.5초
+
+        GameManager.instance.isInvincible = false;
+        // Player와 Monster 레이어 간의 충돌을 다시 활성화
+        Physics2D.IgnoreLayerCollision(playerStandLayer, monsterStandLayer, false);
+    }
+
+    // 무적 시간 동안 스프라이트 깜빡거리기
     IEnumerator FlashSprite()
     {
-        for (int i = 0; i < 4; i++) // 4번 깜빡이게 함 (필요에 따라 조정)
+        float elapsedTime = 0;
+        bool isRed = false;
+        
+        if (!GameManager.instance.isLive)
         {
-            if (i % 2 == 0)
-                spriteRenderer.color = Color.red;  // 빨간색으로 변경
-            else
-                spriteRenderer.color = new Color32(255, 255, 255, 90);
-            yield return new WaitForSeconds(0.1f);
+            spriteRenderer.color = Color.white; // 원래 색상으로 변경하고 코루틴 종료
+            yield break;
         }
+
+        while (elapsedTime < PlayerStat.Instance.InvincibleTime)
+        {
+            if (isRed)
+            {
+                spriteRenderer.color = Color.red;  // 빨간색으로 변경
+                isRed = false;
+            }
+            else
+            {
+                spriteRenderer.color = new Color32(255, 255, 255, 90);
+                isRed = true;
+            }
+            yield return new WaitForSeconds(0.1f);
+            elapsedTime += 0.1f;
+        }
+
         spriteRenderer.color = Color.white;  // 마지막으로 스프라이트 색상을 원래대로 (흰색) 변경
     }
 

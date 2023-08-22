@@ -864,7 +864,7 @@ Transform:
   m_Children:
   - {fileID: 1344488787}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1139024530
 GameObject:
@@ -4418,7 +4418,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1513913892
 GameObject:
@@ -4612,7 +4612,7 @@ Transform:
   - {fileID: 1513913893}
   - {fileID: 1004239735}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2062460083
 GameObject:
@@ -4644,6 +4644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLive: 1
+  isInvincible: 0
   gameTime: 0
   maxGameTime: 30
   playerController: {fileID: 0}
@@ -4776,7 +4777,7 @@ Transform:
   - {fileID: 466166930}
   - {fileID: 1329977111}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &2127830143
 CapsuleCollider2D:
@@ -4909,14 +4910,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHand: {fileID: 257092321}
   playerID: 0
-  maxHP: 100
-  currentHP: 100
+  maxHP: 50
+  currentHP: 50
   armor: 0
   level: 0
   kill: 0
   moveSpeed: 250
   rollSpeed: 0.02
   rollCooltime: 0.3
+  invincibleTime: 1.5
 --- !u!114 &2127830149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5043,6 +5045,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 41121952}
     m_Modifications:
+    - target: {fileID: 3290506606442167256, guid: fd2dd6eef00b0f74b88e5933d9b926a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3290506607328028897, guid: fd2dd6eef00b0f74b88e5933d9b926a8,
         type: 3}
       propertyPath: m_Name

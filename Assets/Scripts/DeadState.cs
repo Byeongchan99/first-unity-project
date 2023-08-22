@@ -16,6 +16,7 @@ namespace CharacterController
 
         public void Dead()
         {
+            PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
             PlayerStat.Instance.animator.SetTrigger("Dead");
             GameManager.instance.GameOver();
         }
