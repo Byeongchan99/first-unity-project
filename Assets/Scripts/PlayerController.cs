@@ -98,6 +98,9 @@ public class PlayerController : MonoBehaviour
 
     void OnRoll()
     {
+        if (AttackState.IsAttack)
+            return;
+
         rollDirection = inputVec;
 
         // 입력 방향이 (0, 0)이면 리턴
@@ -132,9 +135,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("AttackArea"))
+        if (collision.gameObject.CompareTag("MonsterAttackArea"))
         {
-            // Player의 공격 영역과 충돌한 경우
+            // 몬스터의 공격 영역과 충돌한 경우
             MonsterAttackArea monsterAttackArea = collision.GetComponent<MonsterAttackArea>();
             int currentAttackID = monsterAttackArea.GetAttackID();
 

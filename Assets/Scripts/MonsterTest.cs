@@ -103,7 +103,7 @@ public class MonsterTest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("AttackArea"))
+        if (collision.gameObject.CompareTag("PlayerAttackArea"))
         {
             // Player의 공격 영역과 충돌한 경우
             PlayerAttackArea playerAttackArea = collision.GetComponent<PlayerAttackArea>();
@@ -143,7 +143,7 @@ public class MonsterTest : MonoBehaviour
             }
             else
             {
-                spriteRenderer.color = new Color32(255, 255, 255, 90);
+                spriteRenderer.color = Color.white;
                 isRed = true;
             }
             yield return new WaitForSeconds(0.1f);
