@@ -86,19 +86,30 @@ public class WaveManager : MonoBehaviour
 [System.Serializable]
 public class MonsterSpawnData
 {
+    [Tooltip("몬스터 프리팹")]
     public GameObject monsterPrefab; // 소환될 몬스터의 프리팹
+
+    [Tooltip("소환될 몬스터의 개수")]
     public int count;   // 소환될 몬스터의 개수
 }
 
 [System.Serializable]
 public class SpawnInfo
 {
+    [Header("몬스터 소환 데이터")]
+    [Tooltip("이 웨이브에서 소환될 몬스터의 데이터")]
     public List<MonsterSpawnData> monstersToSpawn;   // 소환될 몬스터의 데이터
+
+    [Header("스폰 포인트 설정")]
+    [Tooltip("몬스터가 소환될 스폰 포인트의 인덱스")]
     public int spawnPointIndex;   // 스폰 포인트 index
 }
 
 [System.Serializable]
 public class Wave
 {
+    [Header("웨이브 설정")]
+    [Tooltip("각 웨이브에서 소환될 몬스터와 스폰 포인트 정보")]
     public List<SpawnInfo> spawnInfos;   // 이 웨이브에서 소환될 몬스터의 정보
 }
+

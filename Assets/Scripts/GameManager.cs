@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     // public PoolManager pool;
     public PlayerController playerController;
     // public Result uiResult;
+    public WaveManager waveManager;
 
     void Awake()
     {
@@ -35,8 +36,11 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
     }
     */
+    public void GameStart()
+    {
+        waveManager.StartWave();
+    }
 
-    
     public void GameOver()
     {
         StartCoroutine(GameOverRoutine());

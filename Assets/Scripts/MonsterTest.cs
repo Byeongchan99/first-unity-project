@@ -21,7 +21,6 @@ public class MonsterTest : MonoBehaviour
     public Vector2 moveDirection;
 
     private Astar astar;
-    public Transform playerTransform;
     private MonsterAttackArea monsterAttackArea;
 
     enum MonsterState
@@ -45,7 +44,7 @@ public class MonsterTest : MonoBehaviour
 
     void Start()
     {
-        target = playerTransform;
+        target = PlayerStat.Instance.transform;
         IsLive = true;
         health = maxHealth;
         monsterState = MonsterState.CHASE;   // 소환된 몬스터는 곧바로 추적 상태
@@ -167,13 +166,18 @@ public class MonsterTest : MonoBehaviour
         yield return new WaitForSeconds(0.1f);  // 넉백 지속 시간 (0.1초로 설정)   
     }
 
-    IEnumerator DEAD()
-    {
-        Debug.Log("몬스터 사망");
-        IsLive = false;
-        Destroy(gameObject);
-        yield return null;
-    }
+IEnumerator DEAD()
+{
+    Debug.Log("몬스터 사망");
+    IsLive = false;
+    
+    // 몬스터 상태 초기화 및 애니메이션 처리 (예: 사망 애니메이션 재생)
+    // anim.SetTrigger("Die");  // 만약 사망 애니메이션 트리거가 있다면 여기에서 호출
+    yield return new WaitForSeconds(1); // 사망 애니메이션 재생 시간 (예: 1초)
+
+    gameObject.SetActive(false);  // 오브젝트 비활성화
+}
+
 
     void ChangeState(MonsterState newMonsterState)
     {
