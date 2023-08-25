@@ -393,11 +393,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   health: 10
-  maxHealth: 50
+  maxHealth: 10
   attackRange: 1
   attackDirection: {x: 0, y: 0}
   moveDirection: {x: 0, y: 0}
-  playerTransform: {fileID: 0}
 --- !u!114 &2169621072251260716
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,21 +4,39 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    // 싱글톤 인스턴스
+    public static WaveManager Instance { get; private set; }
+
     [Header("Wave Settings")]
-    public List<Wave> waves; // 여러 웨이브 정보
-    public Transform[] spawnPoints; // 스폰 포인트 위치 정보
-    private int currentWave = 0; // 현재 웨이브
+    public List<Wave> waves;   // 여러 웨이브 정보
+    public Transform[] spawnPoints;   // 스폰 포인트 위치 정보
+    private int currentWave = 0;  // 현재 웨이브
+    private int remainingMonsters; // 현재 웨이브의 남은 몬스터 수
 
     [Header("Object Pooling")]
     public int poolSize = 10; // 각 몬스터 별로 준비할 오브젝트 수
     private Dictionary<GameObject, List<GameObject>> objectPools;
+
+    private void Awake()
+    {
+        // 싱글톤 구현
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);  // 씬이 바뀌어도 파괴되지 않게 설정
+        }
+        else
+        {
+            Destroy(gameObject);  // 이미 인스턴스가 있다면 현재 인스턴스 파괴
+        }
+    }
 
     private void Start()
     {
         InitializeObjectPools();
     }
 
-    void InitializeObjectPools()
+void InitializeObjectPools()
     {
         objectPools = new Dictionary<GameObject, List<GameObject>>();
 
@@ -47,6 +65,9 @@ public class WaveManager : MonoBehaviour
     {
         if (currentWave < waves.Count)
         {
+            // 초기화
+            remainingMonsters = 0;
+
             foreach (var spawnInfo in waves[currentWave].spawnInfos)
             {
                 Transform spawnPoint = spawnPoints[spawnInfo.spawnPointIndex];
@@ -55,10 +76,10 @@ public class WaveManager : MonoBehaviour
                     for (int i = 0; i < monsterData.count; i++)
                     {
                         SpawnMonster(monsterData.monsterPrefab, spawnPoint.position);
+                        remainingMonsters++;
                     }
                 }
             }
-            currentWave++;
         }
     }
 
@@ -79,6 +100,17 @@ public class WaveManager : MonoBehaviour
         {
             monsterToSpawn.transform.position = position;
             monsterToSpawn.SetActive(true);
+        }
+    }
+
+    // 몬스터가 죽었을 때 호출되는 메서드
+    public void OnMonsterDeath()
+    {
+        remainingMonsters--;
+
+        if (remainingMonsters <= 0)
+        {
+            StartWave();  // 모든 몬스터가 죽었으면 다음 웨이브 시작
         }
     }
 }
