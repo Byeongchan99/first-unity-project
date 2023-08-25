@@ -63,25 +63,31 @@ void InitializeObjectPools()
 
     public void StartWave()
     {
-        if (currentWave < waves.Count)
+        // 웨이브의 최대 수를 초과하면 시작하지 않습니다.
+        if (currentWave >= waves.Count)
         {
-            // 초기화
-            remainingMonsters = 0;
+            return;
+        }
 
-            foreach (var spawnInfo in waves[currentWave].spawnInfos)
+        // 초기화
+        remainingMonsters = 0;
+
+        foreach (var spawnInfo in waves[currentWave].spawnInfos)
+        {
+            Transform spawnPoint = spawnPoints[spawnInfo.spawnPointIndex];
+            foreach (var monsterData in spawnInfo.monstersToSpawn)
             {
-                Transform spawnPoint = spawnPoints[spawnInfo.spawnPointIndex];
-                foreach (var monsterData in spawnInfo.monstersToSpawn)
+                for (int i = 0; i < monsterData.count; i++)
                 {
-                    for (int i = 0; i < monsterData.count; i++)
-                    {
-                        SpawnMonster(monsterData.monsterPrefab, spawnPoint.position);
-                        remainingMonsters++;
-                    }
+                    SpawnMonster(monsterData.monsterPrefab, spawnPoint.position);
+                    remainingMonsters++;
                 }
             }
         }
+
+        currentWave++;  // 웨이브 시작 후 currentWave 값을 증가시킵니다.
     }
+
 
     void SpawnMonster(GameObject monsterPrefab, Vector3 position)
     {
@@ -110,8 +116,15 @@ void InitializeObjectPools()
 
         if (remainingMonsters <= 0)
         {
-            StartWave();  // 모든 몬스터가 죽었으면 다음 웨이브 시작
+            StartCoroutine(StartNextWaveWithDelay(2.0f));  // 2초 후에 다음 웨이브 시작
         }
+    }
+
+    // 일정 시간 대기 후 웨이브 시작
+    IEnumerator StartNextWaveWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        StartWave();
     }
 }
 

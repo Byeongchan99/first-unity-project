@@ -38,11 +38,11 @@ public class MonsterTest : MonoBehaviour
         astar = GetComponent<Astar>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        monsterAttackArea= gameObject.GetComponentInChildren<MonsterAttackArea>();
+        monsterAttackArea = gameObject.GetComponentInChildren<MonsterAttackArea>();
         wait = new WaitForFixedUpdate();
     }
 
-    void Start()
+    void OnEnable()
     {
         target = PlayerStat.Instance.transform;
         IsLive = true;
@@ -50,6 +50,7 @@ public class MonsterTest : MonoBehaviour
         monsterState = MonsterState.CHASE;   // 소환된 몬스터는 곧바로 추적 상태
         StartCoroutine(StateMachine());
     }
+
 
     IEnumerator StateMachine()
     {
@@ -152,7 +153,6 @@ public class MonsterTest : MonoBehaviour
         spriteRenderer.color = Color.white;  // 마지막으로 스프라이트 색상을 원래대로 (흰색) 변경
     }
 
-
     // 피격 시 약간 밀려남
     IEnumerator KnockBack()
     {
@@ -177,7 +177,6 @@ public class MonsterTest : MonoBehaviour
 
         gameObject.SetActive(false);  // 오브젝트 비활성화
     }
-
 
     void ChangeState(MonsterState newMonsterState)
     {
