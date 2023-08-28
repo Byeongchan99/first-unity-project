@@ -56,8 +56,8 @@ public class WeaponManager
             weaponObject = weapon;
             Weapon = weapon.GetComponent<BaseWeapon>();
             weaponObject.SetActive(true);
-            weaponObject.GetComponent<SpriteRenderer>().enabled = false; // 스프라이트 렌더러 비활성화
-            // PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
+            // weaponObject.GetComponent<SpriteRenderer>().enabled = false; // 스프라이트 렌더러 비활성화
+            PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
             return;
         }
 
@@ -67,9 +67,9 @@ public class WeaponManager
             {
                 weaponObject = weapon;
                 weaponObject.SetActive(true);
-                weaponObject.GetComponent<SpriteRenderer>().enabled = false; // 스프라이트 렌더러 비활성화
+                // weaponObject.GetComponent<SpriteRenderer>().enabled = false; // 스프라이트 렌더러 비활성화
                 Weapon = weapon.GetComponent<BaseWeapon>();
-                // PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
+                PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
                 continue;
             }
             weapons[i].SetActive(false);

@@ -262,7 +262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459115273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.88, y: -2.01, z: 0}
+  m_LocalPosition: {x: -6.05, y: -3.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1064,7 +1064,6 @@ MonoBehaviour:
           type: 3}
         count: 1
       spawnPointIndex: 2
-    totalMonsterCount: 3
   - spawnInfos:
     - monstersToSpawn:
       - monsterPrefab: {fileID: 8697315753361090948, guid: fd2dd6eef00b0f74b88e5933d9b926a8,
@@ -1081,12 +1080,10 @@ MonoBehaviour:
           type: 3}
         count: 1
       spawnPointIndex: 2
-    totalMonsterCount: 3
   spawnPoints:
   - {fileID: 1754440355}
   - {fileID: 1098482050}
   - {fileID: 459115274}
-  waveMonsterCount: 0
   poolSize: 10
 --- !u!1 &1004239734
 GameObject:
@@ -1196,7 +1193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098482049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.8, y: -2.59, z: 0}
+  m_LocalPosition: {x: 5.15, y: -3.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5191,7 +5188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754440354}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.73, y: 2.86, z: 0}
+  m_LocalPosition: {x: -0.04, y: 3.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

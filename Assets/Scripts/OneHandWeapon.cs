@@ -22,12 +22,12 @@ public class OneHandWeapon : BaseWeapon
     // 무기 활성화 시작
     public override void BeginAttack()
     {
-        GetComponent<SpriteRenderer>().enabled = true;
+        // GetComponent<SpriteRenderer>().enabled = true;
     }
 
     public override void EndAttack()
     {
-        GetComponent<SpriteRenderer>().enabled = false;
+        // GetComponent<SpriteRenderer>().enabled = false;
     }
 
     public override void ChargingAttack(BaseState state)
