@@ -31,16 +31,7 @@ public abstract class BaseAttackArea : MonoBehaviour
         */
     }
 
-    public virtual void ActivateAttackRange(Vector2 attackDirection, float weaponRange)
-    {
-        attackID++;
-        CalculateColiderPoints(weaponRange);
-
-        float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
-
-        attackRangeCollider.enabled = true;
-    }
+    public abstract void ActivateAttackRange(Vector2 attackDirection, float weaponRange);
 
     public int GetAttackID()
     {

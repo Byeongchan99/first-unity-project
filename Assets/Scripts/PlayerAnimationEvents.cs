@@ -8,6 +8,7 @@ public class PlayerAnimationEvents : MonoBehaviour
     public PlayerController playerController;
     public PlayerAttackArea playerAttackArea;
 
+    // 공격 애니메이션 끝날 때
     public void FinishedAttack()
     {
         AttackState.IsAttack = false;
@@ -16,6 +17,7 @@ public class PlayerAnimationEvents : MonoBehaviour
         PlayerStat.Instance.stateMachine.ChangeState(StateName.MOVE);
     }
 
+    // 공격 애니메이션 중 약간 전진
     public void MoveForward()
     {
         float advanceDistance = PlayerStat.Instance.weaponManager.Weapon.AdvanceDistance;
@@ -35,4 +37,11 @@ public class PlayerAnimationEvents : MonoBehaviour
             PlayerStat.Instance.rigidBody.MovePosition(hit.point);
         }
     }
+
+    // 공격 이펙트
+    public void StartAttackTrailEffect()
+    {
+        playerAttackArea.CalculateColiderPoints(PlayerStat.Instance.weaponManager.Weapon.AttackRange);
+        StartCoroutine(playerAttackArea.MoveTrailObject());
+    } 
 }
