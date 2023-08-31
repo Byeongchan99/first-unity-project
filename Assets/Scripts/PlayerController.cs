@@ -157,6 +157,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 // 피격 이벤트 실행
+                playerStat.animator.SetTrigger("Hit");
                 StartCoroutine(GetHitRoutine());
                 lastAttackID = currentAttackID;  // 현재 공격 ID로 업데이트
             }
@@ -174,7 +175,7 @@ public class PlayerController : MonoBehaviour
         Physics2D.IgnoreLayerCollision(playerStandLayer, monsterStandLayer, true);
 
         // 무적 시간 동안 깜빡거리게 함
-        StartCoroutine(FlashSprite());
+        // StartCoroutine(FlashSprite());
         yield return new WaitForSeconds(PlayerStat.Instance.InvincibleTime);  // 1.5초 대기 - 무적 시간 1.5초
 
         GameManager.instance.isInvincible = false;

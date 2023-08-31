@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ef82b1ea8506e6443ab9863b6b293bbd
+guid: 62841a9cd26adff4d86207e8094a6f5e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,11 +101,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShadowRoll_0
+      name: FrontLeftDamage_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef85288f3fa82634fb58377d28870b7d
-      internalID: 1559171540
+      spriteID: c996bd3040952dc4cb0d7e2adcd9ea7b
+      internalID: 1523533865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowRoll_1
+      name: FrontLeftDamage_1
       rect:
         serializedVersion: 2
         x: 32
@@ -140,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5a118e8e6997074db028f8e1599a506
-      internalID: 1169447020
+      spriteID: f73a2535ea008034392c9d02ab8498be
+      internalID: 702056472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowRoll_2
+      name: FrontLeftDamage_2
       rect:
         serializedVersion: 2
         x: 64
@@ -161,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3f51bdf6a5f3ae48b5e837c76089c76
-      internalID: 1709900136
+      spriteID: 209b3b7fad21f1f44a6bf46b05d654ef
+      internalID: -969160380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowRoll_3
+      name: FrontLeftDamage_3
       rect:
         serializedVersion: 2
         x: 96
@@ -182,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10c28fd39a839aa4ca4db19247cdeaee
-      internalID: 1952787052
+      spriteID: 47ee219b12e9d0f4c9af72212d1e369d
+      internalID: 567425835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowRoll_4
+      name: FrontLeftDamage_4
       rect:
         serializedVersion: 2
         x: 128
@@ -203,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f45020d945deee469b538fdbf326e6f
-      internalID: -449205644
+      spriteID: e9eb46e058a4cb64289354fb9fde2826
+      internalID: 1255534872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowRoll_5
+      name: FrontLeftDamage_5
       rect:
         serializedVersion: 2
         x: 160
@@ -224,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85c4bd77c9904af4296a4dc3ee5f1ab9
-      internalID: 1454543008
+      spriteID: 778f0faf4176bf141a4c38951a8837a6
+      internalID: -480377301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowRoll_6
+      name: FrontLeftDamage_6
       rect:
         serializedVersion: 2
         x: 192
@@ -245,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77aa49685591b894eaa0915bd4fc643c
-      internalID: 1858754437
+      spriteID: 6fcc5b111c1b39547a2618026b1937f6
+      internalID: -943890894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowRoll_7
+      name: FrontLeftDamage_7
       rect:
         serializedVersion: 2
         x: 224
@@ -266,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 378f90995bafc254e99597d5b0688834
-      internalID: 961972895
+      spriteID: ce66b4f3c81fcea4bbd7b9412b59ab38
+      internalID: -214020419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowRoll_8
+      name: FrontLeftDamage_8
       rect:
         serializedVersion: 2
         x: 256
@@ -287,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a4ce6533da4bea4a81d432f55837095
-      internalID: 1069540424
+      spriteID: 4666e48ecab43e24cbbcddaafec6b3c2
+      internalID: 965919099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowRoll_9
+      name: FrontLeftDamage_9
       rect:
         serializedVersion: 2
         x: 288
@@ -308,50 +320,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afff74dff05c06546b3b04c7c4996bb2
-      internalID: -1665447121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShadowRoll_10
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70007b4e57bf1a247ada6f5b1c59c2bc
-      internalID: 1843068924
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShadowRoll_11
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cdf97a4c32118a14aa02060a61c82816
-      internalID: -1030596285
+      spriteID: fd27f75095f7a6c4aabe09eecc6e8507
+      internalID: 2095398724
       vertices: []
       indices: 
       edges: []
@@ -367,18 +337,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ShadowRoll_0: 1559171540
-      ShadowRoll_1: 1169447020
-      ShadowRoll_10: 1843068924
-      ShadowRoll_11: -1030596285
-      ShadowRoll_2: 1709900136
-      ShadowRoll_3: 1952787052
-      ShadowRoll_4: -449205644
-      ShadowRoll_5: 1454543008
-      ShadowRoll_6: 1858754437
-      ShadowRoll_7: 961972895
-      ShadowRoll_8: 1069540424
-      ShadowRoll_9: -1665447121
+      FrontLeftDamage_0: 1523533865
+      FrontLeftDamage_1: 702056472
+      FrontLeftDamage_2: -969160380
+      FrontLeftDamage_3: 567425835
+      FrontLeftDamage_4: 1255534872
+      FrontLeftDamage_5: -480377301
+      FrontLeftDamage_6: -943890894
+      FrontLeftDamage_7: -214020419
+      FrontLeftDamage_8: 965919099
+      FrontLeftDamage_9: 2095398724
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
