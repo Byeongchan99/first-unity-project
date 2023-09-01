@@ -124,6 +124,9 @@ public class PlayerController : MonoBehaviour
 
     void OnAttack()
     {
+        if (rollState.IsRoll)
+            return;
+
         bool isAvailableAttack = !AttackState.IsAttack && (playerStat.weaponManager.Weapon.ComboCount < 3);
 
         if (isAvailableAttack)
@@ -175,7 +178,7 @@ public class PlayerController : MonoBehaviour
         Physics2D.IgnoreLayerCollision(playerStandLayer, monsterStandLayer, true);
 
         // 무적 시간 동안 깜빡거리게 함
-        // StartCoroutine(FlashSprite());
+        StartCoroutine(FlashSprite());
         yield return new WaitForSeconds(PlayerStat.Instance.InvincibleTime);  // 1.5초 대기 - 무적 시간 1.5초
 
         GameManager.instance.isInvincible = false;
