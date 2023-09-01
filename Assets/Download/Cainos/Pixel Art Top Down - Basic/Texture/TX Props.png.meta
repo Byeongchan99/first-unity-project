@@ -1,256 +1,7 @@
 fileFormatVersion: 2
 guid: 29c9cded5e558164aaf8c9bf08aa1510
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 21300000
-    second: TX Props Chest
-  - first:
-      213: 21300002
-    second: TX Props Grass A
-  - first:
-      213: 21300004
-    second: TX Props Grass B
-  - first:
-      213: 21300006
-    second: TX Props Grass C
-  - first:
-      213: 21300008
-    second: TX Props Grass D
-  - first:
-      213: 21300010
-    second: TX Props Grass E
-  - first:
-      213: 21300012
-    second: TX Props Grass F
-  - first:
-      213: 21300014
-    second: TX Props Grass G
-  - first:
-      213: 21300016
-    second: TX Props Grass H
-  - first:
-      213: 21300018
-    second: TX Props Grass I
-  - first:
-      213: 21300020
-    second: TX Props Grass J
-  - first:
-      213: 21300022
-    second: TX Props Grass K
-  - first:
-      213: 21300024
-    second: TX Props Grass L
-  - first:
-      213: 21300026
-    second: TX Props Grass M
-  - first:
-      213: 21300028
-    second: TX Props Grass N
-  - first:
-      213: 21300030
-    second: TX Props Grass O
-  - first:
-      213: 21300032
-    second: TX Props Grass Flower
-  - first:
-      213: 21300034
-    second: TX Props Crate
-  - first:
-      213: 21300036
-    second: TX Props Cube
-  - first:
-      213: 21300038
-    second: TX Props Crate Small
-  - first:
-      213: 21300040
-    second: TX Props Chest Opened
-  - first:
-      213: 21300042
-    second: TX Props Rune Pillar X2
-  - first:
-      213: 21300044
-    second: TX Props Rune Pillar X2 Glow
-  - first:
-      213: 21300046
-    second: TX Props Stair S L
-  - first:
-      213: 21300048
-    second: TX Props Stair S R
-  - first:
-      213: 21300050
-    second: TX Props Stair NL
-  - first:
-      213: 21300052
-    second: TX Props Stair NU
-  - first:
-      213: 21300054
-    second: TX Props Stair NR
-  - first:
-      213: 21300056
-    second: TX Props Stair NM
-  - first:
-      213: 21300058
-    second: TX Props Rune Pillar X3
-  - first:
-      213: 21300060
-    second: TX Props Rune Pillar Broken
-  - first:
-      213: 21300062
-    second: TX Props Rune Pillar X3 Glow
-  - first:
-      213: 21300064
-    second: TX Props Rune Pillar Broken Glow
-  - first:
-      213: 21300066
-    second: TX Props Barrel
-  - first:
-      213: 21300068
-    second: TX Props Gravestone A
-  - first:
-      213: 21300070
-    second: TX Props Gravestone B
-  - first:
-      213: 21300072
-    second: TX Props Gravestone C
-  - first:
-      213: 21300074
-    second: TX Props Tree A
-  - first:
-      213: 21300076
-    second: TX Props Stone Coffin V
-  - first:
-      213: 21300078
-    second: TX Props Stone Coffin H
-  - first:
-      213: 21300080
-    second: TX Props Bush A
-  - first:
-      213: 21300082
-    second: TX Props Tree T3 Lower
-  - first:
-      213: 21300084
-    second: TX Props Tree T3 Upper
-  - first:
-      213: 21300086
-    second: TX Props Road Sign E
-  - first:
-      213: 21300088
-    second: TX Props Road Sign W
-  - first:
-      213: 21300090
-    second: TX Props Pot A
-  - first:
-      213: 21300092
-    second: TX Props Pot B
-  - first:
-      213: 21300094
-    second: TX Props Pot C
-  - first:
-      213: 21300096
-    second: TX Props Stone Bench S
-  - first:
-      213: 21300098
-    second: TX Props Stone Bench W
-  - first:
-      213: 21300100
-    second: TX Props Stone Bench E
-  - first:
-      213: 21300102
-    second: TX Props Stone T1
-  - first:
-      213: 21300104
-    second: TX Props Stone T2
-  - first:
-      213: 21300106
-    second: TX Props Stone T3
-  - first:
-      213: 21300108
-    second: TX Props Stone T4
-  - first:
-      213: 21300110
-    second: TX Props Stone T5
-  - first:
-      213: 21300112
-    second: TX Props Stone T6
-  - first:
-      213: 21300114
-    second: TX Props Statue
-  - first:
-      213: 21300116
-    second: TX Props Stone Lantern
-  - first:
-      213: 21300118
-    second: TX Props Pillar
-  - first:
-      213: 21300120
-    second: TX Props Pillar Broken
-  - first:
-      213: 21300122
-    second: TX Props Tree T1 Lower
-  - first:
-      213: 21300124
-    second: TX Props Tree T1 Upper
-  - first:
-      213: 21300126
-    second: TX Props Tree T2 Lower
-  - first:
-      213: 21300128
-    second: TX Props Tree T2 Upper
-  - first:
-      213: 21300130
-    second: TX Props Stone Cube
-  - first:
-      213: 21300132
-    second: TX Props Bush C
-  - first:
-      213: 21300134
-    second: TX Props Bush B
-  - first:
-      213: 21300136
-    second: TX Props Bush D
-  - first:
-      213: 21300138
-    second: TX Props Bush E
-  - first:
-      213: 21300140
-    second: TX Props Bush F
-  - first:
-      213: 21300142
-    second: TX Props Altar
-  - first:
-      213: 21300144
-    second: TX Props Altar Rune 1
-  - first:
-      213: 21300146
-    second: TX Props Altar Rune 2
-  - first:
-      213: 21300148
-    second: TX Props Altar Rune 3
-  - first:
-      213: 21300150
-    second: TX Props Altar Rune 4
-  - first:
-      213: 21300152
-    second: TX Props Brick T1
-  - first:
-      213: 21300154
-    second: TX Props Brick T2
-  - first:
-      213: 21300156
-    second: TX Props Brick T3
-  - first:
-      213: 21300158
-    second: TX Props Wooden Gate
-  - first:
-      213: 21300160
-    second: TX Props Wooden Gate Opened
-  - first:
-      213: 21300162
-    second: TX Props Stone T7
-  - first:
-      213: 21300164
-    second: TX Props Well
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -311,11 +62,23 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
-  cookieLightType: 1
+  applyGammaDecoding: 0
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -325,19 +88,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 1
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
     maxTextureSize: 2048
@@ -349,150 +100,936 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TX Props Chest
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 451
-        width: 32
-        height: 31
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1f6fb99112dfad4d835a6f2d178eaf4
-      internalID: 21300000
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Crate
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 448
-        width: 32
-        height: 46
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82908114a4602e841adf7dcbea882039
-      internalID: 21300034
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Cube
+      name: TX Props_0
       rect:
         serializedVersion: 2
         x: 32
         y: 448
         width: 32
         height: 46
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: caa4ac10bb1af164ba7329b57a49d6eb
-      internalID: 21300036
+      spriteID: 45c6e5541866c5b40af9ed6eabdd638f
+      internalID: 1748298903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props Crate Small
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 387
-        width: 26
-        height: 39
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1677bf923e384b41aeef58ef02451ac
-      internalID: 21300038
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Chest Opened
+      name: TX Props_1
       rect:
         serializedVersion: 2
         x: 96
-        y: 386
+        y: 451
         width: 32
-        height: 49
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 31
+      alignment: 9
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21cc8de750e26c4418db5aec06ac8058
-      internalID: 21300040
+      spriteID: ae5b95f20c7d59647a9d6c7db45d5814
+      internalID: -1467173710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props Rune Pillar X2
+      name: TX Props_2
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 448
+        width: 32
+        height: 46
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2990f17c5d90bb64eb4d8874da248c44
+      internalID: 119541252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_3
       rect:
         serializedVersion: 2
         x: 227
         y: 451
         width: 26
         height: 52
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ff74cce1bffd1940b0067eab1029165
-      internalID: 21300042
+      spriteID: c191847bbe4472b43bdd9cf24195b6af
+      internalID: 306919132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props Rune Pillar X2 Glow
+      name: TX Props_5
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 452
+        width: 56
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d917dbd425d15a9408c4204c81554f0d
+      internalID: 685389563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_6
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 449
+        width: 27
+        height: 61
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a64b5e3090de54483e31299098aaa6
+      internalID: -2123411328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_7
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 419
+        width: 37
+        height: 73
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cd4af69f20445d4facf367caed5ce41
+      internalID: -1909615053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_9
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 359
+        width: 37
+        height: 50
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6925eaf65765eb45895385e038ff9eb
+      internalID: -1783849013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 387
+        width: 32
+        height: 49
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 236ffaadd6d38844ca112f135f19dd26
+      internalID: 1576880862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_11
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 387
+        width: 26
+        height: 39
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77e897df884963f4484695e8796ea8e2
+      internalID: -904493360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_12
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 355
+        width: 26
+        height: 66
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d43b6d126b18f48809ba9ca414c262
+      internalID: 1710671191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_13
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 361
+        width: 5
+        height: 40
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3eed0a0aca92ec4a994209343c52687
+      internalID: 919498416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_14
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 389
+        width: 64
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 472af1753dd8a1049a7febb22d32f99b
+      internalID: 607525800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_15
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 353
+        width: 27
+        height: 61
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9723b3764fc09784e86f06e515cc8a69
+      internalID: 905076006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_17
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 356
+        width: 22
+        height: 38
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e7160ba67128e458ed1972070d51f9
+      internalID: -929312264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_22
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 293
+        width: 9
+        height: 53
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2097a33924c264d9889625596f42da
+      internalID: -1813225485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_23
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 293
+        width: 9
+        height: 53
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a14899d6a3154f47b4d91b9fb88c993
+      internalID: -790884378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_24
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 320
+        width: 27
+        height: 32
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9734da430045fcd43b4b107c8ecefced
+      internalID: -1466509118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_25
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 323
+        width: 28
+        height: 36
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b24a7841bb7d0644aac800778777befc
+      internalID: 648125102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_26
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 291
+        width: 26
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b4e87d2e8f1089479ea0b7ba3554a77
+      internalID: -1341934719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_27
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 297
+        width: 32
+        height: 57
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7009bd216ace4fe4b9d5879457d9ec46
+      internalID: 1992375599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_28
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 261
+        width: 32
+        height: 77
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a56ed9a84ebb6f46bb7f433158ac756
+      internalID: 1400891689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_29
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 256
+        width: 27
+        height: 32
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2151f52997cd9549bc06fabb2b37242
+      internalID: -1819779344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_30
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 261
+        width: 21
+        height: 34
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4804e9ac83ddfff43acfa95fcb809d28
+      internalID: -1328897393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_31
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 232
+        width: 30
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96824cba70815dc4191d7eee0ff47149
+      internalID: 416755343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_32
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 261
+        width: 32
+        height: 57
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55d703565c661f841830430d15e7ccbc
+      internalID: 1841415696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_33
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 232
+        width: 30
+        height: 29
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a67292f64f7b72e4bb6990fe95c67b84
+      internalID: 1063291704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_36
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 241
+        width: 5
+        height: 5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f669e3b4358ddee498485f1d739c39d3
+      internalID: -1258322350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_37
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 171
+        width: 94
+        height: 72
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c69722ac4bcde043ab4980cc275f5c6
+      internalID: -1630508028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_38
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 197
+        width: 25
+        height: 27
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c6a5e150f1f8dd4390a57b4b67d196f
+      internalID: -28088215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_39
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 169
+        width: 26
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e35f4dd3cf08b4baf352f425d4a24a
+      internalID: -1242385394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_40
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 160
+        width: 32
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fbf15e631fde5c4395213455bf139ee
+      internalID: 1705413337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_41
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 132
+        width: 21
+        height: 32
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b79bc46e8f77e3548b7c2d5fcb65c209
+      internalID: 412662651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_42
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 104
+        width: 55
+        height: 49
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d379706f49ad6d14fb55d9a9f098e689
+      internalID: -533108847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_43
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 40
+        width: 57
+        height: 42
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243ce9c9a605fbd489ac80f9e030ed0d
+      internalID: -87072826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_44
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 10
+        width: 11
+        height: 10
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bfcdc2144e16f044ba55328d37f453a
+      internalID: 960284269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_45
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 8
+        width: 16
+        height: 14
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e070de942c17224c956269c0b16c8f9
+      internalID: 159741366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_46
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 6
+        width: 24
+        height: 19
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ff9ad12147043c4b8edc3a5aefd25b7
+      internalID: 356840927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_47
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 6
+        width: 24
+        height: 19
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81524e278e554834097180b0034523a1
+      internalID: 690602544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_48
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 6
+        width: 27
+        height: 22
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f12fd8ad8c0a37c43bb9c5dcbb83171b
+      internalID: 1922634375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_49
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 3
+        width: 27
+        height: 27
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dd01c30bafcded498e3948697a281e6
+      internalID: 801668173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_50
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 7
+        width: 18
+        height: 16
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55150e0a636fb134fa77380d6ec56b50
+      internalID: -1945198494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_51
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 8
+        width: 19
+        height: 16
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e64ff7e7d3d98d409c47375ef86fafb
+      internalID: 1693488002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_52
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 7
+        width: 31
+        height: 19
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d786d94eb98d0144f8d0773cef26f629
+      internalID: 333374127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Props_4
       rect:
         serializedVersion: 2
         x: 270
@@ -506,650 +1043,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04e899bac27970c41b06e0bc124590eb
-      internalID: 21300044
+      spriteID: e90b26605a359aa499e00091572c0486
+      internalID: 1482880947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props Rune Pillar X3
-      rect:
-        serializedVersion: 2
-        x: 227
-        y: 355
-        width: 26
-        height: 66
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: efe36c6e40d0485469a22ee3a8c43d63
-      internalID: 21300058
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Rune Pillar Broken
-      rect:
-        serializedVersion: 2
-        x: 227
-        y: 291
-        width: 26
-        height: 38
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9242e74a03e5ca44c988038d7bd535ef
-      internalID: 21300060
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Rune Pillar X3 Glow
-      rect:
-        serializedVersion: 2
-        x: 270
-        y: 361
-        width: 5
-        height: 40
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2664a20451e28f14c80cbf6af8161452
-      internalID: 21300062
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Rune Pillar Broken Glow
+      name: TX Props_8
       rect:
         serializedVersion: 2
         x: 270
         y: 297
         width: 5
         height: 12
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 242eff54a423efa47a89bf90227333ba
-      internalID: 21300064
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Barrel
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 323
-        width: 28
-        height: 36
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c654252de1d0248408f223820a0e1cbd
-      internalID: 21300066
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Gravestone A
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 232
-        width: 30
-        height: 41
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc492ddb4e760a642b4b66004e7d8035
-      internalID: 21300068
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Gravestone B
-      rect:
-        serializedVersion: 2
-        x: 227
-        y: 169
-        width: 26
-        height: 40
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e60439295e4e7644ad0a07342ad1888
-      internalID: 21300070
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Gravestone C
-      rect:
-        serializedVersion: 2
-        x: 289
-        y: 232
-        width: 30
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffaec41c67a3faf449914f854eb8bc02
-      internalID: 21300072
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Stone Coffin V
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 297
-        width: 32
-        height: 57
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d2a41f1c608068448234d85047c41b0
-      internalID: 21300076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Stone Coffin H
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 389
-        width: 64
-        height: 36
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 171c9cb096b15c245a3cd88b5432aac0
-      internalID: 21300078
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Road Sign E
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 320
-        width: 27
-        height: 32
-      alignment: 9
-      pivot: {x: 0.44592682, y: -0.0006246567}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dbe5760aa2865644ea13d61dd3f342b3
-      internalID: 21300086
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Road Sign W
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 256
-        width: 27
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5602985, y: 0.0005931854}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3da5d538d57013843ac291c4c9e46929
-      internalID: 21300088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Pot A
-      rect:
-        serializedVersion: 2
-        x: 165
-        y: 261
-        width: 21
-        height: 34
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be01852446f671a439e7ad76e7811b4c
-      internalID: 21300090
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Pot B
-      rect:
-        serializedVersion: 2
-        x: 164
-        y: 197
-        width: 25
-        height: 27
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2f38c86e0ce043e46b964592f21e62fb
-      internalID: 21300092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Pot C
-      rect:
-        serializedVersion: 2
-        x: 165
-        y: 132
-        width: 21
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8227cd1c1bd315f49bf300fc4e508b69
-      internalID: 21300094
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Stone Bench S
-      rect:
-        serializedVersion: 2
-        x: 292
-        y: 452
-        width: 56
-        height: 41
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3d4bb3fed3596b4183e46c191e32f01
-      internalID: 21300096
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Stone Bench W
-      rect:
-        serializedVersion: 2
-        x: 387
-        y: 449
-        width: 27
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f47af7350033e3347930ff4dbfd5a275
-      internalID: 21300098
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Stone Bench E
-      rect:
-        serializedVersion: 2
-        x: 387
-        y: 353
-        width: 27
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32fc73f307b1b21428783a730cf93ef1
-      internalID: 21300100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Stone T1
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 10
-        width: 11
-        height: 10
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 04efb6706689a954099483d82705ac66
-      internalID: 21300102
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Stone T2
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 8
-        width: 16
-        height: 14
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2725f2ffd508c849a543d5f2296e9dd
-      internalID: 21300104
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Stone T3
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 6
-        width: 24
-        height: 19
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74f1cd708a4e38549ac76c0bb42f80a5
-      internalID: 21300106
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Stone T4
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 6
-        width: 24
-        height: 19
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 868e8d9471ab3e044a235381ac09f2cb
-      internalID: 21300108
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Stone T5
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 6
-        width: 27
-        height: 22
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4523973d903298342b66cd31f993c273
-      internalID: 21300110
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Stone T6
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 3
-        width: 27
-        height: 27
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4982a074d12d60499f8bc9fcfdcbf3e
-      internalID: 21300112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Statue
-      rect:
-        serializedVersion: 2
-        x: 445
-        y: 419
-        width: 37
-        height: 73
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70d74dd78af59354299b24c2f2e529e9
-      internalID: 21300114
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Stone Lantern
-      rect:
-        serializedVersion: 2
-        x: 453
-        y: 356
-        width: 22
-        height: 38
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 952c5d3ac754321439bb699de039407e
-      internalID: 21300116
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Pillar
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 261
-        width: 32
-        height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 538b433b960d0524cae73e5731375a47
-      internalID: 21300118
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Pillar Broken
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 261
-        width: 32
-        height: 57
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3fbe655b99eb4574dbf0ad8ac7afa291
-      internalID: 21300120
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Stone Cube
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 160
-        width: 32
-        height: 46
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c5dd0d5cfbac4745b3a4f04954eed7d
-      internalID: 21300130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Altar
-      rect:
-        serializedVersion: 2
-        x: 353
-        y: 171
-        width: 94
-        height: 72
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56fdc1b340834d34f851b10cadc9b613
-      internalID: 21300142
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Altar Rune 1
-      rect:
-        serializedVersion: 2
-        x: 330
-        y: 241
-        width: 5
-        height: 5
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1157,56 +1064,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95c63f14737f51a49be7c0de7137a155
-      internalID: 21300144
+      spriteID: a5ad6c8e91d22c54caccc308e50eea40
+      internalID: 556967193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props Altar Rune 2
-      rect:
-        serializedVersion: 2
-        x: 337
-        y: 241
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3bced06fb909dff4ab19bd0e6ce3b5ef
-      internalID: 21300146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Altar Rune 3
-      rect:
-        serializedVersion: 2
-        x: 330
-        y: 234
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6dfa6583e87040f4b8dad4facf0dc338
-      internalID: 21300148
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Altar Rune 4
+      name: TX Props_16
       rect:
         serializedVersion: 2
         x: 337
@@ -1220,155 +1085,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a587aa5413e7b9b40b6ef7914c56a32b
-      internalID: 21300150
+      spriteID: 83a2b1840a7c17f4b8166b12f8b3d0d2
+      internalID: -1136802696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props Brick T1
+      name: TX Props_18
       rect:
         serializedVersion: 2
-        x: 231
-        y: 7
-        width: 18
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 330
+        y: 234
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79fad2c910645b54cbc6e71bf9d8c453
-      internalID: 21300152
+      spriteID: e6d627092b0d0b242a83a3496a0d1ab2
+      internalID: -547138472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props Brick T2
+      name: TX Props_19
       rect:
         serializedVersion: 2
-        x: 263
-        y: 8
-        width: 19
-        height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 330
+        y: 241
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3178f653003b97d4b9eff0800bbcb2b4
-      internalID: 21300154
+      spriteID: 20c7ecc0a9529fa478ce2f8809e7695a
+      internalID: -766017461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props Brick T3
+      name: TX Props_20
       rect:
         serializedVersion: 2
-        x: 289
-        y: 7
-        width: 31
-        height: 19
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 337
+        y: 360
+        width: 6
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b17b33797cd8ea4c8d5ad55ca4a3054
-      internalID: 21300156
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Wooden Gate
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 359
-        width: 37
-        height: 50
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f03060c6f1d0adf4fad72ff01845d6fd
-      internalID: 21300158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Wooden Gate Opened
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 293
-        width: 37
-        height: 53
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5d945ff6be0b694a86e0288f4d3f290
-      internalID: 21300160
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Stone T7
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 40
-        width: 57
-        height: 42
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: baf8f980c5adc4349955914ac1e51980
-      internalID: 21300162
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TX Props Well
-      rect:
-        serializedVersion: 2
-        x: 420
-        y: 104
-        width: 58
-        height: 49
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9f70ad008ebefc4bb5915052e8339ff
-      internalID: 21300164
+      spriteID: b7f6ee90ca829f548b2bcf618d75feaf
+      internalID: -969586799
       vertices: []
       indices: 
       edges: []
@@ -1376,7 +1157,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c89561e7115ccae4cb9f395a5fee57ba
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -1384,54 +1165,59 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TX Props Altar: 21300142
-      TX Props Altar Rune 1: 21300144
-      TX Props Altar Rune 2: 21300146
-      TX Props Altar Rune 3: 21300148
-      TX Props Altar Rune 4: 21300150
-      TX Props Barrel: 21300066
-      TX Props Brick T1: 21300152
-      TX Props Brick T2: 21300154
-      TX Props Brick T3: 21300156
-      TX Props Chest: 21300000
-      TX Props Chest Opened: 21300040
-      TX Props Crate: 21300034
-      TX Props Crate Small: 21300038
-      TX Props Cube: 21300036
-      TX Props Gravestone A: 21300068
-      TX Props Gravestone B: 21300070
-      TX Props Gravestone C: 21300072
-      TX Props Pillar: 21300118
-      TX Props Pillar Broken: 21300120
-      TX Props Pot A: 21300090
-      TX Props Pot B: 21300092
-      TX Props Pot C: 21300094
-      TX Props Road Sign E: 21300086
-      TX Props Road Sign W: 21300088
-      TX Props Rune Pillar Broken: 21300060
-      TX Props Rune Pillar Broken Glow: 21300064
-      TX Props Rune Pillar X2: 21300042
-      TX Props Rune Pillar X2 Glow: 21300044
-      TX Props Rune Pillar X3: 21300058
-      TX Props Rune Pillar X3 Glow: 21300062
-      TX Props Statue: 21300114
-      TX Props Stone Bench E: 21300100
-      TX Props Stone Bench S: 21300096
-      TX Props Stone Bench W: 21300098
-      TX Props Stone Coffin H: 21300078
-      TX Props Stone Coffin V: 21300076
-      TX Props Stone Cube: 21300130
-      TX Props Stone Lantern: 21300116
-      TX Props Stone T1: 21300102
-      TX Props Stone T2: 21300104
-      TX Props Stone T3: 21300106
-      TX Props Stone T4: 21300108
-      TX Props Stone T5: 21300110
-      TX Props Stone T6: 21300112
-      TX Props Stone T7: 21300162
-      TX Props Well: 21300164
-      TX Props Wooden Gate: 21300158
-      TX Props Wooden Gate Opened: 21300160
+      TX Props_0: 1748298903
+      TX Props_1: -1467173710
+      TX Props_10: 1576880862
+      TX Props_11: -904493360
+      TX Props_12: 1710671191
+      TX Props_13: 919498416
+      TX Props_14: 607525800
+      TX Props_15: 905076006
+      TX Props_16: -1136802696
+      TX Props_17: -929312264
+      TX Props_18: -547138472
+      TX Props_19: -766017461
+      TX Props_2: 119541252
+      TX Props_20: -969586799
+      TX Props_21: -553247938
+      TX Props_22: -1813225485
+      TX Props_23: -790884378
+      TX Props_24: -1466509118
+      TX Props_25: 648125102
+      TX Props_26: -1341934719
+      TX Props_27: 1992375599
+      TX Props_28: 1400891689
+      TX Props_29: -1819779344
+      TX Props_3: 306919132
+      TX Props_30: -1328897393
+      TX Props_31: 416755343
+      TX Props_32: 1841415696
+      TX Props_33: 1063291704
+      TX Props_34: -1964681787
+      TX Props_35: -736847462
+      TX Props_36: -1258322350
+      TX Props_37: -1630508028
+      TX Props_38: -28088215
+      TX Props_39: -1242385394
+      TX Props_4: 1482880947
+      TX Props_40: 1705413337
+      TX Props_41: 412662651
+      TX Props_42: -533108847
+      TX Props_43: -87072826
+      TX Props_44: 960284269
+      TX Props_45: 159741366
+      TX Props_46: 356840927
+      TX Props_47: 690602544
+      TX Props_48: 1922634375
+      TX Props_49: 801668173
+      TX Props_5: 685389563
+      TX Props_50: -1945198494
+      TX Props_51: 1693488002
+      TX Props_52: 333374127
+      TX Props_6: -2123411328
+      TX Props_7: -1909615053
+      TX Props_8: 556967193
+      TX Props_9: -1783849013
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
