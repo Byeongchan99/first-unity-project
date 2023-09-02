@@ -67,6 +67,7 @@ public class MonsterTest : MonoBehaviour
         {
             Vector2Int monsterPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
             Vector2Int playerPos = new Vector2Int(Mathf.RoundToInt(target.position.x), Mathf.RoundToInt(target.position.y));
+            anim.SetBool("IsChase", true);
 
             List<Node> path = astar.PathFinding(monsterPos, playerPos);
             if (path != null && path.Count > 1) // 첫 번째 노드는 현재 위치이므로 두 번째 노드로 이동
@@ -80,6 +81,7 @@ public class MonsterTest : MonoBehaviour
                 // 몬스터가 플레이어와 충분히 가까워지면 ATTACK 상태로 전환
                 if (Vector2.Distance(transform.position, target.position) < 1.0f)
                 {
+                    anim.SetBool("IsChase", false);
                     ChangeState(MonsterState.ATTACK);
                 }
             }
