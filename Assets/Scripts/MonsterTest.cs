@@ -174,7 +174,7 @@ public class MonsterTest : MonoBehaviour
         IsLive = false;
         WaveManager.Instance.OnMonsterDeath();
         // 몬스터 상태 초기화 및 애니메이션 처리 (예: 사망 애니메이션 재생)
-        // anim.SetTrigger("Die");  // 만약 사망 애니메이션 트리거가 있다면 여기에서 호출
+        anim.SetTrigger("Dead");
         yield return new WaitForSeconds(1); // 사망 애니메이션 재생 시간 (예: 1초)
 
         gameObject.SetActive(false);  // 오브젝트 비활성화
