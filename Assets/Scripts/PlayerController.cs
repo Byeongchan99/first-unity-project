@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
 
     void OnRoll()
     {
-        if (AttackState.IsAttack)
+        if (AttackState.IsAttack || ChargeState.IsCharge) 
             return;
 
         rollDirection = inputVec;
@@ -122,9 +122,17 @@ public class PlayerController : MonoBehaviour
         } 
     }
 
+    void OnChargeAttack()
+    {
+        if (rollState.IsRoll || AttackState.IsAttack) 
+            return;
+
+        playerStat.stateMachine.ChangeState(StateName.CHARGE);
+    }
+
     void OnAttack()
     {
-        if (rollState.IsRoll)
+        if (rollState.IsRoll || ChargeState.IsCharge) 
             return;
 
         bool isAvailableAttack = !AttackState.IsAttack && (playerStat.weaponManager.Weapon.ComboCount < 3);

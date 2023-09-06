@@ -230,7 +230,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.016}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -241,7 +241,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.185, y: 0.06}
+  m_Size: {x: 0.185, y: 0.09}
   m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
@@ -2186,33 +2186,33 @@ MonoBehaviour:
   waves:
   - spawnInfos:
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 5758980152850208004, guid: d3895cb4530ccf4479e20ea0ecc58369,
+      - monsterPrefab: {fileID: 6932611830405075372, guid: 73781ce9a8bee4e41bff5378dca78168,
           type: 3}
         count: 1
       spawnPointIndex: 0
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 5758980152850208004, guid: d3895cb4530ccf4479e20ea0ecc58369,
+      - monsterPrefab: {fileID: 6932611830405075372, guid: 73781ce9a8bee4e41bff5378dca78168,
           type: 3}
         count: 1
       spawnPointIndex: 1
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 5758980152850208004, guid: d3895cb4530ccf4479e20ea0ecc58369,
+      - monsterPrefab: {fileID: 286633185898101089, guid: 3f98f7f51bcf02b43a737ec18d278399,
           type: 3}
-        count: 1
+        count: 2
       spawnPointIndex: 2
   - spawnInfos:
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 2405335635561897921, guid: 56358691a7bd21b458dd6762c0da2c46,
+      - monsterPrefab: {fileID: 6932611830405075372, guid: 73781ce9a8bee4e41bff5378dca78168,
           type: 3}
-        count: 1
+        count: 2
       spawnPointIndex: 0
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 2405335635561897921, guid: 56358691a7bd21b458dd6762c0da2c46,
+      - monsterPrefab: {fileID: 286633185898101089, guid: 3f98f7f51bcf02b43a737ec18d278399,
           type: 3}
         count: 1
       spawnPointIndex: 1
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 2405335635561897921, guid: 56358691a7bd21b458dd6762c0da2c46,
+      - monsterPrefab: {fileID: 286633185898101089, guid: 3f98f7f51bcf02b43a737ec18d278399,
           type: 3}
         count: 1
       spawnPointIndex: 2

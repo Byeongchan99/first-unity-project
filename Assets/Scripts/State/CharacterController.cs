@@ -4,6 +4,7 @@ namespace CharacterController
     {
         MOVE,
         ROLL,
+        CHARGE,
         ATTACK,
         DEAD,
     }

@@ -7,6 +7,7 @@ public class PlayerStat : MonoBehaviour
 {
     public static PlayerStat Instance { get { return instance; } }
     public WeaponManager weaponManager { get; private set; }
+    public ChargeWeaponManager chargeWeaponManager { get; private set; }
     public StateMachine stateMachine { get; private set; }
     public Rigidbody2D rigidBody { get; private set; }
     public Animator animator { get; private set; }
@@ -52,6 +53,9 @@ public class PlayerStat : MonoBehaviour
             // 등록된 무기가 WeaponManager에서 제거되는 경우 해당 무기를 게임에서 완전히 파괴
             // unRegisterWeapon에 Destroy(weapon) 할당 -> unRegisterWeapon 호출 시 Destroy(weapon) 수행
             weaponManager.unRegisterWeapon = (weapon) => { Destroy(weapon); };
+            chargeWeaponManager = new ChargeWeaponManager(rightHand);
+            chargeWeaponManager.unRegisterWeapon = (weapon) => { Destroy(weapon); };
+
             rigidBody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             shadowAnimator = transform.Find("Shadow").GetComponent<Animator>();
@@ -101,6 +105,7 @@ public class PlayerStat : MonoBehaviour
         stateMachine = new StateMachine(StateName.MOVE, new MoveState(controller));
         stateMachine.AddState(StateName.ROLL, new RollState(controller));
         stateMachine.AddState(StateName.ATTACK, new AttackState(controller));
+        stateMachine.AddState(StateName.CHARGE, new ChargeState(controller));
         stateMachine.AddState(StateName.DEAD, new DeadState(controller));
     }
 }
