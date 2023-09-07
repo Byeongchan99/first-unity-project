@@ -8,6 +8,8 @@ public class InventoryManager : MonoBehaviour
     private static InventoryManager instance;
     // 테스트용 한손검
     public GameObject oneHandSword;
+    // 테스트용 활
+    public GameObject bow;
 
     void Awake()
     {
@@ -41,5 +43,9 @@ public class InventoryManager : MonoBehaviour
         GameObject weapon = Instantiate(oneHandSword);
         PlayerStat.Instance.weaponManager.RegisterWeapon(weapon);
         PlayerStat.Instance.weaponManager.SetWeapon(weapon);
+
+        GameObject chargeWeapon = Instantiate(bow);
+        PlayerStat.Instance.chargeWeaponManager.RegisterWeapon(chargeWeapon);
+        PlayerStat.Instance.chargeWeaponManager.SetWeapon(chargeWeapon);
     }
 }
