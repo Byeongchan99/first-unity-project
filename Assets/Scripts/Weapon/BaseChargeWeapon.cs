@@ -14,6 +14,7 @@ public abstract class BaseChargeWeapon : MonoBehaviour
     public float AttackDamage { get { return attackDamage; } }
     public float AttackSpeed { get { return attackSpeed; } }
     public int BulletID { get { return bulletID; } }
+    public float DamageCoefficient { get { return damageCoefficient; } }
 
     [Header("생성 정보"), Tooltip("무기를 쥐었을 때의 Local Transform 정보")]
     [SerializeField] protected WeaponHandleData weaponhandleData;
@@ -24,13 +25,15 @@ public abstract class BaseChargeWeapon : MonoBehaviour
     [SerializeField] protected float attackDamage;
     [SerializeField] protected float attackSpeed;
     [SerializeField] protected int bulletID;   // 사용하는 총알의 프리팹 ID
+    [SerializeField] protected float damageCoefficient;
    
-    public void SetWeaponData(string weaponName, float attackDamage, float attackSpeed, int bulletID)
+    public void SetWeaponData(string weaponName, float attackDamage, float attackSpeed, int bulletID, float damageCoefficient)
     {
         this.weaponName = weaponName;
         this.attackDamage = attackDamage;
         this.attackSpeed = attackSpeed;
         this.bulletID = bulletID;
+        this.damageCoefficient = damageCoefficient;
     }
 
     // 기본 공격
@@ -40,7 +43,7 @@ public abstract class BaseChargeWeapon : MonoBehaviour
     // 무기 활성화 종료
     public abstract void EndAttack();
     // 차지 공격
-    public abstract void ChargingAttack(BaseState state);
+    public abstract void ChargingAttack(BaseState state, Vector2 dir);
     // 스킬
     public abstract void Skill(BaseState state);
 }

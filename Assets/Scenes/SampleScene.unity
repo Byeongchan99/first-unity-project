@@ -6256,7 +6256,7 @@ MonoBehaviour:
   isInvincible: 0
   gameTime: 0
   maxGameTime: 30
-  pool: {fileID: 0}
+  pool: {fileID: 2119090328}
   playerController: {fileID: 0}
   waveManager: {fileID: 976260177}
 --- !u!4 &2062460085
@@ -6304,7 +6304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 6643238865070187885, guid: f55596308b5c6884b857af4ecc9d28e5, type: 3}
+  - {fileID: 7845133949518739708, guid: f55596308b5c6884b857af4ecc9d28e5, type: 3}
 --- !u!4 &2119090329
 Transform:
   m_ObjectHideFlags: 0

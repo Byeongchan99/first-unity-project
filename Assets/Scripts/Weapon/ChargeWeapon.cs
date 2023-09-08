@@ -29,13 +29,17 @@ public class ChargeWeapon : BaseChargeWeapon
         childSpriteRenderer.enabled = false;
     }
 
-    public override void ChargingAttack(BaseState state)
+    public override void ChargingAttack(BaseState state, Vector2 dir)
     {
         // 발사체 발사 로직
-        Transform bullet = GameManager.instance.pool.Get(bulletID).transform;
-        bullet.position = transform.position;
-        //bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
-        //bullet.GetComponent<Bullet>().Init(damage, StepCounter, dir);
+        Transform bulletTransform = GameManager.instance.pool.Get(bulletID).transform;
+        Bullet bulletComponent = bulletTransform.GetComponent<Bullet>();
+
+        bulletTransform.position = transform.position;
+        bulletTransform.rotation = Quaternion.FromToRotation(Vector3.up, dir);
+
+        float finalDamage = bulletComponent.Damage * damageCoefficient; // 데미지 계수를 사용한 최종 데미지 계산
+        bulletComponent.Init(finalDamage, bulletComponent.Per, dir);
     }
 
     public override void Skill(BaseState state)

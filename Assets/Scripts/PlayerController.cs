@@ -164,6 +164,7 @@ public class PlayerController : MonoBehaviour
 
                 if (PlayerStat.Instance.CurrentHP <= 0)
                 {
+                    PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
                     playerStat.stateMachine.ChangeState(StateName.DEAD);
                 }
 
