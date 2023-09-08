@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         } 
     }
 
-    void OnChargeAttack()
+    void OnCharge()
     {
         if (rollState.IsRoll || AttackState.IsAttack) 
             return;

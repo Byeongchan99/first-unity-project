@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 namespace CharacterController
 {
@@ -9,10 +10,6 @@ namespace CharacterController
     {
         // 충전 여부
         public static bool IsCharge = false;
-
-        // 활과 손 컴포넌트
-        private Transform bowComponent;
-        private Transform handComponent;
 
         // 당기는 강도 및 최대 당기는 강도
         private float chargeTime = 0f;
@@ -29,6 +26,8 @@ namespace CharacterController
         public override void OnEnterState()
         {
             chargeTime = 0f;  // 충전 초기화
+            PlayerStat.Instance.animator.SetBool("IsCharge", true);
+            PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
             PlayerStat.Instance.chargeWeaponManager.Weapon.BeginAttack();
         }
 
@@ -36,6 +35,8 @@ namespace CharacterController
         {
             if (Mouse.current.rightButton.isPressed)  // 마우스 우클릭이 눌러져 있는지 확인
             {
+                // 활 회전 로직
+
                 chargeTime += chargeRate * Time.deltaTime;
                 if (chargeTime > maxChargeTime)
                 {
@@ -47,16 +48,19 @@ namespace CharacterController
             else
             {
                 // 마우스 버튼을 뗀 경우 화살 발사
-                PlayerStat.Instance.chargeWeaponManager.Weapon?.ChargingAttack(this);
+                // PlayerStat.Instance.chargeWeaponManager.Weapon?.ChargingAttack(this);
+                PlayerStat.Instance.stateMachine.ChangeState(StateName.MOVE);
             }
         }
 
         private void UpdateWeaponAndHandPosition(float chargeTime)
         {
+            /*
             // 활과 손의 위치 조절 로직
             float weaponChargeAmount = chargeTime / maxChargeTime;
             bowComponent.localPosition = new Vector3(weaponChargeAmount, 0, 0);
             handComponent.localPosition = new Vector3(weaponChargeAmount, 0, 0);
+            */
         }
 
         public override void OnFixedUpdateState()
@@ -68,8 +72,7 @@ namespace CharacterController
         {
             PlayerStat.Instance.chargeWeaponManager.Weapon.EndAttack();
             IsCharge = false;
-            PlayerStat.Instance.animator.SetBool("IsCharge", false);
-            PlayerStat.Instance.stateMachine.ChangeState(StateName.MOVE);
+            PlayerStat.Instance.animator.SetBool("IsCharge", false);   
         }
     }
 }

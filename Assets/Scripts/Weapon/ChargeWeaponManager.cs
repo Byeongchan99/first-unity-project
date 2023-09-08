@@ -10,15 +10,15 @@ public class ChargeWeaponManager
     // Action<T>를 사용하면 특정 함수를 참조하거나 "가리키는" 변수처럼 사용 가능
     public Action<GameObject> unRegisterWeapon { get; set; }
     // 무기를 쥐는 손의 트랜스폼
-    private Transform handPosition;
+    private Transform chargeWeaponPosition;
     // 현재 내 무기 오브젝트
     private GameObject weaponObject;
     // 현재 WeaponManager에 등록된 무기 리스트
     private List<GameObject> weapons = new List<GameObject>();
 
-    public ChargeWeaponManager(Transform hand)
+    public ChargeWeaponManager(Transform chargeWeaponPos)
     {
-        handPosition = hand;
+        chargeWeaponPosition = chargeWeaponPos;
     }
 
     // 무기 등록
@@ -27,7 +27,7 @@ public class ChargeWeaponManager
         if (!weapons.Contains(weapon))
         {
             BaseChargeWeapon weaponInfo = weapon.GetComponent<BaseChargeWeapon>();
-            weapon.transform.SetParent(handPosition);
+            weapon.transform.SetParent(chargeWeaponPosition);
             weapon.transform.localPosition = weaponInfo.HandleData.localPosition;
             weapon.transform.localEulerAngles = weaponInfo.HandleData.localRotation;
             weapon.transform.localScale = weaponInfo.HandleData.localScale;
@@ -57,8 +57,8 @@ public class ChargeWeaponManager
             weaponObject = weapon;
             Weapon = weapon.GetComponent<BaseChargeWeapon>();
             weaponObject.SetActive(true);
-            // weaponObject.GetComponent<SpriteRenderer>().enabled = false; // 스프라이트 렌더러 비활성화
-            PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
+            weaponObject.GetComponentInChildren<SpriteRenderer>().enabled = false; // 자식 오브젝트의 스프라이트 렌더러 비활성화
+            // PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
             return;
         }
 
@@ -68,9 +68,9 @@ public class ChargeWeaponManager
             {
                 weaponObject = weapon;
                 weaponObject.SetActive(true);
-                // weaponObject.GetComponent<SpriteRenderer>().enabled = false; // 스프라이트 렌더러 비활성화
+                weaponObject.GetComponentInChildren<SpriteRenderer>().enabled = false; // 자식 오브젝트의 스프라이트 렌더러 비활성화
                 Weapon = weapon.GetComponent<BaseChargeWeapon>();
-                PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
+                // PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
                 continue;
             }
             weapons[i].SetActive(false);

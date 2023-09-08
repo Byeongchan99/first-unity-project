@@ -106,6 +106,9 @@ public class MonsterTest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!collision.CompareTag("PlayerAttackArea") && !collision.CompareTag("Bullet"))
+            return;
+
         if (collision.gameObject.CompareTag("PlayerAttackArea"))
         {
             // Player의 공격 영역과 충돌한 경우
@@ -115,6 +118,7 @@ public class MonsterTest : MonoBehaviour
             // 만약 현재의 공격 ID가 몬스터가 마지막으로 받은 공격 ID와 다르면 데미지 처리
             if (currentAttackID != lastAttackID)
             {
+                /*
                 health -= PlayerStat.Instance.weaponManager.Weapon.AttackDamage;
                 StartCoroutine(FlashSprite());  // 깜빡거림 시작
                 StartCoroutine(KnockBack());
@@ -124,8 +128,38 @@ public class MonsterTest : MonoBehaviour
                 {
                     ChangeState(MonsterState.DEAD);
                 }
+                */
+
+                if (health > 0)
+                {
+                    health -= PlayerStat.Instance.weaponManager.Weapon.AttackDamage;
+                    StartCoroutine(FlashSprite());  // 깜빡거림 시작
+                    StartCoroutine(KnockBack());
+                    Debug.Log("체력 감소! 남은 체력 " + health);
+                }
+                else
+                {
+                    ChangeState(MonsterState.DEAD);
+                }
 
                 lastAttackID = currentAttackID;  // 현재 공격 ID로 업데이트
+            }
+        }
+
+        if (collision.CompareTag("Bullet"))
+        {
+            health -= collision.GetComponent<Bullet>().damage;
+
+            if (health > 0)
+            {
+                health -= PlayerStat.Instance.weaponManager.Weapon.AttackDamage;
+                StartCoroutine(FlashSprite());  // 깜빡거림 시작
+                StartCoroutine(KnockBack());
+                Debug.Log("체력 감소! 남은 체력 " + health);
+            }
+            else
+            {
+                ChangeState(MonsterState.DEAD);
             }
         }
     }

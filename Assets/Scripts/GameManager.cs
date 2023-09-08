@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public float maxGameTime = 3 * 10f;
 
     [Header("# Game Object")]
-    // public PoolManager pool;
+    public PoolManager pool;
     public PlayerController playerController;
     // public Result uiResult;
     public WaveManager waveManager;

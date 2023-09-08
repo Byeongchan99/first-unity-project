@@ -13,8 +13,8 @@ public class PlayerStat : MonoBehaviour
     public Animator animator { get; private set; }
     public Animator shadowAnimator { get; private set; }
 
-    [SerializeField]
-    private Transform rightHand;
+    [SerializeField] private Transform rightHand;
+    [SerializeField] private Transform chargeWeaponPos;
     private static PlayerStat instance;
 
     public int PlayerID { get { return playerID; } }
@@ -53,7 +53,7 @@ public class PlayerStat : MonoBehaviour
             // 등록된 무기가 WeaponManager에서 제거되는 경우 해당 무기를 게임에서 완전히 파괴
             // unRegisterWeapon에 Destroy(weapon) 할당 -> unRegisterWeapon 호출 시 Destroy(weapon) 수행
             weaponManager.unRegisterWeapon = (weapon) => { Destroy(weapon); };
-            chargeWeaponManager = new ChargeWeaponManager(rightHand);
+            chargeWeaponManager = new ChargeWeaponManager(chargeWeaponPos);
             chargeWeaponManager.unRegisterWeapon = (weapon) => { Destroy(weapon); };
 
             rigidBody = GetComponent<Rigidbody2D>();
