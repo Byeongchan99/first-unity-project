@@ -73,8 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cdd1c31642f474aaf84a7624b6ba1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  per: 1
+  Damage: 5
+  Per: 1
+  bulletLifeTime: 5
 --- !u!50 &7845133949518739707
 Rigidbody2D:
   serializedVersion: 4

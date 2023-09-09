@@ -9,7 +9,7 @@ public class WaveManager : MonoBehaviour
 
     [Header("Wave Settings")]
     public List<Wave> waves;   // 여러 웨이브 정보
-    public Transform[] spawnPoints;   // 스폰 포인트 위치 정보
+    public GameObject[] spawnPoints;   // 스폰 포인트 위치 정보   // 스폰 포인트 위치 정보
     private int currentWave = 0;  // 현재 웨이브
     private int remainingMonsters; // 현재 웨이브의 남은 몬스터 수
 
@@ -74,12 +74,12 @@ void InitializeObjectPools()
 
         foreach (var spawnInfo in waves[currentWave].spawnInfos)
         {
-            Transform spawnPoint = spawnPoints[spawnInfo.spawnPointIndex];
+            GameObject spawnPoint = spawnPoints[spawnInfo.spawnPointIndex];
             foreach (var monsterData in spawnInfo.monstersToSpawn)
             {
                 for (int i = 0; i < monsterData.count; i++)
                 {
-                    SpawnMonster(monsterData.monsterPrefab, spawnPoint.position);
+                    SpawnMonster(monsterData.monsterPrefab, spawnPoint);
                     remainingMonsters++;
                 }
             }
@@ -88,8 +88,7 @@ void InitializeObjectPools()
         currentWave++;  // 웨이브 시작 후 currentWave 값을 증가시킵니다.
     }
 
-
-    void SpawnMonster(GameObject monsterPrefab, Vector3 position)
+    void SpawnMonster(GameObject monsterPrefab, GameObject spawnPointObj)
     {
         GameObject monsterToSpawn = null;
 
@@ -104,7 +103,8 @@ void InitializeObjectPools()
 
         if (monsterToSpawn != null)
         {
-            monsterToSpawn.transform.position = position;
+            monsterToSpawn.transform.position = spawnPointObj.transform.position;
+            monsterToSpawn.transform.SetParent(spawnPointObj.transform);  // 몬스터의 부모를 해당 SpawnPoint로 설정
             monsterToSpawn.SetActive(true);
         }
     }
