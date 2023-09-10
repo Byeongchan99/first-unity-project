@@ -43,7 +43,7 @@ public abstract class BaseChargeWeapon : MonoBehaviour
     // 무기 활성화 종료
     public abstract void EndAttack();
     // 차지 공격
-    public abstract void ChargingAttack(BaseState state, Vector2 dir);
+    public abstract void ChargingAttack(BaseState state, Vector2 dir, int chargeLevel);
     // 스킬
     public abstract void Skill(BaseState state);
 }

@@ -29,7 +29,7 @@ public class ChargeWeapon : BaseChargeWeapon
         childSpriteRenderer.enabled = false;
     }
 
-    public override void ChargingAttack(BaseState state, Vector2 dir)
+    public override void ChargingAttack(BaseState state, Vector2 dir, int chargeLevel)
     {
         // 발사체 발사 로직
         Transform bulletTransform = GameManager.instance.pool.Get(bulletID).transform;
@@ -38,9 +38,13 @@ public class ChargeWeapon : BaseChargeWeapon
         bulletTransform.position = transform.position;
         bulletTransform.rotation = Quaternion.FromToRotation(Vector3.up, dir);
 
-        float finalDamage = bulletComponent.Damage * damageCoefficient; // 데미지 계수를 사용한 최종 데미지 계산
-        bulletComponent.Init(finalDamage, bulletComponent.Per, dir);
+        // chargeLevel에 따라 데미지 계수를 결정(예를 들어)
+        float chargeCoefficient = 0.5f + (chargeLevel * 0.5f);
+
+        float finalDamage = bulletComponent.Damage * damageCoefficient * chargeCoefficient;
+        bulletComponent.Init(finalDamage, bulletComponent.Per, dir, chargeLevel);
     }
+
 
     public override void Skill(BaseState state)
     {

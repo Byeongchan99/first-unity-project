@@ -8,10 +8,13 @@ public class Bullet : MonoBehaviour
     public int Per;
     private float originalDamage; // 원래 설정한 Damage 값 저장용
     private int originalPer;     // 원래 설정한 Per 값 저장용
+    public float bulletLifeTime = 5.0f; // 총알이 사라지기까지의 시간 (기본 5초)
+    // 기본 발사 속도 (chargeLevel = 1일 때의 속도)
+    public float baseSpeed = 15f;
 
     Rigidbody2D rb;
 
-    public float bulletLifeTime = 5.0f; // 총알이 사라지기까지의 시간 (기본 5초)
+
 
     void OnEnable()
     {
@@ -43,27 +46,31 @@ public class Bullet : MonoBehaviour
     }
 
     // 데미지, 관통력, 방향
-    public void Init(float damage, int per, Vector3 dir)
+    public void Init(float damage, int per, Vector3 dir, int chargeLevel)
     {
         this.Damage = damage;
         this.Per = per;
         originalDamage = damage;
         originalPer = per;
 
-        if (per > -1)
+        // chargeLevel에 따라 발사 속도를 조절
+        float speedMultiplier = 1.0f + (chargeLevel - 1) * 0.5f; // chargeLevel 1은 기본 속도, 그 이후로는 50%씩 증가
+        float finalSpeed = baseSpeed * speedMultiplier;
+
+        if (per > 0)
         {
-            rb.velocity = dir * 15f;
+            rb.velocity = dir * finalSpeed;
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Enemy") || Per == -1)
+        if (!collision.CompareTag("Enemy") || Per == 0)
             return;
 
         Per--;
 
-        if (Per == -1)
+        if (Per == 0)
         {
             rb.velocity = Vector2.zero;
             gameObject.SetActive(false);

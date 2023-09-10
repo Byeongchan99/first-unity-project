@@ -13,8 +13,8 @@ namespace CharacterController
 
         // 당기는 강도 및 최대 당기는 강도
         private float chargeTime = 0f;
-        private const float maxChargeTime = 100f;
-        private const float chargeRate = 20f;
+        private int chargeLevel = 0;  // 현재 차지 단계
+
         // 공격 각도(방향) 및 마우스 위치
         public Vector2 direction;
         public Vector2 mousePosition;
@@ -39,22 +39,50 @@ namespace CharacterController
                 // 활 회전 로직
                 RotateBowToMousePosition();
 
-                chargeTime += chargeRate * Time.deltaTime;
-                if (chargeTime > maxChargeTime)
+                chargeTime += Time.deltaTime;  // Time.deltaTime을 통해 시간을 누적
+
+                // 차지 단계 업데이트
+                if (chargeTime < 0.5f)
                 {
-                    chargeTime = maxChargeTime;
+                    chargeLevel = 0;
+                }
+                else if (chargeTime < 1.0f)
+                {
+                    if (chargeLevel < 1)
+                    {
+                        chargeLevel = 1;
+                        Debug.Log("1차지");
+                    }
+                }
+                else if (chargeTime < 1.5f)
+                {
+                    if (chargeLevel < 2)
+                    {
+                        chargeLevel = 2;
+                        Debug.Log("2차지");
+                    }
+                }
+                else
+                {
+                    if (chargeLevel < 3)
+                    {
+                        chargeLevel = 3;
+                        Debug.Log("3차지");
+                    }
                 }
 
                 UpdateWeaponAndHandPosition(chargeTime);
             }
             else
             {
-                // 마우스 버튼을 뗀 경우 화살 발사
+                // 마우스 버튼을 뗀 경우 화살 발사           
                 direction = mousePosition - (Vector2)PlayerStat.Instance.transform.position;
-                PlayerStat.Instance.chargeWeaponManager.Weapon?.ChargingAttack(this, direction.normalized);
+                if (chargeLevel != 0)
+                    PlayerStat.Instance.chargeWeaponManager.Weapon?.ChargingAttack(this, direction.normalized, chargeLevel);
                 PlayerStat.Instance.stateMachine.ChangeState(StateName.MOVE);
             }
         }
+
 
         private void RotateBowToMousePosition()
         {
