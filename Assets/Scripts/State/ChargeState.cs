@@ -76,7 +76,9 @@ namespace CharacterController
             else
             {
                 // 마우스 버튼을 뗀 경우 화살 발사           
-                direction = mousePosition - (Vector2)PlayerStat.Instance.transform.position;
+                Vector2 bowWorldPosition = PlayerStat.Instance.transform.position + (Vector3)PlayerStat.Instance.chargeWeaponManager.Weapon.HandleData.localPosition;
+                direction = mousePosition - bowWorldPosition;
+
                 if (chargeLevel != 0)
                     PlayerStat.Instance.chargeWeaponManager.Weapon?.ChargingAttack(this, direction.normalized, chargeLevel);
                 PlayerStat.Instance.stateMachine.ChangeState(StateName.MOVE);
