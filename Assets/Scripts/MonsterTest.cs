@@ -129,10 +129,10 @@ public class MonsterTest : MonoBehaviour
                     ChangeState(MonsterState.DEAD);
                 }
                 */
+                health -= PlayerStat.Instance.weaponManager.Weapon.AttackDamage;
 
                 if (health > 0)
-                {
-                    health -= PlayerStat.Instance.weaponManager.Weapon.AttackDamage;
+                {                   
                     StartCoroutine(FlashSprite());  // 깜빡거림 시작
                     StartCoroutine(KnockBack());
                     Debug.Log("체력 감소! 남은 체력 " + health);

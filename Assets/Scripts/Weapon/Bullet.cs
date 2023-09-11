@@ -6,9 +6,10 @@ public class Bullet : MonoBehaviour
 {
     public float Damage;
     public int Per;
-    private float originalDamage; // 원래 설정한 Damage 값 저장용
-    private int originalPer;     // 원래 설정한 Per 값 저장용
-    public float bulletLifeTime = 5.0f; // 총알이 사라지기까지의 시간 (기본 5초)
+    public float originalDamage; // 원래 설정한 Damage 값 저장용
+    public int originalPer;     // 원래 설정한 Per 값 저장용
+    // 총알이 사라지기까지의 시간 (기본 5초)
+    public float bulletLifeTime = 5.0f; 
     // 기본 발사 속도 (chargeLevel = 1일 때의 속도)
     public float baseSpeed = 15f;
 
@@ -50,8 +51,6 @@ public class Bullet : MonoBehaviour
     {
         this.Damage = damage;
         this.Per = per;
-        originalDamage = damage;
-        originalPer = per;
 
         // chargeLevel에 따라 발사 속도를 조절
         float speedMultiplier = 1.0f + (chargeLevel - 1) * 0.5f; // chargeLevel 1은 기본 속도, 그 이후로는 50%씩 증가

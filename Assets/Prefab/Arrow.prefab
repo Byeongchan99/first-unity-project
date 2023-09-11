@@ -75,6 +75,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   Per: 1
+  originalDamage: 0
+  originalPer: 0
   bulletLifeTime: 5
   baseSpeed: 15
 --- !u!50 &7845133949518739707

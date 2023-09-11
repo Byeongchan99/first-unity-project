@@ -41,8 +41,8 @@ public class ChargeWeapon : BaseChargeWeapon
         // chargeLevel에 따라 데미지 계수를 결정(예를 들어)
         float chargeCoefficient = 0.5f + (chargeLevel * 0.5f);
 
-        float finalDamage = bulletComponent.Damage * damageCoefficient * chargeCoefficient;
-        bulletComponent.Init(finalDamage, bulletComponent.Per, dir, chargeLevel);
+        float finalDamage = bulletComponent.originalDamage * damageCoefficient * chargeCoefficient; // OriginalDamage를 사용
+        bulletComponent.Init(finalDamage, bulletComponent.originalPer, dir, chargeLevel);  // OriginalPer를 사용
     }
 
 
