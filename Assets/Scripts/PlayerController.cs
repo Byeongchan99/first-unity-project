@@ -25,10 +25,22 @@ public class PlayerController : MonoBehaviour
     public Vector2 attackDirection;   // 공격 방향
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
 
+    [Header("ChargeWeapon 관련")]
+    public static Transform ChargeWeaponPosition;
+    public static Transform leftHand;
+    public static Transform rightHand;
+
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerStat = GetComponent<PlayerStat>();
+        ChargeWeaponPosition = transform.Find("ChargeWeaponPosition");
+        leftHand = ChargeWeaponPosition.Find("LeftHand");
+        rightHand = ChargeWeaponPosition.Find("RightHand");
+
+        // SpriteRenderer 비활성화
+        leftHand.GetComponent<SpriteRenderer>().enabled = false;
+        rightHand.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     void Start()
