@@ -71,10 +71,12 @@ public class MonsterTest : MonoBehaviour
             Vector2Int playerPos = astarComponent.WorldToTilemapPosition(target.position);
             anim.SetBool("IsChase", true);
 
+            Debug.Log("monsterPos : " + monsterPos.x + " " + monsterPos.y + " playerPos : " + playerPos.x + " " + playerPos.y);
+
             List<Node> path = astarComponent.PathFinding(monsterPos, playerPos);  // Astar 컴포넌트를 이용해 경로 탐색
             if (path != null && path.Count > 1) // 첫 번째 노드는 현재 위치이므로 두 번째 노드로 이동
             {
-                Vector2 nextPosition = new Vector2(path[1].x, path[1].y);
+                Vector2 nextPosition = astarComponent.TilemapToWorldPosition(new Vector2Int(path[1].x, path[1].y));
                 moveDirection = (nextPosition - (Vector2)transform.position).normalized;
                 anim.SetFloat("Direction.X", moveDirection.x);
                 anim.SetFloat("Direction.Y", moveDirection.y);

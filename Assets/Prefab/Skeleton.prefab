@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b96940335591f4f97a08916f6c3c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomLeft: {x: -10, y: -10}
-  topRight: {x: 10, y: 10}
+  bottomLeft: {x: -5, y: -5}
+  topRight: {x: 5, y: 5}
   startPos: {x: 0, y: 0}
   targetPos: {x: 0, y: 0}
   FinalNodeList: []

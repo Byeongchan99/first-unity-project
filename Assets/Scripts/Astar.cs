@@ -17,7 +17,8 @@ public class Node
 
 public class Astar : MonoBehaviour
 {
-    public Vector2Int bottomLeft, topRight, startPos, targetPos;
+    public Vector2Int bottomLeft, topRight;   // 맵의 하단 좌측과 상단 우측의 월드 좌표
+    public Vector2Int startPos, targetPos;   // 시작점과 목표점의 타일맵 좌표
     public List<Node> FinalNodeList = new List<Node>();  // 바로 초기화하여 null 문제 제거
     public bool allowDiagonal, dontCrossCorner;
 
@@ -26,22 +27,24 @@ public class Astar : MonoBehaviour
     Node StartNode, TargetNode, CurNode;
     List<Node> OpenList, ClosedList;
 
-    public Vector2Int WorldToTilemapPosition(Vector2 worldPos)
+    public Vector2Int WorldToTilemapPosition(Vector2 worldPos)   // 월드 좌표를 타일맵 좌표로 변환
     {
-        return new Vector2Int(Mathf.FloorToInt(worldPos.x + 0.5f), Mathf.FloorToInt(worldPos.y + 0.5f));
+        int x = Mathf.FloorToInt((worldPos.x - bottomLeft.x) / 0.5f);
+        int y = Mathf.FloorToInt((worldPos.y - bottomLeft.y) / 0.5f);
+
+        return new Vector2Int(x, y);
     }
 
-    public Vector2 TilemapToWorldPosition(Vector2Int tilemapPos)
+    public Vector2 TilemapToWorldPosition(Vector2Int tilemapPos)   // 타일맵 좌표를 월드 좌표로 변환
     {
-        return new Vector2(tilemapPos.x * 0.5f, tilemapPos.y * 0.5f);
+        return new Vector2(tilemapPos.x * 0.5f - 5f, tilemapPos.y * 0.5f - 5f);
     }
 
-    public List<Node> PathFinding(Vector2Int start, Vector2Int target)
+    public List<Node> PathFinding(Vector2Int startPos, Vector2Int target)   // 시작 타일맵 좌표, 목표 타일맵 좌표
     {
-        startPos = WorldToTilemapPosition(start);
-        targetPos = WorldToTilemapPosition(target);
-        sizeX = (topRight.x - bottomLeft.x) * 2 + 1;  // 타일맵 좌표로 변환
-        sizeY = (topRight.y - bottomLeft.y) * 2 + 1;  // 타일맵 좌표로 변환
+        sizeX = (topRight.x - bottomLeft.x) * 2;  // 타일맵 가로 크기 = 맵의 상단 오른쪽 월드 좌표 - 맵의 하단 왼쪽 월드 좌표
+        sizeY = (topRight.y - bottomLeft.y) * 2;  // 타일맵 세로 크기
+        Debug.Log("start : " + startPos + " target : " + target + " sizeX : " + sizeX + " sizeY : " + sizeY);
 
         NodeArray = new Node[sizeX, sizeY];
 
@@ -58,8 +61,10 @@ public class Astar : MonoBehaviour
             }
         }
 
-        StartNode = NodeArray[startPos.x - bottomLeft.x, startPos.y - bottomLeft.y];
-        TargetNode = NodeArray[targetPos.x - bottomLeft.x, targetPos.y - bottomLeft.y];
+        StartNode = NodeArray[startPos.x, startPos.y];   // 시작 노드
+        TargetNode = NodeArray[target.x, target.y];   // 목표 노드
+
+        Debug.Log("StartNode : " + StartNode.x + " " + StartNode.y + " TargetNode : " + TargetNode.x + " " + TargetNode.y);
 
         OpenList = new List<Node>() { StartNode };
         ClosedList = new List<Node>();
@@ -108,13 +113,16 @@ public class Astar : MonoBehaviour
 
     void OpenListAdd(int checkX, int checkY)
     {
-        if (checkX >= bottomLeft.x && checkX < topRight.x + 1 && checkY >= bottomLeft.y && checkY < topRight.y + 1)
+        Vector2Int tilemapBottomLeft = WorldToTilemapPosition(bottomLeft);
+        Vector2Int tilemapTopRight = WorldToTilemapPosition(topRight);
+
+        if (checkX >= tilemapBottomLeft.x && checkX < tilemapTopRight.x + 1 && checkY >= tilemapBottomLeft.y && checkY < tilemapTopRight.y + 1) 
         {
-            Node checkingNode = NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y];
+            Node checkingNode = NodeArray[checkX, checkY];
             if (!checkingNode.isWall && !ClosedList.Contains(checkingNode))
             {
-                if (allowDiagonal) if (NodeArray[CurNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall && NodeArray[checkX - bottomLeft.x, CurNode.y - bottomLeft.y].isWall) return;
-                if (dontCrossCorner) if (NodeArray[CurNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall || NodeArray[checkX - bottomLeft.x, CurNode.y - bottomLeft.y].isWall) return;
+                if (allowDiagonal) if (NodeArray[CurNode.x - tilemapBottomLeft.x, checkY - tilemapBottomLeft.y].isWall && NodeArray[checkX - tilemapBottomLeft.x, CurNode.y - tilemapBottomLeft.y].isWall) return;
+                if (dontCrossCorner) if (NodeArray[CurNode.x - tilemapBottomLeft.x, checkY - tilemapBottomLeft.y].isWall || NodeArray[checkX - tilemapBottomLeft.x, CurNode.y - tilemapBottomLeft.y].isWall) return;
 
                 int MoveCost = CurNode.G + (CurNode.x - checkX == 0 || CurNode.y - checkY == 0 ? 10 : 14);
 
