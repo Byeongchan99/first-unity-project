@@ -26,12 +26,23 @@ public class Astar : MonoBehaviour
     Node StartNode, TargetNode, CurNode;
     List<Node> OpenList, ClosedList;
 
+    public Vector2Int WorldToTilemapPosition(Vector2 worldPos)
+    {
+        return new Vector2Int(Mathf.FloorToInt(worldPos.x + 0.5f), Mathf.FloorToInt(worldPos.y + 0.5f));
+    }
+
+    public Vector2 TilemapToWorldPosition(Vector2Int tilemapPos)
+    {
+        return new Vector2(tilemapPos.x * 0.5f, tilemapPos.y * 0.5f);
+    }
+
     public List<Node> PathFinding(Vector2Int start, Vector2Int target)
     {
-        startPos = start;
-        targetPos = target;
-        sizeX = topRight.x - bottomLeft.x + 1;
-        sizeY = topRight.y - bottomLeft.y + 1;
+        startPos = WorldToTilemapPosition(start);
+        targetPos = WorldToTilemapPosition(target);
+        sizeX = (topRight.x - bottomLeft.x) * 2 + 1;  // Å¸ÀÏ¸Ê ÁÂÇ¥·Î º¯È¯
+        sizeY = (topRight.y - bottomLeft.y) * 2 + 1;  // Å¸ÀÏ¸Ê ÁÂÇ¥·Î º¯È¯
+
         NodeArray = new Node[sizeX, sizeY];
 
         for (int i = 0; i < sizeX; i++)
@@ -39,10 +50,11 @@ public class Astar : MonoBehaviour
             for (int j = 0; j < sizeY; j++)
             {
                 bool isWall = false;
-                foreach (Collider2D col in Physics2D.OverlapCircleAll(new Vector2(i + bottomLeft.x, j + bottomLeft.y), 0.4f))
+                Vector2 worldPosition = TilemapToWorldPosition(new Vector2Int(i, j));
+                foreach (Collider2D col in Physics2D.OverlapCircleAll(worldPosition, 0.4f))
                     if (col.gameObject.layer == LayerMask.NameToLayer("Wall")) isWall = true;
 
-                NodeArray[i, j] = new Node(isWall, i + bottomLeft.x, j + bottomLeft.y);
+                NodeArray[i, j] = new Node(isWall, i, j);
             }
         }
 
@@ -122,7 +134,10 @@ public class Astar : MonoBehaviour
     {
         if (FinalNodeList != null && FinalNodeList.Count != 0)
             for (int i = 0; i < FinalNodeList.Count - 1; i++)
-                Gizmos.DrawLine(new Vector2(FinalNodeList[i].x, FinalNodeList[i].y), new Vector2(FinalNodeList[i + 1].x, FinalNodeList[i + 1].y));
+            {
+                Vector2 startPos = TilemapToWorldPosition(new Vector2Int(FinalNodeList[i].x, FinalNodeList[i].y));
+                Vector2 endPos = TilemapToWorldPosition(new Vector2Int(FinalNodeList[i + 1].x, FinalNodeList[i + 1].y));
+                Gizmos.DrawLine(startPos, endPos);
+            }
     }
 }
-

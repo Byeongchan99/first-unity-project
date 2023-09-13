@@ -62,14 +62,16 @@ public class MonsterTest : MonoBehaviour
 
     IEnumerator CHASE()
     {
+        Astar astarComponent = GetComponent<Astar>();  // Astar 컴포넌트를 가져옵니다.
+
         // A* 알고리즘을 이용한 추적 로직 구현
         while (monsterState == MonsterState.CHASE)
         {
-            Vector2Int monsterPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
-            Vector2Int playerPos = new Vector2Int(Mathf.RoundToInt(target.position.x), Mathf.RoundToInt(target.position.y));
+            Vector2Int monsterPos = astarComponent.WorldToTilemapPosition(transform.position);
+            Vector2Int playerPos = astarComponent.WorldToTilemapPosition(target.position);
             anim.SetBool("IsChase", true);
 
-            List<Node> path = astar.PathFinding(monsterPos, playerPos);
+            List<Node> path = astarComponent.PathFinding(monsterPos, playerPos);  // Astar 컴포넌트를 이용해 경로 탐색
             if (path != null && path.Count > 1) // 첫 번째 노드는 현재 위치이므로 두 번째 노드로 이동
             {
                 Vector2 nextPosition = new Vector2(path[1].x, path[1].y);
@@ -88,6 +90,7 @@ public class MonsterTest : MonoBehaviour
             yield return new WaitForSeconds(0.1f); // 0.1초마다 경로를 업데이트 (빈도 조절 가능)
         }
     }
+
 
     IEnumerator ATTACK()
     {
