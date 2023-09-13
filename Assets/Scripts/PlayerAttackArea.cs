@@ -83,4 +83,18 @@ public class PlayerAttackArea : BaseAttackArea
             trailRenderer.enabled = false;  // 트레일 렌더러 비활성화
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // 적에게 적중되었을 때
+        if (other.CompareTag("Enemy"))
+        {
+            // Energy 회복
+            PlayerStat.Instance.CurrentEnergy += 1;
+            Debug.Log("에너지: " + PlayerStat.Instance.CurrentEnergy);
+            // 최대 Energy를 초과하는지 검사하고 초과 시 최대치로 설정
+            PlayerStat.Instance.CurrentEnergy = Mathf.Min(PlayerStat.Instance.CurrentEnergy, PlayerStat.Instance.MaxEnergy);
+        }
+    }
+
 }

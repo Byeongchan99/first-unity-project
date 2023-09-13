@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCharge()
     {
-        if (rollState.IsRoll || AttackState.IsAttack) 
+        if (rollState.IsRoll || AttackState.IsAttack || PlayerStat.Instance.CurrentEnergy < 1) 
             return;
 
         playerStat.stateMachine.ChangeState(StateName.CHARGE);

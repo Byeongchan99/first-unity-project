@@ -26,10 +26,16 @@ public class PlayerStat : MonoBehaviour
     public float Armor { get { return armor; } }
     public int Level { get { return level; } }
     public int Kill { get { return kill; } }
-    public float MoveSpeed { get { return moveSpeed; } }
-    public float RollSpeed { get { return rollSpeed; } }
-    public float RollCooltime { get { return rollCooltime; } }
+    public float MoveSpeed { get { return moveSpeed; } }   // 이동 속도
+    public float RollSpeed { get { return rollSpeed; } }   // 구르기 속도
+    public float RollCooltime { get { return rollCooltime; } }   // 구르기 쿨타임
     public float InvincibleTime { get { return invincibleTime; } }   // 무적 시간
+    public int MaxEnergy { get { return maxEnergy; } }   // 최대 원거리 공격 소모 자원
+    public int CurrentEnergy   // 현재 원거리 공격 소모 자원
+    {
+        get { return currentEnergy; }
+        set { currentEnergy = value; }
+    }
 
     [Header("캐릭터 스탯")]
     [SerializeField] protected int playerID;
@@ -42,7 +48,8 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] protected float rollSpeed;
     [SerializeField] protected float rollCooltime;
     [SerializeField] protected float invincibleTime;
-
+    [SerializeField] protected int currentEnergy;
+    [SerializeField] protected int maxEnergy;
 
     void Awake()
     {
@@ -85,7 +92,7 @@ public class PlayerStat : MonoBehaviour
         stateMachine?.FixedUpdateState();
     }
 
-    public void OnUpdateStat(int playerID, float maxHP, float currentHP, float armor, int level, int kill, float moveSpeed, float rollSpeed, float rollCooltime)
+    public void OnUpdateStat(int playerID, float maxHP, float currentHP, float armor, int level, int kill, float moveSpeed, float rollSpeed, float rollCooltime, int currentEnergy, int maxEnergy)
     {
         this.playerID = playerID;
         this.maxHP = maxHP;
@@ -96,6 +103,8 @@ public class PlayerStat : MonoBehaviour
         this.moveSpeed = moveSpeed;
         this.rollSpeed = rollSpeed;
         this.rollCooltime = rollCooltime;
+        this.currentEnergy = currentEnergy;
+        this.maxEnergy = maxEnergy;
     }
 
     private void InitStateMachine()

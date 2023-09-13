@@ -31,6 +31,12 @@ public class ChargeWeapon : BaseChargeWeapon
 
     public override void ChargingAttack(BaseState state, Vector2 dir, int chargeLevel)
     {
+        // Energy 소모
+        PlayerStat.Instance.CurrentEnergy -= 1;
+        Debug.Log("에너지: " + PlayerStat.Instance.CurrentEnergy);
+        if (PlayerStat.Instance.CurrentEnergy < 0)
+            PlayerStat.Instance.CurrentEnergy = 0;
+
         // 발사체 발사 로직
         Transform bulletTransform = GameManager.instance.pool.Get(bulletID).transform;
         Bullet bulletComponent = bulletTransform.GetComponent<Bullet>();
