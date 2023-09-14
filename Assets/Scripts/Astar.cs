@@ -18,7 +18,6 @@ public class Node
 public class Astar : MonoBehaviour
 {
     public Vector2Int bottomLeft, topRight;   // 맵의 하단 좌측과 상단 우측의 월드 좌표
-    public Vector2Int startPos, targetPos;   // 시작점과 목표점의 타일맵 좌표
     public List<Node> FinalNodeList = new List<Node>();  // 바로 초기화하여 null 문제 제거
     public bool allowDiagonal, dontCrossCorner;
 
@@ -40,11 +39,10 @@ public class Astar : MonoBehaviour
         return new Vector2(tilemapPos.x * 0.5f - 5f, tilemapPos.y * 0.5f - 5f);
     }
 
-    public List<Node> PathFinding(Vector2Int startPos, Vector2Int target)   // 시작 타일맵 좌표, 목표 타일맵 좌표
+    public List<Node> PathFinding(Vector2Int startPos, Vector2Int targetPos)   // 시작 타일맵 좌표, 목표 타일맵 좌표
     {
-        sizeX = (topRight.x - bottomLeft.x) * 2;  // 타일맵 가로 크기 = 맵의 상단 오른쪽 월드 좌표 - 맵의 하단 왼쪽 월드 좌표
-        sizeY = (topRight.y - bottomLeft.y) * 2;  // 타일맵 세로 크기
-        Debug.Log("start : " + startPos + " target : " + target + " sizeX : " + sizeX + " sizeY : " + sizeY);
+        sizeX = (topRight.x - bottomLeft.x) * 2;  // 타일맵 가로 좌표
+        sizeY = (topRight.y - bottomLeft.y) * 2;  // 타일맵 세로 좌표
 
         NodeArray = new Node[sizeX, sizeY];
 
@@ -62,9 +60,7 @@ public class Astar : MonoBehaviour
         }
 
         StartNode = NodeArray[startPos.x, startPos.y];   // 시작 노드
-        TargetNode = NodeArray[target.x, target.y];   // 목표 노드
-
-        Debug.Log("StartNode : " + StartNode.x + " " + StartNode.y + " TargetNode : " + TargetNode.x + " " + TargetNode.y);
+        TargetNode = NodeArray[targetPos.x, targetPos.y];   // 목표 노드
 
         OpenList = new List<Node>() { StartNode };
         ClosedList = new List<Node>();
@@ -85,9 +81,12 @@ public class Astar : MonoBehaviour
                 while (TargetCurNode != StartNode)
                 {
                     FinalNodeList.Add(TargetCurNode);
+                    // 여기서 노드 정보를 디버그 창에 출력
+
                     TargetCurNode = TargetCurNode.ParentNode;
                 }
                 FinalNodeList.Add(StartNode);
+
                 FinalNodeList.Reverse();
 
                 // for (int i = 0; i < FinalNodeList.Count; i++) print(i + "번째는 " + FinalNodeList[i].x + ", " + FinalNodeList[i].y);
