@@ -81,12 +81,9 @@ public class Astar : MonoBehaviour
                 while (TargetCurNode != StartNode)
                 {
                     FinalNodeList.Add(TargetCurNode);
-                    // 여기서 노드 정보를 디버그 창에 출력
-
                     TargetCurNode = TargetCurNode.ParentNode;
                 }
                 FinalNodeList.Add(StartNode);
-
                 FinalNodeList.Reverse();
 
                 // for (int i = 0; i < FinalNodeList.Count; i++) print(i + "번째는 " + FinalNodeList[i].x + ", " + FinalNodeList[i].y);
@@ -115,7 +112,9 @@ public class Astar : MonoBehaviour
         Vector2Int tilemapBottomLeft = WorldToTilemapPosition(bottomLeft);
         Vector2Int tilemapTopRight = WorldToTilemapPosition(topRight);
 
-        if (checkX >= tilemapBottomLeft.x && checkX < tilemapTopRight.x + 1 && checkY >= tilemapBottomLeft.y && checkY < tilemapTopRight.y + 1) 
+        
+
+        if (checkX >= tilemapBottomLeft.x && checkX < tilemapTopRight.x  && checkY >= tilemapBottomLeft.y && checkY < tilemapTopRight.y ) 
         {
             Node checkingNode = NodeArray[checkX, checkY];
             if (!checkingNode.isWall && !ClosedList.Contains(checkingNode))

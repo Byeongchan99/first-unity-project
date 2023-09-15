@@ -576,7 +576,7 @@ GameObject:
   - component: {fileID: 541910851}
   - component: {fileID: 541910852}
   - component: {fileID: 541910850}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1974,7 +1974,7 @@ CompositeCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541910845}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2410,33 +2410,33 @@ MonoBehaviour:
   waves:
   - spawnInfos:
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 6932611830405075372, guid: 73781ce9a8bee4e41bff5378dca78168,
+      - monsterPrefab: {fileID: 7298701620345412785, guid: 7617e83684b4b9d4fb2050401b3613f6,
           type: 3}
         count: 1
       spawnPointIndex: 0
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 6932611830405075372, guid: 73781ce9a8bee4e41bff5378dca78168,
+      - monsterPrefab: {fileID: 7298701620345412785, guid: 7617e83684b4b9d4fb2050401b3613f6,
           type: 3}
         count: 1
       spawnPointIndex: 1
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 286633185898101089, guid: 3f98f7f51bcf02b43a737ec18d278399,
+      - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
           type: 3}
         count: 2
       spawnPointIndex: 2
   - spawnInfos:
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 6932611830405075372, guid: 73781ce9a8bee4e41bff5378dca78168,
+      - monsterPrefab: {fileID: 7298701620345412785, guid: 7617e83684b4b9d4fb2050401b3613f6,
           type: 3}
         count: 2
       spawnPointIndex: 0
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 286633185898101089, guid: 3f98f7f51bcf02b43a737ec18d278399,
+      - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
           type: 3}
         count: 1
       spawnPointIndex: 1
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 286633185898101089, guid: 3f98f7f51bcf02b43a737ec18d278399,
+      - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
           type: 3}
         count: 1
       spawnPointIndex: 2
@@ -8057,6 +8057,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1724662782}
     m_Modifications:
+    - target: {fileID: 861491207302173068, guid: 92227f73efd99e148a64af163ad34907,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300042, guid: 29c9cded5e558164aaf8c9bf08aa1510,
+        type: 3}
+    - target: {fileID: 861491207302173068, guid: 92227f73efd99e148a64af163ad34907,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 861491207302173069, guid: 92227f73efd99e148a64af163ad34907,
         type: 3}
       propertyPath: m_RootOrder
@@ -8132,6 +8143,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1724662782}
     m_Modifications:
+    - target: {fileID: 2026897754703344235, guid: 13a66d98a7efba248a49acec0e3dca72,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300044, guid: 29c9cded5e558164aaf8c9bf08aa1510,
+        type: 3}
+    - target: {fileID: 2026897754703344235, guid: 13a66d98a7efba248a49acec0e3dca72,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3903205911204212416, guid: 13a66d98a7efba248a49acec0e3dca72,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300042, guid: 29c9cded5e558164aaf8c9bf08aa1510,
+        type: 3}
+    - target: {fileID: 3903205911204212416, guid: 13a66d98a7efba248a49acec0e3dca72,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3903205911204212417, guid: 13a66d98a7efba248a49acec0e3dca72,
         type: 3}
       propertyPath: m_RootOrder
