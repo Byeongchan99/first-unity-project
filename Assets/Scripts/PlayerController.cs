@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
                 if (GameManager.instance.isInvincible) 
                     return;
 
-                PlayerStat.Instance.CurrentHP -= 10;   // 나중에 몬스터의 공격력을 넣어주도록 업데이트
+                PlayerStat.Instance.CurrentHP -= 1;   // 나중에 몬스터의 공격력을 넣어주도록 업데이트
                 Debug.Log("체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
 
                 if (PlayerStat.Instance.CurrentHP <= 0)

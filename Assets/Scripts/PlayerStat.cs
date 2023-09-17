@@ -12,16 +12,26 @@ public class PlayerStat : MonoBehaviour
     public Rigidbody2D rigidBody { get; private set; }
     public Animator animator { get; private set; }
     public Animator shadowAnimator { get; private set; }
+    // 체력 에너지 UI 이벤트 추가
+    public delegate void StatChangeDelegate();
+    public event StatChangeDelegate OnHealthChange;
+    public event StatChangeDelegate OnEnergyChange;
 
     [SerializeField] private Transform rightHand;
     [SerializeField] private Transform chargeWeaponPos;
+
     private static PlayerStat instance;
 
     public int PlayerID { get { return playerID; } }
-    public float MaxHP { get { return maxHP; } }
-    public float CurrentHP { 
+    public int MaxHP { get { return maxHP; } }
+    public int CurrentHP
+    {
         get { return currentHP; }
-        set { currentHP = value; }
+        set
+        {
+            currentHP = Mathf.Clamp(value, 0, maxHP);  // 체력 최대치 제한
+            OnHealthChange?.Invoke(); // 체력 변화 이벤트 발생
+        }
     }
     public float Armor { get { return armor; } }
     public int Level { get { return level; } }
@@ -31,16 +41,20 @@ public class PlayerStat : MonoBehaviour
     public float RollCooltime { get { return rollCooltime; } }   // 구르기 쿨타임
     public float InvincibleTime { get { return invincibleTime; } }   // 무적 시간
     public int MaxEnergy { get { return maxEnergy; } }   // 최대 원거리 공격 소모 자원
-    public int CurrentEnergy   // 현재 원거리 공격 소모 자원
+    public int CurrentEnergy
     {
         get { return currentEnergy; }
-        set { currentEnergy = value; }
+        set
+        {
+            currentEnergy = Mathf.Clamp(value, 0, maxEnergy); // 에너지 최대치 제한
+            OnEnergyChange?.Invoke(); // 에너지 변화 이벤트 발생
+        }
     }
 
     [Header("캐릭터 스탯")]
     [SerializeField] protected int playerID;
-    [SerializeField] protected float maxHP;
-    [SerializeField] protected float currentHP;
+    [SerializeField] protected int maxHP;
+    [SerializeField] protected int currentHP;
     [SerializeField] protected float armor;
     [SerializeField] protected int level;
     [SerializeField] protected int kill;
@@ -92,18 +106,18 @@ public class PlayerStat : MonoBehaviour
         stateMachine?.FixedUpdateState();
     }
 
-    public void OnUpdateStat(int playerID, float maxHP, float currentHP, float armor, int level, int kill, float moveSpeed, float rollSpeed, float rollCooltime, int currentEnergy, int maxEnergy)
+    public void OnUpdateStat(int playerID, int maxHP, int currentHP, float armor, int level, int kill, float moveSpeed, float rollSpeed, float rollCooltime, int currentEnergy, int maxEnergy)
     {
         this.playerID = playerID;
         this.maxHP = maxHP;
-        this.currentHP = currentHP;
+        CurrentHP = currentHP;
         this.armor = armor;  
         this.level = level;
         this.kill = kill;
         this.moveSpeed = moveSpeed;
         this.rollSpeed = rollSpeed;
         this.rollCooltime = rollCooltime;
-        this.currentEnergy = currentEnergy;
+        CurrentEnergy = currentEnergy;
         this.maxEnergy = maxEnergy;
     }
 
