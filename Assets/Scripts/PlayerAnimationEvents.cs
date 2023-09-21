@@ -37,11 +37,4 @@ public class PlayerAnimationEvents : MonoBehaviour
             PlayerStat.Instance.rigidBody.MovePosition(hit.point);
         }
     }
-
-    // 공격 이펙트
-    public void StartAttackTrailEffect()
-    {
-        playerAttackArea.CalculateColiderPoints(PlayerStat.Instance.weaponManager.Weapon.AttackRange);
-        StartCoroutine(playerAttackArea.MoveTrailObject());
-    } 
 }
