@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9974c82dfa70da54fbf7269aaa61e33c
+guid: bf0727f4956a8b046817d627b3d5c0de
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FrontMeleeAttack_0
+      name: BackLeftMeleeAttack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 721eceb9ba9fb1f49847b68f3285f3b8
-      internalID: 289459430
+      spriteID: c402b1f7e4c7a9047a5215aedbfc11b3
+      internalID: -495228844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_1
+      name: BackLeftMeleeAttack_1
       rect:
         serializedVersion: 2
         x: 64
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 276101eec420ead4898dfd8859d300aa
-      internalID: -248028725
+      spriteID: c9fc0de36c1d5cc4cb3407bbecf7a472
+      internalID: -796090936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_2
+      name: BackLeftMeleeAttack_2
       rect:
         serializedVersion: 2
         x: 128
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91cf2968c5983d54b91758f8420f5dff
-      internalID: 799727970
+      spriteID: be1493cc6c3a02e4f8411e282806c3b6
+      internalID: -917755312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_3
+      name: BackLeftMeleeAttack_3
       rect:
         serializedVersion: 2
         x: 192
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e0e9261b336ed24e9636e9f9f8afbef
-      internalID: 466969747
+      spriteID: 31ddd2e3f8e6f8b4f98cf6405b99749e
+      internalID: -1428012178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_4
+      name: BackLeftMeleeAttack_4
       rect:
         serializedVersion: 2
         x: 256
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f20947757d646b48bd3301edeff866f
-      internalID: -1159233673
+      spriteID: 7e4581f3ad2235340bba0d1c76f19e23
+      internalID: -140104610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_5
+      name: BackLeftMeleeAttack_5
       rect:
         serializedVersion: 2
         x: 320
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd9ce89963944b14f890d6ded143e780
-      internalID: 1346284747
+      spriteID: 60f55819cb87e804693ed761c694b519
+      internalID: -2045209536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_6
+      name: BackLeftMeleeAttack_6
       rect:
         serializedVersion: 2
         x: 384
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc3a07241c51b75428fad627e9977dc3
-      internalID: 1783104412
+      spriteID: b1caf0848cc4502499a86f9282a0d3d7
+      internalID: -1380885086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_7
+      name: BackLeftMeleeAttack_7
       rect:
         serializedVersion: 2
         x: 448
@@ -278,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a48b9b1afc2beb0479b527a935a14357
-      internalID: 1231662069
+      spriteID: c8ff4d93444200e4594774672a6f61a8
+      internalID: 460010795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_8
+      name: BackLeftMeleeAttack_8
       rect:
         serializedVersion: 2
         x: 512
@@ -299,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e983e4db3ceaef848bcca3fcdc2b3b29
-      internalID: -563048792
+      spriteID: 44b2ea155a134e54c9b08e9851435811
+      internalID: 1241925144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_9
+      name: BackLeftMeleeAttack_9
       rect:
         serializedVersion: 2
         x: 576
@@ -320,14 +320,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac4f3672bb02a844fa7ce976a9b07de2
-      internalID: 168331672
+      spriteID: e3d78018115ae464587e68ac4095cbd8
+      internalID: -331418510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_10
+      name: BackLeftMeleeAttack_10
       rect:
         serializedVersion: 2
         x: 640
@@ -341,14 +341,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 131243b9907b5a14db4081086aae79ce
-      internalID: 727129891
+      spriteID: 18d7d478ddce3024291c714b0f51d579
+      internalID: -627937046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_11
+      name: BackLeftMeleeAttack_11
       rect:
         serializedVersion: 2
         x: 704
@@ -362,14 +362,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c81d93ca2f151c4889041e88ff9f5d3
-      internalID: 1168422554
+      spriteID: ac93fe998f89cbb439a8e9d154c28e35
+      internalID: -2016486232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_12
+      name: BackLeftMeleeAttack_12
       rect:
         serializedVersion: 2
         x: 768
@@ -383,14 +383,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e86bf021f9548249a3bb8e245701ad8
-      internalID: -15738360
+      spriteID: 721891608f58a9b47a17a6b9bde76d40
+      internalID: -470394277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_13
+      name: BackLeftMeleeAttack_13
       rect:
         serializedVersion: 2
         x: 832
@@ -404,14 +404,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c946c0f0252e58d42872940720227df0
-      internalID: -1493768234
+      spriteID: 84c24af0f73d43347881e69c89df030b
+      internalID: -1816609948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_14
+      name: BackLeftMeleeAttack_14
       rect:
         serializedVersion: 2
         x: 896
@@ -425,14 +425,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76b408c123702304ca397c628980fd3b
-      internalID: -1836332515
+      spriteID: 8e9451efa979f7d44b31c80b07a29cc3
+      internalID: -203930506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_15
+      name: BackLeftMeleeAttack_15
       rect:
         serializedVersion: 2
         x: 960
@@ -446,14 +446,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48bcfdeb20340a645a61399a303aa9b9
-      internalID: -1541240996
+      spriteID: 397a1110414f89748a598a37dfd5e1c1
+      internalID: -588191842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_16
+      name: BackLeftMeleeAttack_16
       rect:
         serializedVersion: 2
         x: 1024
@@ -467,14 +467,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 025bb5d68cd71564fbfadae38ac679de
-      internalID: -2142326109
+      spriteID: 0845fb9d287b3294fa0abb897ac50fd5
+      internalID: 842922006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_17
+      name: BackLeftMeleeAttack_17
       rect:
         serializedVersion: 2
         x: 1088
@@ -488,14 +488,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f59bf2ce88da9f44bdd2fbe3b258cc0
-      internalID: -1104613976
+      spriteID: 3e2d7d41f26f2b345b3e933ef87d695e
+      internalID: -1534677610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_18
+      name: BackLeftMeleeAttack_18
       rect:
         serializedVersion: 2
         x: 1152
@@ -509,14 +509,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a97afb3bc305eb4a955f816b2277982
-      internalID: -791312674
+      spriteID: b9be06e731b8a5b499976c53dbb0dd72
+      internalID: 2016452796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_19
+      name: BackLeftMeleeAttack_19
       rect:
         serializedVersion: 2
         x: 1216
@@ -530,14 +530,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48ece3df27832ef47b27015387d969ce
-      internalID: -880257891
+      spriteID: cdfd7f59fa878e446a69bf824fcd128c
+      internalID: -91427335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_20
+      name: BackLeftMeleeAttack_20
       rect:
         serializedVersion: 2
         x: 1280
@@ -551,14 +551,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7eae1e1a50fd1ca47be657dffbc0d6f0
-      internalID: -845017758
+      spriteID: 46a4869d9fd2dc149a0c0a568bac50d8
+      internalID: 1300680216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_21
+      name: BackLeftMeleeAttack_21
       rect:
         serializedVersion: 2
         x: 1344
@@ -572,14 +572,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 055aba1627e0c9c459d1b41555dce5cb
-      internalID: -916017546
+      spriteID: 98403c409849ada418ccb1b6452564f6
+      internalID: 226840381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_22
+      name: BackLeftMeleeAttack_22
       rect:
         serializedVersion: 2
         x: 1408
@@ -593,14 +593,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d56db7c2722f0484e964a922a0ca543d
-      internalID: -2140635854
+      spriteID: 32f1e8471b16fb948b6addff3b3b0311
+      internalID: 164415933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_23
+      name: BackLeftMeleeAttack_23
       rect:
         serializedVersion: 2
         x: 1472
@@ -614,14 +614,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f34e5bdf04b5b574b8df8f1ca2d6ae7c
-      internalID: 1212696710
+      spriteID: 85b691f7fb8c98a4b8916a10225fac7e
+      internalID: 2035190770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_24
+      name: BackLeftMeleeAttack_24
       rect:
         serializedVersion: 2
         x: 1536
@@ -635,14 +635,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e479de1b908f6e54db0829ea59fb204a
-      internalID: -982917405
+      spriteID: 4680d12db3b4d2347a4deaf132aa6968
+      internalID: -1883334825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_25
+      name: BackLeftMeleeAttack_25
       rect:
         serializedVersion: 2
         x: 1600
@@ -656,14 +656,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e681f15e3a31b4043ae185730ce86a4d
-      internalID: -1232424534
+      spriteID: 8d78a0c16f1d27c489937ebb5f269df7
+      internalID: 897264035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_26
+      name: BackLeftMeleeAttack_26
       rect:
         serializedVersion: 2
         x: 1664
@@ -677,14 +677,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff334c922261b3d4bbd426f24cc5facd
-      internalID: 1931045418
+      spriteID: e6fa3ba0793ffc9429d8b5cc74194607
+      internalID: 1572995924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_27
+      name: BackLeftMeleeAttack_27
       rect:
         serializedVersion: 2
         x: 1728
@@ -698,14 +698,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ab65b8561b8d42428775b78a2633632
-      internalID: 271451211
+      spriteID: f7ba417a425b19c4fbb4baf2a6f8526d
+      internalID: 336533422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_28
+      name: BackLeftMeleeAttack_28
       rect:
         serializedVersion: 2
         x: 1792
@@ -719,14 +719,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4a22f1d492277943a561555268a6e67
-      internalID: -550768786
+      spriteID: 7c2039d37ceae3547b62407fb9a3ff47
+      internalID: 1154575172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_29
+      name: BackLeftMeleeAttack_29
       rect:
         serializedVersion: 2
         x: 1856
@@ -740,14 +740,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c16d72877311ff468b34368d72fb97d
-      internalID: -11790183
+      spriteID: 7a88d27f0262d4c47a58c2ecc5a315cb
+      internalID: 1533952644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_30
+      name: BackLeftMeleeAttack_30
       rect:
         serializedVersion: 2
         x: 1920
@@ -761,14 +761,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 204ec6d1f83ac124fa0225afe1026652
-      internalID: 1073771960
+      spriteID: 91cae6578b3552945b5fdfe586e11fb0
+      internalID: -425629676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_31
+      name: BackLeftMeleeAttack_31
       rect:
         serializedVersion: 2
         x: 1984
@@ -782,14 +782,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8e70136b0c656146a10de7bc4188409
-      internalID: -1666748933
+      spriteID: 5f76392bda6786646a7783a0c46b74a8
+      internalID: 34226894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_32
+      name: BackLeftMeleeAttack_32
       rect:
         serializedVersion: 2
         x: 2048
@@ -803,14 +803,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0522f3ecc78c6e4490dc7923ab895c6
-      internalID: 387892569
+      spriteID: ab007f891654b1346aab060d3e3d89b5
+      internalID: 1864018942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_33
+      name: BackLeftMeleeAttack_33
       rect:
         serializedVersion: 2
         x: 2112
@@ -824,14 +824,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f7e6e53430bf724f962ba488a92366b
-      internalID: -966036079
+      spriteID: 3c0f68a42896ee24ea1b925427d7a768
+      internalID: 269782449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_34
+      name: BackLeftMeleeAttack_34
       rect:
         serializedVersion: 2
         x: 2176
@@ -845,14 +845,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39bf5b4fdaf1c0c47a34c8cb368dffb2
-      internalID: -1355426478
+      spriteID: a9d472ff48590b343828fbdd7ef9825a
+      internalID: -944795554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_35
+      name: BackLeftMeleeAttack_35
       rect:
         serializedVersion: 2
         x: 2240
@@ -866,14 +866,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cac7aee2d74e3434c973f2800c3ef4fc
-      internalID: -1093026339
+      spriteID: 0f082ba736b95e94cbf6232fc8317465
+      internalID: -1854833021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_36
+      name: BackLeftMeleeAttack_36
       rect:
         serializedVersion: 2
         x: 2304
@@ -887,14 +887,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55b98ab88b4844c41a6842909d4fc283
-      internalID: -1332681411
+      spriteID: 4db7dc41615ef5c4b96042d7d9b83deb
+      internalID: 110607200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_37
+      name: BackLeftMeleeAttack_37
       rect:
         serializedVersion: 2
         x: 2368
@@ -908,14 +908,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c43244478cf129c4da15953fb0eb29a8
-      internalID: 207056670
+      spriteID: 8e1a9da7db3f4df4499fd10bd8f287aa
+      internalID: -1801291860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_38
+      name: BackLeftMeleeAttack_38
       rect:
         serializedVersion: 2
         x: 2432
@@ -929,14 +929,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1ebe484baf572a4386061fe7cfd2b7b
-      internalID: 70566661
+      spriteID: 1be39b468f81cf045801f4b4bc601f69
+      internalID: -272460993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_39
+      name: BackLeftMeleeAttack_39
       rect:
         serializedVersion: 2
         x: 2496
@@ -950,14 +950,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a450fd5fca224d4da189109f2b05921
-      internalID: 645676163
+      spriteID: 76ab152b06d31ca4587c743173962102
+      internalID: -1049577115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_40
+      name: BackLeftMeleeAttack_40
       rect:
         serializedVersion: 2
         x: 2560
@@ -971,14 +971,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca2190d942c46114cb31137854ae43fc
-      internalID: -208601999
+      spriteID: 83c4a14c5095a404fa070f0ea167c183
+      internalID: -1999428348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_41
+      name: BackLeftMeleeAttack_41
       rect:
         serializedVersion: 2
         x: 2624
@@ -992,14 +992,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8000767b7f44e240a3f8fac5a8e5884
-      internalID: 2098558842
+      spriteID: 033b17682a8ba5942bd343cec0f09aa0
+      internalID: 1056620340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_42
+      name: BackLeftMeleeAttack_42
       rect:
         serializedVersion: 2
         x: 2688
@@ -1013,14 +1013,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c8c113d3e381b3458fba3d84f71fe5e
-      internalID: -1015483129
+      spriteID: a31eca9eb7241e64fbd699c78a8ea54e
+      internalID: -2135870742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_43
+      name: BackLeftMeleeAttack_43
       rect:
         serializedVersion: 2
         x: 2752
@@ -1034,14 +1034,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74f7b8b182993e74a99157c5f1294db5
-      internalID: -446410058
+      spriteID: 260b0b85ef03d93479f03a3b8f6b2bad
+      internalID: 69203007
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_44
+      name: BackLeftMeleeAttack_44
       rect:
         serializedVersion: 2
         x: 2816
@@ -1055,14 +1055,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2876ce93c7aa46942a14c7265fefac1a
-      internalID: -1027887255
+      spriteID: b20af993e95324542bdfb4c5f52988eb
+      internalID: -665920548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_45
+      name: BackLeftMeleeAttack_45
       rect:
         serializedVersion: 2
         x: 2880
@@ -1076,14 +1076,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8401b5fe96e5c6409eec3c109f780f6
-      internalID: -797910663
+      spriteID: e2823e0fe7a84de42a870d6b30891ef2
+      internalID: 1889155745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_46
+      name: BackLeftMeleeAttack_46
       rect:
         serializedVersion: 2
         x: 2944
@@ -1097,14 +1097,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4718fa4ce0403884983112249570208b
-      internalID: 187828662
+      spriteID: 4ad72735edc7fd944b4500eccf84b63e
+      internalID: -392101950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_47
+      name: BackLeftMeleeAttack_47
       rect:
         serializedVersion: 2
         x: 3008
@@ -1118,14 +1118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53da31871e89e4a4a84ea69cb2ae4bd3
-      internalID: 830258041
+      spriteID: 47c9276b6c54f944599e93672bb5f54a
+      internalID: 1836118097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_48
+      name: BackLeftMeleeAttack_48
       rect:
         serializedVersion: 2
         x: 3072
@@ -1139,14 +1139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f54a1ef2eb09a20468e20484f02909cf
-      internalID: 2101758284
+      spriteID: ae35b36449ed45646ae89f390656dc42
+      internalID: -1919228392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_49
+      name: BackLeftMeleeAttack_49
       rect:
         serializedVersion: 2
         x: 3136
@@ -1160,14 +1160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b7f3816f69e31746bdeb72ace4e1263
-      internalID: 1221669576
+      spriteID: 097674ff20a2f1b40bf44926fd56b54f
+      internalID: 682945293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_50
+      name: BackLeftMeleeAttack_50
       rect:
         serializedVersion: 2
         x: 3200
@@ -1181,14 +1181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bb891dd26082c2479b76860affce7ca
-      internalID: 2011536447
+      spriteID: 69d7847c5345e754ca9e7de68efda279
+      internalID: -1932362289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_51
+      name: BackLeftMeleeAttack_51
       rect:
         serializedVersion: 2
         x: 3264
@@ -1202,14 +1202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c1ec58fb4b35bb4ca20f0cfac85c039
-      internalID: -995409929
+      spriteID: e710f0da8315d574f9393ac8434dc998
+      internalID: -1547901135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_52
+      name: BackLeftMeleeAttack_52
       rect:
         serializedVersion: 2
         x: 3328
@@ -1223,14 +1223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 311d07d5263c6584a818fbaf9fee66df
-      internalID: 464646950
+      spriteID: f3dd202df6960384a936dc4a2de22d5e
+      internalID: -1502006292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontMeleeAttack_53
+      name: BackLeftMeleeAttack_53
       rect:
         serializedVersion: 2
         x: 3392
@@ -1244,8 +1244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79e75359caab259489cd76fd6f90858b
-      internalID: -1620944751
+      spriteID: db831989905530e419d853015b41c758
+      internalID: 1594112376
       vertices: []
       indices: 
       edges: []
@@ -1261,60 +1261,60 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FrontMeleeAttack_0: 289459430
-      FrontMeleeAttack_1: -248028725
-      FrontMeleeAttack_10: 727129891
-      FrontMeleeAttack_11: 1168422554
-      FrontMeleeAttack_12: -15738360
-      FrontMeleeAttack_13: -1493768234
-      FrontMeleeAttack_14: -1836332515
-      FrontMeleeAttack_15: -1541240996
-      FrontMeleeAttack_16: -2142326109
-      FrontMeleeAttack_17: -1104613976
-      FrontMeleeAttack_18: -791312674
-      FrontMeleeAttack_19: -880257891
-      FrontMeleeAttack_2: 799727970
-      FrontMeleeAttack_20: -845017758
-      FrontMeleeAttack_21: -916017546
-      FrontMeleeAttack_22: -2140635854
-      FrontMeleeAttack_23: 1212696710
-      FrontMeleeAttack_24: -982917405
-      FrontMeleeAttack_25: -1232424534
-      FrontMeleeAttack_26: 1931045418
-      FrontMeleeAttack_27: 271451211
-      FrontMeleeAttack_28: -550768786
-      FrontMeleeAttack_29: -11790183
-      FrontMeleeAttack_3: 466969747
-      FrontMeleeAttack_30: 1073771960
-      FrontMeleeAttack_31: -1666748933
-      FrontMeleeAttack_32: 387892569
-      FrontMeleeAttack_33: -966036079
-      FrontMeleeAttack_34: -1355426478
-      FrontMeleeAttack_35: -1093026339
-      FrontMeleeAttack_36: -1332681411
-      FrontMeleeAttack_37: 207056670
-      FrontMeleeAttack_38: 70566661
-      FrontMeleeAttack_39: 645676163
-      FrontMeleeAttack_4: -1159233673
-      FrontMeleeAttack_40: -208601999
-      FrontMeleeAttack_41: 2098558842
-      FrontMeleeAttack_42: -1015483129
-      FrontMeleeAttack_43: -446410058
-      FrontMeleeAttack_44: -1027887255
-      FrontMeleeAttack_45: -797910663
-      FrontMeleeAttack_46: 187828662
-      FrontMeleeAttack_47: 830258041
-      FrontMeleeAttack_48: 2101758284
-      FrontMeleeAttack_49: 1221669576
-      FrontMeleeAttack_5: 1346284747
-      FrontMeleeAttack_50: 2011536447
-      FrontMeleeAttack_51: -995409929
-      FrontMeleeAttack_52: 464646950
-      FrontMeleeAttack_53: -1620944751
-      FrontMeleeAttack_6: 1783104412
-      FrontMeleeAttack_7: 1231662069
-      FrontMeleeAttack_8: -563048792
-      FrontMeleeAttack_9: 168331672
+      BackLeftMeleeAttack_0: -495228844
+      BackLeftMeleeAttack_1: -796090936
+      BackLeftMeleeAttack_10: -627937046
+      BackLeftMeleeAttack_11: -2016486232
+      BackLeftMeleeAttack_12: -470394277
+      BackLeftMeleeAttack_13: -1816609948
+      BackLeftMeleeAttack_14: -203930506
+      BackLeftMeleeAttack_15: -588191842
+      BackLeftMeleeAttack_16: 842922006
+      BackLeftMeleeAttack_17: -1534677610
+      BackLeftMeleeAttack_18: 2016452796
+      BackLeftMeleeAttack_19: -91427335
+      BackLeftMeleeAttack_2: -917755312
+      BackLeftMeleeAttack_20: 1300680216
+      BackLeftMeleeAttack_21: 226840381
+      BackLeftMeleeAttack_22: 164415933
+      BackLeftMeleeAttack_23: 2035190770
+      BackLeftMeleeAttack_24: -1883334825
+      BackLeftMeleeAttack_25: 897264035
+      BackLeftMeleeAttack_26: 1572995924
+      BackLeftMeleeAttack_27: 336533422
+      BackLeftMeleeAttack_28: 1154575172
+      BackLeftMeleeAttack_29: 1533952644
+      BackLeftMeleeAttack_3: -1428012178
+      BackLeftMeleeAttack_30: -425629676
+      BackLeftMeleeAttack_31: 34226894
+      BackLeftMeleeAttack_32: 1864018942
+      BackLeftMeleeAttack_33: 269782449
+      BackLeftMeleeAttack_34: -944795554
+      BackLeftMeleeAttack_35: -1854833021
+      BackLeftMeleeAttack_36: 110607200
+      BackLeftMeleeAttack_37: -1801291860
+      BackLeftMeleeAttack_38: -272460993
+      BackLeftMeleeAttack_39: -1049577115
+      BackLeftMeleeAttack_4: -140104610
+      BackLeftMeleeAttack_40: -1999428348
+      BackLeftMeleeAttack_41: 1056620340
+      BackLeftMeleeAttack_42: -2135870742
+      BackLeftMeleeAttack_43: 69203007
+      BackLeftMeleeAttack_44: -665920548
+      BackLeftMeleeAttack_45: 1889155745
+      BackLeftMeleeAttack_46: -392101950
+      BackLeftMeleeAttack_47: 1836118097
+      BackLeftMeleeAttack_48: -1919228392
+      BackLeftMeleeAttack_49: 682945293
+      BackLeftMeleeAttack_5: -2045209536
+      BackLeftMeleeAttack_50: -1932362289
+      BackLeftMeleeAttack_51: -1547901135
+      BackLeftMeleeAttack_52: -1502006292
+      BackLeftMeleeAttack_53: 1594112376
+      BackLeftMeleeAttack_6: -1380885086
+      BackLeftMeleeAttack_7: 460010795
+      BackLeftMeleeAttack_8: 1241925144
+      BackLeftMeleeAttack_9: -331418510
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
