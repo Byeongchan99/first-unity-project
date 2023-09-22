@@ -8,10 +8,9 @@ namespace CharacterController
     {
         // 공격 여부
         public static bool IsAttack = false;
-        // 연속 공격 입력 시간
-        public const float CanReInputTime = 1f;
         // 공격 각도(방향)
         public Vector2 attackDirection;
+        // 플레이어 공격 콜라이더
         private PlayerAttackArea playerAttackArea;
 
         public AttackState(PlayerController controller) : base(controller) {
@@ -26,8 +25,7 @@ namespace CharacterController
             PlayerStat.Instance.animator.SetFloat("AttackDirection.Y", attackDirection.y);
 
             PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
-            PlayerStat.Instance.weaponManager.Weapon.BeginAttack();
-            playerAttackArea.ActivateAttackRange(attackDirection, PlayerStat.Instance.weaponManager.Weapon.AttackRange);
+            playerAttackArea.ActivateAttackRange(attackDirection);
             PlayerStat.Instance.weaponManager.Weapon?.Attack(this);
         }
 
@@ -43,7 +41,8 @@ namespace CharacterController
 
         public override void OnExitState()
         {
-            PlayerStat.Instance.weaponManager.Weapon.EndAttack();
+            IsAttack = false;
+            PlayerStat.Instance.animator.SetBool("IsAttack", false);
         }
     }
 }

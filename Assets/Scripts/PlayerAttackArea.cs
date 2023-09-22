@@ -6,19 +6,23 @@ public class PlayerAttackArea : BaseAttackArea
 {
     private List<Vector2> points = new List<Vector2>();
 
-    private Vector2 currentAttackDirection;
-    private float currentWeaponRange;
+    public void Initialize()
+    {
+        float radius = PlayerStat.Instance.weaponManager.Weapon.AttackRange;
+        CalculateColiderPoints(radius);
+    }
 
     // 공격 범위 활성화
-    public override void ActivateAttackRange(Vector2 attackDirection, float weaponRange)
+    public override void ActivateAttackRange(Vector2 attackDirection)
     {
         attackID++;
 
         float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle + 90);
+        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
 
         attackRangeCollider.enabled = true;
     }
+
 
     // 콜라이더 모양 계산
     public override void CalculateColiderPoints(float radius)

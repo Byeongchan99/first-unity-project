@@ -1,16 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class MonsterAttackArea : BaseAttackArea
 {
     public float attackColliderOffset = 0.5f;   // 콜라이더 이동 거리
     private Vector2 basePosition = new Vector2(0, 0.325f); // 초기 콜라이더 위치
+    private MonsterTest monsterStat;
 
-    public override void ActivateAttackRange(Vector2 attackDirection, float weaponRange)
+    void Awake()
+    {
+        monsterStat = GetComponentInParent<MonsterTest>();
+    }
+
+    void Start()
+    {
+        CalculateColiderPoints(monsterStat.attackRange); // 초기에 한 번만 호출
+    }
+
+    public override void ActivateAttackRange(Vector2 attackDirection)
     {
         attackID++;
-        CalculateColiderPoints(weaponRange);
 
         // 방향 벡터를 4 방향 중 하나로 제한
         if (Mathf.Abs(attackDirection.x) > Mathf.Abs(attackDirection.y))

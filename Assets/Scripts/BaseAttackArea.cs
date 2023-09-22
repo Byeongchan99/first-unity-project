@@ -31,7 +31,7 @@ public abstract class BaseAttackArea : MonoBehaviour
         */
     }
 
-    public abstract void ActivateAttackRange(Vector2 attackDirection, float weaponRange);
+    public abstract void ActivateAttackRange(Vector2 attackDirection);
 
     public int GetAttackID()
     {

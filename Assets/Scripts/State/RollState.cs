@@ -6,9 +6,9 @@ namespace CharacterController
 {
     public class RollState : BaseState
     {
-        public bool CanAddInputBuffer { get; set; }   // 버퍼 입력 가능 여부
-        public bool IsRoll { get; set; }   // 구르기 여부
-        public Queue<Vector2> inputVecBuffer { get; private set; }
+        public static bool CanAddInputBuffer { get; set; }   // 버퍼 입력 가능 여부
+        public static bool IsRoll { get; set; }   // 구르기 여부
+        public static Queue<Vector2> inputVecBuffer { get; private set; }
 
         public RollState(PlayerController controller) : base(controller)
         {
@@ -18,7 +18,7 @@ namespace CharacterController
         public override void OnEnterState()
         {
             IsRoll = true;
-            CanAddInputBuffer = false;
+            CanAddInputBuffer = true;
             Roll();
         }
 

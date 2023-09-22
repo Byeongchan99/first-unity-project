@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     public PlayerStat playerStat;
-    RollState rollState;
 
     [Header("이동 관련")]
     public Vector2 inputVec;   // 입력 방향값
@@ -45,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {    
-        rollState = playerStat.stateMachine.GetState(StateName.ROLL) as RollState;
+        // rollState = playerStat.stateMachine.GetState(StateName.ROLL) as RollState;
     }
 
     // Update is called once per frame
@@ -71,43 +70,6 @@ public class PlayerController : MonoBehaviour
         inputVec = value.Get<Vector2>();
     }
 
-    private Coroutine rollCoolTimeCoroutine;
-
-    public void OnFinishedRoll()
-    {
-        if (rollState.inputVecBuffer.Count > 0)
-        {
-            PlayerStat.Instance.stateMachine.ChangeState(StateName.ROLL);
-            return;
-        }
-
-        rollState.CanAddInputBuffer = false;
-        rollState.OnExitState();
-
-        if (rollCoolTimeCoroutine != null)
-            StopCoroutine(rollCoolTimeCoroutine);
-        rollCoolTimeCoroutine = StartCoroutine(RollCooltimeTimer(PlayerStat.Instance.RollCooltime));
-    }
-
-    private IEnumerator RollCooltimeTimer(float coolTime)
-    {
-        float timer = 0f;
-
-        while (true)
-        {
-            timer += Time.deltaTime;
-
-            if (timer > coolTime)
-            {
-                rollState.IsRoll = false;
-                PlayerStat.Instance.stateMachine.ChangeState(StateName.MOVE);
-                break;
-            }
-        }
-
-        yield return null;
-    }
-
     void OnRoll()
     {
         if (AttackState.IsAttack || ChargeState.IsCharge) 
@@ -122,38 +84,57 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (rollState.CanAddInputBuffer)
+        if (RollState.CanAddInputBuffer)
         {
-            rollState.inputVecBuffer.Enqueue(rollDirection);
+            Debug.Log("대시 버퍼에 추가");
+            RollState.inputVecBuffer.Enqueue(rollDirection);
         }
 
-       if (!rollState.IsRoll)
+       if (!RollState.IsRoll)
         {
-            rollState.inputVecBuffer.Enqueue(rollDirection);
+            Debug.Log("대시 처음 발동");
+            RollState.inputVecBuffer.Enqueue(rollDirection);
             playerStat.stateMachine.ChangeState(StateName.ROLL);
         } 
     }
 
     void OnCharge()
     {
-        if (rollState.IsRoll || AttackState.IsAttack || PlayerStat.Instance.CurrentEnergy < 1) 
+        if (RollState.IsRoll || AttackState.IsAttack || PlayerStat.Instance.CurrentEnergy < 1) 
             return;
 
         playerStat.stateMachine.ChangeState(StateName.CHARGE);
     }
 
+    private bool attackTriggered = false;
+
+    // 새로운 입력 시스템의 Callback으로 사용됩니다.
     void OnAttack()
     {
-        if (rollState.IsRoll || ChargeState.IsCharge) 
+        if (RollState.IsRoll || ChargeState.IsCharge)
             return;
+
+        attackDirection = mouseDirection;
 
         bool isAvailableAttack = !AttackState.IsAttack && (playerStat.weaponManager.Weapon.ComboCount < 3);
 
+        // 공격 상태가 아닐 때
         if (isAvailableAttack)
         {
-            attackDirection = mouseDirection;
+            Debug.Log("공격 상태로 전환");
             playerStat.stateMachine.ChangeState(StateName.ATTACK);
+            attackTriggered = true;
         }
+    }
+
+    public bool OnAttackWasTriggered()
+    {
+        if (attackTriggered)
+        {
+            attackTriggered = false; // 입력이 감지된 후에는 리셋
+            return true;
+        }
+        return false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -56,8 +56,11 @@ public class WeaponManager
             weaponObject = weapon;
             Weapon = weapon.GetComponent<BaseWeapon>();
             weaponObject.SetActive(true);
-            // weaponObject.GetComponent<SpriteRenderer>().enabled = false; // 스프라이트 렌더러 비활성화
             PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
+
+            // Weapon이 설정된 후 PlayerAttackArea 초기화
+            InitializeAttackArea();
+
             return;
         }
 
@@ -67,12 +70,23 @@ public class WeaponManager
             {
                 weaponObject = weapon;
                 weaponObject.SetActive(true);
-                // weaponObject.GetComponent<SpriteRenderer>().enabled = false; // 스프라이트 렌더러 비활성화
                 Weapon = weapon.GetComponent<BaseWeapon>();
                 PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
                 continue;
             }
             weapons[i].SetActive(false);
+        }
+
+        // Weapon 변경 후 PlayerAttackArea 초기화
+        InitializeAttackArea();
+    }
+
+    private void InitializeAttackArea()
+    {
+        PlayerAttackArea attackArea = PlayerStat.Instance.gameObject.transform.Find("AttackArea").GetComponent<PlayerAttackArea>();
+        if (attackArea != null)
+        {
+            attackArea.Initialize();
         }
     }
 }

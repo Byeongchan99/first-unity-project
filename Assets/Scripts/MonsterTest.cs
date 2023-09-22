@@ -100,7 +100,7 @@ public class MonsterTest : MonoBehaviour
 
         // 공격 범위에 들어올 시, 콘솔창으로 공격했다고 출력
         attackDirection = moveDirection;
-        monsterAttackArea.ActivateAttackRange(attackDirection, attackRange);
+        monsterAttackArea.ActivateAttackRange(attackDirection);
         anim.SetBool("IsAttack", true);
         yield return new WaitForSeconds(1); // 1초 후에 다시 CHASE 상태로 전환
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
