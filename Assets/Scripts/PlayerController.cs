@@ -6,6 +6,7 @@ using CharacterController;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance { get; private set; }
     SpriteRenderer spriteRenderer;
 
     public PlayerStat playerStat;
@@ -31,6 +32,16 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerStat = GetComponent<PlayerStat>();
         ChargeWeaponPosition = transform.Find("ChargeWeaponPosition");
@@ -106,8 +117,7 @@ public class PlayerController : MonoBehaviour
         playerStat.stateMachine.ChangeState(StateName.CHARGE);
     }
 
-    private bool attackTriggered = false;
-
+    private bool comboAttackTriggered = false;
     // 새로운 입력 시스템의 Callback으로 사용됩니다.
     void OnAttack()
     {
@@ -116,22 +126,27 @@ public class PlayerController : MonoBehaviour
 
         attackDirection = mouseDirection;
 
-        bool isAvailableAttack = !AttackState.IsAttack && (playerStat.weaponManager.Weapon.ComboCount < 3);
-
-        // 공격 상태가 아닐 때
-        if (isAvailableAttack)
+        if (playerStat.weaponManager.Weapon.ComboCount < 3)
         {
-            Debug.Log("공격 상태로 전환");
-            playerStat.stateMachine.ChangeState(StateName.ATTACK);
-            attackTriggered = true;
+            // 공격 상태가 아닐 때
+            if (!AttackState.IsAttack)
+            {
+                //Debug.Log("공격 상태로 전환");
+                playerStat.stateMachine.ChangeState(StateName.ATTACK);
+            }
+            else   // 공격 중일 때
+            {
+                comboAttackTriggered = true;
+            }
         }
     }
 
     public bool OnAttackWasTriggered()
     {
-        if (attackTriggered)
+        //Debug.Log("OnAttackWasTriggered 호출");
+        if (comboAttackTriggered)
         {
-            attackTriggered = false; // 입력이 감지된 후에는 리셋
+            comboAttackTriggered = false; // 입력이 감지된 후에는 리셋
             return true;
         }
         return false;

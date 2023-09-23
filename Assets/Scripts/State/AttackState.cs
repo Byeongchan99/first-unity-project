@@ -42,7 +42,6 @@ namespace CharacterController
         public override void OnExitState()
         {
             IsAttack = false;
-            PlayerStat.Instance.animator.SetBool("IsAttack", false);
         }
     }
 }

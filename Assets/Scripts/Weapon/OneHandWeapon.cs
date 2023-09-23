@@ -12,7 +12,7 @@ public class OneHandWeapon : BaseWeapon
     public override void Attack(BaseState state)
     {
         ComboCount++;
-        Debug.Log("ÄÞº¸ ¼ýÀÚ" + ComboCount);
+        Debug.Log("ÄÞº¸ ¼ýÀÚ " + ComboCount);
         PlayerStat.Instance.animator.SetFloat(hashAttackSpeedAnimation, AttackSpeed);
         PlayerStat.Instance.animator.SetBool(hashIsAttackAnimation, true);
         PlayerStat.Instance.animator.SetInteger(hashAttackAnimation, ComboCount);

@@ -6,61 +6,9 @@ using Unity.VisualScripting;
 
 public class PlayerAnimationEvents : MonoBehaviour
 {
+    /*
     public PlayerController playerController;
     public PlayerAttackArea playerAttackArea;
-    private Coroutine checkAttackInputCor;
-    // 연속 공격 입력 시간
-    public const float CanReInputTime = 1f;
-
-    // 코루틴 중 추가 입력 감지 시 다음 콤보 공격 실행, 입력이 감지되지 않으면 공격 상태 종료 및 콤보 초기화
-    // 플레이어가 공격 버튼을 누를 때 호출
-    public void CheckAttackInput()
-    {
-        Debug.Log("CheckAttackInput() called.");
-        // 공격 애니메이션 중간에 코루틴 시작
-        if (checkAttackInputCor != null)
-        {
-            StopCoroutine(checkAttackInputCor);
-        }
-        checkAttackInputCor = StartCoroutine(checkAttackInputCoroutine());
-    }
-
-    // CanReInputTime 동안 플레이어가 추가로 공격 버튼을 누르는지를 감지
-    private IEnumerator checkAttackInputCoroutine()
-    {
-        Debug.Log("checkAttackInputCoroutine() called.");
-        float currentTime = 0f;
-        bool attackReceived = false;
-
-        while (currentTime < CanReInputTime)
-        {
-            currentTime += Time.deltaTime;
-
-            // 여기에서 추가 공격 입력을 감지
-            if (playerController.OnAttackWasTriggered())
-            {
-                attackReceived = true;
-                break;
-            }
-
-            yield return null;
-        }
-
-        if (attackReceived)
-        {
-            // 연속 공격 실행
-            // 여기에서 ComboCount를 증가시키고 다음 연속 공격 애니메이션을 실행합니다.
-            PlayerStat.Instance.weaponManager.Weapon.ComboCount++;
-            PlayerStat.Instance.animator.SetInteger("AttackCombo", PlayerStat.Instance.weaponManager.Weapon.ComboCount);
-        }
-        else
-        {
-            // 연속 공격 초기화
-            PlayerStat.Instance.weaponManager.Weapon.ComboCount = 0;
-            PlayerStat.Instance.animator.SetInteger("AttackCombo", 0);
-            FinishedAttack();  // 공격 종료 처리
-        }
-    }
 
     // 공격 애니메이션 끝날 때
     public void FinishedAttack()
@@ -77,20 +25,24 @@ public class PlayerAnimationEvents : MonoBehaviour
        
         RaycastHit2D hit = Physics2D.Raycast(PlayerStat.Instance.transform.position, playerController.attackDirection, PlayerStat.Instance.weaponManager.Weapon.AdvanceDistance, layerMask);
 
+        // 일정 거리 전진
         if (hit.collider == null)
         {
             // Debug.Log("No object detected, moving to target position.");
             PlayerStat.Instance.rigidBody.MovePosition(targetPos);
         }
-        else
+        else   // 벽이 있을 때는 벽 앞까지 이동
         {
             // Debug.Log("Object hit by Raycast: " + hit.collider.gameObject.name);
             PlayerStat.Instance.rigidBody.MovePosition(hit.point);
         }
     }
+    */
 
+    // 구르기 쿨타임 코루틴
     private Coroutine rollCoolTimeCoroutine;
 
+    // 구르기 애니메이션 끝날 때
     public void OnFinishedRoll()
     {
         if (RollState.inputVecBuffer.Count > 0)
@@ -123,7 +75,6 @@ public class PlayerAnimationEvents : MonoBehaviour
                 break;
             }
         }
-
         yield return null;
     }
 }
