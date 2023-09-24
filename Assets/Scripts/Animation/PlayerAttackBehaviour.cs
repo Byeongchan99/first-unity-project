@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using CharacterController;
 
 public class PlayerAttackBehaviour : StateMachineBehaviour
@@ -53,7 +54,7 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
 
         if (stateInfo.normalizedTime >= 0.95f)
         {
-            FinishedAttack();
+            OnFinishedAttack();
             PlayerStat.Instance.stateMachine.ChangeState(StateName.MOVE);
         }
     }
@@ -126,7 +127,7 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
         isCoroutineRunning = false;
     }
 
-    private void FinishedAttack()
+    private void OnFinishedAttack()
     {
         Debug.Log("공격 종료");    
         PlayerStat.Instance.animator.SetBool("IsAttack", false);

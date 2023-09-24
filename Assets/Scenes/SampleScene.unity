@@ -7907,7 +7907,6 @@ GameObject:
   - component: {fileID: 2127830143}
   - component: {fileID: 2127830148}
   - component: {fileID: 2127830147}
-  - component: {fileID: 2127830149}
   - component: {fileID: 2127830146}
   - component: {fileID: 2127830150}
   m_Layer: 3
@@ -8153,20 +8152,6 @@ MonoBehaviour:
   invincibleTime: 1.5
   currentEnergy: 5
   maxEnergy: 5
---- !u!114 &2127830149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127830136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd5ceab0d0ca34a45a45b7aa161d8b3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 2127830147}
-  playerAttackArea: {fileID: 1329977113}
 --- !u!95 &2127830150
 Animator:
   serializedVersion: 5

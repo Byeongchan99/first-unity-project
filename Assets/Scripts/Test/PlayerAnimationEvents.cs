@@ -37,7 +37,7 @@ public class PlayerAnimationEvents : MonoBehaviour
             PlayerStat.Instance.rigidBody.MovePosition(hit.point);
         }
     }
-    */
+    
 
     // 구르기 쿨타임 코루틴
     private Coroutine rollCoolTimeCoroutine;
@@ -76,5 +76,5 @@ public class PlayerAnimationEvents : MonoBehaviour
             }
         }
         yield return null;
-    }
+    */
 }

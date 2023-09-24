@@ -6,26 +6,27 @@ namespace CharacterController
 {
     public class RollState : BaseState
     {
-        public static bool CanAddInputBuffer { get; set; }   // 버퍼 입력 가능 여부
         public static bool IsRoll { get; set; }   // 구르기 여부
-        public static Queue<Vector2> inputVecBuffer { get; private set; }
+        public static bool canRoll { get; set; } = true;   // 구르기 가능 여부(쿨타임 관련)
+        private Coroutine rollCoolTimeCoroutine;
 
         public RollState(PlayerController controller) : base(controller)
         {
-            inputVecBuffer = new Queue<Vector2>();
+
         }
 
         public override void OnEnterState()
         {
             IsRoll = true;
-            CanAddInputBuffer = true;
             Roll();
         }
 
+        // 구르기 로직
         private void Roll()
-        {           
-            Vector2 rollDirection = inputVecBuffer.Dequeue();
-            
+        {
+            Vector2 rollDirection = PlayerController.Instance.rollDirection;
+
+            canRoll = false;
             PlayerStat.Instance.animator.SetBool("IsRoll", true);
             PlayerStat.Instance.shadowAnimator.SetBool("IsRoll", true);
             PlayerStat.Instance.rigidBody.velocity = rollDirection * PlayerStat.Instance.RollSpeed * PlayerStat.Instance.MoveSpeed;
@@ -46,6 +47,25 @@ namespace CharacterController
             PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
             PlayerStat.Instance.animator.SetBool("IsRoll", false);
             PlayerStat.Instance.shadowAnimator.SetBool("IsRoll", false);
+
+            // 구르기 쿨타임 코루틴 실행
+            if (rollCoolTimeCoroutine != null)
+                PlayerStat.Instance.StopCoroutine(rollCoolTimeCoroutine);
+            rollCoolTimeCoroutine = PlayerStat.Instance.StartCoroutine(RollCooltimeTimer(PlayerStat.Instance.RollCooltime));
+        }
+
+        private IEnumerator RollCooltimeTimer(float coolTime)
+        {
+            float timer = 0f;
+
+            while (timer <= coolTime)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            }
+
+            RollState.canRoll = true;
+            Debug.Log("구르기 가능");
         }
     }
 }

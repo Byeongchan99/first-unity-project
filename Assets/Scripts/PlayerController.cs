@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     void OnRoll()
     {
-        if (AttackState.IsAttack || ChargeState.IsCharge) 
+        if (AttackState.IsAttack || ChargeState.IsCharge || !RollState.canRoll) 
             return;
 
         rollDirection = inputVec;
@@ -95,16 +95,10 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (RollState.CanAddInputBuffer)
-        {
-            Debug.Log("대시 버퍼에 추가");
-            RollState.inputVecBuffer.Enqueue(rollDirection);
-        }
-
+       // 구르고 있지 않을 때
        if (!RollState.IsRoll)
         {
             Debug.Log("대시 처음 발동");
-            RollState.inputVecBuffer.Enqueue(rollDirection);
             playerStat.stateMachine.ChangeState(StateName.ROLL);
         } 
     }
