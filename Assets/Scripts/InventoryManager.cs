@@ -4,25 +4,34 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public static InventoryManager Instance { get; private set; }
-    private static InventoryManager instance;
-    // 테스트용 한손검
+    private static InventoryManager _instance;
+    public static InventoryManager Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+
+    // 테스트용 한손검 프리팹
     public GameObject oneHandSword;
-    // 테스트용 활
+    // 테스트용 활 프리팹
     public GameObject bow;
 
     void Awake()
     {
-        if (instance == null)
+        if (_instance == null)
         {
-            instance = this;
+            _instance = this;
             DontDestroyOnLoad(gameObject);
-            return;
         }
-        Destroy(gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-     void Start()
+    void Start()
     {
         Init();   
     }
