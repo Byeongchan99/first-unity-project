@@ -296,6 +296,8 @@ MonoBehaviour:
   health: 10
   maxHealth: 10
   attackRange: 1
+  attackTiming: 0.4
+  attackDuration: 0.833
   attackDirection: {x: 0, y: 0}
   moveDirection: {x: 0, y: 0}
 --- !u!95 &3685640397257479430

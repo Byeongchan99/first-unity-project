@@ -17,6 +17,9 @@ public class MonsterTest : MonoBehaviour
     public float maxHealth;
     public float attackRange;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
+    public float attackTiming;   // 공격 타이밍
+    public float attackDuration;  // 애니메이션 공격 지속 시간
+
     public Vector2 attackDirection;   // 공격 방향
     public Vector2 moveDirection;
 
@@ -50,7 +53,6 @@ public class MonsterTest : MonoBehaviour
         monsterState = MonsterState.CHASE;   // 소환된 몬스터는 곧바로 추적 상태
         StartCoroutine(StateMachine());
     }
-
 
     IEnumerator StateMachine()
     {
@@ -92,21 +94,26 @@ public class MonsterTest : MonoBehaviour
         }
     }
 
-
     IEnumerator ATTACK()
     {
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;   // 위치 고정
 
-        // 공격 범위에 들어올 시, 콘솔창으로 공격했다고 출력
         attackDirection = moveDirection;
-        monsterAttackArea.ActivateAttackRange(attackDirection);
         anim.SetBool("IsAttack", true);
-        yield return new WaitForSeconds(1); // 1초 후에 다시 CHASE 상태로 전환
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        yield return new WaitForSeconds(attackTiming);  // 공격 타이밍에 공격 범위 콜라이더 활성화
+        monsterAttackArea.ActivateAttackRange(attackDirection);   // 공격 범위 활성화
+
+        yield return new WaitForSeconds(0.2f);
+        monsterAttackArea.attackRangeCollider.enabled = false;   // 공격 범위 콜라이더 비활성화
+
+        yield return new WaitForSeconds(attackDuration - attackTiming - 0.2f);
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;   // 위치 고정 해제
         anim.SetBool("IsAttack", false);
-        ChangeState(MonsterState.CHASE);
+        ChangeState(MonsterState.CHASE);   // CHASE 상태로 전환
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

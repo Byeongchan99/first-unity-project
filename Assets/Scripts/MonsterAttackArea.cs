@@ -19,6 +19,7 @@ public class MonsterAttackArea : BaseAttackArea
         CalculateColiderPoints(monsterStat.attackRange); // 초기에 한 번만 호출
     }
 
+    // 공격 범위 콜라이더 방향 계산 후 활성화
     public override void ActivateAttackRange(Vector2 attackDirection)
     {
         attackID++;
@@ -43,6 +44,7 @@ public class MonsterAttackArea : BaseAttackArea
         attackRangeCollider.enabled = true;
     }
 
+    // 몬스터 공격 범위 계산
     public override void CalculateColiderPoints(float attackRange)
     {
         Vector2[] boxPoints = new Vector2[5];

@@ -2617,7 +2617,7 @@ MonoBehaviour:
         count: 1
       spawnPointIndex: 1
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
+      - monsterPrefab: {fileID: 7298701620345412785, guid: 7617e83684b4b9d4fb2050401b3613f6,
           type: 3}
         count: 2
       spawnPointIndex: 2
@@ -2628,12 +2628,12 @@ MonoBehaviour:
         count: 2
       spawnPointIndex: 0
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
+      - monsterPrefab: {fileID: 7298701620345412785, guid: 7617e83684b4b9d4fb2050401b3613f6,
           type: 3}
         count: 1
       spawnPointIndex: 1
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
+      - monsterPrefab: {fileID: 7298701620345412785, guid: 7617e83684b4b9d4fb2050401b3613f6,
           type: 3}
         count: 1
       spawnPointIndex: 2
@@ -8148,7 +8148,7 @@ MonoBehaviour:
   kill: 0
   moveSpeed: 250
   rollSpeed: 0.02
-  rollCooltime: 1
+  rollCooltime: 0.1
   invincibleTime: 1.5
   currentEnergy: 5
   maxEnergy: 5

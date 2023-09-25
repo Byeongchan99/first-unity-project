@@ -45,8 +45,6 @@ namespace CharacterController
         public override void OnExitState()
         {
             PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
-            PlayerStat.Instance.animator.SetBool("IsRoll", false);
-            PlayerStat.Instance.shadowAnimator.SetBool("IsRoll", false);
 
             // 구르기 쿨타임 코루틴 실행
             if (rollCoolTimeCoroutine != null)
@@ -56,16 +54,11 @@ namespace CharacterController
 
         private IEnumerator RollCooltimeTimer(float coolTime)
         {
-            float timer = 0f;
-
-            while (timer <= coolTime)
-            {
-                timer += Time.deltaTime;
-                yield return null;
-            }
+            yield return new WaitForSeconds(coolTime); // 여기서 지정된 시간동안 기다립니다.
 
             RollState.canRoll = true;
             Debug.Log("구르기 가능");
         }
+
     }
 }
