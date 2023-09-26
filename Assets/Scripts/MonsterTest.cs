@@ -220,8 +220,10 @@ public class MonsterTest : MonoBehaviour
         WaveManager.Instance.OnMonsterDeath();
         // 몬스터 상태 초기화 및 애니메이션 처리 (예: 사망 애니메이션 재생)
         rb.velocity = Vector2.zero;
+        rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;   // 위치 고정
         anim.SetTrigger("Dead");
         yield return new WaitForSeconds(1); // 사망 애니메이션 재생 시간 (예: 1초)
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;   // 위치 고정 해제
 
         gameObject.SetActive(false);  // 오브젝트 비활성화
     }

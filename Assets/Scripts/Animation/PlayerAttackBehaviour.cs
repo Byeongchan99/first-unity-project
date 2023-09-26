@@ -52,6 +52,11 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
             hasCheckedInput = true;
         }
 
+        if (stateInfo.normalizedTime > triggerPercentage + 0.1f && stateInfo.normalizedTime < triggerPercentage + 0.2f)
+        {
+            playerAttackArea.attackRangeCollider.enabled = false;
+        }
+
         if (stateInfo.normalizedTime >= 0.95f)
         {
             OnFinishedAttack();
@@ -131,7 +136,6 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
     {
         Debug.Log("공격 종료");    
         PlayerStat.Instance.animator.SetBool("IsAttack", false);
-        playerAttackArea.attackRangeCollider.enabled = false;
     }
 
     private void MoveForward()
