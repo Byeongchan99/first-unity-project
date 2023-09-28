@@ -71,7 +71,6 @@ public class MonsterTest : MonoBehaviour
         {
             Vector2Int monsterPos = astarComponent.WorldToTilemapPosition(transform.position);
             Vector2Int playerPos = astarComponent.WorldToTilemapPosition(target.position);
-            anim.SetBool("IsChase", true);
 
             List<Node> path = astarComponent.PathFinding(monsterPos, playerPos);  // Astar 컴포넌트를 이용해 경로 탐색
 
@@ -86,7 +85,6 @@ public class MonsterTest : MonoBehaviour
                 // 몬스터가 플레이어와 충분히 가까워지면 ATTACK 상태로 전환
                 if (Vector2.Distance(transform.position, target.position) < 1.0f)
                 {
-                    anim.SetBool("IsChase", false);
                     ChangeState(MonsterState.ATTACK);
                 }
             }
