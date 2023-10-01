@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1f82179df511b5d4a857b0012bd39e22
+guid: 536d53facf78d764eab6805c351291e9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FrontRightDead_0
+      name: BackRightMove_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81ebef8a3cba5f642a540b3103664790
-      internalID: 1479931209
+      spriteID: 2f9feb8aecf0d06419d877f0891c3482
+      internalID: 239070969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_1
+      name: BackRightMove_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffe1500d67759a645b58d55beb976ab6
-      internalID: -2057766310
+      spriteID: 02e2baa7c7074f644b57a4d901daeddf
+      internalID: 485478824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_2
+      name: BackRightMove_2
       rect:
         serializedVersion: 2
         x: 64
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3577c40280b3d34b9e2ec8794b7f947
-      internalID: -1266878873
+      spriteID: 3fff3b0fe1ecbc04792f6136726f7ac1
+      internalID: -1559273315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_3
+      name: BackRightMove_3
       rect:
         serializedVersion: 2
         x: 96
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b7229232b7704942ab88f87173bce5f
-      internalID: -1405543741
+      spriteID: dead9ec7622536e4181207c9dc588f94
+      internalID: 27565239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_4
+      name: BackRightMove_4
       rect:
         serializedVersion: 2
         x: 128
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 420b05317ee4d3d44ad2f256d90aa772
-      internalID: 852863498
+      spriteID: 2af28c5b87a9b5d419a1ef59eb6fd448
+      internalID: 819334257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_5
+      name: BackRightMove_5
       rect:
         serializedVersion: 2
         x: 160
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40f329adb90cd6d46aea02442d5238df
-      internalID: 724084307
+      spriteID: f81c472d3ef3c7f4893649656ea7f130
+      internalID: 964524350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_6
+      name: BackRightMove_6
       rect:
         serializedVersion: 2
         x: 192
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 175631ba1de43224ba8617f46179e7f7
-      internalID: 58815229
+      spriteID: 431567d2d2ba343468367c361692c2de
+      internalID: 1873882294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_7
+      name: BackRightMove_7
       rect:
         serializedVersion: 2
         x: 224
@@ -278,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 575c5b7643d8b9b4a896246ad439effc
-      internalID: 1306783170
+      spriteID: e0eec2d20bb66e24a96445ed9edd50fa
+      internalID: 901994029
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_8
+      name: BackRightMove_8
       rect:
         serializedVersion: 2
         x: 256
@@ -299,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e7e2bd3ee0f7514d9856684cc18363c
-      internalID: -709117980
+      spriteID: 8adde40d9cdd8ac4eb4cbd3440827f46
+      internalID: -685303213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_9
+      name: BackRightMove_9
       rect:
         serializedVersion: 2
         x: 288
@@ -320,14 +320,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f0cf90fe69490c43a49394af7c936a9
-      internalID: -892631933
+      spriteID: 91845bee624a4814a827a9892cb20312
+      internalID: 396943723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_10
+      name: BackRightMove_10
       rect:
         serializedVersion: 2
         x: 320
@@ -341,14 +341,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a352763c5c5012742857e34c170cedf8
-      internalID: 343560388
+      spriteID: fd3a5b55f2e5f154db986a667da5e112
+      internalID: 664341226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_11
+      name: BackRightMove_11
       rect:
         serializedVersion: 2
         x: 352
@@ -362,50 +362,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bd81e00a401ce7468b8ed3d9a481340
-      internalID: 1622005786
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FrontRightDead_12
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: edaa90cf9eaa39b43b0f319d9501fb92
-      internalID: -1211304503
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FrontRightDead_13
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 693e81998aa0cf24b9319734b40673d3
-      internalID: -580742102
+      spriteID: 13738690f250961468efccb0e579505d
+      internalID: -1922332318
       vertices: []
       indices: 
       edges: []
@@ -421,20 +379,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FrontRightDead_0: 1479931209
-      FrontRightDead_1: -2057766310
-      FrontRightDead_10: 343560388
-      FrontRightDead_11: 1622005786
-      FrontRightDead_12: -1211304503
-      FrontRightDead_13: -580742102
-      FrontRightDead_2: -1266878873
-      FrontRightDead_3: -1405543741
-      FrontRightDead_4: 852863498
-      FrontRightDead_5: 724084307
-      FrontRightDead_6: 58815229
-      FrontRightDead_7: 1306783170
-      FrontRightDead_8: -709117980
-      FrontRightDead_9: -892631933
+      BackRightMove_0: 239070969
+      BackRightMove_1: 485478824
+      BackRightMove_10: 664341226
+      BackRightMove_11: -1922332318
+      BackRightMove_2: -1559273315
+      BackRightMove_3: 27565239
+      BackRightMove_4: 819334257
+      BackRightMove_5: 964524350
+      BackRightMove_6: 1873882294
+      BackRightMove_7: 901994029
+      BackRightMove_8: -685303213
+      BackRightMove_9: 396943723
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

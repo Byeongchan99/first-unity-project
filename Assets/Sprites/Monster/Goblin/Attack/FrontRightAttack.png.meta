@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1f82179df511b5d4a857b0012bd39e22
+guid: c31aa9543a61f9b449cc845bc4ed3af0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FrontRightDead_0
+      name: FrontRightAttack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81ebef8a3cba5f642a540b3103664790
-      internalID: 1479931209
+      spriteID: cc8db0d021f51184495d437ba730ed54
+      internalID: -2059230592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_1
+      name: FrontRightAttack_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffe1500d67759a645b58d55beb976ab6
-      internalID: -2057766310
+      spriteID: 5e9c472195815474fb5dfe3f4f0c7417
+      internalID: 815785231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_2
+      name: FrontRightAttack_2
       rect:
         serializedVersion: 2
         x: 64
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3577c40280b3d34b9e2ec8794b7f947
-      internalID: -1266878873
+      spriteID: 4f42545f2069c26409d9231e0d04aed4
+      internalID: 1519351158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_3
+      name: FrontRightAttack_3
       rect:
         serializedVersion: 2
         x: 96
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b7229232b7704942ab88f87173bce5f
-      internalID: -1405543741
+      spriteID: 74d2f1c40a0ae714c87bc24b3f6759e5
+      internalID: 13797284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_4
+      name: FrontRightAttack_4
       rect:
         serializedVersion: 2
         x: 128
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 420b05317ee4d3d44ad2f256d90aa772
-      internalID: 852863498
+      spriteID: 921d4fd6e3874a74ab92228be208e7aa
+      internalID: 1636289343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_5
+      name: FrontRightAttack_5
       rect:
         serializedVersion: 2
         x: 160
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40f329adb90cd6d46aea02442d5238df
-      internalID: 724084307
+      spriteID: 75ef83393d82d7545935121aae6a070d
+      internalID: -665445757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_6
+      name: FrontRightAttack_6
       rect:
         serializedVersion: 2
         x: 192
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 175631ba1de43224ba8617f46179e7f7
-      internalID: 58815229
+      spriteID: 10ad9ab9cc355a3459eaeadecf2588c0
+      internalID: 1737447556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_7
+      name: FrontRightAttack_7
       rect:
         serializedVersion: 2
         x: 224
@@ -278,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 575c5b7643d8b9b4a896246ad439effc
-      internalID: 1306783170
+      spriteID: c920493153e4694409d2298e746cc29c
+      internalID: 42773206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_8
+      name: FrontRightAttack_8
       rect:
         serializedVersion: 2
         x: 256
@@ -299,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e7e2bd3ee0f7514d9856684cc18363c
-      internalID: -709117980
+      spriteID: eeb73a99bb0e55d42a38725f2327e4f3
+      internalID: -1170404003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_9
+      name: FrontRightAttack_9
       rect:
         serializedVersion: 2
         x: 288
@@ -320,14 +320,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f0cf90fe69490c43a49394af7c936a9
-      internalID: -892631933
+      spriteID: de57ba9abe8e2c440873f4c86802aa69
+      internalID: 133481908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_10
+      name: FrontRightAttack_10
       rect:
         serializedVersion: 2
         x: 320
@@ -341,14 +341,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a352763c5c5012742857e34c170cedf8
-      internalID: 343560388
+      spriteID: dcda5e9226972d942a843a63f40f21e5
+      internalID: 626044806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_11
+      name: FrontRightAttack_11
       rect:
         serializedVersion: 2
         x: 352
@@ -362,50 +362,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bd81e00a401ce7468b8ed3d9a481340
-      internalID: 1622005786
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FrontRightDead_12
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: edaa90cf9eaa39b43b0f319d9501fb92
-      internalID: -1211304503
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FrontRightDead_13
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 693e81998aa0cf24b9319734b40673d3
-      internalID: -580742102
+      spriteID: 9175157f8ff637a4b9b53a9179d6e51d
+      internalID: -247334003
       vertices: []
       indices: 
       edges: []
@@ -421,20 +379,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FrontRightDead_0: 1479931209
-      FrontRightDead_1: -2057766310
-      FrontRightDead_10: 343560388
-      FrontRightDead_11: 1622005786
-      FrontRightDead_12: -1211304503
-      FrontRightDead_13: -580742102
-      FrontRightDead_2: -1266878873
-      FrontRightDead_3: -1405543741
-      FrontRightDead_4: 852863498
-      FrontRightDead_5: 724084307
-      FrontRightDead_6: 58815229
-      FrontRightDead_7: 1306783170
-      FrontRightDead_8: -709117980
-      FrontRightDead_9: -892631933
+      FrontRightAttack_0: -2059230592
+      FrontRightAttack_1: 815785231
+      FrontRightAttack_10: 626044806
+      FrontRightAttack_11: -247334003
+      FrontRightAttack_2: 1519351158
+      FrontRightAttack_3: 13797284
+      FrontRightAttack_4: 1636289343
+      FrontRightAttack_5: -665445757
+      FrontRightAttack_6: 1737447556
+      FrontRightAttack_7: 42773206
+      FrontRightAttack_8: -1170404003
+      FrontRightAttack_9: 133481908
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

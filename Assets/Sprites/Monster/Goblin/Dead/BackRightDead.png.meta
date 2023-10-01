@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1f82179df511b5d4a857b0012bd39e22
+guid: b13a95160f47dcd41aa47178aaf5f99b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FrontRightDead_0
+      name: BackRightDead_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81ebef8a3cba5f642a540b3103664790
-      internalID: 1479931209
+      spriteID: 4005ac8a94a338646afd49319d12cede
+      internalID: -24748246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_1
+      name: BackRightDead_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffe1500d67759a645b58d55beb976ab6
-      internalID: -2057766310
+      spriteID: 9d46917ff326c124a9e5af2001678361
+      internalID: 1747493336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_2
+      name: BackRightDead_2
       rect:
         serializedVersion: 2
         x: 64
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3577c40280b3d34b9e2ec8794b7f947
-      internalID: -1266878873
+      spriteID: 94417632eea881a479a16a44d8a9fa22
+      internalID: 599433957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_3
+      name: BackRightDead_3
       rect:
         serializedVersion: 2
         x: 96
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b7229232b7704942ab88f87173bce5f
-      internalID: -1405543741
+      spriteID: 32ab4b6d0ad4cc04da91ff6bfd80a8e7
+      internalID: 335996481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_4
+      name: BackRightDead_4
       rect:
         serializedVersion: 2
         x: 128
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 420b05317ee4d3d44ad2f256d90aa772
-      internalID: 852863498
+      spriteID: 3749b19d6c525a944b70d067620d607d
+      internalID: -900373773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_5
+      name: BackRightDead_5
       rect:
         serializedVersion: 2
         x: 160
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40f329adb90cd6d46aea02442d5238df
-      internalID: 724084307
+      spriteID: 1bbc8e456edce8c4da0dc87f9d246ff1
+      internalID: 376701331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_6
+      name: BackRightDead_6
       rect:
         serializedVersion: 2
         x: 192
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 175631ba1de43224ba8617f46179e7f7
-      internalID: 58815229
+      spriteID: caf910d9d6767c34885b8c567018f353
+      internalID: -468693226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_7
+      name: BackRightDead_7
       rect:
         serializedVersion: 2
         x: 224
@@ -278,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 575c5b7643d8b9b4a896246ad439effc
-      internalID: 1306783170
+      spriteID: c107daac6e0820b4ebbb3ab434a6d4b3
+      internalID: 350843855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_8
+      name: BackRightDead_8
       rect:
         serializedVersion: 2
         x: 256
@@ -299,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e7e2bd3ee0f7514d9856684cc18363c
-      internalID: -709117980
+      spriteID: fead86f196db00d4f8ce6f538839add1
+      internalID: -1888316319
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_9
+      name: BackRightDead_9
       rect:
         serializedVersion: 2
         x: 288
@@ -320,14 +320,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f0cf90fe69490c43a49394af7c936a9
-      internalID: -892631933
+      spriteID: f26119335090b61459f23cde5ad707ac
+      internalID: -415326502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_10
+      name: BackRightDead_10
       rect:
         serializedVersion: 2
         x: 320
@@ -341,14 +341,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a352763c5c5012742857e34c170cedf8
-      internalID: 343560388
+      spriteID: c49519f9fb97f8e42b3160d53beb823d
+      internalID: -1132939390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_11
+      name: BackRightDead_11
       rect:
         serializedVersion: 2
         x: 352
@@ -362,14 +362,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bd81e00a401ce7468b8ed3d9a481340
-      internalID: 1622005786
+      spriteID: 472eab8027b98564893952be8df85152
+      internalID: 366753174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_12
+      name: BackRightDead_12
       rect:
         serializedVersion: 2
         x: 384
@@ -383,14 +383,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edaa90cf9eaa39b43b0f319d9501fb92
-      internalID: -1211304503
+      spriteID: ce6c3633cbd06704da861e3ff0279033
+      internalID: -2812282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FrontRightDead_13
+      name: BackRightDead_13
       rect:
         serializedVersion: 2
         x: 416
@@ -404,8 +404,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 693e81998aa0cf24b9319734b40673d3
-      internalID: -580742102
+      spriteID: 31ceba34219186844b5b2205c857e7f7
+      internalID: -938950627
       vertices: []
       indices: 
       edges: []
@@ -421,20 +421,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FrontRightDead_0: 1479931209
-      FrontRightDead_1: -2057766310
-      FrontRightDead_10: 343560388
-      FrontRightDead_11: 1622005786
-      FrontRightDead_12: -1211304503
-      FrontRightDead_13: -580742102
-      FrontRightDead_2: -1266878873
-      FrontRightDead_3: -1405543741
-      FrontRightDead_4: 852863498
-      FrontRightDead_5: 724084307
-      FrontRightDead_6: 58815229
-      FrontRightDead_7: 1306783170
-      FrontRightDead_8: -709117980
-      FrontRightDead_9: -892631933
+      BackRightDead_0: -24748246
+      BackRightDead_1: 1747493336
+      BackRightDead_10: -1132939390
+      BackRightDead_11: 366753174
+      BackRightDead_12: -2812282
+      BackRightDead_13: -938950627
+      BackRightDead_2: 599433957
+      BackRightDead_3: 335996481
+      BackRightDead_4: -900373773
+      BackRightDead_5: 376701331
+      BackRightDead_6: -468693226
+      BackRightDead_7: 350843855
+      BackRightDead_8: -1888316319
+      BackRightDead_9: -415326502
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
