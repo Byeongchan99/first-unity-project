@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417d2aa476e78bf4495e5e189e695beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponAnimator: {fileID: 0}
+  weaponAnimator: {fileID: 22100000, guid: 5de1ca20d0ec2a14fb2c442a014c3aa0, type: 2}
   weaponName: "\uD55C\uC190\uAC80-\uD30C\uB791"
   attackDamage: 10
   attackSpeed: 1
