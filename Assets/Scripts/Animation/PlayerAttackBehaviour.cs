@@ -10,7 +10,7 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
     [SerializeField] private float triggerPercentage;   // 진행도 설정
     [SerializeField] private float CanReInputTime;   // 연속 공격 입력 시간
 
-    private OneHandWeapon weapon;
+    private OneHandSwordBasic weapon;
     private Coroutine checkAttackInputCor;
     
     // 코루틴 중복 호출 방지
@@ -42,7 +42,7 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
     {
         if (weapon == null)
         {
-            weapon = PlayerStat.Instance.GetComponentInChildren<OneHandWeapon>();
+            weapon = PlayerStat.Instance.GetComponentInChildren<OneHandSwordBasic>();
         }
         // 애니메이션 진행도(stateInfo.normalizedTime)를 기준으로 로직을 수행
         if (!hasCheckedInput && stateInfo.normalizedTime > triggerPercentage && stateInfo.normalizedTime < triggerPercentage + 0.1f)

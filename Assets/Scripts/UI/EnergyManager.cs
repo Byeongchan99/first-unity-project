@@ -5,8 +5,23 @@ using UnityEngine.UI;
 
 public class EnergyManager : MonoBehaviour
 {
+    public static EnergyManager Instance { get; private set; }
+
     [SerializeField] private GameObject energyPrefab;
     [SerializeField] private List<Image> playerEnergy;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -29,8 +44,8 @@ public class EnergyManager : MonoBehaviour
 
         for (int i = 0; i < PlayerStat.Instance.MaxEnergy; i++)
         {
-            GameObject h = Instantiate(energyPrefab, this.transform);
-            playerEnergy.Add(h.GetComponent<Image>());
+            GameObject e = Instantiate(energyPrefab, this.transform);
+            playerEnergy.Add(e.GetComponent<Image>());
         }
 
         UpdateEnergy();
@@ -53,8 +68,8 @@ public class EnergyManager : MonoBehaviour
         }
     }
 
-    // 필요한 경우에만 하트를 다시 추가/제거하는 로직
-    public void AdjustHearts()
+    // 필요한 경우에만 에너지를 다시 추가/제거하는 로직
+    public void AdjustEnergy()
     {
         int difference = PlayerStat.Instance.MaxEnergy - playerEnergy.Count;
 
@@ -62,8 +77,8 @@ public class EnergyManager : MonoBehaviour
         {
             for (int i = 0; i < difference; i++)
             {
-                GameObject h = Instantiate(energyPrefab, this.transform);
-                playerEnergy.Add(h.GetComponent<Image>());
+                GameObject e = Instantiate(energyPrefab, this.transform);
+                playerEnergy.Add(e.GetComponent<Image>());
             }
         }
         else
@@ -84,7 +99,7 @@ public class EnergyManager : MonoBehaviour
         // PlayerStat의 이벤트에서 구독 해제
         if (PlayerStat.Instance != null)
         {
-            PlayerStat.Instance.OnHealthChange -= UpdateEnergy;
+            PlayerStat.Instance.OnEnergyChange -= UpdateEnergy;  // 에너지 이벤트 구독 해제
         }
     }
 }

@@ -23,7 +23,15 @@ public class PlayerStat : MonoBehaviour
     private static PlayerStat instance;
 
     public int PlayerID { get { return playerID; } }
-    public int MaxHP { get { return maxHP; } }
+    public int MaxHP
+    {
+        get { return maxHP; }
+        set
+        {
+            maxHP = value;
+            // 필요한 추가 로직 (예: 체력 제한 또는 변경 이벤트 호출)
+        }
+    }
     public int CurrentHP
     {
         get { return currentHP; }
@@ -36,11 +44,27 @@ public class PlayerStat : MonoBehaviour
     public float Armor { get { return armor; } }
     public int Level { get { return level; } }
     public int Kill { get { return kill; } }
-    public float MoveSpeed { get { return moveSpeed; } }   // 이동 속도
+    public float MoveSpeed   // 이동 속도
+    {
+        get { return moveSpeed; }
+        set
+        {
+            moveSpeed = value;
+            // 필요한 추가 로직 (예: 체력 제한 또는 변경 이벤트 호출)
+        }
+    }
     public float RollSpeed { get { return rollSpeed; } }   // 구르기 속도
     public float RollCooltime { get { return rollCooltime; } }   // 구르기 쿨타임
     public float InvincibleTime { get { return invincibleTime; } }   // 무적 시간
-    public int MaxEnergy { get { return maxEnergy; } }   // 최대 원거리 공격 소모 자원
+    public int MaxEnergy   // 최대 원거리 공격 소모 자원
+    {
+        get { return maxEnergy; }
+        set
+        {
+            maxEnergy = value;
+            // 필요한 추가 로직 (예: 체력 제한 또는 변경 이벤트 호출)
+        }
+    }
     public int CurrentEnergy
     {
         get { return currentEnergy; }

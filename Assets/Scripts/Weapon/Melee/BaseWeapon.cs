@@ -7,8 +7,6 @@ public abstract class BaseWeapon : MonoBehaviour
 {
     // 무기의 현재 콤보 카운트
     public int ComboCount { get; set; }
-    // 이 무기를 쥘 때 손의 로컬 좌표 정보
-    public WeaponHandleData HandleData { get { return weaponhandleData; } }
     // 이 무기를 사용할 때의 애니메이터
     public RuntimeAnimatorController WeaponAnimator { get { return weaponAnimator; } }
 
@@ -17,9 +15,6 @@ public abstract class BaseWeapon : MonoBehaviour
     public float AttackSpeed { get { return attackSpeed; } }
     public float AttackRange { get { return attackRange; } }
     public float AdvanceDistance { get { return advanceDistance; } }
-
-    [Header("생성 정보"), Tooltip("무기를 쥐었을 때의 Local Transform 정보")]
-    [SerializeField] protected WeaponHandleData weaponhandleData;
 
     [Header("무기 정보")]
     [SerializeField] protected RuntimeAnimatorController weaponAnimator;
@@ -45,4 +40,8 @@ public abstract class BaseWeapon : MonoBehaviour
     public abstract void ChargingAttack(BaseState state);
     // 스킬
     public abstract void Skill(BaseState state);
+    // 무기 장착 효과
+    public abstract void EquipEffect();
+    // 무기 장착 효과 해제
+    public abstract void UnEquipEffect();
 }

@@ -28,9 +28,6 @@ public class WeaponManager
         {
             BaseWeapon weaponInfo = weapon.GetComponent<BaseWeapon>();
             weapon.transform.SetParent(handPosition);
-            weapon.transform.localPosition = weaponInfo.HandleData.localPosition;
-            weapon.transform.localEulerAngles = weaponInfo.HandleData.localRotation;
-            weapon.transform.localScale = weaponInfo.HandleData.localScale;
             weapons.Add(weapon);
             weapon.SetActive(false);
         }
@@ -58,6 +55,7 @@ public class WeaponManager
         {
             // 등록된 무기를 리스트에서 제거
             // weapons.Remove(weapon);
+            PlayerStat.Instance.weaponManager.Weapon.UnEquipEffect();
             // 무기를 비활성화
             weapon.SetActive(false);
         }
@@ -72,8 +70,8 @@ public class WeaponManager
             weaponObject = weapon;
             Weapon = weapon.GetComponent<BaseWeapon>();
             weaponObject.SetActive(true);
+  
             PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
-
             // Weapon이 설정된 후 PlayerAttackArea 초기화
             InitializeAttackArea();
 

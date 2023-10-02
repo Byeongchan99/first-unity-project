@@ -7,6 +7,20 @@ public class HealthManager : MonoBehaviour
 {
     [SerializeField] private GameObject healthPrefab;
     [SerializeField] private List<Image> playerHealth;
+    public static HealthManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {

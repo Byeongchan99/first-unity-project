@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4171167961098472680
+--- !u!1 &5155311913438395611
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8109469656061661177}
-  - component: {fileID: 6870588639369647520}
+  - component: {fileID: 2604061740066416291}
+  - component: {fileID: 1155395849083981785}
   m_Layer: 0
-  m_Name: OneHandSword
+  m_Name: OneHandSwordBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8109469656061661177
+--- !u!4 &2604061740066416291
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4171167961098472680}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_GameObject: {fileID: 5155311913438395611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &6870588639369647520
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1155395849083981785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4171167961098472680}
+  m_GameObject: {fileID: 5155311913438395611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9c3caee71c259f408dfab2e67201a0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 417d2aa476e78bf4495e5e189e695beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponhandleData: {fileID: 11400000, guid: f474582d60be3b9459159a86696ed6dd, type: 2}
-  weaponAnimator: {fileID: 22100000, guid: ec8e3b537105d1143a497d27ef9ecbf3, type: 2}
-  weaponName: "\uD55C\uC190\uAC80"
+  weaponAnimator: {fileID: 0}
+  weaponName: "\uD55C\uC190\uAC80-\uD30C\uB791"
   attackDamage: 10
   attackSpeed: 1
   attackRange: 0.7

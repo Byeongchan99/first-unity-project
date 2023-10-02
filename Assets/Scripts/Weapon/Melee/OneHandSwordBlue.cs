@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CharacterController;
 
-public class OneHandWeapon : BaseWeapon
+public class OneHandSwordBlue : BaseWeapon
 {
     public readonly int hashIsAttackAnimation = Animator.StringToHash("IsAttack");
     public readonly int hashAttackAnimation = Animator.StringToHash("AttackCombo");
@@ -26,5 +26,18 @@ public class OneHandWeapon : BaseWeapon
     public override void Skill(BaseState state)
     {
 
+    }
+
+    public override void EquipEffect()
+    {
+        PlayerStat.Instance.MaxEnergy += 2;
+        PlayerStat.Instance.CurrentEnergy += 2;
+        EnergyManager.Instance.AdjustEnergy();
+    }
+
+    public override void UnEquipEffect()
+    {
+        PlayerStat.Instance.MaxEnergy -= 2;
+        EnergyManager.Instance.AdjustEnergy();
     }
 }
