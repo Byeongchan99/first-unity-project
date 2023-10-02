@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d216c68e6b7df7347985685007b17fae
-      internalID: 1476931428
+      spriteID: cb2dece3671f290449c99b31b2f274b5
+      internalID: 1493278405
       vertices: []
       indices: 
       edges: []
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aab5514f4da81444e8f06295972315cf
-      internalID: -1315130167
+      spriteID: 603315a4858ae654fa232b4d15367258
+      internalID: -418543316
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df1c51b0b39b8704c97ded70efd5a2b2
-      internalID: -1978544176
+      spriteID: 75c4618da8ca4134da5d481e7d095d1a
+      internalID: -1844429289
       vertices: []
       indices: 
       edges: []
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50928a951fee2f240a05eb012798b269
-      internalID: -1707261982
+      spriteID: 9e3de0684dd7c7f4f9a0227de213d758
+      internalID: 460472388
       vertices: []
       indices: 
       edges: []
@@ -215,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bf43687cd8ae65459c4fcfffe84fcd0
-      internalID: 1742770508
+      spriteID: dec9d946ef1d5bd4c843d23a20ebce70
+      internalID: 1932984025
       vertices: []
       indices: 
       edges: []
@@ -236,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 675d6245c4ef8b14ab526ad10627e7cb
-      internalID: -560722288
+      spriteID: 7493e49b5f568984e864c57be1495cfe
+      internalID: 1435423910
       vertices: []
       indices: 
       edges: []
@@ -257,8 +257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0e1712a43cf77748912e50bbee06b91
-      internalID: -692983055
+      spriteID: 746c512d987f9434b9c624f371ff2034
+      internalID: -1181249110
       vertices: []
       indices: 
       edges: []
@@ -278,8 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a3b5c897801430428addf959bd3aeff
-      internalID: 1391256018
+      spriteID: 9ba4fcec799f7104584dc8fd654a400f
+      internalID: 2083947477
       vertices: []
       indices: 
       edges: []
@@ -299,8 +299,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4200a551f3e83d642917fa5f2f27f9d7
-      internalID: -49128789
+      spriteID: dde87d4a33b5f0f4c9672d270537fa1f
+      internalID: -705023146
       vertices: []
       indices: 
       edges: []
@@ -320,8 +320,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa5c5d4cb361ce94ab51a379f6a743e5
-      internalID: -1893045835
+      spriteID: cb47a3dc9d6679644aa56baa8c95107e
+      internalID: -1728508231
       vertices: []
       indices: 
       edges: []
@@ -341,8 +341,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06a44423dcfa21d47b63742396cd91a6
-      internalID: -1003834609
+      spriteID: cf0ea25842ec09d4186a546ca2d71e41
+      internalID: 1407802143
       vertices: []
       indices: 
       edges: []
@@ -362,50 +362,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56ea655a31fca974fb1b96f9f4ded6db
-      internalID: -156112386
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BackLeftAttack_12
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac074af9543686246a267e39dc01e880
-      internalID: -1057994988
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BackLeftAttack_13
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.3}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5045f447723239a419e9848c1e7e0dd7
-      internalID: 1801784402
+      spriteID: 767df70ce1e69f44298584da65313c1a
+      internalID: 398594561
       vertices: []
       indices: 
       edges: []
@@ -421,20 +379,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BackLeftAttack_0: 1476931428
-      BackLeftAttack_1: -1315130167
-      BackLeftAttack_10: -1003834609
-      BackLeftAttack_11: -156112386
-      BackLeftAttack_12: -1057994988
-      BackLeftAttack_13: 1801784402
-      BackLeftAttack_2: -1978544176
-      BackLeftAttack_3: -1707261982
-      BackLeftAttack_4: 1742770508
-      BackLeftAttack_5: -560722288
-      BackLeftAttack_6: -692983055
-      BackLeftAttack_7: 1391256018
-      BackLeftAttack_8: -49128789
-      BackLeftAttack_9: -1893045835
+      BackLeftAttack_0: 1493278405
+      BackLeftAttack_1: -418543316
+      BackLeftAttack_10: 1407802143
+      BackLeftAttack_11: 398594561
+      BackLeftAttack_2: -1844429289
+      BackLeftAttack_3: 460472388
+      BackLeftAttack_4: 1932984025
+      BackLeftAttack_5: 1435423910
+      BackLeftAttack_6: -1181249110
+      BackLeftAttack_7: 2083947477
+      BackLeftAttack_8: -705023146
+      BackLeftAttack_9: -1728508231
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
