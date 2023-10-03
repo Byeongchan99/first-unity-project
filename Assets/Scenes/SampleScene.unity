@@ -7416,6 +7416,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oneHandSwordBasic: {fileID: 4171167961098472680, guid: 91953f5e54b1b4f45990b1fc59d0e130,
     type: 3}
+  oneHandSwordRed: {fileID: 6636274231143582525, guid: 8cac53f96f1f20249b03bb0461710ee7,
+    type: 3}
+  oneHandSwordBlue: {fileID: 5155311913438395611, guid: 6ace539818765984185770792d6ac5ef,
+    type: 3}
+  oneHandSwordYellow: {fileID: 698289377647086255, guid: 284678547f8d54d4a8bc6e9722105a35,
+    type: 3}
   bow: {fileID: 7395148950061006747, guid: 4129ed721e3c2c640ab04d0fa9378c6c, type: 3}
 --- !u!4 &1430308551
 Transform:

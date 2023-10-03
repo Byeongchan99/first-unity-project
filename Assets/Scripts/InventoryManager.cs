@@ -15,6 +15,9 @@ public class InventoryManager : MonoBehaviour
 
     // 테스트용 한손검 프리팹
     public GameObject oneHandSwordBasic;
+    public GameObject oneHandSwordRed;
+    public GameObject oneHandSwordBlue;
+    public GameObject oneHandSwordYellow;
     // 테스트용 활 프리팹
     public GameObject bow;
 
@@ -49,7 +52,7 @@ public class InventoryManager : MonoBehaviour
 
         // 한손검 테스트용
         // 프리팹 소환
-        GameObject weapon = Instantiate(oneHandSwordBasic);
+        GameObject weapon = Instantiate(oneHandSwordYellow);
         PlayerStat.Instance.weaponManager.RegisterWeapon(weapon);
         PlayerStat.Instance.weaponManager.SetWeapon(weapon);
         PlayerStat.Instance.weaponManager.Weapon.EquipEffect();
