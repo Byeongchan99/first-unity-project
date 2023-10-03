@@ -112,7 +112,6 @@ public class MonsterTest : MonoBehaviour
         ChangeState(MonsterState.CHASE);   // CHASE 상태로 전환
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("PlayerAttackArea") && !collision.CompareTag("Bullet"))
@@ -158,6 +157,22 @@ public class MonsterTest : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             health -= collision.GetComponent<Bullet>().Damage;
+
+            if (health > 0)
+            {
+                StartCoroutine(FlashSprite());  // 깜빡거림 시작
+                StartCoroutine(KnockBack());
+                Debug.Log("체력 감소! 남은 체력 " + health);
+            }
+            else
+            {
+                ChangeState(MonsterState.DEAD);
+            }
+        }
+
+        if (collision.CompareTag("ExplosionArea"))
+        {
+            health -= collision.transform.parent.GetComponent<FireBolt>().explosionDamage;
 
             if (health > 0)
             {

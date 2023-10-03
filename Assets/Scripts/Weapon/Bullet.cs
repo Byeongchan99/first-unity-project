@@ -13,9 +13,7 @@ public class Bullet : MonoBehaviour
     // 기본 발사 속도 (chargeLevel = 1일 때의 속도)
     public float baseSpeed = 15f;
 
-    Rigidbody2D rb;
-
-
+    protected Rigidbody2D rb;
 
     void OnEnable()
     {
@@ -63,6 +61,11 @@ public class Bullet : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision)
+    {
+        HandleCollision(collision);
+    }
+
+    protected virtual void HandleCollision(Collider2D collision)
     {
         if (!collision.CompareTag("Enemy") || Per == 0)
             return;
