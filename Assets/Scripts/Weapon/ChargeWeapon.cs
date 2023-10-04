@@ -10,7 +10,7 @@ public class ChargeWeapon : BaseChargeWeapon
 
     private void Awake()
     {
-        childSpriteRenderer = transform.Find("BowSprite").GetComponent<SpriteRenderer>();
+        childSpriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
     public override void Attack(BaseState state)

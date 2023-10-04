@@ -175,6 +175,29 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(GetHitRoutine());
                 lastAttackID = currentAttackID;  // 현재 공격 ID로 업데이트
             }
+
+            return;
+        }
+
+        if (collision.CompareTag("ExplosionArea"))
+        {
+            // 현재 무적 시간이면 피해 무시
+            if (GameManager.instance.isInvincible)
+                return;
+
+            PlayerStat.Instance.CurrentHP -= 1;   // 나중에 몬스터의 공격력을 넣어주도록 업데이트
+            Debug.Log("체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
+
+            if (PlayerStat.Instance.CurrentHP <= 0)
+            {
+                PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
+                playerStat.stateMachine.ChangeState(StateName.DEAD);
+            }
+
+            // 피격 이벤트 실행
+            playerStat.animator.SetTrigger("Hit");
+            StartCoroutine(GetHitRoutine());
+            return;
         }
     }
 

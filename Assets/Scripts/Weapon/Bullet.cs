@@ -15,9 +15,12 @@ public class Bullet : MonoBehaviour
 
     protected Rigidbody2D rb;
 
-    void OnEnable()
+    protected void OnEnable()
     {
         // 화살 초기화 로직
+        // Rigidbody2D 참조 확인
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
         ResetBullet();
         StartCoroutine(DeactivateBulletAfterTime());
     }
@@ -37,9 +40,8 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void Awake()
+    protected void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         originalDamage = Damage;
         originalPer = Per;
     }

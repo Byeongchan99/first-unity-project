@@ -2607,19 +2607,19 @@ MonoBehaviour:
   waves:
   - spawnInfos:
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 6499440422579365713, guid: fbb91cccd299bb14c82bd2d974809dc8,
+      - monsterPrefab: {fileID: 6775636773419384046, guid: 1b96233f3cbf5194db9ae385c4a04a2d,
           type: 3}
         count: 1
       spawnPointIndex: 0
     - monstersToSpawn:
       - monsterPrefab: {fileID: 6775636773419384046, guid: 1b96233f3cbf5194db9ae385c4a04a2d,
           type: 3}
-        count: 1
+        count: 0
       spawnPointIndex: 1
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 6499440422579365713, guid: fbb91cccd299bb14c82bd2d974809dc8,
+      - monsterPrefab: {fileID: 6775636773419384046, guid: 1b96233f3cbf5194db9ae385c4a04a2d,
           type: 3}
-        count: 1
+        count: 0
       spawnPointIndex: 2
   - spawnInfos:
     - monstersToSpawn:
@@ -7423,6 +7423,8 @@ MonoBehaviour:
   oneHandSwordYellow: {fileID: 698289377647086255, guid: 284678547f8d54d4a8bc6e9722105a35,
     type: 3}
   bow: {fileID: 7395148950061006747, guid: 4129ed721e3c2c640ab04d0fa9378c6c, type: 3}
+  magicStaff: {fileID: 7292539337126434123, guid: be88efb6c95f68f4f91ed1d4c43c586a,
+    type: 3}
 --- !u!4 &1430308551
 Transform:
   m_ObjectHideFlags: 0
@@ -7884,6 +7886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 7845133949518739708, guid: f55596308b5c6884b857af4ecc9d28e5, type: 3}
+  - {fileID: 3095974757642348294, guid: 318ffbfacb36db5449014d0e229ee2d1, type: 3}
 --- !u!4 &2119090329
 Transform:
   m_ObjectHideFlags: 0

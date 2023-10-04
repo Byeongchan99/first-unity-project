@@ -41,7 +41,14 @@ public class PlayerStat : MonoBehaviour
             OnHealthChange?.Invoke(); // 체력 변화 이벤트 발생
         }
     }
-    public float Armor { get { return armor; } }
+    public float AttackPower 
+    { 
+        get { return attackPower; }
+        set
+        {
+            attackPower = value;
+        }
+    }
     public int Level { get { return level; } }
     public int Kill { get { return kill; } }
     public float MoveSpeed   // 이동 속도
@@ -79,7 +86,7 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] protected int playerID;
     [SerializeField] protected int maxHP;
     [SerializeField] protected int currentHP;
-    [SerializeField] protected float armor;
+    [SerializeField] protected float attackPower;
     [SerializeField] protected int level;
     [SerializeField] protected int kill;
     [SerializeField] protected float moveSpeed;
@@ -130,12 +137,12 @@ public class PlayerStat : MonoBehaviour
         stateMachine?.FixedUpdateState();
     }
 
-    public void OnUpdateStat(int playerID, int maxHP, int currentHP, float armor, int level, int kill, float moveSpeed, float rollSpeed, float rollCooltime, int currentEnergy, int maxEnergy)
+    public void OnUpdateStat(int playerID, int maxHP, int currentHP, float attackPower, int level, int kill, float moveSpeed, float rollSpeed, float rollCooltime, int currentEnergy, int maxEnergy)
     {
         this.playerID = playerID;
         this.maxHP = maxHP;
         CurrentHP = currentHP;
-        this.armor = armor;  
+        this.attackPower = attackPower;  
         this.level = level;
         this.kill = kill;
         this.moveSpeed = moveSpeed;

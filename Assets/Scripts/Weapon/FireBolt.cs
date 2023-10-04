@@ -12,10 +12,54 @@ public class FireBolt : Bullet
     [Header("Explosion Collider")]
     public CircleCollider2D explosionCollider;  // 폭발 범위를 나타내는 원 콜라이더
 
-    private void Awake()
+    [Header("Explosion Sprite")]
+    public SpriteRenderer explosionSpriteRenderer;  // 폭발 이펙트의 스프라이트 렌더러 참조
+
+    [Header("Explosion Animation")]
+    private Animator explosionAnimator;  // 파이어볼트의 애니메이터 참조
+    private SpriteRenderer fireBoltSpriteRenderer; // 파이어볼트 스프라이트 렌더러 참조
+
+    private new void Awake()
     {
-        // 폭발 범위를 나타내는 원 콜라이더 초기화
+        base.Awake();
+        GameObject explosionArea = transform.Find("ExplosionArea").gameObject;
+        explosionCollider = explosionArea.GetComponent<CircleCollider2D>();
+        explosionAnimator = explosionArea.GetComponent<Animator>(); // 폭발 애니메이터 초기화
+
+        GameObject fireBoltSprite = transform.Find("FireBolt Sprite").gameObject;
+        fireBoltSpriteRenderer = fireBoltSprite.GetComponent<SpriteRenderer>();
+
         explosionCollider.enabled = false;   // 처음에는 비활성화 상태
+    }
+
+    private new void OnEnable()
+    {
+        base.OnEnable();
+        ResetExplosion();
+    }
+
+    private void ResetExplosion()
+    {
+        if (explosionAnimator)
+        {
+            explosionAnimator.ResetTrigger("Hit");
+            explosionAnimator.Play("Empty", 0, 0f);
+        }
+
+        if (explosionCollider)
+        {
+            explosionCollider.enabled = false;
+        }
+
+        if (explosionSpriteRenderer)
+        {
+            explosionSpriteRenderer.sprite = null;  // 폭발 스프라이트 초기화
+        }
+
+        if (fireBoltSpriteRenderer)
+        {
+            fireBoltSpriteRenderer.enabled = true;
+        }
     }
 
     // 적에게 닿을 시 호출되는 메서드
@@ -31,7 +75,7 @@ public class FireBolt : Bullet
         if (Per == 0)
         {
             rb.velocity = Vector2.zero;
-            gameObject.SetActive(false);
+            // gameObject.SetActive(false);
         }
     }
 
@@ -39,12 +83,11 @@ public class FireBolt : Bullet
     {
         // 폭발 시 원 콜라이더 활성화
         explosionCollider.enabled = true;
+        fireBoltSpriteRenderer.enabled = false; // 파이어볼트 스프라이트 비활성화
+        // 폭발 애니메이션 실행      
+        explosionAnimator.SetTrigger("Hit");
 
-        // 폭발 애니메이션 실행
-        Animator fireBoltAnimator = GetComponent<Animator>();
-        fireBoltAnimator.SetTrigger("Hit");
-
-        StartCoroutine(ExplostionEffectAnimation());     
+        StartCoroutine(ExplostionEffectAnimation());
     }
 
     IEnumerator ExplostionEffectAnimation()

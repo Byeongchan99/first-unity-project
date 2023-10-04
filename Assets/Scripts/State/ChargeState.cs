@@ -114,8 +114,6 @@ namespace CharacterController
             // 현재 당기는 비율 계산
             float pullRatio = Mathf.Clamp01(chargeTime / maxChargeTime);
 
-            
-
             // 손의 위치 선형 보간
             Vector3 startPos = new Vector3(0.1f, 0, 0);
             Vector3 endPos;

@@ -114,7 +114,7 @@ public class MonsterTest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("PlayerAttackArea") && !collision.CompareTag("Bullet"))
+        if (!collision.CompareTag("PlayerAttackArea") && !collision.CompareTag("Bullet") && !collision.CompareTag("ExplosionArea")) 
             return;
 
         if (collision.gameObject.CompareTag("PlayerAttackArea"))
@@ -137,7 +137,7 @@ public class MonsterTest : MonoBehaviour
                     ChangeState(MonsterState.DEAD);
                 }
                 */
-                health -= PlayerStat.Instance.weaponManager.Weapon.AttackDamage;
+                health -= (PlayerStat.Instance.weaponManager.Weapon.AttackDamage + PlayerStat.Instance.AttackPower);   // 데미지 = 무기 공격력 + 플레이어 공격력
 
                 if (health > 0)
                 {                   

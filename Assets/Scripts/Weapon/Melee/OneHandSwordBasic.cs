@@ -30,14 +30,14 @@ public class OneHandSwordBasic : BaseWeapon
 
     public override void EquipEffect()
     {
-        PlayerStat.Instance.MaxHP += 2;
-        PlayerStat.Instance.CurrentHP += 2;
+        PlayerStat.Instance.MaxHP += 1;
+        PlayerStat.Instance.CurrentHP += 1;
         HealthManager.Instance.AdjustHearts();
     }
 
     public override void UnEquipEffect()
     {
-        PlayerStat.Instance.MaxHP -= 2;
+        PlayerStat.Instance.MaxHP -= 1;
         HealthManager.Instance.AdjustHearts();
     }
 }

@@ -30,11 +30,11 @@ public class OneHandSwordRed : BaseWeapon
 
     public override void EquipEffect()
     {
-        
+        PlayerStat.Instance.AttackPower += 5;
     }
 
     public override void UnEquipEffect()
     {
-        
+        PlayerStat.Instance.AttackPower -= 5;
     }
 }

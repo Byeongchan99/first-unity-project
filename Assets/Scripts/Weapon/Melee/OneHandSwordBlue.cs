@@ -30,14 +30,14 @@ public class OneHandSwordBlue : BaseWeapon
 
     public override void EquipEffect()
     {
-        PlayerStat.Instance.MaxEnergy += 2;
-        PlayerStat.Instance.CurrentEnergy += 2;
+        PlayerStat.Instance.MaxEnergy += 1;
+        PlayerStat.Instance.CurrentEnergy += 1;
         EnergyManager.Instance.AdjustEnergy();
     }
 
     public override void UnEquipEffect()
     {
-        PlayerStat.Instance.MaxEnergy -= 2;
+        PlayerStat.Instance.MaxEnergy -= 1;
         EnergyManager.Instance.AdjustEnergy();
     }
 }

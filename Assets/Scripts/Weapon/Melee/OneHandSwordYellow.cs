@@ -30,11 +30,11 @@ public class OneHandSwordYellow : BaseWeapon
 
     public override void EquipEffect()
     {
-        PlayerStat.Instance.MoveSpeed += 30;
+        PlayerStat.Instance.MoveSpeed += 15;
     }
 
     public override void UnEquipEffect()
     {
-        PlayerStat.Instance.MoveSpeed -= 30;
+        PlayerStat.Instance.MoveSpeed -= 15;
     }
 }

@@ -18,8 +18,9 @@ public class InventoryManager : MonoBehaviour
     public GameObject oneHandSwordRed;
     public GameObject oneHandSwordBlue;
     public GameObject oneHandSwordYellow;
-    // 테스트용 활 프리팹
+    // 테스트용 원거리 무기 프리팹
     public GameObject bow;
+    public GameObject magicStaff;
 
     void Awake()
     {
@@ -57,7 +58,7 @@ public class InventoryManager : MonoBehaviour
         PlayerStat.Instance.weaponManager.SetWeapon(weapon);
         PlayerStat.Instance.weaponManager.Weapon.EquipEffect();
 
-        GameObject chargeWeapon = Instantiate(bow);
+        GameObject chargeWeapon = Instantiate(magicStaff);
         PlayerStat.Instance.chargeWeaponManager.RegisterWeapon(chargeWeapon);
         PlayerStat.Instance.chargeWeaponManager.SetWeapon(chargeWeapon);
     }
