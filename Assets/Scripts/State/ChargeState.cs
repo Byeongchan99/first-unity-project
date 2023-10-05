@@ -48,6 +48,7 @@ namespace CharacterController
                 RotateWeaponTowardsMouse();
 
                 chargeTime += Time.deltaTime;  // Time.deltaTime을 통해 시간을 누적
+                PlayerStat.Instance.animator.SetInteger("ChargeCombo", chargeLevel);
 
                 // 차지 단계 업데이트
                 if (chargeTime < 0.5f)
@@ -176,7 +177,8 @@ namespace CharacterController
             PlayerController.rightHand.GetComponent<SpriteRenderer>().enabled = false;
             PlayerStat.Instance.chargeWeaponManager.Weapon.EndAttack();
             IsCharge = false;
-            PlayerStat.Instance.animator.SetBool("IsCharge", false);   
+            PlayerStat.Instance.animator.SetBool("IsCharge", false);
+            PlayerStat.Instance.animator.SetInteger("ChargeCombo", 0);
         }
     }
 }
