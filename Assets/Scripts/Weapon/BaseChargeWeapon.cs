@@ -8,7 +8,7 @@ public abstract class BaseChargeWeapon : MonoBehaviour
     // 이 무기를 쥘 때 손의 로컬 좌표 정보
     public WeaponHandleData HandleData { get { return weaponhandleData; } }
     // 이 무기를 사용할 때의 애니메이터
-    // public RuntimeAnimatorController WeaponAnimator { get { return weaponAnimator; } }
+    public RuntimeAnimatorController WeaponAnimator { get { return weaponAnimator; } }
 
     public string WeaponName { get { return weaponName; } }
     public float AttackDamage { get { return attackDamage; } }
@@ -20,7 +20,7 @@ public abstract class BaseChargeWeapon : MonoBehaviour
     [SerializeField] protected WeaponHandleData weaponhandleData;
 
     [Header("무기 정보")]
-    // [SerializeField] protected RuntimeAnimatorController weaponAnimator;
+    [SerializeField] protected RuntimeAnimatorController weaponAnimator;
     [SerializeField] protected string weaponName;
     [SerializeField] protected float attackDamage;
     [SerializeField] protected float attackSpeed;
@@ -42,6 +42,10 @@ public abstract class BaseChargeWeapon : MonoBehaviour
     public abstract void BeginAttack();
     // 무기 활성화 종료
     public abstract void EndAttack();
+    // 무기 위치 마우스 따라 회전
+    public abstract void RotateWeaponTowardsMouse();
+    // 손 위치 변경
+    public abstract void UpdateWeaponAndHandPosition(float chargeTime);
     // 차지 공격
     public abstract void ChargingAttack(BaseState state, Vector2 dir, int chargeLevel);
     // 스킬

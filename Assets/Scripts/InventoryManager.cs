@@ -58,7 +58,7 @@ public class InventoryManager : MonoBehaviour
         PlayerStat.Instance.weaponManager.SetWeapon(weapon);
         PlayerStat.Instance.weaponManager.Weapon.EquipEffect();
 
-        GameObject chargeWeapon = Instantiate(bow);
+        GameObject chargeWeapon = Instantiate(magicStaff);
         PlayerStat.Instance.chargeWeaponManager.RegisterWeapon(chargeWeapon);
         PlayerStat.Instance.chargeWeaponManager.SetWeapon(chargeWeapon);
     }

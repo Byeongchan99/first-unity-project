@@ -22,6 +22,7 @@ namespace CharacterController
 
         // 손 스프라이트 레이어
         SpriteRenderer rightHandRenderer = PlayerController.rightHand.GetComponent<SpriteRenderer>();
+
         public ChargeState(PlayerController controller) : base(controller)
         {
          
@@ -45,7 +46,7 @@ namespace CharacterController
             if (Mouse.current.rightButton.isPressed)  // 마우스 우클릭이 눌러져 있는지 확인
             {
                 // 무기 회전 로직
-                RotateWeaponTowardsMouse();
+                PlayerStat.Instance.chargeWeaponManager.Weapon.RotateWeaponTowardsMouse();
 
                 chargeTime += Time.deltaTime;  // Time.deltaTime을 통해 시간을 누적
                 PlayerStat.Instance.animator.SetInteger("ChargeCombo", chargeLevel);
@@ -80,7 +81,7 @@ namespace CharacterController
                     }
                 }
 
-                UpdateWeaponAndHandPosition(chargeTime);
+                PlayerStat.Instance.chargeWeaponManager.Weapon.UpdateWeaponAndHandPosition(chargeTime);
             }
             else
             {
@@ -93,76 +94,6 @@ namespace CharacterController
                     PlayerStat.Instance.chargeWeaponManager.Weapon?.ChargingAttack(this, direction.normalized, chargeLevel);
                 PlayerStat.Instance.stateMachine.ChangeState(StateName.MOVE);
             }
-        }
-
-        // 활 회전
-        private void RotateWeaponTowardsMouse()
-        {
-            if (!PlayerController.ChargeWeaponPosition)
-                return;
-
-            Vector2 direction = mousePosition - (Vector2)PlayerController.ChargeWeaponPosition.position;
-            angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            PlayerController.ChargeWeaponPosition.rotation = Quaternion.Euler(0, 0, angle);
-        }
-
-        // 활을 당기는 손 움직임 구현
-        private void UpdateWeaponAndHandPosition(float chargeTime)
-        {
-            // 최대 당기는 시간 설정
-            float maxChargeTime = 1.5f;  // 예: 1.5초
-
-            // 현재 당기는 비율 계산
-            float pullRatio = Mathf.Clamp01(chargeTime / maxChargeTime);
-
-            // 손의 위치 선형 보간
-            Vector3 startPos = new Vector3(0.1f, 0, 0);
-            Vector3 endPos;
-
-            // 각도에 따라 endPos 설정
-            if (angle >= -22.5f && angle < 22.5f)   // 오른쪽
-            {
-                endPos = new Vector3(-0.1f, -0.05f, 0);
-                rightHandRenderer.sortingOrder = 11;
-            }
-            else if (angle >= 22.5f && angle < 67.5f)   // 후면 오른쪽
-            {
-                endPos = new Vector3(-0.07f, -0.1f, 0);
-                rightHandRenderer.sortingOrder = 11;
-            }
-            else if (angle >= 67.5f && angle < 112.5f)   // 후면
-            {
-                endPos = new Vector3(-0.07f, -0.2f, 0);
-            }
-            else if (angle >= 112.5f && angle < 157.5f)   // 후면 왼쪽
-            {
-                endPos = new Vector3(-0.07f, -0.1f, 0);
-            }
-            else if (angle >= 157.5f && angle <= 180)   // 왼쪽
-            {
-                endPos = new Vector3(-0.1f, -0.05f, 0);
-            }
-            else if (angle >= -67.5f && angle < -22.5f)   // 정면 오른쪽
-            {
-                endPos = new Vector3(-0.14f, -0.14f, 0);
-                rightHandRenderer.sortingOrder = 11;
-            }
-            else if (angle >= -112.5f && angle < -67.5f)   // 정면
-            {
-                endPos = new Vector3(-0.1f, -0.2f, 0);
-            }
-            else if (angle >= -157.5f && angle < -112.5f)   // 정면 왼쪽
-            {
-                endPos = new Vector3(-0.14f, -0.14f, 0);
-            }
-            else   // 왼쪽
-            {
-                endPos = new Vector3(-0.1f, -0.05f, 0);
-            }
-
-            Vector3 currentPos = Vector3.Lerp(startPos, endPos, pullRatio);
-
-            PlayerController.rightHand.localPosition = currentPos;
         }
 
         public override void OnFixedUpdateState()

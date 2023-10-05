@@ -7917,7 +7917,7 @@ GameObject:
   - component: {fileID: 2127830148}
   - component: {fileID: 2127830147}
   - component: {fileID: 2127830146}
-  - component: {fileID: 2127830150}
+  - component: {fileID: 2127830149}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -8161,7 +8161,7 @@ MonoBehaviour:
   invincibleTime: 1.5
   currentEnergy: 5
   maxEnergy: 5
---- !u!95 &2127830150
+--- !u!95 &2127830149
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -8171,7 +8171,7 @@ Animator:
   m_GameObject: {fileID: 2127830136}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 56d557c4a9f226147889de469905530c, type: 2}
+  m_Controller: {fileID: 9100000, guid: ae3081524ddb98040a0710b79a1c7e57, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

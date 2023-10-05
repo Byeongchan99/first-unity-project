@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9218053590279217781}
-  - component: {fileID: 2062289417311385696}
+  - component: {fileID: 7415315853075834605}
   m_Layer: 0
   m_Name: MagicStaff
   m_TagString: Untagged
@@ -117,7 +117,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2062289417311385696
+--- !u!114 &7415315853075834605
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,10 +126,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7292539337126434123}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2b6d638e32205342a781714dd03aea7, type: 3}
+  m_Script: {fileID: 11500000, guid: cf599e9a27c7c0e40862448f39e98925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponhandleData: {fileID: 11400000, guid: 051bebdebc090004bad1d924a1662e6f, type: 2}
+  weaponAnimator: {fileID: 22100000, guid: 0bab5a5b1b721584cba6c71be5b4933b, type: 2}
   weaponName: "\uB9C8\uBC95\uBD09"
   attackDamage: 0
   attackSpeed: 0

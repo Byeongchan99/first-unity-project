@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponhandleData: {fileID: 11400000, guid: 81c4854504d81dd489fa9b3878236f43, type: 2}
+  weaponAnimator: {fileID: 22100000, guid: 635cdcab1a2418944bbdf9c1ccb5b39c, type: 2}
   weaponName: "\uD65C"
   attackDamage: 1
   attackSpeed: 1
