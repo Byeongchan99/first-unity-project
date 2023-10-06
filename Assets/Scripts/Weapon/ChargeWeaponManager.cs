@@ -58,7 +58,7 @@ public class ChargeWeaponManager
             Weapon = weapon.GetComponent<BaseChargeWeapon>();
             weaponObject.SetActive(true);
             weaponObject.GetComponentInChildren<SpriteRenderer>().enabled = false; // 자식 오브젝트의 스프라이트 렌더러 비활성화
-            PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
+            // PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
             return;
         }
 
@@ -70,7 +70,7 @@ public class ChargeWeaponManager
                 weaponObject.SetActive(true);
                 weaponObject.GetComponentInChildren<SpriteRenderer>().enabled = false; // 자식 오브젝트의 스프라이트 렌더러 비활성화
                 Weapon = weapon.GetComponent<BaseChargeWeapon>();
-                PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
+                // PlayerStat.Instance.animator.runtimeAnimatorController = Weapon.WeaponAnimator;
                 continue;
             }
             weapons[i].SetActive(false);

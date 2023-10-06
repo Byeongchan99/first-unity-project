@@ -24,14 +24,17 @@ public class MagicStaff : BaseChargeWeapon
 
     }
 
-    // 무기 활성화 시작
+    // 무기 및 마법진 활성화 시작
     public override void BeginAttack()
     {
+        PlayerStat.Instance.magicCircleAnimator.SetBool("IsMagic", true);
         childSpriteRenderer.enabled = true;
     }
 
+    // 무기 및 마법진 활성화 종료
     public override void EndAttack()
     {
+        PlayerStat.Instance.magicCircleAnimator.SetBool("IsMagic", false);
         childSpriteRenderer.enabled = false;
     }
 

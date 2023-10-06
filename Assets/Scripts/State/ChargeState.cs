@@ -34,7 +34,10 @@ namespace CharacterController
             // 손 스프라이트 활성화
             PlayerController.leftHand.GetComponent<SpriteRenderer>().enabled = true;
             PlayerController.rightHand.GetComponent<SpriteRenderer>().enabled = true;
+            // 플레이어와 마법진 애니메이션
             PlayerStat.Instance.animator.SetBool("IsCharge", true);
+            PlayerStat.Instance.magicCircleAnimator.SetBool("IsCharge", true);
+            // 고정된 상태에서 무기 발사
             PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
             PlayerStat.Instance.chargeWeaponManager.Weapon.BeginAttack();
         }
@@ -50,6 +53,7 @@ namespace CharacterController
 
                 chargeTime += Time.deltaTime;  // Time.deltaTime을 통해 시간을 누적
                 PlayerStat.Instance.animator.SetInteger("ChargeCombo", chargeLevel);
+                PlayerStat.Instance.magicCircleAnimator.SetInteger("ChargeCombo", chargeLevel);
 
                 // 차지 단계 업데이트
                 if (chargeTime < 0.5f)
@@ -109,7 +113,9 @@ namespace CharacterController
             PlayerStat.Instance.chargeWeaponManager.Weapon.EndAttack();
             IsCharge = false;
             PlayerStat.Instance.animator.SetBool("IsCharge", false);
+            PlayerStat.Instance.magicCircleAnimator.SetBool("IsCharge", false);
             PlayerStat.Instance.animator.SetInteger("ChargeCombo", 0);
+            PlayerStat.Instance.magicCircleAnimator.SetInteger("ChargeCombo", 0);
         }
     }
 }
