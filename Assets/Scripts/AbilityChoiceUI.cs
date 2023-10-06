@@ -14,6 +14,7 @@ public class AbilityChoiceUI : MonoBehaviour
         public string abilityDescription; // 선택지의 설명
     }
 
+    // 어빌리티 목록 22개
     public List<AbilityData> abilities = new List<AbilityData>
     {
         new AbilityData { abilityName = "강인한 체력", abilityDescription = "최대 체력 2 증가" },
@@ -55,6 +56,7 @@ public class AbilityChoiceUI : MonoBehaviour
         DisplayRandomAbilities();
     }
 
+    // 어빌리티 목록 초기화
     private void InitializeAbilityActions()
     {
         abilityActions = new Dictionary<string, Action>
@@ -69,7 +71,7 @@ public class AbilityChoiceUI : MonoBehaviour
             { "광전사", Berserker },
             { "파괴전차", DestroyerTank },
             { "광란", Frenzy },
-            { "가벼운 몸", Lightweight },
+            { "가벼운 몸", AgileBody },
             { "유령", Ghost },
             { "민첩", Agility },
             { "영체화", Ethereal },
@@ -84,6 +86,7 @@ public class AbilityChoiceUI : MonoBehaviour
         };
     }
 
+    // 어빌리티 목록 중 랜덤으로 3개 선택하여 디스플레이
     public void DisplayRandomAbilities()
     {
         HashSet<int> selectedIndices = new HashSet<int>();
@@ -103,7 +106,7 @@ public class AbilityChoiceUI : MonoBehaviour
         SetAbilityButton(abilityButton3, abilities[randomIndices[2]]);
     }
 
-
+    // 어빌리티 선택 버튼에 어빌리티 정보 설정
     private void SetAbilityButton(Button button, AbilityData abilityData)
     {
         button.GetComponentInChildren<Text>().text = abilityData.abilityName;
@@ -115,7 +118,8 @@ public class AbilityChoiceUI : MonoBehaviour
         });
     }
 
-
+    // 어빌리티 메서드
+    // 기본 어빌리티 4개
     // 최대 체력 증가
     // 강인한 체력
     private void RobustHealth()
@@ -148,7 +152,7 @@ public class AbilityChoiceUI : MonoBehaviour
         EnergyManager.Instance.AdjustEnergy();
     }
 
-    // 버프 + 버프 조합
+    // 버프 + 버프 조합 6개
     // 최대 체력, 공격력 증가
     // 체력 단련
     private void HealthTraining()
@@ -205,7 +209,7 @@ public class AbilityChoiceUI : MonoBehaviour
         EnergyManager.Instance.AdjustEnergy();
     }
 
-    // 버프 + 디버프 조합
+    // 버프 + 디버프 조합 12개
     // 최대 체력 증가, 공격력 감소
     // 방어 태세
     private void DefensiveStance()
@@ -265,7 +269,7 @@ public class AbilityChoiceUI : MonoBehaviour
 
     // 이동 속도 증가, 최대 체력 감소
     // 가벼운 몸
-    private void Lightweight()
+    private void AgileBody()
     {
         PlayerStat.Instance.MoveSpeed += 50;
         PlayerStat.Instance.MaxHP -= 2;
