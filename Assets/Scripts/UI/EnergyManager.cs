@@ -53,6 +53,12 @@ public class EnergyManager : MonoBehaviour
 
     void UpdateEnergy()
     {
+        // 최대 에너지와 현재 에너지를 비교
+        if (PlayerStat.Instance.CurrentEnergy > PlayerStat.Instance.MaxEnergy)
+        {
+            PlayerStat.Instance.CurrentEnergy = PlayerStat.Instance.MaxEnergy; // 현재 에너지를 최대 에너지로 설정
+        }
+
         int currentEnergy = PlayerStat.Instance.CurrentEnergy;
 
         for (int i = 0; i < playerEnergy.Count; i++)

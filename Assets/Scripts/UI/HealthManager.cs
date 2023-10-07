@@ -52,6 +52,12 @@ public class HealthManager : MonoBehaviour
 
     void UpdateHealth()
     {
+        // 최대 체력과 현재 체력을 비교
+        if (PlayerStat.Instance.CurrentHP > PlayerStat.Instance.MaxHP)
+        {
+            PlayerStat.Instance.CurrentHP = PlayerStat.Instance.MaxHP; // 현재 체력을 최대 체력으로 설정
+        }
+
         int currentHP = PlayerStat.Instance.CurrentHP;
 
         for (int i = 0; i < playerHealth.Count; i++)
@@ -66,6 +72,7 @@ public class HealthManager : MonoBehaviour
             }
         }
     }
+
 
     // 필요한 경우에만 하트를 다시 추가/제거하는 로직
     public void AdjustHearts()
