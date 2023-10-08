@@ -32,13 +32,13 @@ public class AbilityChoiceUI : MonoBehaviour
         new AbilityData { abilityName = "체력 단련", abilityDescription = "최대 체력 1 증가, 공격력 5 증가" },
         new AbilityData { abilityName = "마법의 춤", abilityDescription = "최대 에너지 1 증가, 이동 속도 15 증가" },
         new AbilityData { abilityName = "명상", abilityDescription = "최대 에너지가 3 증가하지만 이동 속도 30 감소" },
-        new AbilityData { abilityName = "금속화", abilityDescription = "체력이 3 증가하지만 최대 에너지 2 감소" },
+        new AbilityData { abilityName = "금속화", abilityDescription = "최대 체력이 3 증가하지만 최대 에너지 2 감소" },
         new AbilityData { abilityName = "육중한 힘", abilityDescription = "공격력 10 증가" },
         new AbilityData { abilityName = "순수", abilityDescription = "최대 에너지가 3 증가하지만 공격력 10 감소" },
         new AbilityData { abilityName = "재빠른 발놀림", abilityDescription = "이동 속도 30 증가" },
         new AbilityData { abilityName = "강인한 체력", abilityDescription = "최대 체력 2 증가" },
-        new AbilityData { abilityName = "초월", abilityDescription = "최대 체력 1 증가, 최대 에너지 1 증가" },
-        new AbilityData { abilityName = "활력", abilityDescription = "최대 체력 1 증가, 이동 속도 15 증가" },
+        new AbilityData { abilityName = "초월", abilityDescription = "최대 에너지 1 증가, 최대 체력 1 증가" },
+        new AbilityData { abilityName = "활력", abilityDescription = "이동 속도 15 증가, 최대 체력 1 증가" },
     };
 
     public Button abilityButton1;
