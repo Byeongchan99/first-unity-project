@@ -17,28 +17,28 @@ public class AbilityChoiceUI : MonoBehaviour
     // 어빌리티 목록 22개
     public List<AbilityData> abilities = new List<AbilityData>
     {
-        new AbilityData { abilityName = "강인한 체력", abilityDescription = "최대 체력 2 증가" },
-        new AbilityData { abilityName = "육중한 힘", abilityDescription = "공격력 10 증가" },
-        new AbilityData { abilityName = "재빠른 발놀림", abilityDescription = "이동 속도 30 증가" },
-        new AbilityData { abilityName = "깨달음", abilityDescription = "최대 에너지 2 증가" },
-        new AbilityData { abilityName = "방어 태세", abilityDescription = "체력이 3 증가하지만 공격력 10 감소" },
-        new AbilityData { abilityName = "거인", abilityDescription = "체력이 3 증가하지만 이동 속도 30 감소" },
-        new AbilityData { abilityName = "금속화", abilityDescription = "체력이 3 증가하지만 최대 에너지 2 감소" },
-        new AbilityData { abilityName = "광전사", abilityDescription = "공격력이 15 증가하지만 최대 체력이 2 감소" },
-        new AbilityData { abilityName = "파괴전차", abilityDescription = "공격력이 15 증가하지만 이동 속도 30 감소" },
-        new AbilityData { abilityName = "광란", abilityDescription = "공격력이 15 증가하지만 최대 에너지 2 감소" },
-        new AbilityData { abilityName = "가벼운 몸", abilityDescription = "이동 속도가 50 증가하지만 최대 체력 2 감소" },
-        new AbilityData { abilityName = "유령", abilityDescription = "이동 속도가 50 증가하지만 공격력 10 감소" },
-        new AbilityData { abilityName = "민첩", abilityDescription = "이동 속도가 50 증가하지만 최대 에너지 2 감소" },
-        new AbilityData { abilityName = "영체화", abilityDescription = "최대 에너지가 3 증가하지만 최대 체력 2 감소" },
-        new AbilityData { abilityName = "순수", abilityDescription = "최대 에너지가 3 증가하지만 공격력 10 감소" },
-        new AbilityData { abilityName = "명상", abilityDescription = "최대 에너지가 3 증가하지만 이동 속도 30 감소" },
-        new AbilityData { abilityName = "체력 단련", abilityDescription = "최대 체력 1 증가, 공격력 5 증가" },
-        new AbilityData { abilityName = "활력", abilityDescription = "최대 체력 1 증가, 이동 속도 15 증가" },
-        new AbilityData { abilityName = "초월", abilityDescription = "최대 체력 1 증가, 최대 에너지 1 증가" },
         new AbilityData { abilityName = "아드레날린", abilityDescription = "공격력 5 증가, 이동 속도 15 증가" },
-        new AbilityData { abilityName = "경탄", abilityDescription = "공격력 5 증가, 최대 에너지 1 증가" },
-        new AbilityData { abilityName = "마법의 춤", abilityDescription = "이동 속도 15 증가, 최대 에너지 1 증가" }
+        new AbilityData { abilityName = "가벼운 몸", abilityDescription = "이동 속도가 50 증가하지만 최대 체력 2 감소" },
+        new AbilityData { abilityName = "민첩", abilityDescription = "이동 속도가 50 증가하지만 최대 에너지 2 감소" },
+        new AbilityData { abilityName = "경탄", abilityDescription = "최대 에너지 1 증가, 공격력 5 증가" },
+        new AbilityData { abilityName = "광전사", abilityDescription = "공격력이 15 증가하지만 최대 체력이 2 감소" },
+        new AbilityData { abilityName = "방어 태세", abilityDescription = "최대 체력이 3 증가하지만 공격력 10 감소" },
+        new AbilityData { abilityName = "파괴전차", abilityDescription = "공격력이 15 증가하지만 이동 속도 30 감소" },
+        new AbilityData { abilityName = "깨달음", abilityDescription = "최대 에너지 2 증가" },
+        new AbilityData { abilityName = "영체화", abilityDescription = "최대 에너지가 3 증가하지만 최대 체력 2 감소" },
+        new AbilityData { abilityName = "광란", abilityDescription = "공격력이 15 증가하지만 최대 에너지 2 감소" },
+        new AbilityData { abilityName = "유령", abilityDescription = "이동 속도가 50 증가하지만 공격력 10 감소" },
+        new AbilityData { abilityName = "거인", abilityDescription = "최대 체력이 3 증가하지만 이동 속도 30 감소" },
+        new AbilityData { abilityName = "체력 단련", abilityDescription = "최대 체력 1 증가, 공격력 5 증가" },
+        new AbilityData { abilityName = "마법의 춤", abilityDescription = "최대 에너지 1 증가, 이동 속도 15 증가" },
+        new AbilityData { abilityName = "명상", abilityDescription = "최대 에너지가 3 증가하지만 이동 속도 30 감소" },
+        new AbilityData { abilityName = "금속화", abilityDescription = "체력이 3 증가하지만 최대 에너지 2 감소" },
+        new AbilityData { abilityName = "육중한 힘", abilityDescription = "공격력 10 증가" },
+        new AbilityData { abilityName = "순수", abilityDescription = "최대 에너지가 3 증가하지만 공격력 10 감소" },
+        new AbilityData { abilityName = "재빠른 발놀림", abilityDescription = "이동 속도 30 증가" },
+        new AbilityData { abilityName = "강인한 체력", abilityDescription = "최대 체력 2 증가" },
+        new AbilityData { abilityName = "초월", abilityDescription = "최대 체력 1 증가, 최대 에너지 1 증가" },
+        new AbilityData { abilityName = "활력", abilityDescription = "최대 체력 1 증가, 이동 속도 15 증가" },
     };
 
     public Button abilityButton1;
@@ -61,30 +61,33 @@ public class AbilityChoiceUI : MonoBehaviour
     {
         abilityActions = new Dictionary<string, Action>
         {
-            { "강인한 체력", RobustHealth },
+            { "아드레날린", Adrenaline },
+            { "가벼운 몸", AgileBody },
+            { "민첩", Agility },
+            { "경탄", Awe },
+            { "광전사", Berserker },
+            { "방어 태세", DefensiveStance },
+            { "파괴전차", DestroyerTank },
+            { "깨달음", Enlightenment },
+            { "영체화", Ethereal },
+            { "광란", Frenzy },
+            { "유령", Ghost },
+            { "거인", Giant },
+            { "체력 단련", HealthTraining },
+            { "마법의 춤", MagicDance },
+            { "명상", Meditation },
+            { "금속화", Metalization },
             { "육중한 힘", MightyStrength },
             { "재빠른 발놀림", QuickReflexes },
-            { "깨달음", Enlightenment },
-            { "방어 태세", DefensiveStance },
-            { "거인", Giant },
-            { "금속화", Metalization },
-            { "광전사", Berserker },
-            { "파괴전차", DestroyerTank },
-            { "광란", Frenzy },
-            { "가벼운 몸", AgileBody },
-            { "유령", Ghost },
-            { "민첩", Agility },
-            { "영체화", Ethereal },
+            { "강인한 체력", RobustHealth },
             { "순수", Pure },
-            { "명상", Meditation },
-            { "체력 단련", HealthTraining },
-            { "활력", Vitality },
+            { "재빠른 발놀림", QuickReflexes },
+            { "강인한 체력", RobustHealth },
             { "초월", Transcend },
-            { "아드레날린", Adrenaline },
-            { "경탄", Awe },
-            { "마법의 춤", MagicDance }
+            { "활력", Vitality }
         };
     }
+
 
     // 어빌리티 목록 중 랜덤으로 3개 선택하여 디스플레이
     public void DisplayRandomAbilities()

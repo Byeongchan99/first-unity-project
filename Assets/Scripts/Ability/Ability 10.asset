@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa53bf2a636275642983fbb0f1b40210, type: 3}
+  m_Name: Ability 10
+  m_EditorClassIdentifier: 
+  abilityID: 10
+  abilityName: "\uC720\uB839"
+  abilityDesc: "\uC774\uB3D9 \uC18D\uB3C4 50 <color=green>\uC99D\uAC00</color>\n\uACF5\uACA9\uB825
+    10 <color=red>\uAC10\uC18C</color>"
+  abilityImage: {fileID: -739510334, guid: 4a266f105ad45184c93b55ddf4a9fed6, type: 3}
