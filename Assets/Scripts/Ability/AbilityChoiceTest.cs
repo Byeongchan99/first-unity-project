@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AbilityChoiceUI : MonoBehaviour
+public class AbilityChoiceTest : MonoBehaviour
 {
     [System.Serializable]
     public struct AbilityData
@@ -61,29 +61,27 @@ public class AbilityChoiceUI : MonoBehaviour
     {
         abilityActions = new Dictionary<string, Action>
         {
-            { "아드레날린", Adrenaline },
+            { "아드레날린", Adrenaline }, // 0
             { "가벼운 몸", AgileBody },
             { "민첩", Agility },
             { "경탄", Awe },
-            { "광전사", Berserker },
-            { "방어 태세", DefensiveStance },
+            { "광전사", Berserker }, // 4
+            { "방어 태세", DefensiveStance },  // 5
             { "파괴전차", DestroyerTank },
             { "깨달음", Enlightenment },
             { "영체화", Ethereal },
             { "광란", Frenzy },
-            { "유령", Ghost },
+            { "유령", Ghost },  // 10
             { "거인", Giant },
             { "체력 단련", HealthTraining },
             { "마법의 춤", MagicDance },
             { "명상", Meditation },
-            { "금속화", Metalization },
+            { "금속화", Metalization },  // 15
             { "육중한 힘", MightyStrength },
             { "재빠른 발놀림", QuickReflexes },
             { "강인한 체력", RobustHealth },
             { "순수", Pure },
-            { "재빠른 발놀림", QuickReflexes },
-            { "강인한 체력", RobustHealth },
-            { "초월", Transcend },
+            { "초월", Transcend },  // 20
             { "활력", Vitality }
         };
     }

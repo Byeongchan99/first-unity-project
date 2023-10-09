@@ -42,12 +42,12 @@ public class PlayerStat : MonoBehaviour
             OnHealthChange?.Invoke(); // 체력 변화 이벤트 발생
         }
     }
-    public float AttackPower 
-    { 
+    public float AttackPower
+    {
         get { return attackPower; }
         set
         {
-            attackPower = value;
+            attackPower = Mathf.Max(value, 0);  // 0 미만의 값이면 0으로 설정
         }
     }
     public int Level { get { return level; } }
@@ -57,8 +57,7 @@ public class PlayerStat : MonoBehaviour
         get { return moveSpeed; }
         set
         {
-            moveSpeed = value;
-            // 필요한 추가 로직 (예: 체력 제한 또는 변경 이벤트 호출)
+            moveSpeed = Mathf.Max(value, 0);  // 0 미만의 값이면 0으로 설정
         }
     }
     public float RollSpeed { get { return rollSpeed; } }   // 구르기 속도
