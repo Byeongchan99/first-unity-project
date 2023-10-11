@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using CharacterController;
 
 public class PlayerController : MonoBehaviour
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [Header("공격 관련")]
     public Vector2 attackDirection;   // 공격 방향
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
+    private bool isPointerOverUI = false;   // UI 위에 마우스가 있는지 확인
 
     [Header("ChargeWeapon 관련")]
     public static Transform ChargeWeaponPosition;
@@ -73,6 +75,8 @@ public class PlayerController : MonoBehaviour
         // 각도에 맞는 애니메이션
         playerStat.animator.SetFloat("MouseDirection.X", mouseDirection.x);
         playerStat.animator.SetFloat("MouseDirection.Y", mouseDirection.y);
+
+        isPointerOverUI = EventSystem.current.IsPointerOverGameObject();
     }
 
     void OnMove(InputValue value)
@@ -115,6 +119,12 @@ public class PlayerController : MonoBehaviour
     // 새로운 입력 시스템의 Callback으로 사용됩니다.
     void OnAttack()
     {
+        // UI 위에 마우스가 있으면 리턴
+        if (isPointerOverUI)
+        {
+            return;
+        }
+
         if (RollState.IsRoll || ChargeState.IsCharge)
             return;
 
