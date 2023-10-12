@@ -97,17 +97,25 @@ public class LoadoutMeleeChoice : MonoBehaviour
 
     private void UpdateWeaponInformation(LoadoutData loadout)
     {
-        Transform weaponInfomationBackground = transform.Find("Weapon Infomation Background");
+        Transform weaponInformationBackground = transform.Find("Weapon Information Background");
 
-        if (weaponInfomationBackground == null)
+        if (weaponInformationBackground == null)
         {
             Debug.LogError("No Weapon Infomation Background found!");
             return;
         }
 
+        Transform weaponInformation = weaponInformationBackground.Find("Weapon Information");
+
+        if (weaponInformation == null)
+        {
+            Debug.LogError("No Weapon Information found!");
+            return;
+        }
+
         // 무기 정보 할당
-        weaponInfomationBackground.Find("Weapon Name").GetComponent<Text>().text = loadout.weaponName;
-        weaponInfomationBackground.Find("Weapon Description").GetComponent<Text>().text = loadout.weaponDesc;
-        weaponInfomationBackground.Find("Weapon Image").GetComponent<Image>().sprite = loadout.weaponImage;
+        weaponInformation.Find("Weapon Name").GetComponent<Text>().text = loadout.weaponName;
+        weaponInformation.Find("Weapon Description").GetComponent<Text>().text = loadout.weaponDesc;
+        weaponInformation.Find("Weapon Image").GetComponent<Image>().sprite = loadout.weaponImage;
     }
 }
