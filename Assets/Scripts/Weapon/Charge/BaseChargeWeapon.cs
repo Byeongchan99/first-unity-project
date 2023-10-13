@@ -10,9 +10,10 @@ public abstract class BaseChargeWeapon : MonoBehaviour
     // 이 무기를 사용할 때의 애니메이터
     // public RuntimeAnimatorController WeaponAnimator { get { return weaponAnimator; } }
 
+    public int WeaponID { get { return weaponID; } }
     public string WeaponName { get { return weaponName; } }
-    public float AttackDamage { get { return attackDamage; } }
-    public float AttackSpeed { get { return attackSpeed; } }
+    // public float AttackDamage { get { return attackDamage; } }
+    // public float AttackSpeed { get { return attackSpeed; } }
     public int BulletID { get { return bulletID; } }
     public float DamageCoefficient { get { return damageCoefficient; } }
 
@@ -21,17 +22,19 @@ public abstract class BaseChargeWeapon : MonoBehaviour
 
     [Header("무기 정보")]
     // [SerializeField] protected RuntimeAnimatorController weaponAnimator;
+    [SerializeField] protected int weaponID;
     [SerializeField] protected string weaponName;
-    [SerializeField] protected float attackDamage;
-    [SerializeField] protected float attackSpeed;
+    // [SerializeField] protected float attackDamage;
+    // [SerializeField] protected float attackSpeed;
     [SerializeField] protected int bulletID;   // 사용하는 총알의 프리팹 ID
     [SerializeField] protected float damageCoefficient;
    
-    public void SetWeaponData(string weaponName, float attackDamage, float attackSpeed, int bulletID, float damageCoefficient)
+    public void SetWeaponData(int weaponID, string weaponName, float attackDamage, float attackSpeed, int bulletID, float damageCoefficient)
     {
+        this.weaponID= weaponID;
         this.weaponName = weaponName;
-        this.attackDamage = attackDamage;
-        this.attackSpeed = attackSpeed;
+        // this.attackDamage = attackDamage;
+        // this.attackSpeed = attackSpeed;
         this.bulletID = bulletID;
         this.damageCoefficient = damageCoefficient;
     }

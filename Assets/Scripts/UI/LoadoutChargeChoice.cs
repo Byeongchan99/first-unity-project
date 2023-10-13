@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadoutMeleeChoice : MonoBehaviour
+public class LoadoutChargeChoice : MonoBehaviour
 {
     RectTransform rect;
     LoadoutData selectedLoadout;
-    public LoadoutData[] meleeLoadouts;
+    public LoadoutData[] chargeLoadouts;
 
     void Awake()
     {
@@ -18,7 +18,7 @@ public class LoadoutMeleeChoice : MonoBehaviour
     {
         rect.localScale = Vector3.one;
         GameManager.instance.Stop();
-        DisplayWeaponInformation(PlayerStat.Instance.weaponManager.Weapon.WeaponID);
+        DisplayWeaponInformation(PlayerStat.Instance.chargeWeaponManager.Weapon.WeaponID);
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
         // AudioManager.instance.EffectBgm(true);
     }
@@ -36,9 +36,9 @@ public class LoadoutMeleeChoice : MonoBehaviour
     {
         Debug.Log("DisplayWeaponIcon called");
 
-        for (int i = 0; i < meleeLoadouts.Length; i++)
+        for (int i = 0; i < chargeLoadouts.Length; i++)
         {
-            UpdateWeaponIcon(meleeLoadouts[i], i);
+            UpdateWeaponIcon(chargeLoadouts[i], i);
         }
     }
 
@@ -97,7 +97,7 @@ public class LoadoutMeleeChoice : MonoBehaviour
     // WeaponID를 통해 LoadoutData를 찾아 반환
     private LoadoutData GetLoadoutDataByWeaponID(int weaponID)
     {
-        foreach (LoadoutData loadout in meleeLoadouts)
+        foreach (LoadoutData loadout in chargeLoadouts)
         {
             if (loadout.weaponID == weaponID)
             {
@@ -132,10 +132,10 @@ public class LoadoutMeleeChoice : MonoBehaviour
         weaponInformation.Find("Weapon Image").GetComponent<Image>().sprite = loadout.weaponImage;
     }
 
-    // WeaponManager에 접근하여 무기를 장착
+    // chargeWeaponManager에 접근하여 무기를 장착
     public void EquipSelectedWeapon()
-    {   
+    {
         Debug.Log("EquipSelectedWeapon called");
-        PlayerStat.Instance.weaponManager.EquipWeapon(selectedLoadout.weaponPrefab);
+        PlayerStat.Instance.chargeWeaponManager.EquipWeapon(selectedLoadout.weaponPrefab);
     }
 }

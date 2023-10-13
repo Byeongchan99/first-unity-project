@@ -53,13 +53,21 @@ public class InventoryManager : MonoBehaviour
 
         // 한손검 테스트용
         // 프리팹 소환
-        GameObject weapon = Instantiate(oneHandSwordYellow);
-        PlayerStat.Instance.weaponManager.RegisterWeapon(weapon);
-        PlayerStat.Instance.weaponManager.SetWeapon(weapon);
-        PlayerStat.Instance.weaponManager.Weapon.EquipEffect();   // 무기 스텟 제거
+        GameObject Basic = Instantiate(oneHandSwordBasic);
+        GameObject Red = Instantiate(oneHandSwordRed);
+        GameObject Blue = Instantiate(oneHandSwordBlue);
+        GameObject Yellow = Instantiate(oneHandSwordYellow);
+        PlayerStat.Instance.weaponManager.RegisterWeapon(Basic);
+        PlayerStat.Instance.weaponManager.RegisterWeapon(Red);
+        PlayerStat.Instance.weaponManager.RegisterWeapon(Blue);
+        PlayerStat.Instance.weaponManager.RegisterWeapon(Yellow);
+        PlayerStat.Instance.weaponManager.SetWeapon(Basic);
+        PlayerStat.Instance.weaponManager.Weapon.EquipEffect();   // 무기 스텟 적용
 
-        GameObject chargeWeapon = Instantiate(magicStaff);
-        PlayerStat.Instance.chargeWeaponManager.RegisterWeapon(chargeWeapon);
-        PlayerStat.Instance.chargeWeaponManager.SetWeapon(chargeWeapon);
+        GameObject Bow = Instantiate(bow);
+        GameObject Magic = Instantiate(magicStaff);
+        PlayerStat.Instance.chargeWeaponManager.RegisterWeapon(Bow);
+        PlayerStat.Instance.chargeWeaponManager.RegisterWeapon(Magic);
+        PlayerStat.Instance.chargeWeaponManager.SetWeapon(Bow);
     }
 }

@@ -10,6 +10,7 @@ public abstract class BaseWeapon : MonoBehaviour
     // 이 무기를 사용할 때의 애니메이터
     public RuntimeAnimatorController WeaponAnimator { get { return weaponAnimator; } }
 
+    public int WeaponID { get { return weaponID; } }
     public string WeaponName { get { return weaponName; } }
     public float AttackDamage { get { return attackDamage; } }
     public float AttackSpeed { get { return attackSpeed; } }
@@ -18,6 +19,7 @@ public abstract class BaseWeapon : MonoBehaviour
 
     [Header("무기 정보")]
     [SerializeField] protected RuntimeAnimatorController weaponAnimator;
+    [SerializeField] protected int weaponID;
     [SerializeField] protected string weaponName;
     [SerializeField] protected float attackDamage;
     [SerializeField] protected float attackSpeed;
@@ -25,8 +27,9 @@ public abstract class BaseWeapon : MonoBehaviour
     // 공격 시 전진 거리
     [SerializeField] protected float advanceDistance;
 
-    public void SetWeaponData(string weaponName, float attackDamage, float attackSpeed, float attackRange, float advanceDistance)
+    public void SetWeaponData(int weaponID, string weaponName, float attackDamage, float attackSpeed, float attackRange, float advanceDistance)
     {
+        this.weaponID = weaponID;
         this.weaponName = weaponName;
         this.attackDamage = attackDamage;
         this.attackSpeed = attackSpeed;

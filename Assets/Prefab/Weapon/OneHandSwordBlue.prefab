@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2604061740066416291
 Transform:
   m_ObjectHideFlags: 0
@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417d2aa476e78bf4495e5e189e695beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 5155311913438395611}
   weaponAnimator: {fileID: 22100000, guid: 5de1ca20d0ec2a14fb2c442a014c3aa0, type: 2}
+  weaponID: 3
   weaponName: "\uD55C\uC190\uAC80-\uD30C\uB791"
   attackDamage: 10
   attackSpeed: 1

@@ -12,4 +12,5 @@ public class LoadoutData : ScriptableObject
     public string weaponDesc;   // 설명
     public Sprite weaponImage;   // 이미지
     public Sprite weaponIcon;   // 아이콘
+    public GameObject weaponPrefab;   // 무기 프리팹
 }
