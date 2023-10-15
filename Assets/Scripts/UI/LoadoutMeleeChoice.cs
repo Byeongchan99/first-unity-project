@@ -7,7 +7,8 @@ public class LoadoutMeleeChoice : MonoBehaviour
 {
     RectTransform rect;
     LoadoutData selectedLoadout;
-    public LoadoutData[] meleeLoadouts;
+    public LoadoutData[] meleeLoadouts;   // 무기 데이터
+    public Image equippedImage; // 장착 표시 이미지
 
     void Awake()
     {
@@ -29,6 +30,25 @@ public class LoadoutMeleeChoice : MonoBehaviour
         GameManager.instance.Resume();
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         // AudioManager.instance.EffectBgm(false);
+    }
+
+    public void ReDisplay()
+    {
+        DisplayWeaponIcon();
+        DisplayWeaponInformation(selectedLoadout.weaponID);
+    }
+
+    // 장착 이펙트 활성화
+    public void DisplayEquipEffect(Transform weapon, int weaponID)
+    {
+        if (PlayerStat.Instance.weaponManager.Weapon.WeaponID == weaponID)
+        {
+            weapon.Find("Equipped Image").gameObject.SetActive(true); // 장착 표시 이미지 활성화
+        }
+        else
+        {
+            weapon.Find("Equipped Image").gameObject.SetActive(false); // 장착 표시 이미지 비활성화
+        }
     }
 
     // 무기 아이콘 활성화
@@ -77,6 +97,9 @@ public class LoadoutMeleeChoice : MonoBehaviour
                 selectedLoadout = localLoadout;
             });
         }
+
+        // 장착 표시 이미지 업데이트
+        DisplayEquipEffect(weaponIcon, loadout.weaponID);
     }
 
     // 무기 정보 활성화
@@ -130,6 +153,9 @@ public class LoadoutMeleeChoice : MonoBehaviour
         weaponInformation.Find("Weapon Name").GetComponent<Text>().text = loadout.weaponName;
         weaponInformation.Find("Weapon Description").GetComponent<Text>().text = loadout.weaponDesc;
         weaponInformation.Find("Weapon Image").GetComponent<Image>().sprite = loadout.weaponImage;
+
+        // 장착 표시 이미지 업데이트
+        DisplayEquipEffect(weaponInformation, loadout.weaponID);
     }
 
     // WeaponManager에 접근하여 무기를 장착
