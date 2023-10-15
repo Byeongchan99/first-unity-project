@@ -8,7 +8,6 @@ public class LoadoutMeleeChoice : MonoBehaviour
     RectTransform rect;
     LoadoutData selectedLoadout;
     public LoadoutData[] meleeLoadouts;   // 무기 데이터
-    public Image equippedImage; // 장착 표시 이미지
 
     void Awake()
     {
@@ -32,6 +31,7 @@ public class LoadoutMeleeChoice : MonoBehaviour
         // AudioManager.instance.EffectBgm(false);
     }
 
+    // 무기 장착 이펙트 표시를 위한 다시 실행
     public void ReDisplay()
     {
         DisplayWeaponIcon();
