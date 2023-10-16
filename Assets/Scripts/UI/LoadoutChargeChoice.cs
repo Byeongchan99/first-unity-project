@@ -8,10 +8,31 @@ public class LoadoutChargeChoice : MonoBehaviour
     RectTransform rect;
     LoadoutData selectedLoadout;
     public LoadoutData[] chargeLoadouts;
+    // 무기 장착 버튼
+    public Button equipButton;
+
+    // 상단 무기 아이콘들
+    Transform weaponIcons;
+    // 무기 정보 배경 - 검은 벽
+    Transform weaponInformationBackground;
+    // 무기 정보 - 패널
+    Transform weaponInformation;
+    // 무기 이름
+    Transform weaponName;
+    // 무기 설명
+    Transform weaponDescription;
+    // 무기 이미지
+    Transform weaponImage;
 
     void Awake()
     {
         rect = GetComponent<RectTransform>();
+        weaponIcons = transform.Find("Weapon Icon");
+        weaponInformationBackground = transform.Find("Weapon Information Background");
+        weaponInformation = weaponInformationBackground.Find("Weapon Information");
+        weaponName = weaponInformation.Find("Weapon Name");
+        weaponDescription = weaponInformation.Find("Weapon Description");
+        weaponImage = weaponInformation.Find("Weapon Image");
     }
 
     public void Show()
@@ -41,7 +62,7 @@ public class LoadoutChargeChoice : MonoBehaviour
     // 장착 이펙트 활성화
     public void DisplayEquipEffect(Transform weapon, int weaponID)
     {
-        if (PlayerStat.Instance.weaponManager.Weapon.WeaponID == weaponID)
+        if (PlayerStat.Instance.chargeWeaponManager.Weapon.WeaponID == weaponID)
         {
             weapon.Find("Equipped Image").gameObject.SetActive(true); // 장착 표시 이미지 활성화
         }
@@ -65,8 +86,6 @@ public class LoadoutChargeChoice : MonoBehaviour
     // 무기 아이콘 정보 업데이트
     private void UpdateWeaponIcon(LoadoutData loadout, int index)
     {
-        Transform weaponIcons = transform.Find("Weapon Icon");
-
         if (weaponIcons == null)
         {
             Debug.LogError("No Weapon Icon found!");
@@ -102,7 +121,7 @@ public class LoadoutChargeChoice : MonoBehaviour
         DisplayEquipEffect(weaponIcon, loadout.weaponID);
     }
 
-    // 무기 정보 활성화
+    // 무기 정보 활성화 - 무기 아이콘 눌렀을 때 실행
     public void DisplayWeaponInformation(int weaponID)
     {
         Debug.Log("DisplayWeaponInformation called for weaponID: " + weaponID);
@@ -110,6 +129,11 @@ public class LoadoutChargeChoice : MonoBehaviour
         if (loadout != null)
         {
             UpdateWeaponInformation(loadout);
+
+            if (weaponID == 100)   // 무기 아이디 100은 잠김 상태
+                equipButton.interactable = false;
+            else
+                equipButton.interactable = true;
         }
         else
         {
@@ -133,15 +157,11 @@ public class LoadoutChargeChoice : MonoBehaviour
     // 무기 정보 업데이트
     private void UpdateWeaponInformation(LoadoutData loadout)
     {
-        Transform weaponInformationBackground = transform.Find("Weapon Information Background");
-
         if (weaponInformationBackground == null)
         {
             Debug.LogError("No Weapon Infomation Background found!");
             return;
-        }
-
-        Transform weaponInformation = weaponInformationBackground.Find("Weapon Information");
+        }      
 
         if (weaponInformation == null)
         {
@@ -150,9 +170,9 @@ public class LoadoutChargeChoice : MonoBehaviour
         }
 
         // 무기 정보 할당
-        weaponInformation.Find("Weapon Name").GetComponent<Text>().text = loadout.weaponName;
-        weaponInformation.Find("Weapon Description").GetComponent<Text>().text = loadout.weaponDesc;
-        weaponInformation.Find("Weapon Image").GetComponent<Image>().sprite = loadout.weaponImage;
+        weaponName.GetComponent<Text>().text = loadout.weaponName;
+        weaponDescription.GetComponent<Text>().text = loadout.weaponDesc;
+        weaponImage.GetComponent<Image>().sprite = loadout.weaponImage;
 
         // 장착 표시 이미지 업데이트
         DisplayEquipEffect(weaponInformation, loadout.weaponID);
