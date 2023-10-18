@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class MonsterBase : MonoBehaviour
 {
-    Transform target;
+    protected Transform target;
     Animator anim;
     protected Rigidbody2D rb;
     SpriteRenderer spriteRenderer;

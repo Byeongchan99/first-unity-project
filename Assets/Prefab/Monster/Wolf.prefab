@@ -165,7 +165,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6499440422579365713}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.928993, y: -2.9777007, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -331,3 +331,7 @@ MonoBehaviour:
   attackDuration: 1
   attackDirection: {x: 0, y: 0}
   moveDirection: {x: 0, y: 0}
+  waitTimeBeforeCharge: 2
+  chargeSpeed: 5
+  chargeDuration: 2
+  player: {fileID: 0}
