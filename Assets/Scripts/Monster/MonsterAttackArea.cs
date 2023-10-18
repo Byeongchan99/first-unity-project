@@ -7,11 +7,11 @@ public class MonsterAttackArea : BaseAttackArea
 {
     public float attackColliderOffset = 0.5f;   // 콜라이더 이동 거리
     private Vector2 basePosition = new Vector2(0, 0.325f); // 초기 콜라이더 위치
-    private MonsterTest monsterStat;
+    private MonsterBase monsterStat;
 
     void Awake()
     {
-        monsterStat = GetComponentInParent<MonsterTest>();
+        monsterStat = GetComponentInParent<MonsterBase>();
     }
 
     void Start()

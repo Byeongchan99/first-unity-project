@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 
-public class MonsterTest : MonoBehaviour
+public abstract class MonsterBase : MonoBehaviour
 {
     Transform target;
     Animator anim;
-    Rigidbody2D rb;
+    protected Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
     WaitForFixedUpdate wait;   // 다음 FixedUpdate까지 기다림
 
@@ -23,8 +23,8 @@ public class MonsterTest : MonoBehaviour
     public Vector2 attackDirection;   // 공격 방향
     public Vector2 moveDirection;
 
-    private Astar astar;
-    private MonsterAttackArea monsterAttackArea;
+    private Astar astarComponent;
+    protected MonsterAttackArea monsterAttackArea;
 
     enum MonsterState
     {
@@ -38,7 +38,7 @@ public class MonsterTest : MonoBehaviour
     void Awake()
     {
         anim = GetComponent<Animator>();
-        astar = GetComponent<Astar>();
+        astarComponent = GetComponent<Astar>();  // Astar 컴포넌트를 가져옵니다.
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         monsterAttackArea = gameObject.GetComponentInChildren<MonsterAttackArea>();
@@ -64,8 +64,6 @@ public class MonsterTest : MonoBehaviour
 
     IEnumerator CHASE()
     {
-        Astar astarComponent = GetComponent<Astar>();  // Astar 컴포넌트를 가져옵니다.
-
         // A* 알고리즘을 이용한 추적 로직 구현
         while (monsterState == MonsterState.CHASE)
         {
@@ -100,6 +98,9 @@ public class MonsterTest : MonoBehaviour
         attackDirection = moveDirection;
         anim.SetBool("IsAttack", true);
 
+        yield return StartCoroutine(AttackPattern());
+
+        /*
         yield return new WaitForSeconds(attackTiming);  // 공격 타이밍에 공격 범위 콜라이더 활성화
         monsterAttackArea.ActivateAttackRange(attackDirection);   // 공격 범위 활성화
 
@@ -108,9 +109,13 @@ public class MonsterTest : MonoBehaviour
 
         yield return new WaitForSeconds(attackDuration - attackTiming - 0.2f);
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;   // 위치 고정 해제
+        */
+
         anim.SetBool("IsAttack", false);
         ChangeState(MonsterState.CHASE);   // CHASE 상태로 전환
     }
+
+    public abstract IEnumerator AttackPattern();  // 몬스터 공격 패턴
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

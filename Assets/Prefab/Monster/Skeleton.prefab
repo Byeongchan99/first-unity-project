@@ -176,14 +176,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3943278433207950623}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d97ddacc006d934eb33ac7ce98ab84c, type: 3}
+  m_Script: {fileID: 11500000, guid: cecf9db518bb97a4f9985a6fcabe6ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
   health: 20
   maxHealth: 20
-  attackRange: 1
-  attackTiming: 0.5
+  attackRange: 0
+  attackTiming: 0
   attackDuration: 1.167
   attackDirection: {x: 0, y: 0}
   moveDirection: {x: 0, y: 0}
