@@ -134,7 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRangeCollider: {fileID: 8939257817211774136}
-  attackColliderOffset: 0.5
 --- !u!1 &7298701620345412785
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,10 +294,12 @@ MonoBehaviour:
   speed: 3
   health: 10
   maxHealth: 10
+  attackDetectionRange: 1
   attackRange: 1
   attackTiming: 0.4
   attackDuration: 0.833
   attackDirection: {x: 0, y: 0}
+  attackColliderOffset: 0.5
   moveDirection: {x: 0, y: 0}
 --- !u!95 &3685640397257479430
 Animator:

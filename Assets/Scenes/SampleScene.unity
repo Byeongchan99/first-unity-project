@@ -6806,7 +6806,7 @@ MonoBehaviour:
   waves:
   - spawnInfos:
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 6499440422579365713, guid: fbb91cccd299bb14c82bd2d974809dc8,
+      - monsterPrefab: {fileID: 3510155503548329890, guid: 610674db1d91f5d4e85a52c4e8caf90d,
           type: 3}
         count: 1
       spawnPointIndex: 0
@@ -6822,9 +6822,9 @@ MonoBehaviour:
       spawnPointIndex: 1
   - spawnInfos:
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 6775636773419384046, guid: 1b96233f3cbf5194db9ae385c4a04a2d,
+      - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
           type: 3}
-        count: 0
+        count: 1
       spawnPointIndex: 0
     - monstersToSpawn:
       - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
@@ -14864,6 +14864,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 7845133949518739708, guid: f55596308b5c6884b857af4ecc9d28e5, type: 3}
   - {fileID: 3095974757642348294, guid: 318ffbfacb36db5449014d0e229ee2d1, type: 3}
+  - {fileID: 645290639514418686, guid: dff24642bc2c6c046a95a3783fc622f9, type: 3}
 --- !u!4 &2119090329
 Transform:
   m_ObjectHideFlags: 0

@@ -4,24 +4,39 @@ using UnityEngine;
 
 public class Wolf : MonsterBase
 {
-    public float waitTimeBeforeCharge = 2.0f; // 대기 시간
-    public float chargeSpeed = 5.0f; // 돌진 속도
-    public float chargeDuration = 2.0f; // 돌진하는 시간
+    public float chargeTime;   // 충전 시간
+    public float rushSpeed;   // 돌진 속도
+    public float rushDuration; // 돌진하는 시간
+    public float stunTime;   // 경직 시간
 
     public override IEnumerator AttackPattern()
     {
-        yield return new WaitForSeconds(waitTimeBeforeCharge); // 대기
+        // 충전
+        // 충전 시간 동안 충전 애니메이션 실행
+        anim.SetBool("IsCharge", true);
+        yield return new WaitForSeconds(chargeTime);
+        anim.SetBool("IsCharge", false);
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;   // 위치 고정 해제
 
-        Vector2 chargeDirection = (target.position - transform.position).normalized; // 돌진 방향 설정
+        // 돌진
+        // 돌진 방향 설정
+        Vector2 chargeDirection = (target.position - transform.position).normalized;
+        // 돌진하는 동안 공격 범위 콜라이더 활성화
+        monsterAttackArea.ActivateAttackRange(attackDirection);
+        anim.SetBool("IsAttack", true);
+        rb.velocity = chargeDirection * rushSpeed;
+        yield return new WaitForSeconds(rushDuration);
+        // 공격 범위 콜라이더 비활성화
+        monsterAttackArea.attackRangeCollider.enabled = false;
+        anim.SetBool("IsAttack", false);
 
-        float chargeEndTime = Time.time + chargeDuration; // 돌진을 시작하는 시간부터 돌진 지속 시간을 더해 돌진 종료 시간 설정
-
-        // 돌진하는 동안 반복
-        while (Time.time < chargeEndTime)
-        {
-            transform.position += (Vector3)chargeDirection * chargeSpeed * Time.deltaTime; // 돌진
-            yield return null;
-        }
+        // 경직
+        rb.velocity = Vector2.zero;
+        rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;   // 위치 고정                                                                                                 
+        anim.SetBool("IsStun", true);   // 경직 애니메이션 실행
+        yield return new WaitForSeconds(stunTime);
+        anim.SetBool("IsStun", false);
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;   // 위치 고정 해제
     }
 }
  

@@ -122,7 +122,7 @@ public class Bow : BaseChargeWeapon
         bulletTransform.position = PlayerStat.Instance.transform.position + (Vector3)PlayerStat.Instance.chargeWeaponManager.Weapon.HandleData.localPosition;
         bulletTransform.rotation = Quaternion.FromToRotation(Vector3.up, dir);
 
-        // chargeLevel에 따라 데미지 계수를 결정(예를 들어)
+        // chargeLevel에 따라 데미지 계수를 결정
         float chargeCoefficient = 0.5f + (chargeLevel * 0.5f);
 
         float finalDamage = bulletComponent.originalDamage * damageCoefficient * chargeCoefficient; // OriginalDamage를 사용

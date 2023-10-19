@@ -43,7 +43,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -76,7 +76,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRangeCollider: {fileID: 970300174058494627}
-  attackColliderOffset: 0.5
 --- !u!1 &3510155503548329890
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,11 +86,11 @@ GameObject:
   m_Component:
   - component: {fileID: 9192981983275964418}
   - component: {fileID: 8411107032946868444}
+  - component: {fileID: 5557920824252689145}
   - component: {fileID: 4517839940160167615}
   - component: {fileID: 2624379290263872480}
   - component: {fileID: 4692218870995057175}
   - component: {fileID: 3237249040982229145}
-  - component: {fileID: 5557920824252689145}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Enemy
@@ -168,6 +167,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5557920824252689145
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3510155503548329890}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f9e968f695349524c9bb7a96b97ea0ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &4517839940160167615
 Rigidbody2D:
   serializedVersion: 4
@@ -237,32 +257,16 @@ MonoBehaviour:
   speed: 1
   health: 10
   maxHealth: 10
+  attackDetectionRange: 7
   attackRange: 0
   attackTiming: 0
-  attackDuration: 1.167
+  attackDuration: 0.5
   attackDirection: {x: 0, y: 0}
+  attackColliderOffset: 0
   moveDirection: {x: 0, y: 0}
---- !u!95 &5557920824252689145
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3510155503548329890}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f9e968f695349524c9bb7a96b97ea0ff, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  chargeTime: 1
+  stunTime: 1
+  bulletID: 2
 --- !u!1 &3716457030576279367
 GameObject:
   m_ObjectHideFlags: 0

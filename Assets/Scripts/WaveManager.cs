@@ -36,9 +36,13 @@ public class WaveManager : MonoBehaviour
         InitializeObjectPools();
     }
 
-void InitializeObjectPools()
+    void InitializeObjectPools()
     {
         objectPools = new Dictionary<GameObject, List<GameObject>>();
+
+        // MonstersContainer 생성 및 설정
+        GameObject monstersContainer = new GameObject("MonstersContainer");
+        monstersContainer.transform.SetParent(this.transform);
 
         foreach (var wave in waves)
         {
@@ -52,6 +56,7 @@ void InitializeObjectPools()
                         for (int i = 0; i < poolSize; i++)
                         {
                             GameObject instance = Instantiate(monsterData.monsterPrefab);
+                            instance.transform.SetParent(monstersContainer.transform); // 여기를 변경
                             instance.SetActive(false);
                             objectPools[monsterData.monsterPrefab].Add(instance);
                         }
@@ -60,6 +65,7 @@ void InitializeObjectPools()
             }
         }
     }
+
 
     public void StartWave()
     {

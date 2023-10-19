@@ -9,6 +9,7 @@ TagManager:
   - PlayerAttackArea
   - Bullet
   - ExplosionArea
+  - MonsterBullet
   layers:
   - Default
   - TransparentFX

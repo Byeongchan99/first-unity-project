@@ -134,7 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRangeCollider: {fileID: 9162309866407367496}
-  attackColliderOffset: 0.5
 --- !u!1 &6775636773419384046
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +214,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 866580264, guid: 505b67ce97df9ba43bda9546bfad1833, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -317,10 +316,12 @@ MonoBehaviour:
   speed: 2
   health: 20
   maxHealth: 20
+  attackDetectionRange: 1
   attackRange: 1
   attackTiming: 0.7
   attackDuration: 1
   attackDirection: {x: 0, y: 0}
+  attackColliderOffset: 0.5
   moveDirection: {x: 0, y: 0}
 --- !u!1 &7411331322152980462
 GameObject:

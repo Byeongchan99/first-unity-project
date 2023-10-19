@@ -76,7 +76,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRangeCollider: {fileID: 6403417681913473861}
-  attackColliderOffset: 0.5
 --- !u!1 &7285737326918540868
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,11 +86,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3044073542134213092}
   - component: {fileID: 2382670156720468282}
+  - component: {fileID: 3958687645967183196}
   - component: {fileID: 7716961767346696025}
   - component: {fileID: 8196863193326817798}
   - component: {fileID: 1492007151854586865}
   - component: {fileID: 8739152010224447871}
-  - component: {fileID: 3958687645967183196}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Enemy
@@ -168,6 +167,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3958687645967183196
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7285737326918540868}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f80ae3de413effe44b1fb1528a773c14, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &7716961767346696025
 Rigidbody2D:
   serializedVersion: 4
@@ -237,32 +257,17 @@ MonoBehaviour:
   speed: 2
   health: 10
   maxHealth: 10
-  attackRange: 0
+  attackDetectionRange: 3
+  attackRange: 1
   attackTiming: 0
-  attackDuration: 1.167
+  attackDuration: 1
   attackDirection: {x: 0, y: 0}
+  attackColliderOffset: 0
   moveDirection: {x: 0, y: 0}
---- !u!95 &3958687645967183196
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7285737326918540868}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f80ae3de413effe44b1fb1528a773c14, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  chargeTime: 1
+  rushSpeed: 5
+  rushDuration: 0.5
+  stunTime: 0.5
 --- !u!1 &7365972889170443937
 GameObject:
   m_ObjectHideFlags: 0

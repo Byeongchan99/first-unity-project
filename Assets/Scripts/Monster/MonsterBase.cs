@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class MonsterBase : MonoBehaviour
 {
     protected Transform target;
-    Animator anim;
+    protected Animator anim;
     protected Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
     WaitForFixedUpdate wait;   // 다음 FixedUpdate까지 기다림
@@ -15,12 +15,15 @@ public abstract class MonsterBase : MonoBehaviour
     public float speed;
     public float health;
     public float maxHealth;
+
+    public float attackDetectionRange;   // 공격 인식 범위
     public float attackRange;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
     public float attackTiming;   // 공격 타이밍
     public float attackDuration;  // 애니메이션 공격 지속 시간
-
     public Vector2 attackDirection;   // 공격 방향
+    public float attackColliderOffset;   // 공격 범위 콜라이더 이동 거리
+
     public Vector2 moveDirection;
 
     private Astar astarComponent;
@@ -81,7 +84,7 @@ public abstract class MonsterBase : MonoBehaviour
                 rb.velocity = moveDirection * speed;
 
                 // 몬스터가 플레이어와 충분히 가까워지면 ATTACK 상태로 전환
-                if (Vector2.Distance(transform.position, target.position) < 1.0f)
+                if (Vector2.Distance(transform.position, target.position) < attackDetectionRange)
                 {
                     ChangeState(MonsterState.ATTACK);
                 }
@@ -93,10 +96,7 @@ public abstract class MonsterBase : MonoBehaviour
     IEnumerator ATTACK()
     {
         rb.velocity = Vector2.zero;
-        rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;   // 위치 고정
-
-        attackDirection = moveDirection;
-        anim.SetBool("IsAttack", true);
+        rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;   // 위치 고정    
 
         yield return StartCoroutine(AttackPattern());
 
@@ -111,7 +111,6 @@ public abstract class MonsterBase : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;   // 위치 고정 해제
         */
 
-        anim.SetBool("IsAttack", false);
         ChangeState(MonsterState.CHASE);   // CHASE 상태로 전환
     }
 

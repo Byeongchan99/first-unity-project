@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
                 if (GameManager.instance.isInvincible) 
                     return;
 
-                PlayerStat.Instance.CurrentHP -= 1;   // 나중에 몬스터의 공격력을 넣어주도록 업데이트
+                PlayerStat.Instance.CurrentHP -= 1;
                 Debug.Log("체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
 
                 if (PlayerStat.Instance.CurrentHP <= 0)
@@ -189,13 +189,13 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (collision.CompareTag("ExplosionArea"))
+        if (collision.CompareTag("ExplosionArea") || collision.CompareTag("MonsterBullet"))
         {
             // 현재 무적 시간이면 피해 무시
             if (GameManager.instance.isInvincible)
                 return;
 
-            PlayerStat.Instance.CurrentHP -= 1;   // 나중에 몬스터의 공격력을 넣어주도록 업데이트
+            PlayerStat.Instance.CurrentHP -= 1;
             Debug.Log("체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
 
             if (PlayerStat.Instance.CurrentHP <= 0)
