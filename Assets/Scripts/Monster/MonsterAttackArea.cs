@@ -16,6 +16,7 @@ public class MonsterAttackArea : BaseAttackArea
     void Start()
     {
         CalculateColiderPoints(monsterStat.attackRange); // 초기에 한 번만 호출
+        attackRangeCollider.enabled = false;
     }
 
     // 공격 범위 콜라이더 방향 계산 후 활성화

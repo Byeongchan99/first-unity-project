@@ -36,7 +36,7 @@ public class WeaponManager
     // 무기 교체 - UI 버튼에서 호출한 메서드
     public void EquipWeapon(GameObject newWeapon)
     {
-        Debug.Log("EquipWeapon called");
+        // Debug.Log("EquipWeapon called");
         // 현재 장착 중인 무기가 있다면 해제
         if (Weapon != null)
         {
@@ -51,7 +51,7 @@ public class WeaponManager
     // 무기 장착 해제
     public void UnEquipWeapon(GameObject weapon)
     {
-        Debug.Log("UnEquipWeapon called");
+        // Debug.Log("UnEquipWeapon called");
         if (weapon == null) return;  // weapon이 null이면 아무 작업도 수행하지 않음
 
         if (weapons.Contains(weapon))
@@ -69,7 +69,7 @@ public class WeaponManager
     public void SetWeapon(GameObject weapon)
     {
         BaseWeapon weaponComponent = weapon.GetComponent<BaseWeapon>();
-        Debug.Log("SetWeapon called: " + weapon.name);
+        // Debug.Log("SetWeapon called: " + weapon.name);
         if (Weapon == null)
         {
             Debug.Log("Weapon is null");
@@ -89,7 +89,7 @@ public class WeaponManager
             BaseWeapon currentWeaponComponent = weapons[i].GetComponent<BaseWeapon>();
             if (currentWeaponComponent.WeaponID == weaponComponent.WeaponID) 
             {
-                Debug.Log("Weapon is not null");
+                // Debug.Log("Weapon is not null");
                 weaponObject = weapons[i];
                 weaponObject.SetActive(true);
                 Weapon = weaponObject.GetComponent<BaseWeapon>();

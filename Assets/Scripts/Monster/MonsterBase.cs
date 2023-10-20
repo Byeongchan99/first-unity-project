@@ -11,7 +11,7 @@ public abstract class MonsterBase : MonoBehaviour
     SpriteRenderer spriteRenderer;
     WaitForFixedUpdate wait;   // 다음 FixedUpdate까지 기다림
 
-    bool IsLive;
+    protected bool IsLive;
     public float speed;
     public float health;
     public float maxHealth;
@@ -23,6 +23,7 @@ public abstract class MonsterBase : MonoBehaviour
     public float attackDuration;  // 애니메이션 공격 지속 시간
     public Vector2 attackDirection;   // 공격 방향
     public float attackColliderOffset;   // 공격 범위 콜라이더 이동 거리
+    private Coroutine attackPatternCoroutine;   // 공격 패턴 코루틴
 
     public Vector2 moveDirection;
 
@@ -98,7 +99,7 @@ public abstract class MonsterBase : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;   // 위치 고정    
 
-        yield return StartCoroutine(AttackPattern());
+        attackPatternCoroutine = StartCoroutine(AttackPattern());
 
         /*
         yield return new WaitForSeconds(attackTiming);  // 공격 타이밍에 공격 범위 콜라이더 활성화
@@ -111,18 +112,20 @@ public abstract class MonsterBase : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;   // 위치 고정 해제
         */
 
-        ChangeState(MonsterState.CHASE);   // CHASE 상태로 전환
+        ChangeState(MonsterState.CHASE);
+        yield return null;
     }
 
     public abstract IEnumerator AttackPattern();  // 몬스터 공격 패턴
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("PlayerAttackArea") && !collision.CompareTag("Bullet") && !collision.CompareTag("ExplosionArea")) 
+        if (!collision.CompareTag("PlayerAttackArea") && !collision.CompareTag("Bullet") && !collision.CompareTag("ExplosionArea"))
             return;
 
         if (collision.gameObject.CompareTag("PlayerAttackArea"))
         {
+            Debug.Log("PlayerAttackArea와 충돌");
             // Player의 공격 영역과 충돌한 경우
             PlayerAttackArea playerAttackArea = collision.GetComponent<PlayerAttackArea>();
             int currentAttackID = playerAttackArea.GetAttackID();
@@ -144,13 +147,18 @@ public abstract class MonsterBase : MonoBehaviour
                 health -= (PlayerStat.Instance.weaponManager.Weapon.AttackDamage + PlayerStat.Instance.AttackPower);   // 데미지 = 무기 공격력 + 플레이어 공격력
 
                 if (health > 0)
-                {                   
+                {
                     StartCoroutine(FlashSprite());  // 깜빡거림 시작
                     StartCoroutine(KnockBack());
                     Debug.Log("체력 감소! 남은 체력 " + health);
                 }
                 else
                 {
+                    if (attackPatternCoroutine != null)
+                    {
+                        StopCoroutine(attackPatternCoroutine); // 코루틴 중단
+                        attackPatternCoroutine = null;
+                    }
                     ChangeState(MonsterState.DEAD);
                 }
 
@@ -161,7 +169,7 @@ public abstract class MonsterBase : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             health -= collision.GetComponent<Bullet>().Damage;
-
+            ;
             if (health > 0)
             {
                 StartCoroutine(FlashSprite());  // 깜빡거림 시작
@@ -170,6 +178,11 @@ public abstract class MonsterBase : MonoBehaviour
             }
             else
             {
+                if (attackPatternCoroutine != null)
+                {
+                    StopCoroutine(attackPatternCoroutine); // 코루틴 중단
+                    attackPatternCoroutine = null;
+                }
                 ChangeState(MonsterState.DEAD);
             }
         }
@@ -186,6 +199,11 @@ public abstract class MonsterBase : MonoBehaviour
             }
             else
             {
+                if (attackPatternCoroutine != null)
+                {
+                    StopCoroutine(attackPatternCoroutine); // 코루틴 중단
+                    attackPatternCoroutine = null;
+                }
                 ChangeState(MonsterState.DEAD);
             }
         }
@@ -198,7 +216,7 @@ public abstract class MonsterBase : MonoBehaviour
         float flashTime = 0.5f;
         bool isRed = false;
 
-        while (elapsedTime < flashTime) 
+        while (elapsedTime < flashTime)
         {
             if (isRed)
             {
@@ -247,6 +265,7 @@ public abstract class MonsterBase : MonoBehaviour
 
     void ChangeState(MonsterState newMonsterState)
     {
+        Debug.Log("상태 전환 " + newMonsterState);
         monsterState = newMonsterState;
     }
 }

@@ -39,7 +39,7 @@ public class ChargeWeaponManager
     // 무기 교체 - UI 버튼에서 호출한 메서드
     public void EquipWeapon(GameObject newWeapon)
     {
-        Debug.Log("Charge EquipWeapon called");
+        // Debug.Log("Charge EquipWeapon called");
         // 현재 장착 중인 무기가 있다면 해제
         if (Weapon != null)
         {
@@ -54,7 +54,7 @@ public class ChargeWeaponManager
     // 무기 장착 해제
     public void UnEquipWeapon(GameObject weapon)
     {
-        Debug.Log("Charge UnEquipWeapon called");
+        // Debug.Log("Charge UnEquipWeapon called");
         if (weapon == null) return;  // weapon이 null이면 아무 작업도 수행하지 않음
 
         if (weapons.Contains(weapon))

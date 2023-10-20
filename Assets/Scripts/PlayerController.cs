@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
        // 구르고 있지 않을 때
        if (!RollState.IsRoll)
         {
-            Debug.Log("대시 처음 발동");
+            // Debug.Log("대시 처음 발동");
             playerStat.stateMachine.ChangeState(StateName.ROLL);
         } 
     }
@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
                     return;
 
                 PlayerStat.Instance.CurrentHP -= 1;
-                Debug.Log("체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
+                Debug.Log("플레이어 체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
 
                 if (PlayerStat.Instance.CurrentHP <= 0)
                 {
@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour
                 return;
 
             PlayerStat.Instance.CurrentHP -= 1;
-            Debug.Log("체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
+            Debug.Log("플레이어 체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
 
             if (PlayerStat.Instance.CurrentHP <= 0)
             {
