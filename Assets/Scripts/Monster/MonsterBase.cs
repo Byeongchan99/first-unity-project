@@ -20,7 +20,8 @@ public abstract class MonsterBase : MonoBehaviour
     public float attackRange;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
     public float attackTiming;   // 공격 타이밍
-    public float attackDuration;  // 애니메이션 공격 지속 시간
+    public float totalAttackTime;   // 총 공격 시간 = chargeTime + attackDuration/rushDuration + stunTime
+    public float attackDuration;  // 애니메이션 공격 모션 지속 시간
     public Vector2 attackDirection;   // 공격 방향
     public float attackColliderOffset;   // 공격 범위 콜라이더 이동 거리
     private Coroutine attackPatternCoroutine;   // 공격 패턴 코루틴
@@ -99,7 +100,7 @@ public abstract class MonsterBase : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;   // 위치 고정    
 
-        attackPatternCoroutine = StartCoroutine(AttackPattern());
+        yield return StartCoroutine(AttackPattern());
 
         /*
         yield return new WaitForSeconds(attackTiming);  // 공격 타이밍에 공격 범위 콜라이더 활성화
@@ -112,8 +113,10 @@ public abstract class MonsterBase : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;   // 위치 고정 해제
         */
 
-        ChangeState(MonsterState.CHASE);
-        yield return null;
+        if (health < 0)
+            ChangeState(MonsterState.DEAD);   // DEAD 상태로 전환
+        else
+            ChangeState(MonsterState.CHASE);   // CHASE 상태로 전환
     }
 
     public abstract IEnumerator AttackPattern();  // 몬스터 공격 패턴
@@ -154,15 +157,11 @@ public abstract class MonsterBase : MonoBehaviour
                 }
                 else
                 {
-                    if (attackPatternCoroutine != null)
-                    {
-                        StopCoroutine(attackPatternCoroutine); // 코루틴 중단
-                        attackPatternCoroutine = null;
-                    }
                     ChangeState(MonsterState.DEAD);
                 }
 
                 lastAttackID = currentAttackID;  // 현재 공격 ID로 업데이트
+                Debug.Log("lastAttackID: " + lastAttackID);
             }
         }
 
@@ -178,11 +177,7 @@ public abstract class MonsterBase : MonoBehaviour
             }
             else
             {
-                if (attackPatternCoroutine != null)
-                {
-                    StopCoroutine(attackPatternCoroutine); // 코루틴 중단
-                    attackPatternCoroutine = null;
-                }
+                Debug.Log("Dead State로 전환");
                 ChangeState(MonsterState.DEAD);
             }
         }
@@ -199,11 +194,6 @@ public abstract class MonsterBase : MonoBehaviour
             }
             else
             {
-                if (attackPatternCoroutine != null)
-                {
-                    StopCoroutine(attackPatternCoroutine); // 코루틴 중단
-                    attackPatternCoroutine = null;
-                }
                 ChangeState(MonsterState.DEAD);
             }
         }

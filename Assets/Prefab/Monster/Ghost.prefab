@@ -260,6 +260,7 @@ MonoBehaviour:
   attackDetectionRange: 7
   attackRange: 0
   attackTiming: 0
+  totalAttackTime: 2.5
   attackDuration: 0.5
   attackDirection: {x: 0, y: 0}
   attackColliderOffset: 0

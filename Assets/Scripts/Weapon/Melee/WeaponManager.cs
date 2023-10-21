@@ -72,7 +72,7 @@ public class WeaponManager
         // Debug.Log("SetWeapon called: " + weapon.name);
         if (Weapon == null)
         {
-            Debug.Log("Weapon is null");
+            // Debug.Log("Weapon is null");
             weaponObject = weapon;
             Weapon = weapon.GetComponent<BaseWeapon>();
             weaponObject.SetActive(true);

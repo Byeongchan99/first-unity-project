@@ -328,7 +328,8 @@ MonoBehaviour:
   attackDetectionRange: 3
   attackRange: 1
   attackTiming: 0
-  attackDuration: 1
+  totalAttackTime: 2
+  attackDuration: 0
   attackDirection: {x: 0, y: 0}
   attackColliderOffset: 0
   moveDirection: {x: 0, y: 0}

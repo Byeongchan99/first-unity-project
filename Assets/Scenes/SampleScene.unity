@@ -6806,7 +6806,7 @@ MonoBehaviour:
   waves:
   - spawnInfos:
     - monstersToSpawn:
-      - monsterPrefab: {fileID: 7285737326918540868, guid: a43e28856feb0164db9bb179e43ad5fd,
+      - monsterPrefab: {fileID: 8697315753361090948, guid: fd2dd6eef00b0f74b88e5933d9b926a8,
           type: 3}
         count: 1
       spawnPointIndex: 0
@@ -14137,7 +14137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754440354}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.21, y: 3.66, z: 0}
+  m_LocalPosition: {x: -0.13, y: 2.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -16,13 +16,13 @@ public class PlayerAttackArea : BaseAttackArea
     public override void ActivateAttackRange(Vector2 attackDirection)
     {
         attackID++;
-
+        Debug.Log("attackID " + attackID);
         float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 90);
 
+        Debug.Log("콜라이더 활성화");
         attackRangeCollider.enabled = true;
     }
-
 
     // 콜라이더 모양 계산
     public override void CalculateColiderPoints(float radius)
@@ -52,7 +52,7 @@ public class PlayerAttackArea : BaseAttackArea
         {
             // Energy 회복
             PlayerStat.Instance.CurrentEnergy += 1;
-            Debug.Log("에너지: " + PlayerStat.Instance.CurrentEnergy);
+            // Debug.Log("에너지: " + PlayerStat.Instance.CurrentEnergy);
             // 최대 Energy를 초과하는지 검사하고 초과 시 최대치로 설정
             PlayerStat.Instance.CurrentEnergy = Mathf.Min(PlayerStat.Instance.CurrentEnergy, PlayerStat.Instance.MaxEnergy);
         }

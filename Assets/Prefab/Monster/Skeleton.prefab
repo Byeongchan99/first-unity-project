@@ -180,12 +180,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  health: 20
-  maxHealth: 20
+  health: 50
+  maxHealth: 50
   attackDetectionRange: 1
   attackRange: 1
   attackTiming: 0.9
-  attackDuration: 1.167
+  totalAttackTime: 1.167
+  attackDuration: 0.2
   attackDirection: {x: 0, y: 0}
   attackColliderOffset: 0.5
   moveDirection: {x: 0, y: 0}

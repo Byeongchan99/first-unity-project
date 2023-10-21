@@ -12,10 +12,17 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
 
     private OneHandSwordBasic weapon;
     private Coroutine checkAttackInputCor;
-    
+
+    // 공격 추가 입력 확인 플래그
+    bool attackReceived = false;
     // 코루틴 중복 호출 방지
     private bool hasCheckedInput = false;
     private bool isCoroutineRunning = false;
+    // 콜라이더 비활성화 플래그
+    private bool hasDisabledCollider = false;
+    // 공격 종료 확인 플래그
+    private bool hasFinishedAttack = false;
+
 
     public void SetTriggerPercentage(float value)
     {
@@ -52,33 +59,38 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
             hasCheckedInput = true;
         }
 
-        if (stateInfo.normalizedTime > triggerPercentage + 0.1f && stateInfo.normalizedTime < triggerPercentage + 0.2f)
+        if (!hasDisabledCollider && stateInfo.normalizedTime > triggerPercentage + 0.1f && stateInfo.normalizedTime < triggerPercentage + 0.2f)
         {
+            Debug.Log("콜라이더 비활성화 " + PlayerStat.Instance.weaponManager.Weapon.ComboCount);
             playerAttackArea.attackRangeCollider.enabled = false;
+            hasDisabledCollider = true;
         }
 
-        if (stateInfo.normalizedTime >= 0.95f)
+        if (!hasFinishedAttack && stateInfo.normalizedTime >= 0.95f)
         {
+            hasFinishedAttack = true;
             OnFinishedAttack();
-            PlayerStat.Instance.stateMachine.ChangeState(StateName.MOVE);
         }
     }
 
     // State 종료 시 호출되는 메서드
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    { 
+    {
         hasCheckedInput = false; // Reset the flag
+        hasDisabledCollider = false; // Reset the flag
+        hasFinishedAttack = false;
     }
+
 
     // 코루틴 중 추가 입력 감지 시 다음 콤보 공격 실행, 입력이 감지되지 않으면 공격 상태 종료 및 콤보 초기화
     // 플레이어가 공격 버튼을 누를 때 호출
     public void CheckAttackInput()
     {
-        Debug.Log("CheckAttackInput 실행");
+        // Debug.Log("CheckAttackInput 실행");
 
         if (isCoroutineRunning)
         {
-            Debug.Log("checkAttackInputCoroutine 이미 실행 중");
+            // Debug.Log("checkAttackInputCoroutine 이미 실행 중");
             return;
         } 
             
@@ -86,16 +98,16 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
         {
             PlayerStat.Instance.StopCoroutine(checkAttackInputCor);
         }
-        Debug.Log("checkAttackInputCoroutine 실행");
+
+        // Debug.Log("checkAttackInputCoroutine 실행");
         checkAttackInputCor = PlayerStat.Instance.StartCoroutine(checkAttackInputCoroutine());
     }
 
     // CanReInputTime 동안 플레이어가 추가로 공격 버튼을 누르는지를 감지
     private IEnumerator checkAttackInputCoroutine()
     {
-        Debug.Log("checkAttackInputCoroutine() called.");
-        float currentTime = 0f;
-        bool attackReceived = false;
+        // Debug.Log("checkAttackInputCoroutine() called.");
+        float currentTime = 0f;      
         isCoroutineRunning = true;
 
         while (currentTime < CanReInputTime)
@@ -111,6 +123,13 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
 
             yield return null;
         }
+
+        isCoroutineRunning = false;
+    }
+
+    private void OnFinishedAttack()
+    {
+        Debug.Log("공격 종료");
 
         // 추가 입력 O
         if (attackReceived)
@@ -128,19 +147,11 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
             PlayerStat.Instance.animator.SetBool("IsAttack", false);
             PlayerStat.Instance.stateMachine.ChangeState(StateName.MOVE);
         }
-
-        isCoroutineRunning = false;
-    }
-
-    private void OnFinishedAttack()
-    {
-        Debug.Log("공격 종료");    
-        PlayerStat.Instance.animator.SetBool("IsAttack", false);
     }
 
     private void MoveForward()
     {
-        Debug.Log("약간 전진");
+        // Debug.Log("약간 전진");
         float advanceDistance = PlayerStat.Instance.weaponManager.Weapon.AdvanceDistance;
         Vector2 targetPos = (Vector2)PlayerStat.Instance.transform.position + playerController.attackDirection * advanceDistance;
         int layerMask = 1 << LayerMask.NameToLayer("Wall");
