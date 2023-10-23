@@ -243,6 +243,9 @@ public abstract class MonsterBase : MonoBehaviour
         Debug.Log("몬스터 사망");
         IsLive = false;
         WaveManager.Instance.OnMonsterDeath();
+        int randomGold = Random.Range(10, 16);  // 10에서 15 사이의 값을 얻기 위해
+        PlayerStat.Instance.Gold += randomGold;
+
         // 몬스터 상태 초기화 및 애니메이션 처리 (예: 사망 애니메이션 재생)
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;   // 위치 고정

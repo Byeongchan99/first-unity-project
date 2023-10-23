@@ -52,6 +52,13 @@ public class PlayerStat : MonoBehaviour
     }
     public int Level { get { return level; } }
     public int Kill { get { return kill; } }
+    public int Gold { 
+        get { return Gold; }
+        set
+        {
+            gold = value;
+        }
+    }
     public float MoveSpeed   // 이동 속도
     {
         get { return moveSpeed; }
@@ -89,6 +96,7 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] protected float attackPower;
     [SerializeField] protected int level;
     [SerializeField] protected int kill;
+    [SerializeField] protected int gold;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float rollSpeed;
     [SerializeField] protected float rollCooltime;
@@ -138,7 +146,7 @@ public class PlayerStat : MonoBehaviour
         stateMachine?.FixedUpdateState();
     }
 
-    public void OnUpdateStat(int playerID, int maxHP, int currentHP, float attackPower, int level, int kill, float moveSpeed, float rollSpeed, float rollCooltime, int currentEnergy, int maxEnergy)
+    public void OnUpdateStat(int playerID, int maxHP, int currentHP, float attackPower, int level, int kill, int gold, float moveSpeed, float rollSpeed, float rollCooltime, int currentEnergy, int maxEnergy)
     {
         this.playerID = playerID;
         this.maxHP = maxHP;
@@ -146,6 +154,7 @@ public class PlayerStat : MonoBehaviour
         this.attackPower = attackPower;  
         this.level = level;
         this.kill = kill;
+        this.gold = gold;
         this.moveSpeed = moveSpeed;
         this.rollSpeed = rollSpeed;
         this.rollCooltime = rollCooltime;
