@@ -124,8 +124,9 @@ public class LoadoutMeleeChoice : MonoBehaviour
     // 무기 정보 활성화
     public void DisplayWeaponInformation(int weaponID)
     {
-        Debug.Log("DisplayWeaponInformation called for weaponID: " + weaponID);
+        // Debug.Log("DisplayWeaponInformation called for weaponID: " + weaponID);
         LoadoutData loadout = GetLoadoutDataByWeaponID(weaponID);
+
         if (loadout != null)
         {
             UpdateWeaponInformation(loadout);
@@ -181,7 +182,7 @@ public class LoadoutMeleeChoice : MonoBehaviour
     // WeaponManager에 접근하여 무기를 장착
     public void EquipSelectedWeapon()
     {   
-        Debug.Log("EquipSelectedWeapon called");
+        // Debug.Log("EquipSelectedWeapon called");
         PlayerStat.Instance.weaponManager.EquipWeapon(selectedLoadout.weaponPrefab);
     }
 }

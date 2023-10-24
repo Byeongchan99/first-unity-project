@@ -53,7 +53,7 @@ public class PlayerStat : MonoBehaviour
     public int Level { get { return level; } }
     public int Kill { get { return kill; } }
     public int Gold { 
-        get { return Gold; }
+        get { return gold; }
         set
         {
             gold = value;

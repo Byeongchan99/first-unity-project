@@ -29,10 +29,11 @@ public class AbilityChoice : MonoBehaviour
         // AudioManager.instance.EffectBgm(false);
     }
 
+    // 랜덤으로 어빌리티 표시
     public void DisplayRandomAbilities()
     {
-        Debug.Log("DisplayRandomAbilities called");
-        Debug.Log("어빌리티 총 개수: " + allAbilities.Length);
+        // Debug.Log("DisplayRandomAbilities called");
+        // Debug.Log("어빌리티 총 개수: " + allAbilities.Length);
 
         List<AbilityData> chosenAbilities = ChooseRandomAbilities(3);
 
@@ -58,10 +59,11 @@ public class AbilityChoice : MonoBehaviour
             chosen.Add(allAbilities[index]);
         }
 
-        Debug.Log("선택된 어빌리티 개수: " + chosen.Count);
+        // Debug.Log("선택된 어빌리티 개수: " + chosen.Count);
         return chosen;
     }
 
+    // 어빌리티 업데이트
     private void UpdateAbilityUI(AbilityData ability, int index)
     {
         Transform abilityBackground = transform.Find("Ability BackGround");
@@ -101,7 +103,7 @@ public class AbilityChoice : MonoBehaviour
     // 어빌리티 ID에 맞는 메서드 실행
     private void ActivateChosenAbility(int id)
     {
-        // Ability 스크립트를 가져오는 코드 (이 부분은 필요에 따라 수정해야 합니다)
+        // Ability 스크립트를 가져오는 코드
         Ability abilityScript = GetComponent<Ability>();
         if (abilityScript != null)
         {
