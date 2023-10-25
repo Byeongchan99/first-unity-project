@@ -121,6 +121,27 @@ public abstract class MonsterBase : MonoBehaviour
 
     public abstract IEnumerator AttackPattern();  // 몬스터 공격 패턴
 
+
+    // 공격할 때 약간 전진 - 콜라이더 무시 현상 해결
+    protected void MoveForward()
+    {
+        // Debug.Log("약간 전진");
+        float advanceDistance = 0.1f;
+        Vector2 targetPos = (Vector2)transform.position + attackDirection * advanceDistance;
+        int layerMask = 1 << LayerMask.NameToLayer("Wall");
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, attackDirection, advanceDistance, layerMask);
+
+        if (hit.collider == null)
+        {
+            rb.MovePosition(targetPos);
+        }
+        else
+        {
+            rb.MovePosition(hit.point);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("PlayerAttackArea") && !collision.CompareTag("Bullet") && !collision.CompareTag("ExplosionArea"))
@@ -258,7 +279,7 @@ public abstract class MonsterBase : MonoBehaviour
 
     void ChangeState(MonsterState newMonsterState)
     {
-        Debug.Log("상태 전환 " + newMonsterState);
+        // Debug.Log("상태 전환 " + newMonsterState);
         monsterState = newMonsterState;
     }
 }
