@@ -1030,7 +1030,7 @@ RectTransform:
   m_GameObject: {fileID: 175330285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1541632656}
@@ -1099,6 +1099,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 10ff974bee253014283bd3e8f4a2d595, type: 2}
   - {fileID: 11400000, guid: 399780c46d25c3c42b700552d9b26cd4, type: 2}
   - {fileID: 11400000, guid: aef7a88d1315e914d8b85a859e31d217, type: 2}
+  - {fileID: 11400000, guid: 7dee1903f518e74488ded4fe0c0db0aa, type: 2}
+  - {fileID: 11400000, guid: 19c280c49c80b8d48810d7b6e3daf3f7, type: 2}
+  - {fileID: 11400000, guid: b2b12678e5b735547a171d522495a132, type: 2}
+  - {fileID: 11400000, guid: fc4d731efba92c2418fb1bfccb180e0e, type: 2}
+  - {fileID: 11400000, guid: f760850590fc68842a43a696d428c7ce, type: 2}
+  - {fileID: 11400000, guid: 745bb4d84b4dfa94e964a7907d36647e, type: 2}
   itemDetailPanel: {fileID: 2093388528}
   itemDetailImage: {fileID: 404053892}
   itemDetailName: {fileID: 196688898}
