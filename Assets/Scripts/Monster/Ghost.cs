@@ -32,6 +32,8 @@ public class Ghost : MonsterBase
         // 공격 방향 설정
         attackDirection = (target.position - transform.position).normalized;
         anim.SetBool("IsAttack", true);
+        anim.SetFloat("Direction.X", attackDirection.x);
+        anim.SetFloat("Direction.Y", attackDirection.y);
 
         for (float t = 0; t < attackDuration; t += Time.deltaTime)
         {

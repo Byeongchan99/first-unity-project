@@ -35,6 +35,8 @@ public class Bat : MonsterBase
         // 돌진하는 동안 공격 범위 콜라이더 활성화
         monsterAttackArea.ActivateAttackRange(attackDirection);
         anim.SetBool("IsAttack", true);
+        anim.SetFloat("Direction.X", chargeDirection.x);
+        anim.SetFloat("Direction.Y", chargeDirection.y);
         rb.velocity = chargeDirection * rushSpeed;
 
         for (float t = 0; t < rushDuration; t += Time.deltaTime)

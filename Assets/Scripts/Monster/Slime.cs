@@ -8,6 +8,8 @@ public class Slime : MonsterBase
     {
         attackDirection = moveDirection;
         anim.SetBool("IsAttack", true);
+        anim.SetFloat("Direction.X", attackDirection.x);
+        anim.SetFloat("Direction.Y", attackDirection.y);
 
         yield return new WaitForSeconds(attackTiming);  // 공격 타이밍에 공격 범위 콜라이더 활성화
         monsterAttackArea.ActivateAttackRange(attackDirection);   // 공격 범위 활성화

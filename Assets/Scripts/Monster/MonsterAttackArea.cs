@@ -23,7 +23,8 @@ public class MonsterAttackArea : BaseAttackArea
     public override void ActivateAttackRange(Vector2 attackDirection)
     {
         attackID++;
-
+        
+        /*
         // 방향 벡터를 4 방향 중 하나로 제한
         if (Mathf.Abs(attackDirection.x) > Mathf.Abs(attackDirection.y))
         {
@@ -33,6 +34,7 @@ public class MonsterAttackArea : BaseAttackArea
         {
             attackDirection = attackDirection.y > 0 ? Vector2.up : Vector2.down;
         }
+        */
 
         float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 90);

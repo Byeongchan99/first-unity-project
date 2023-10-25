@@ -160,6 +160,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("MonsterAttackArea"))
         {
+            Debug.Log("몬스터 공격 영역과 충돌");
             // 몬스터의 공격 영역과 충돌한 경우
             MonsterAttackArea monsterAttackArea = collision.GetComponent<MonsterAttackArea>();
             int currentAttackID = monsterAttackArea.GetAttackID();
