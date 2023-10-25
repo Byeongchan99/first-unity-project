@@ -180,8 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  health: 50
-  maxHealth: 50
+  health: 20
+  maxHealth: 20
   attackDetectionRange: 1
   attackRange: 1
   attackTiming: 0.9

@@ -1011,6 +1011,7 @@ GameObject:
   - component: {fileID: 175330286}
   - component: {fileID: 175330288}
   - component: {fileID: 175330287}
+  - component: {fileID: 175330291}
   - component: {fileID: 175330289}
   - component: {fileID: 175330290}
   m_Layer: 5
@@ -1117,6 +1118,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldText: {fileID: 1541632657}
+--- !u!114 &175330291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175330285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd8527bfc242d041a56cfedca1731f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &189570917
 GameObject:
   m_ObjectHideFlags: 0
@@ -7842,7 +7855,7 @@ MonoBehaviour:
     - monstersToSpawn:
       - monsterPrefab: {fileID: 8697315753361090948, guid: fd2dd6eef00b0f74b88e5933d9b926a8,
           type: 3}
-        count: 1
+        count: 0
       spawnPointIndex: 0
     - monstersToSpawn:
       - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
@@ -16438,7 +16451,7 @@ GameObject:
   - component: {fileID: 1902042809}
   - component: {fileID: 1902042808}
   m_Layer: 5
-  m_Name: Purchase
+  m_Name: Purchase Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17209,7 +17222,7 @@ MonoBehaviour:
     dialogues:
     - "\uBB50 \uD544\uC694\uD55C \uAC70\uB77C\uB3C4 \uC788\uC5B4?"
     - "\uD3EC\uC158 \uD55C \uC794 \uC5B4\uB54C?"
-    - "\uCE74\uB4DC \uD55C \uC7A5 \uBF51\uC544\uBD10"
+    - "\uC0AC\uACE0 \uC2F6\uC73C\uBA74 \uADF8\uB0E5 \uC0AC"
     - "\uB9C8\uC74C\uC5D0 \uB4DC\uB294 \uAC78 \uCC3E\uC544\uBD10"
     - "\uCC9C\uCC9C\uD788 \uB458\uB7EC\uBD10"
   - situation: "\uAC70\uB798"
@@ -17365,7 +17378,7 @@ GameObject:
   - component: {fileID: 2112739923}
   - component: {fileID: 2112739922}
   m_Layer: 5
-  m_Name: Close
+  m_Name: Close Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17787,7 +17800,7 @@ MonoBehaviour:
   attackPower: 0
   level: 0
   kill: 0
-  gold: 0
+  gold: 500
   moveSpeed: 250
   rollSpeed: 0.02
   rollCooltime: 0.1
