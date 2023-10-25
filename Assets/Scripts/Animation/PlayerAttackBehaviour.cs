@@ -79,8 +79,8 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
         hasCheckedInput = false; // Reset the flag
         hasDisabledCollider = false; // Reset the flag
         hasFinishedAttack = false;
+        attackReceived = false;
     }
-
 
     // 코루틴 중 추가 입력 감지 시 다음 콤보 공격 실행, 입력이 감지되지 않으면 공격 상태 종료 및 콤보 초기화
     // 플레이어가 공격 버튼을 누를 때 호출
