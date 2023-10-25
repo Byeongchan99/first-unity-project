@@ -24,6 +24,8 @@ public class Shop : MonoBehaviour
 
     private ShopItemData currentItem;   // 현재 표시된 아이템 정보
 
+    public Animator merchantAnimator;   // 상인 애니메이터
+
     void Awake()
     {
         rect = GetComponent<RectTransform>();
@@ -34,7 +36,7 @@ public class Shop : MonoBehaviour
     public void Show()
     {
         rect.localScale = Vector3.one;
-        GameManager.instance.Stop();
+        // GameManager.instance.Stop();
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
         // AudioManager.instance.EffectBgm(true);
     }
@@ -42,9 +44,18 @@ public class Shop : MonoBehaviour
     public void Hide()
     {
         rect.localScale = Vector3.zero;
-        GameManager.instance.Resume();
+        // GameManager.instance.Resume();
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         // AudioManager.instance.EffectBgm(false);
+    }
+
+    public void EnterShop()
+    {
+        // 상인 대화 애니메이터 실행
+        merchantAnimator.SetBool("IsTalk", true);
+        // 3초 대기 후 IsTalk를 false로 변경하는 코루틴 시작
+        StartCoroutine(StopTalkingAfterDelay(2f));
+        DisplayRandomShopItems();
     }
 
     // 랜덤으로 아이템 표시
@@ -189,6 +200,11 @@ public class Shop : MonoBehaviour
             if (consumableItem != null)
             {
                 consumableItem.ActivateItem(itemID);
+
+                // 상인 대화 애니메이터 실행
+                merchantAnimator.SetBool("IsTalk", true);
+                // 3초 대기 후 IsTalk를 false로 변경하는 코루틴 시작
+                StartCoroutine(StopTalkingAfterDelay(2f));
             }
             else
             {
@@ -208,6 +224,13 @@ public class Shop : MonoBehaviour
             Debug.Log("Not enough gold to purchase the item!");
             // 골드가 부족한 경우의 메시지 또는 애니메이션 추가 (옵션)
         }
+    }
+
+    // 상인 대화 애니메이터 종료
+    private IEnumerator StopTalkingAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);  // 여기서 delay 시간만큼 기다립니다.
+        merchantAnimator.SetBool("IsTalk", false);
     }
 
     // 아이템 구매 여부를 확인하는 메서드
