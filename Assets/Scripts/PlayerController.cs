@@ -32,6 +32,10 @@ public class PlayerController : MonoBehaviour
     public static Transform leftHand;
     public static Transform rightHand;
 
+    [Header("상점")]
+    private bool isNearShop = false;   // 상점 상호작용
+    public Shop shopUI;
+
     void Awake()
     {
         if (Instance == null)
@@ -79,12 +83,23 @@ public class PlayerController : MonoBehaviour
         isPointerOverUI = EventSystem.current.IsPointerOverGameObject();
     }
 
+    // 상호작용
+    void OnInteract()
+    {
+        if (isNearShop)
+        {
+            shopUI.Show();
+        }
+    }
+
+    // 이동
     void OnMove(InputValue value)
     {
         // 후처리로 normalized 해줌
         inputVec = value.Get<Vector2>();
     }
 
+    // 구르기
     void OnRoll()
     {
         if (AttackState.IsAttack || ChargeState.IsCharge || !RollState.canRoll) 
@@ -107,6 +122,7 @@ public class PlayerController : MonoBehaviour
         } 
     }
 
+    // 차지 공격
     void OnCharge()
     {
         if (RollState.IsRoll || AttackState.IsAttack || PlayerStat.Instance.CurrentEnergy < 1) 
@@ -158,7 +174,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
+        // Debug.Log(collision.gameObject.name);
 
         if (collision.gameObject.CompareTag("MonsterAttackArea"))
         {
@@ -211,6 +227,21 @@ public class PlayerController : MonoBehaviour
             playerStat.animator.SetTrigger("Hit");
             StartCoroutine(GetHitRoutine());
             return;
+        }
+
+        // 상점 상호작용 범위 들어올 때
+        if (collision.CompareTag("ShopInteractionRange"))
+        {
+            isNearShop = true;
+        }
+    }
+
+    // 상점 상호작용 범위 벗어날 때
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ShopInteractionRange"))
+        {
+            isNearShop = false;
         }
     }
 
