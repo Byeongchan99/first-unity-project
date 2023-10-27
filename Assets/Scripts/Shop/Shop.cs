@@ -22,9 +22,15 @@ public class Shop : MonoBehaviour
     public Text itemDetailDescription;
     public Button purchaseButton;   // 구매하기 버튼
 
-    private ShopItemData currentItem;   // 현재 표시된 아이템 정보
+    // 현재 표시된 아이템 정보
+    private ShopItemData currentItem; 
+    
+    // 어빌리티 구매확인 패널
+    public GameObject purchaseConfirmationPanel;
+    public AbilityChoice abilityChoice;
 
-    public Animator merchantAnimator;   // 상인 애니메이터
+    // 상인 애니메이터
+    public Animator merchantAnimator;   
 
     void Awake()
     {
@@ -224,6 +230,42 @@ public class Shop : MonoBehaviour
             Debug.Log("Not enough gold to purchase the item!");
             // 골드가 부족한 경우의 메시지 또는 애니메이션 추가 (옵션)
         }
+    }
+
+    // 어빌리티 구매확인
+    public void DisplayPurchaseConfirmation()
+    {
+        if (purchaseConfirmationPanel != null)
+            purchaseConfirmationPanel.SetActive(true);
+
+        Button purchaseButton = purchaseConfirmationPanel.GetComponentInChildren<Button>();
+
+        if (purchaseButton != null)
+        {
+            // 리스너를 먼저 제거하고 새로 추가 (이전 리스너가 남아있지 않도록)
+            purchaseButton.onClick.RemoveAllListeners();
+
+            // 현재 골드
+            int playerGold = PlayerStat.Instance.Gold;
+
+            if (playerGold >= 200)
+            {
+                // 리스너 추가
+                purchaseButton.onClick.AddListener(() => abilityChoice.Show());
+                purchaseButton.onClick.AddListener(() => abilityChoice.DisplayRandomAbilities());
+                purchaseButton.onClick.AddListener(() => UseGold(200));
+                purchaseButton.onClick.AddListener(() => purchaseConfirmationPanel.SetActive(false));
+            }
+            else
+            {
+                Debug.Log("골드가 부족합니다.");
+            }
+        }
+    }
+
+    public void UseGold(int amount)
+    {
+        PlayerStat.Instance.Gold -= amount;
     }
 
     // 상인 대화 애니메이터 종료

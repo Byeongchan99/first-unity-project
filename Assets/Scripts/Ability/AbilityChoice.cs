@@ -121,28 +121,33 @@ public class AbilityChoice : MonoBehaviour
         }
     }
 
+    public void Reroll()
+    {
+        // 현재 골드
+        int playerGold = PlayerStat.Instance.Gold;
 
-    // 골드 차감 및 어빌리티 ID에 맞는 메서드 실행
+        if (playerGold >= 20)
+        {
+            PlayerStat.Instance.Gold -= 20;
+            DisplayRandomAbilities();
+        }
+        else
+        {
+            Debug.Log("골드가 부족합니다.");
+        }
+    }
+
+
+    // 어빌리티 ID에 맞는 메서드 실행
     private void ActivateChosenAbility(int id)
     {
         // Ability 스크립트를 가져오는 코드
         Ability abilityScript = GetComponent<Ability>();
 
-        // 현재 골드
-        int playerGold = PlayerStat.Instance.Gold;
-
         if (abilityScript != null)
         {
-            if (playerGold >= 200)
-            {
-                PlayerStat.Instance.Gold -= 200;
-                abilityScript.ActivateAbility(id);
-                Hide();
-            }
-            else
-            {
-                Debug.Log("골드가 부족합니다.");
-            }
+            abilityScript.ActivateAbility(id);
+            Hide();
         }
         else
         {
