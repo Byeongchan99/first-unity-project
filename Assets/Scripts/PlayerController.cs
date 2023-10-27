@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
         if (isNearShop)
         {
             shopUI.Show();
+            shopUI.DisplayRandomShopItems();
         }
     }
 

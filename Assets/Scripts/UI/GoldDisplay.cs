@@ -7,6 +7,6 @@ public class GoldDisplay : MonoBehaviour
 
     private void Update()
     {
-        goldText.text = "현재 골드: " + PlayerStat.Instance.Gold + "<color=#FFD700>G</color>"; // #FFD700은 황금색
+        goldText.text = "현재 골드: <color=#FFD700>" + PlayerStat.Instance.Gold + "G</color>";
     }
 }

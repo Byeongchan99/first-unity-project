@@ -110,7 +110,7 @@ public class Shop : MonoBehaviour
 
         // 아이템 데이터 할당
         itemUI.Find("Item Name").GetComponent<Text>().text = item.itemName;
-        itemUI.Find("Item Price").GetComponent<Text>().text = item.itemPrice + "<color=#FFD700>G</color>";
+        itemUI.Find("Item Price").GetComponent<Text>().text = "<color=#FFD700>" + item.itemPrice + "G</color>";
         itemUI.Find("Item Image").GetComponent<Image>().sprite = item.itemImage;
 
         // 버튼 누를 시 상세정보창 표시됨
@@ -143,7 +143,7 @@ public class Shop : MonoBehaviour
         {
             itemDetailImage.sprite = currentItem.itemImage;
             itemDetailName.text = currentItem.itemName;
-            itemDetailPrice.text = currentItem.itemPrice + "<color=#FFD700>G</color>";
+            itemDetailPrice.text = "<color=#FFD700>" + currentItem.itemPrice + "G</color>";
             itemDetailDescription.text = currentItem.itemDesc;
 
             if (itemDetailPanel != null)
