@@ -111,8 +111,8 @@ public class Ability : MonoBehaviour
     // ±ú´ÞÀ½
     private void Enlightenment()
     {
-        PlayerStat.Instance.MaxHP += 2;
-        PlayerStat.Instance.CurrentHP += 2;
+        PlayerStat.Instance.MaxEnergy += 2;
+        PlayerStat.Instance.CurrentEnergy += 2;
         EnergyManager.Instance.AdjustEnergy();
     }
 
@@ -145,6 +145,7 @@ public class Ability : MonoBehaviour
         PlayerStat.Instance.CurrentHP += 1;
         PlayerStat.Instance.MaxEnergy += 1;
         PlayerStat.Instance.CurrentEnergy += 1;
+        HealthManager.Instance.AdjustHearts();
         EnergyManager.Instance.AdjustEnergy();
     }
 
@@ -267,6 +268,7 @@ public class Ability : MonoBehaviour
         PlayerStat.Instance.MaxEnergy += 3;
         PlayerStat.Instance.CurrentEnergy += 3;
         PlayerStat.Instance.MaxHP -= 2;
+        HealthManager.Instance.AdjustHearts();
         EnergyManager.Instance.AdjustEnergy();
     }
 
