@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
     private bool isNearShop = false;   // 상점 상호작용
     public Shop shopUI;
 
+    private bool isNearPortal = false;   // 포탈 상호작용
+    public int transitionToStageIndex;
+
     void Awake()
     {
         if (Instance == null)
@@ -90,6 +93,11 @@ public class PlayerController : MonoBehaviour
         {
             shopUI.Show();
             shopUI.DisplayRandomShopItems();
+        }
+
+        if (isNearPortal)
+        {
+            StageManager.Instance.TransitionToStage(transitionToStageIndex);
         }
     }
 
@@ -237,13 +245,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // 상점 상호작용 범위 벗어날 때
+    // 오브젝트 상호작용 범위 벗어날 때
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("ShopInteractionRange"))
         {
             isNearShop = false;
         }
+    }
+
+    // 포탈 상호작용 설정
+    public void SetNearPortal(bool isNear, int stageIndex)
+    {
+        isNearPortal = isNear;
+        transitionToStageIndex = stageIndex; // 포탈 인덱스 업데이트
     }
 
     // 무적 시간 코루틴
