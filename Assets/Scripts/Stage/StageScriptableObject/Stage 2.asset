@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af3116445bdb43498c7e7641e8f4bc9, type: 3}
+  m_Name: Stage 2
+  m_EditorClassIdentifier: 
+  stageName: Test Desert Stage
+  stageID: 2
+  waves:
+  - {fileID: 11400000, guid: a08e2f59c325bf646b520ef749cebabe, type: 2}
+  stagePrefab: {fileID: 8217171110964469077, guid: b801fb04fcd0c6849a68285d2c4fbc89,
+    type: 3}
+  startPosition: {x: 0, y: -20, z: 0}
