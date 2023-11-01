@@ -7,6 +7,10 @@ public class WaveManager : MonoBehaviour
     // 싱글톤 인스턴스
     public static WaveManager Instance { get; private set; }
 
+    [Header("Stage Settings")]
+    public List<StageData> stages;  // 스테이지 데이터
+    private int currentStage = 0;  // 현재 스테이지
+
     [Header("Wave Settings")]
     public List<Wave> waves;   // 여러 웨이브 정보
     public GameObject[] spawnPoints;   // 스폰 포인트 위치 정보   // 스폰 포인트 위치 정보
@@ -36,6 +40,7 @@ public class WaveManager : MonoBehaviour
         InitializeObjectPools();
     }
 
+    // 오브젝트 풀링 초기화
     void InitializeObjectPools()
     {
         objectPools = new Dictionary<GameObject, List<GameObject>>();
@@ -66,21 +71,40 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-
-    public void StartWave()
+    // 스테이지를 변경할 때 호출
+    public void ChangeStage(int stageIndex)
     {
-        // 웨이브의 최대 수를 초과하면 시작하지 않습니다.
-        if (currentWave >= waves.Count)
+        if (stageIndex >= stages.Count)
         {
+            Debug.LogWarning("Invalid stage index!");
             return;
         }
+
+        currentStage = stageIndex;
+        currentWave = 0;
+        StartWave();
+    }
+
+    // 웨이브 시작 메서드
+    public void StartWave()
+    {
+        // 현재 스테이지와 웨이브의 데이터를 가져옵니다.
+        StageData currentStageData = stages[currentStage];
+        if (currentWave >= currentStageData.waves.Count)
+        {
+            Debug.LogWarning("No more waves in the current stage!");
+            return;
+        }
+
+        Wave currentWaveData = currentStageData.waves[currentWave];
+        GameObject[] currentSpawnPoints = currentWaveData.spawnPoints;
 
         // 초기화
         remainingMonsters = 0;
 
-        foreach (var spawnInfo in waves[currentWave].spawnInfos)
+        foreach (var spawnInfo in currentWaveData.spawnInfos)
         {
-            GameObject spawnPoint = spawnPoints[spawnInfo.spawnPointIndex];
+            GameObject spawnPoint = currentSpawnPoints[spawnInfo.spawnPointIndex];
             foreach (var monsterData in spawnInfo.monstersToSpawn)
             {
                 for (int i = 0; i < monsterData.count; i++)
@@ -94,6 +118,7 @@ public class WaveManager : MonoBehaviour
         currentWave++;  // 웨이브 시작 후 currentWave 값을 증가시킵니다.
     }
 
+    // 몬스터 소환
     void SpawnMonster(GameObject monsterPrefab, GameObject spawnPointObj)
     {
         GameObject monsterToSpawn = null;
@@ -160,7 +185,17 @@ public class SpawnInfo
 public class Wave
 {
     [Header("웨이브 설정")]
-    [Tooltip("각 웨이브에서 소환될 몬스터와 스폰 포인트 정보")]
-    public List<SpawnInfo> spawnInfos;   // 이 웨이브에서 소환될 몬스터의 정보
+    [Tooltip("각 웨이브에서 소환될 몬스터 정보")]
+    public List<SpawnInfo> spawnInfos; // 이 웨이브에서 소환될 몬스터의 정보
+
+    [Tooltip("이 웨이브의 스폰 포인트 위치 정보")]
+    public GameObject[] spawnPoints; // 이 웨이브의 스폰 포인트 위치 정보
 }
 
+[System.Serializable]
+public class StageData
+{
+    [Header("Stage Settings")]
+    [Tooltip("이 스테이지의 웨이브 정보")]
+    public List<Wave> waves; // 이 스테이지의 웨이브 정보
+}
