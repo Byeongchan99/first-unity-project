@@ -9,6 +9,7 @@ public class Portal : MonoBehaviour
     // 다른 오브젝트가 이 포탈에 들어왔을 때 호출되는 메서드
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("포탈 진입");
         if (collision.CompareTag("Player"))
         {
             PlayerController playerController = collision.GetComponent<PlayerController>();
@@ -23,6 +24,7 @@ public class Portal : MonoBehaviour
     // 다른 오브젝트가 이 포탈을 벗어났을 때 호출되는 메서드
     private void OnTriggerExit2D(Collider2D collision)
     {
+        Debug.Log("포탈 벗어남");
         if (collision.CompareTag("Player"))
         {
             PlayerController playerController = collision.GetComponent<PlayerController>();
