@@ -26,23 +26,34 @@ public class Astar : MonoBehaviour
     Node StartNode, TargetNode, CurNode;
     List<Node> OpenList, ClosedList;
 
+    public void Initialize(StageData stageData)
+    {
+        Debug.Log("스테이지 정보" + stageData.stageID);
+        bottomLeft = stageData.bottomLeft;
+        topRight = stageData.topRight;
+        // 필요한 경우 추가 초기화 로직을 여기에 추가합니다.
+    }
+
     public Vector2Int WorldToTilemapPosition(Vector2 worldPos)   // 월드 좌표를 타일맵 좌표로 변환
     {
-        int x = Mathf.FloorToInt((worldPos.x - bottomLeft.x) / 0.5f);
-        int y = Mathf.FloorToInt((worldPos.y - bottomLeft.y) / 0.5f);
+        int x = Mathf.RoundToInt((worldPos.x - bottomLeft.x) / 0.5f);
+        int y = Mathf.RoundToInt((worldPos.y - bottomLeft.y) / 0.5f);
 
         return new Vector2Int(x, y);
     }
 
     public Vector2 TilemapToWorldPosition(Vector2Int tilemapPos)   // 타일맵 좌표를 월드 좌표로 변환
     {
-        return new Vector2(tilemapPos.x * 0.5f - 5f, tilemapPos.y * 0.5f - 5f);
+        // 여기서 bottomLeft를 사용하여 올바른 월드 좌표를 계산합니다.
+        return new Vector2(tilemapPos.x * 0.5f + bottomLeft.x, tilemapPos.y * 0.5f + bottomLeft.y);
     }
 
     public List<Node> PathFinding(Vector2Int startPos, Vector2Int targetPos)   // 시작 타일맵 좌표, 목표 타일맵 좌표
     {
-        sizeX = (topRight.x - bottomLeft.x) * 2;  // 타일맵 가로 좌표
-        sizeY = (topRight.y - bottomLeft.y) * 2;  // 타일맵 세로 좌표
+        sizeX = Mathf.Abs(topRight.x - bottomLeft.x) * 2;  // 타일맵 가로 크기
+        sizeY = Mathf.Abs(topRight.y - bottomLeft.y) * 2;  // 타일맵 세로 크기
+
+        Debug.Log("topRight " + topRight + "bottomLeft " + bottomLeft);
 
         NodeArray = new Node[sizeX, sizeY];
 
@@ -58,6 +69,8 @@ public class Astar : MonoBehaviour
                 NodeArray[i, j] = new Node(isWall, i, j);
             }
         }
+
+        Debug.Log("startPos + " + startPos.x + startPos.y);
 
         StartNode = NodeArray[startPos.x, startPos.y];   // 시작 노드
         TargetNode = NodeArray[targetPos.x, targetPos.y];   // 목표 노드
@@ -111,8 +124,6 @@ public class Astar : MonoBehaviour
     {
         Vector2Int tilemapBottomLeft = WorldToTilemapPosition(bottomLeft);
         Vector2Int tilemapTopRight = WorldToTilemapPosition(topRight);
-
-        
 
         if (checkX >= tilemapBottomLeft.x && checkX < tilemapTopRight.x  && checkY >= tilemapBottomLeft.y && checkY < tilemapTopRight.y ) 
         {

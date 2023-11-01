@@ -18,4 +18,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a08e2f59c325bf646b520ef749cebabe, type: 2}
   stagePrefab: {fileID: 8217171110964469077, guid: b801fb04fcd0c6849a68285d2c4fbc89,
     type: 3}
-  startPosition: {x: 0, y: -20, z: 0}
+  startPosition: {x: 0, y: -20}
+  bottomLeft: {x: -5, y: -25}
+  topRight: {x: 5, y: -15}

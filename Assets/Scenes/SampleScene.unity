@@ -670,6 +670,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e3e062782704e949bc169374eb276a2, type: 2}
   - {fileID: 0}
   - {fileID: 11400000, guid: b17ca1f49d6acc442bc6be69a01f9d8c, type: 2}
+  currentStage: {fileID: 0}
 --- !u!4 &602649359
 Transform:
   m_ObjectHideFlags: 0
@@ -818,10 +819,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e1cdf2fe2b170147ad2766f003ed087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stages:
-  - {fileID: 11400000, guid: 9e3e062782704e949bc169374eb276a2, type: 2}
-  - {fileID: 11400000, guid: b17ca1f49d6acc442bc6be69a01f9d8c, type: 2}
-  poolSize: 10
+  monsterPools:
+  - monsterPrefab: {fileID: 7285737326918540868, guid: a43e28856feb0164db9bb179e43ad5fd,
+      type: 3}
+    poolSize: 3
+  - monsterPrefab: {fileID: 3510155503548329890, guid: 610674db1d91f5d4e85a52c4e8caf90d,
+      type: 3}
+    poolSize: 3
+  - monsterPrefab: {fileID: 6775636773419384046, guid: 1b96233f3cbf5194db9ae385c4a04a2d,
+      type: 3}
+    poolSize: 3
+  - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
+      type: 3}
+    poolSize: 3
+  - monsterPrefab: {fileID: 7298701620345412785, guid: 7617e83684b4b9d4fb2050401b3613f6,
+      type: 3}
+    poolSize: 3
+  - monsterPrefab: {fileID: 6499440422579365713, guid: fbb91cccd299bb14c82bd2d974809dc8,
+      type: 3}
+    poolSize: 3
 --- !u!1 &1139024530
 GameObject:
   m_ObjectHideFlags: 0

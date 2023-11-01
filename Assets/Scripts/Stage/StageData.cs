@@ -13,5 +13,6 @@ public class StageData : ScriptableObject
     [Tooltip("이 스테이지의 웨이브 정보")]
     public List<WaveData> waves; // 이 스테이지의 웨이브 정보
     public GameObject stagePrefab; // 스테이지 오브젝트의 프리팹
-    public Vector3 startPosition; // 스테이지 시작 위치
+    public Vector2 startPosition; // 스테이지 시작 위치
+    public Vector2Int bottomLeft, topRight;   // 몬스터 Astar 알고리즘을 위한 맵 크기 월드 좌표
 }

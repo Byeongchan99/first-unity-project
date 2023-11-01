@@ -52,10 +52,15 @@ public abstract class MonsterBase : MonoBehaviour
 
     void OnEnable()
     {
-        target = PlayerStat.Instance.transform;
         IsLive = true;
         health = maxHealth;
-        monsterState = MonsterState.CHASE;   // 소환된 몬스터는 곧바로 추적 상태
+    }
+
+    // 몬스터를 활성화하는 코드
+    public void ActivateMonster()
+    {
+        target = PlayerStat.Instance.transform;
+        monsterState = MonsterState.CHASE;
         StartCoroutine(StateMachine());
     }
 

@@ -8,7 +8,7 @@ public class StageManager : MonoBehaviour
     public static StageManager Instance { get; private set; }
 
     public List<StageData> stages; // 모든 스테이지의 데이터 리스트
-    private StageData currentStage; // 현재 활성화된 스테이지 데이터
+    public StageData currentStage; // 현재 활성화된 스테이지 데이터
     private Dictionary<int, GameObject> stageInstances = new Dictionary<int, GameObject>(); // 스테이지 인스턴스 저장
 
     private void Awake()
@@ -55,11 +55,13 @@ public class StageManager : MonoBehaviour
             }
 
             currentStage = stages[stageIndex];
+            Debug.Log("현재 스테이지: " + currentStage.stageID);
             // 새 스테이지 활성화
             stageInstances[stageIndex].SetActive(true);
 
             // 플레이어를 새 스테이지의 시작 위치로 이동
             PlayerStat.Instance.transform.position = currentStage.startPosition;
+            WaveManager.Instance.StartWave();
         }
     }
 }

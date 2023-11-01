@@ -7,15 +7,21 @@ public class WaveManager : MonoBehaviour
     // 싱글톤 인스턴스
     public static WaveManager Instance { get; private set; }
 
-    [Header("Stage Settings")]
-    public List<StageData> stages;  // 스테이지 데이터
-    private int currentStage = 0;  // 현재 스테이지
-
-    private int currentWave = 0;  // 현재 웨이브
+    private int currentStage;  // 현재 스테이지 ID
+    private int currentWave = 0;  // 현재 웨이브 ID
     private int remainingMonsters; // 현재 웨이브의 남은 몬스터 수
 
+    [System.Serializable]
+    public class MonsterPool
+    {
+        public GameObject monsterPrefab;
+        public int poolSize;
+    }
+
     [Header("Object Pooling")]
-    public int poolSize = 10; // 각 몬스터 별로 준비할 오브젝트 수
+    public MonsterPool[] monsterPools;
+
+    // 오브젝트 풀링을 위한 Dictionary
     private Dictionary<GameObject, List<GameObject>> objectPools;
 
     private void Awake()
@@ -42,35 +48,31 @@ public class WaveManager : MonoBehaviour
     {
         objectPools = new Dictionary<GameObject, List<GameObject>>();
 
-        // MonstersContainer 생성 및 설정
         GameObject monstersContainer = new GameObject("MonstersContainer");
         monstersContainer.transform.SetParent(this.transform);
 
-        foreach (var stage in stages)
+        foreach (var monsterPool in monsterPools)
         {
-            foreach (var wave in stage.waves)
+            GameObject prefab = monsterPool.monsterPrefab;
+            int poolSize = monsterPool.poolSize;
+
+            objectPools[prefab] = new List<GameObject>();
+
+            for (int i = 0; i < poolSize; i++)
             {
-                foreach (var spawnInfo in wave.spawnInfos)
-                {
-                    foreach (var monsterData in spawnInfo.monstersToSpawn)
-                    {
-                        if (!objectPools.ContainsKey(monsterData.monsterPrefab))
-                        {
-                            objectPools[monsterData.monsterPrefab] = new List<GameObject>();
-                            for (int i = 0; i < poolSize; i++)
-                            {
-                                GameObject instance = Instantiate(monsterData.monsterPrefab);
-                                instance.transform.SetParent(monstersContainer.transform);
-                                instance.SetActive(false);
-                                objectPools[monsterData.monsterPrefab].Add(instance);
-                            }
-                        }
-                    }
-                }
+                GameObject newMonster = Instantiate(prefab);
+                newMonster.transform.SetParent(monstersContainer.transform);
+                newMonster.SetActive(false);
+
+                // 필요한 초기화 코드...
+
+                objectPools[prefab].Add(newMonster);
             }
         }
     }
 
+
+    /*
     // 스테이지를 변경할 때 호출
     public void ChangeStage(int stageIndex)
     {
@@ -84,12 +86,13 @@ public class WaveManager : MonoBehaviour
         currentWave = 0;
         StartWave();
     }
+    */
 
     // 웨이브 시작 메서드
     public void StartWave()
     {
         // 현재 스테이지와 웨이브의 데이터를 가져옵니다.
-        StageData currentStageData = stages[currentStage];
+        StageData currentStageData = StageManager.Instance.currentStage;
         if (currentWave >= currentStageData.waves.Count)
         {
             Debug.LogWarning("No more waves in the current stage!");
@@ -105,7 +108,7 @@ public class WaveManager : MonoBehaviour
 
         foreach (var spawnInfo in currentWaveData.spawnInfos)
         {
-            Vector3 spawnPointPosition = new Vector3(currentSpawnPointsPositions[spawnInfo.spawnPointIndex].x, currentSpawnPointsPositions[spawnInfo.spawnPointIndex].y, 0); // Vector2를 Vector3로 변환
+            Vector2 spawnPointPosition = new Vector2(currentSpawnPointsPositions[spawnInfo.spawnPointIndex].x + currentStageData.startPosition.x, currentSpawnPointsPositions[spawnInfo.spawnPointIndex].y + currentStageData.startPosition.y);
             foreach (var monsterData in spawnInfo.monstersToSpawn)
             {
                 for (int i = 0; i < monsterData.count; i++)
@@ -120,7 +123,7 @@ public class WaveManager : MonoBehaviour
     }
 
     // 몬스터 소환
-    void SpawnMonster(GameObject monsterPrefab, Vector3 spawnPointPosition)
+    void SpawnMonster(GameObject monsterPrefab, Vector2 spawnPointPosition)
     {
         GameObject monsterToSpawn = null;
 
@@ -136,7 +139,14 @@ public class WaveManager : MonoBehaviour
         if (monsterToSpawn != null)
         {
             monsterToSpawn.transform.position = spawnPointPosition; // 스폰 포인트 위치 설정
-            monsterToSpawn.SetActive(true);
+            MonsterBase monsterComponent = monsterToSpawn.GetComponent<MonsterBase>();
+            Astar Astar = monsterToSpawn.GetComponent<Astar>();
+            if (monsterComponent != null)
+            {
+                monsterToSpawn.SetActive(true);
+                Astar.Initialize(StageManager.Instance.currentStage);
+                monsterComponent.ActivateMonster(); // 추가 초기화나 설정이 필요한 경우
+            }
         }
     }
 
@@ -179,12 +189,4 @@ public class SpawnInfo
     [Header("스폰 포인트 설정")]
     [Tooltip("몬스터가 소환될 스폰 포인트의 인덱스")]
     public int spawnPointIndex;   // 스폰 포인트 index
-}
-
-[System.Serializable]
-public class Wave
-{
-    [Header("웨이브 설정")]
-    [Tooltip("각 웨이브에서 소환될 몬스터 정보")]
-    public List<SpawnInfo> spawnInfos; // 이 웨이브에서 소환될 몬스터의 정보
 }
