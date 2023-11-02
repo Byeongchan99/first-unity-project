@@ -28,7 +28,7 @@ public class Astar : MonoBehaviour
 
     public void Initialize(StageData stageData)
     {
-        Debug.Log("스테이지 정보" + stageData.stageID);
+        // Debug.Log("스테이지 정보" + stageData.stageID);
         bottomLeft = stageData.bottomLeft;
         topRight = stageData.topRight;
         // 필요한 경우 추가 초기화 로직을 여기에 추가합니다.
@@ -53,7 +53,7 @@ public class Astar : MonoBehaviour
         sizeX = Mathf.Abs(topRight.x - bottomLeft.x) * 2;  // 타일맵 가로 크기
         sizeY = Mathf.Abs(topRight.y - bottomLeft.y) * 2;  // 타일맵 세로 크기
 
-        Debug.Log("topRight " + topRight + "bottomLeft " + bottomLeft);
+        // Debug.Log("topRight " + topRight + "bottomLeft " + bottomLeft);
 
         NodeArray = new Node[sizeX, sizeY];
 
@@ -70,7 +70,7 @@ public class Astar : MonoBehaviour
             }
         }
 
-        Debug.Log("startPos + " + startPos.x + startPos.y);
+        // Debug.Log("startPos + " + startPos.x + startPos.y);
 
         StartNode = NodeArray[startPos.x, startPos.y];   // 시작 노드
         TargetNode = NodeArray[targetPos.x, targetPos.y];   // 목표 노드

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Stage 2
   m_EditorClassIdentifier: 
   stageName: Test Desert Stage
+  stageType: battle
   stageID: 2
   waves:
   - {fileID: 11400000, guid: a08e2f59c325bf646b520ef749cebabe, type: 2}

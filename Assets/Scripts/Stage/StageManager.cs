@@ -55,13 +55,16 @@ public class StageManager : MonoBehaviour
             }
 
             currentStage = stages[stageIndex];
-            Debug.Log("현재 스테이지: " + currentStage.stageID);
+            Debug.Log("이동할 스테이지: " + currentStage.stageID);
             // 새 스테이지 활성화
             stageInstances[stageIndex].SetActive(true);
 
             // 플레이어를 새 스테이지의 시작 위치로 이동
             PlayerStat.Instance.transform.position = currentStage.startPosition;
-            WaveManager.Instance.StartWave();
+           
+            // 전투 스테이지일 경우 몬스터 소환
+            if (currentStage.stageType == "battle") 
+                WaveManager.Instance.StartWave();
         }
     }
 }

@@ -93,6 +93,8 @@ public class WaveManager : MonoBehaviour
     {
         // 현재 스테이지와 웨이브의 데이터를 가져옵니다.
         StageData currentStageData = StageManager.Instance.currentStage;
+
+        Debug.Log(currentStageData.stageID + " " +  currentStageData.waves.Count);
         if (currentWave >= currentStageData.waves.Count)
         {
             Debug.LogWarning("No more waves in the current stage!");

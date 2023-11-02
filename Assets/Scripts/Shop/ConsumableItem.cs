@@ -8,7 +8,7 @@ public class ConsumableItem : MonoBehaviour
     // 특정 능력을 발동하는 메서드
     public void ActivateItem(int itemID)
     {
-        switch (itemID)
+        switch (itemID % 3)
         {
             case 0:
                 recoveryHealth(1);
