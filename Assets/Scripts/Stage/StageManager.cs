@@ -10,6 +10,8 @@ public class StageManager : MonoBehaviour
     public List<StageData> stages; // 모든 스테이지의 데이터 리스트
     public StageData currentStage; // 현재 활성화된 스테이지 데이터
     private Dictionary<int, GameObject> stageInstances = new Dictionary<int, GameObject>(); // 스테이지 인스턴스 저장
+    // 스테이지 완료 상태를 추적하는 Dictionary
+    public Dictionary<int, bool> completedStages;
 
     private void Awake()
     {
@@ -17,6 +19,7 @@ public class StageManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            completedStages = new Dictionary<int, bool>();
         }
         else
         {
@@ -66,5 +69,24 @@ public class StageManager : MonoBehaviour
             if (currentStage.stageType == "battle") 
                 WaveManager.Instance.StartWave();
         }
+    }
+
+    // 스테이지 완료 상태 업데이트 메서드
+    public void SetStageCompleted(int stageID, bool completed)
+    {
+        if (!completedStages.ContainsKey(stageID))
+        {
+            completedStages.Add(stageID, completed);
+        }
+        else
+        {
+            completedStages[stageID] = completed;
+        }
+    }
+
+    // 스테이지 완료 여부 확인 메서드
+    public bool IsStageCompleted(int stageID)
+    {
+        return completedStages.ContainsKey(stageID) && completedStages[stageID];
     }
 }

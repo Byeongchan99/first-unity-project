@@ -71,36 +71,19 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-
-    /*
-    // 스테이지를 변경할 때 호출
-    public void ChangeStage(int stageIndex)
-    {
-        if (stageIndex >= stages.Count)
-        {
-            Debug.LogWarning("Invalid stage index!");
-            return;
-        }
-
-        currentStage = stageIndex;
-        currentWave = 0;
-        StartWave();
-    }
-    */
-
     // 웨이브 시작 메서드
     public void StartWave()
-    {   
+    {
         // 현재 스테이지와 웨이브의 데이터를 가져옵니다.
         StageData currentStageData = StageManager.Instance.currentStage;
+        currentStage = currentStageData.stageID;
 
-        Debug.Log(currentStageData.stageID + " " +  currentStageData.waves.Count);
-        if (currentWave >= currentStageData.waves.Count)
+        // 해당 스테이지가 이미 완료되었다면 더 이상 웨이브를 시작하지 않음
+        if (StageManager.Instance.IsStageCompleted(currentStage))
         {
-            Debug.LogWarning("No more waves in the current stage!");
-            currentWave = 0;   // 한 스테이지의 웨이브가 모두 끝났다면 0으로 초기화
+            Debug.LogWarning("This stage is already completed!");
             return;
-        }
+        }     
 
         WaveData currentWaveData = currentStageData.waves[currentWave]; // 스크립터블 오브젝트 사용
 
@@ -124,6 +107,15 @@ public class WaveManager : MonoBehaviour
         }
 
         currentWave++;  // 웨이브 시작 후 currentWave 값을 증가시킵니다.
+
+        // 마지막 웨이브 클리어 후 스테이지 완료 상태 업데이트
+        if (currentWave >= currentStageData.waves.Count)
+        {
+            StageManager.Instance.SetStageCompleted(currentStage, true); // 스테이지 완료 상태 업데이트
+            Debug.LogWarning("No more waves in the current stage!");
+            currentWave = 0;   // 한 스테이지의 웨이브가 모두 끝났다면 0으로 초기화
+            return;
+        }
     }
 
     // 몬스터 소환
