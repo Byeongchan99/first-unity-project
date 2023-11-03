@@ -90,7 +90,7 @@ public class WaveManager : MonoBehaviour
 
     // 웨이브 시작 메서드
     public void StartWave()
-    {
+    {   
         // 현재 스테이지와 웨이브의 데이터를 가져옵니다.
         StageData currentStageData = StageManager.Instance.currentStage;
 
@@ -98,6 +98,7 @@ public class WaveManager : MonoBehaviour
         if (currentWave >= currentStageData.waves.Count)
         {
             Debug.LogWarning("No more waves in the current stage!");
+            currentWave = 0;   // 한 스테이지의 웨이브가 모두 끝났다면 0으로 초기화
             return;
         }
 
@@ -107,6 +108,7 @@ public class WaveManager : MonoBehaviour
 
         // 초기화
         remainingMonsters = 0;
+        GameManager.instance.isBattle = true;
 
         foreach (var spawnInfo in currentWaveData.spawnInfos)
         {
@@ -146,7 +148,7 @@ public class WaveManager : MonoBehaviour
             if (monsterComponent != null)
             {
                 monsterToSpawn.SetActive(true);
-                Astar.Initialize(StageManager.Instance.currentStage);
+                Astar.Initialize(StageManager.Instance.currentStage);   // Astar 알고리즘에 맵 데이터 업데이트
                 monsterComponent.ActivateMonster(); // 추가 초기화나 설정이 필요한 경우
             }
         }
@@ -157,8 +159,9 @@ public class WaveManager : MonoBehaviour
     {
         remainingMonsters--;
 
-        if (remainingMonsters <= 0)
+        if (remainingMonsters <= 0)   // 남은 몬스터가 없다면
         {
+            GameManager.instance.isBattle = false;
             StartCoroutine(StartNextWaveWithDelay(2.0f));  // 2초 후에 다음 웨이브 시작
         }
     }

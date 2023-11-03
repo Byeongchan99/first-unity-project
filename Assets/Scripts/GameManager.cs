@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [Header("# Game Control")]   // 인스펙터의 속성들을 구분시켜주는 타이틀
     public bool isLive;   // 시간 흐름 조절
-    public bool isInvincible = false;
+    public bool isInvincible = false;   // 무적 상태
+    public bool isBattle;   // 전투 상태
     public float gameTime;
     public float maxGameTime = 3 * 10f;
 
