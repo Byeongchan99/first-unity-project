@@ -66,7 +66,7 @@ public class StageManager : MonoBehaviour
             PlayerStat.Instance.transform.position = currentStage.startPosition;
            
             // 전투 스테이지일 경우 몬스터 소환
-            if (currentStage.stageType == "battle") 
+            if (currentStage.stageType == "battle" || currentStage.stageType == "boss") 
                 WaveManager.Instance.StartWave();
         }
     }

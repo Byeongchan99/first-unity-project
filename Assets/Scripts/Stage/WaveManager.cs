@@ -7,7 +7,7 @@ public class WaveManager : MonoBehaviour
     // 싱글톤 인스턴스
     public static WaveManager Instance { get; private set; }
 
-    private int currentStage;  // 현재 스테이지 ID
+    private int currentStageID;  // 현재 스테이지 ID
     private int currentWave = 0;  // 현재 웨이브 ID
     private int remainingMonsters; // 현재 웨이브의 남은 몬스터 수
 
@@ -76,10 +76,10 @@ public class WaveManager : MonoBehaviour
     {
         // 현재 스테이지와 웨이브의 데이터를 가져옵니다.
         StageData currentStageData = StageManager.Instance.currentStage;
-        currentStage = currentStageData.stageID;
+        currentStageID = currentStageData.stageID;
 
         // 해당 스테이지가 이미 완료되었다면 더 이상 웨이브를 시작하지 않음
-        if (StageManager.Instance.IsStageCompleted(currentStage))
+        if (StageManager.Instance.IsStageCompleted(currentStageID))
         {
             Debug.LogWarning("This stage is already completed!");
             return;
@@ -100,7 +100,15 @@ public class WaveManager : MonoBehaviour
             {
                 for (int i = 0; i < monsterData.count; i++)
                 {
-                    SpawnMonster(monsterData.monsterPrefab, spawnPointPosition);
+                    // 스테이지 타입에 따라 몬스터 소환
+                    if (currentStageData.stageType == "battle")
+                    {
+                        SpawnMonster(monsterData.monsterPrefab, spawnPointPosition);
+                    }
+                    else if (currentStageData.stageType == "boss")
+                    {
+                        SpawnBoss(monsterData.monsterPrefab, spawnPointPosition);
+                    }
                     remainingMonsters++;
                 }
             }
@@ -111,14 +119,14 @@ public class WaveManager : MonoBehaviour
         // 마지막 웨이브 클리어 후 스테이지 완료 상태 업데이트
         if (currentWave >= currentStageData.waves.Count)
         {
-            StageManager.Instance.SetStageCompleted(currentStage, true); // 스테이지 완료 상태 업데이트
+            StageManager.Instance.SetStageCompleted(currentStageID, true); // 스테이지 완료 상태 업데이트
             Debug.LogWarning("No more waves in the current stage!");
             currentWave = 0;   // 한 스테이지의 웨이브가 모두 끝났다면 0으로 초기화
             return;
         }
     }
 
-    // 몬스터 소환
+    // 일반 몬스터 소환
     void SpawnMonster(GameObject monsterPrefab, Vector2 spawnPointPosition)
     {
         GameObject monsterToSpawn = null;
@@ -143,6 +151,28 @@ public class WaveManager : MonoBehaviour
                 Astar.Initialize(StageManager.Instance.currentStage);   // Astar 알고리즘에 맵 데이터 업데이트
                 monsterComponent.ActivateMonster(); // 추가 초기화나 설정이 필요한 경우
             }
+        }
+    }
+
+    // 보스 몬스터 소환
+    void SpawnBoss(GameObject monsterPrefab, Vector2 spawnPointPosition)
+    {
+        GameObject monsterToSpawn = null;
+
+        foreach (var monster in objectPools[monsterPrefab])
+        {
+            if (!monster.activeInHierarchy)
+            {
+                monsterToSpawn = monster;
+                break;
+            }
+        }
+
+        if (monsterToSpawn != null)
+        {
+            Debug.Log("spwan point position: " + spawnPointPosition + "");
+            monsterToSpawn.transform.position = spawnPointPosition;   // 스폰 포인트 위치 설정           
+            monsterToSpawn.SetActive(true);
         }
     }
 
