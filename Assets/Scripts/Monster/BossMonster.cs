@@ -15,12 +15,15 @@ public class BossMonster : MonoBehaviour
     public GameObject leftHand; // 왼쪽 팔 오브젝트
     public GameObject rightHand; // 오른쪽 팔 오브젝트
     public Vector2 originalPositionLeft, originalPositionRight;   // 기존 손의 위치
+    public Vector2 raiseLeftHandPosition, raiseRightHandPosition;   // 들어올렸을 때의 손 위치
 
     [Header("레이저 관련")]
     public LineRenderer lineRenderer; // Line Renderer 컴포넌트
     public Transform laserStart; // 레이저 시작점
     public float defDistanceRay = 100;
     public float laserDuration; // 레이저 지속 시간
+
+    public Ellipse[] ellipseObjects;
 
     void Start()
     {
@@ -30,8 +33,9 @@ public class BossMonster : MonoBehaviour
         // 보스 몬스터의 위치에서 (-2, -2), (2, -2) 이동한 위치를 기존 손의 위치로 설정
         originalPositionLeft = (Vector2)transform.position + new Vector2(2, -2);
         originalPositionRight = (Vector2)transform.position + new Vector2(-2, -2);
-    }
 
+        ToggleSafeZones();
+    }
 
     void Update()
     {
@@ -190,20 +194,96 @@ public class BossMonster : MonoBehaviour
     // 패턴 3: 주먹을 여러번 내리쳐 충격파 생성
     IEnumerator Pattern3()
     {
+        isPatternActive = true; // 패턴 시작
+
+        // 양 손 모두 본체 근처로 이동
+        MoveHand(leftHand, leftHand.transform.position, originalPositionLeft, 1f);
+        MoveHand(rightHand, rightHand.transform.position, originalPositionRight, 1f);
+
         int hits = 3; // 충격파를 생성할 횟수
+        raiseLeftHandPosition = originalPositionLeft + new Vector2(0, 2f);
+        raiseRightHandPosition = originalPositionRight + new Vector2(0, 2f);
 
         for (int i = 0; i < hits; i++)
         {
-            // 양 손 모두 본체 근처로 이동
-
             // 양 손을 올리고 내려치는 동작
+            Debug.Log("양 손 들어올리기");
+            MoveHand(leftHand, originalPositionLeft, raiseLeftHandPosition, 1f);
+            MoveHand(rightHand, originalPositionRight, raiseRightHandPosition, 1f);
+            yield return new WaitForSeconds(1f);
+
+            Debug.Log("양 손 내려치기");
+            MoveHand(leftHand, raiseLeftHandPosition, originalPositionLeft, 0.3f);
+            MoveHand(rightHand, raiseRightHandPosition, originalPositionRight, 0.3f);
+            yield return new WaitForSeconds(0.3f);
 
             // 맵을 퍼쳐나가는 충격파 발생
-            
+            Debug.Log("충격파 발생");
+            // 플레이어가 위험 구역 내에 있는지 확인하고 피해 적용
+            CheckPlayerPositionAndApplyDamage();
+            // 안전 구역과 위험 구역 재정의
+            ToggleSafeZones();
         }
+
+        InitEllipseSprite();
+
         Debug.Log("패턴 3");
-        yield return new WaitForSeconds(0.5f); // 0.5초간 대기
+        yield return new WaitForSeconds(2f); // 0.5초간 대기
         isPatternActive = false; // 패턴 종료
+    }
+
+    void InitEllipseSprite()
+    {
+        foreach (var ellipse in ellipseObjects)
+        {
+            var spriteRenderer = ellipse.GetComponent<SpriteRenderer>();
+
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.enabled = false;
+            }
+        }
+    }
+
+    void ToggleSafeZones()
+    {
+        // 타원들의 isSafeZone 값을 토글합니다
+        foreach (var ellipse in ellipseObjects)
+        {
+            var ellipseComponent = ellipse.GetComponent<Ellipse>();
+            var spriteRenderer = ellipse.GetComponent<SpriteRenderer>();
+
+            if (ellipseComponent != null && spriteRenderer != null)
+            {
+                ellipseComponent.isSafeZone = !ellipseComponent.isSafeZone;
+                if (!ellipseComponent.isSafeZone)
+                    spriteRenderer.enabled = true;
+                else
+                    spriteRenderer.enabled = false;
+            }
+        }
+    }
+
+    void CheckPlayerPositionAndApplyDamage()
+    {
+        foreach (var ellipse in ellipseObjects)
+        {
+            Ellipse ellipseScript = ellipse.GetComponent<Ellipse>();
+            if (ellipseScript.InEllipse(target))
+            {
+                if (!ellipseScript.isSafeZone)
+                {
+                    // 플레이어가 위험 구역 내에 있습니다. 피해를 적용하세요.
+                    Debug.Log("피해 입음");
+                    break; // 한 타원 내에 있으면 추가 확인은 불필요합니다.
+                }
+                else
+                {
+                    Debug.Log("피해 안 입음");
+                    break;
+                }
+            }
+        }
     }
 
     // 패턴 4: 강한 레이저 발사
@@ -245,7 +325,7 @@ public class BossMonster : MonoBehaviour
     // 공격 패턴을 랜덤으로 선택하여 실행
     public void ExecuteRandomPattern()
     {
-        int pattern = Random.Range(1, 3); // 1부터 5 사이의 랜덤한 숫자
+        int pattern = Random.Range(1, 4); // 1부터 5 사이의 랜덤한 숫자
 
         switch (pattern)
         {
