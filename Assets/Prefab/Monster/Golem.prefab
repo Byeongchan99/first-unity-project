@@ -185,6 +185,7 @@ MonoBehaviour:
   yRadius: 6.75
   characterTransform: {fileID: 7339605945748751160}
   isSafeZone: 1
+  spriteRenderer: {fileID: 0}
 --- !u!1 &1833412080743609348
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +957,7 @@ MonoBehaviour:
   yRadius: 2
   characterTransform: {fileID: 7339605945748751160}
   isSafeZone: 0
+  spriteRenderer: {fileID: 0}
 --- !u!1 &4687907423742721738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,6 +1059,7 @@ MonoBehaviour:
   yRadius: 4.5
   characterTransform: {fileID: 7339605945748751160}
   isSafeZone: 0
+  spriteRenderer: {fileID: 0}
 --- !u!1 &5064482943425129391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1196,7 @@ MonoBehaviour:
   yRadius: 3
   characterTransform: {fileID: 7339605945748751160}
   isSafeZone: 1
+  spriteRenderer: {fileID: 0}
 --- !u!1 &7331710664863418014
 GameObject:
   m_ObjectHideFlags: 0

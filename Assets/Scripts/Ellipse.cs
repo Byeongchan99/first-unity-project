@@ -24,8 +24,6 @@ public class Ellipse : MonoBehaviour
         dot1.x -= (float)Math.Sqrt(xRadius * xRadius - yRadius * yRadius);
         dot2 = characterTransform.position;
         dot2.x += (float)Math.Sqrt(xRadius * xRadius - yRadius * yRadius);
-
-        spriteRenderer.enabled = false;
     }
 
     // 원하는 곳의 좌표가 타원 안에 들어가있는지 확인한다.       

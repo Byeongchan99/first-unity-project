@@ -25,16 +25,19 @@ public class BossMonster : MonoBehaviour
 
     public Ellipse[] ellipseObjects;
 
-    void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
-        target = PlayerStat.Instance.transform;
 
+    }
+
+    void Start()
+    {
+        target = PlayerStat.Instance.transform;
         // 보스 몬스터의 위치에서 (-2, -2), (2, -2) 이동한 위치를 기존 손의 위치로 설정
         originalPositionLeft = (Vector2)transform.position + new Vector2(2, -2);
         originalPositionRight = (Vector2)transform.position + new Vector2(-2, -2);
-
-        ToggleSafeZones();
+        InitEllipseSprite();
     }
 
     void Update()
@@ -200,6 +203,8 @@ public class BossMonster : MonoBehaviour
         MoveHand(leftHand, leftHand.transform.position, originalPositionLeft, 1f);
         MoveHand(rightHand, rightHand.transform.position, originalPositionRight, 1f);
 
+        ShowEllipseSprite();
+
         int hits = 3; // 충격파를 생성할 횟수
         raiseLeftHandPosition = originalPositionLeft + new Vector2(0, 2f);
         raiseRightHandPosition = originalPositionRight + new Vector2(0, 2f);
@@ -234,6 +239,7 @@ public class BossMonster : MonoBehaviour
 
     void InitEllipseSprite()
     {
+        Debug.Log("스프라이트 비활성화");
         foreach (var ellipse in ellipseObjects)
         {
             var spriteRenderer = ellipse.GetComponent<SpriteRenderer>();
@@ -241,6 +247,24 @@ public class BossMonster : MonoBehaviour
             if (spriteRenderer != null)
             {
                 spriteRenderer.enabled = false;
+            }
+        }
+    }
+
+    void ShowEllipseSprite()
+    {
+        Debug.Log("스프라이트 활성화");
+        foreach (var ellipse in ellipseObjects)
+        {
+            var ellipseComponent = ellipse.GetComponent<Ellipse>();
+            var spriteRenderer = ellipse.GetComponent<SpriteRenderer>();
+
+            if (ellipseComponent != null && spriteRenderer != null)
+            {
+                if (!ellipseComponent.isSafeZone)
+                    spriteRenderer.enabled = true;
+                else
+                    spriteRenderer.enabled = false;
             }
         }
     }
