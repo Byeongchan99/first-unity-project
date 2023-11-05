@@ -7,12 +7,20 @@ public class BossMonster : MonoBehaviour
 {
     protected Transform target;   // 플레이어 위치
     private Animator animator; // 애니메이터 컴포넌트
-    public GameObject leftHand; // 왼쪽 팔 오브젝트
-    public GameObject rightHand; // 오른쪽 팔 오브젝트
 
-    public Vector2 originalPositionLeft, originalPositionRight;   // 기존 손의 위치
     private float attackCooldown; // 다음 공격까지의 시간
     private bool isPatternActive = false; // 현재 공격 패턴이 실행 중인지 추적하는 변수
+
+    [Header("손 관련")]
+    public GameObject leftHand; // 왼쪽 팔 오브젝트
+    public GameObject rightHand; // 오른쪽 팔 오브젝트
+    public Vector2 originalPositionLeft, originalPositionRight;   // 기존 손의 위치
+
+    [Header("레이저 관련")]
+    public LineRenderer lineRenderer; // Line Renderer 컴포넌트
+    public Transform laserStart; // 레이저 시작점
+    public float defDistanceRay = 100;
+    public float laserDuration; // 레이저 지속 시간
 
     void Start()
     {
@@ -130,14 +138,53 @@ public class BossMonster : MonoBehaviour
     // 패턴 2: 힘을 모아 전방 휩쓸기 레이저 발사
     IEnumerator Pattern2()
     {
-        // 양 손 모두 본체 근처로 이동
-        // 힘 모으는 동작 / 보자기
+        isPatternActive = true; // 패턴 시작
 
-        // 힘 모으는 동작 후 얼굴을 같이 회전시키며 레이저 발사
+        // 양 손 모두 본체 근처로 이동
+        MoveHand(leftHand, leftHand.transform.position, originalPositionLeft, 1f);
+        MoveHand(rightHand, rightHand.transform.position, originalPositionRight, 1f);
+
+        // 힘 모으는 동작 / 보자기
+        // ...
+
+        // 레이저 초기화 및 활성화
+        laserStart.transform.rotation = Quaternion.identity;
+        lineRenderer.enabled = true;
+
+        float elapsedTime = 0;   // 경과 시간
+        float rotationSpeed = -130f / laserDuration; // 초당 회전 속도
+
+        while (elapsedTime < laserDuration)
+        {
+            ShootLaser();
+
+            // 레이저 회전
+            laserStart.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime); // 매 프레임마다 고정된 각도만큼 회전
+
+            // 경과 시간 증가
+            elapsedTime += Time.deltaTime;
+
+            // 다음 프레임까지 대기
+            yield return null;
+        }
+
+        // 레이저 비활성화
+        lineRenderer.enabled = false;
 
         Debug.Log("패턴 2");
         yield return new WaitForSeconds(1.5f); // 1.5초간 대기
         isPatternActive = false; // 패턴 종료
+    }
+
+    void ShootLaser()
+    {
+        Draw2DRay(laserStart.position, laserStart.transform.right * defDistanceRay);
+    }
+
+    void Draw2DRay(Vector2 startPos, Vector2 endPos)
+    {
+        lineRenderer.SetPosition(0, startPos);
+        lineRenderer.SetPosition(1, endPos);
     }
 
     // 패턴 3: 주먹을 여러번 내리쳐 충격파 생성
@@ -198,7 +245,7 @@ public class BossMonster : MonoBehaviour
     // 공격 패턴을 랜덤으로 선택하여 실행
     public void ExecuteRandomPattern()
     {
-        int pattern = Random.Range(1, 1); // 1부터 5 사이의 랜덤한 숫자
+        int pattern = Random.Range(1, 3); // 1부터 5 사이의 랜덤한 숫자
 
         switch (pattern)
         {
