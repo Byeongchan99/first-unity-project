@@ -714,6 +714,8 @@ MonoBehaviour:
   - {fileID: 3097176806862442129}
   - {fileID: 6911529673587532424}
   - {fileID: 5880597349263281640}
+  bulletID: 3
+  spawnPosition: {x: 0, y: 0}
 --- !u!1 &2336405463661691760
 GameObject:
   m_ObjectHideFlags: 0

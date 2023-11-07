@@ -12,11 +12,12 @@ TagManager:
   - MonsterBullet
   - ShopInteractionRange
   - PortalInteractionRange
+  - Rock
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Rock
   - Water
   - UI
   - PlayerStandArea

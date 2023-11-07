@@ -26,7 +26,7 @@ public class MonsterBullet : MonoBehaviour
     }
 
     // 화살 초기화
-    private void ResetBullet()
+    protected virtual void ResetBullet()
     {
         rb.velocity = Vector2.zero;
         Damage = originalDamage;
@@ -40,7 +40,7 @@ public class MonsterBullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         originalDamage = Damage;
         originalPer = Per;
@@ -67,6 +67,7 @@ public class MonsterBullet : MonoBehaviour
         HandleCollision(collision);
     }
 
+    // 충돌 관리
     protected virtual void HandleCollision(Collider2D collision)
     {
         if (!collision.CompareTag("Player") || Per == 0)
