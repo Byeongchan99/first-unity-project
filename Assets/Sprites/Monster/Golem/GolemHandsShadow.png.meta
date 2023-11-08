@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -109,18 +121,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 8
-        y: 69
+        y: 133
         width: 48
         height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0da52ec124e0c454ba566a6417713a81
-      internalID: 155688188
+      spriteID: 957b9b1d34f76be4f80afd26823eb9b4
+      internalID: -270158683
       vertices: []
       indices: 
       edges: []
@@ -130,18 +142,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 72
-        y: 69
+        y: 133
         width: 48
         height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30a22d6287436364e91c4ef0b66eef69
-      internalID: -525666558
+      spriteID: f824caabc969689458a3997eeeb16534
+      internalID: 223241776
       vertices: []
       indices: 
       edges: []
@@ -150,19 +162,19 @@ TextureImporter:
       name: GolemHandsShadow_2
       rect:
         serializedVersion: 2
-        x: 74
-        y: 4
+        x: 10
+        y: 68
         width: 44
         height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1aca8112f0287d4cbcac6beed86b21c
-      internalID: 1067713196
+      spriteID: 785b21df8b1ac9c499051a8f3b9e46db
+      internalID: -905188939
       vertices: []
       indices: 
       edges: []
@@ -171,19 +183,61 @@ TextureImporter:
       name: GolemHandsShadow_3
       rect:
         serializedVersion: 2
-        x: 10
-        y: 4
+        x: 74
+        y: 68
         width: 44
         height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0319fb73bbb38674ab079c5575a4e335
-      internalID: -17311450
+      spriteID: acff8e347b08db64e8bc7340b89107d8
+      internalID: -1183184520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GolemHandsShadow_4
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 4
+        width: 44
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efc53f37995d2334b86762ae1dfe8aaa
+      internalID: 86379465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GolemHandsShadow_5
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 4
+        width: 44
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92f2665749320247b0ce570cc40e3a2
+      internalID: 1579819426
       vertices: []
       indices: 
       edges: []
@@ -199,10 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GolemHandsShadow_0: 155688188
-      GolemHandsShadow_1: -525666558
-      GolemHandsShadow_2: 1067713196
-      GolemHandsShadow_3: -17311450
+      GolemHandsShadow_0: -270158683
+      GolemHandsShadow_1: 223241776
+      GolemHandsShadow_2: -905188939
+      GolemHandsShadow_3: -1183184520
+      GolemHandsShadow_4: 86379465
+      GolemHandsShadow_5: 1579819426
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

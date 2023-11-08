@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 853543744094445864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 1427e1f3581074b43a6cc6c239dee9d9, type: 3}
+  m_Sprite: {fileID: 351311345, guid: 1427e1f3581074b43a6cc6c239dee9d9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8, y: 8}
+  m_Size: {x: 4.6875, y: 2.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -350,7 +350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833412080743609348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.108, y: -0.324, z: 0}
+  m_LocalPosition: {x: 0, y: 0.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -493,7 +493,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -1177275379, guid: faa7ffe7391db104da25c0c0a9ff74f3, type: 3}
+  m_Sprite: {fileID: 1261584348, guid: faa7ffe7391db104da25c0c0a9ff74f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -580,12 +580,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1211034, guid: faa7ffe7391db104da25c0c0a9ff74f3, type: 3}
+  m_Sprite: {fileID: -1807619720, guid: faa7ffe7391db104da25c0c0a9ff74f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.5625, y: 1.21875}
+  m_Size: {x: 6.25, y: 4.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -702,6 +702,8 @@ MonoBehaviour:
   rightHand: {fileID: 2336405462781482954}
   originalPositionLeft: {x: 2, y: -2}
   originalPositionRight: {x: -2, y: -2}
+  laserLeftHandPosition: {x: 0, y: 0}
+  laserRightHandPosition: {x: 0, y: 0}
   raiseLeftHandPosition: {x: 0, y: 0}
   raiseRightHandPosition: {x: 0, y: 0}
   lineRenderer1: {fileID: 3335892034366213888}
@@ -797,7 +799,7 @@ SpriteRenderer:
   m_Size: {x: 1.5, y: 0.53125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2336405463727908413
@@ -881,7 +883,7 @@ SpriteRenderer:
   m_Size: {x: 1.5, y: 0.53125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2336405463741422751

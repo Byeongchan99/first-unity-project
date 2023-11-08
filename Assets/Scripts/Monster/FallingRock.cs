@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FallingRock : MonsterBullet
 {
-    public float lifeTime = 5.0f; // 낙석이 필드에 남아있을 시간
     public float fallSpeed = -9.8f; // 낙석의 하강 속도
     private Vector2 originalPosition; // 낙석이 시작하는 위치
     private float fallDistance = 4.0f; // 낙석이 떨어지는 최대 거리

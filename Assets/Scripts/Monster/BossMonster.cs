@@ -191,6 +191,11 @@ public class BossMonster : MonoBehaviour
     {
         isPatternActive = true; // 패턴 시작
 
+        // 양 손 모두 본체 근처로 이동
+        MoveHand(leftHand, leftHand.transform.position, originalPositionLeft, 1f);
+        MoveHand(rightHand, rightHand.transform.position, originalPositionRight, 1f);
+        yield return new WaitForSeconds(1.0f);
+
         // 플레이어의 위치를 기준으로 손 선택 - 맵의 왼쪽에 있으면 왼손, 오른쪽에 있으면 오른손
         GameObject firstHand = selectHand();
         GameObject secondHand = (firstHand == leftHand) ? rightHand : leftHand;
@@ -473,7 +478,7 @@ public class BossMonster : MonoBehaviour
         else
         {
             // 패턴 1을 제외한 나머지 중에서 랜덤하게 실행
-            int pattern = Random.Range(5, 6); // 2부터 5 사이의 랜덤한 숫자
+            int pattern = Random.Range(1, 6); // 2부터 5 사이의 랜덤한 숫자
 
             switch (pattern)
             {

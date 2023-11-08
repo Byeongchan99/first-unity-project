@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: faa7ffe7391db104da25c0c0a9ff74f3
+guid: 1427e1f3581074b43a6cc6c239dee9d9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,17 +101,29 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GolemHands_0
+      name: Golem_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 75
-        width: 50
-        height: 39
+        x: 55
+        y: 74
+        width: 150
+        height: 92
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,71 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fd16087ee49c9443b54948314c4a69c
-      internalID: -1177275379
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GolemHands_1
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 75
-        width: 50
-        height: 39
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e24e3eef335233d458e02bdce492aa3e
-      internalID: 1211034
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GolemHands_2
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 10
-        width: 41
-        height: 42
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bfb30414ce76f074e9267ac97d140795
-      internalID: 513967042
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GolemHands_3
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 10
-        width: 41
-        height: 42
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eba201e444bb58c4695a8002b9ba3304
-      internalID: 387585639
+      spriteID: ba1f7c5a8c06ed9479f4c657d4cf6386
+      internalID: 351311345
       vertices: []
       indices: 
       edges: []
@@ -199,10 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GolemHands_0: -1177275379
-      GolemHands_1: 1211034
-      GolemHands_2: 513967042
-      GolemHands_3: 387585639
+      Golem_0: 351311345
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
