@@ -552,7 +552,7 @@ public class BossMonster : MonoBehaviour
         else
         {
             // 패턴 1을 제외한 나머지 중에서 랜덤하게 실행
-            int pattern = Random.Range(1, 6); // 2부터 5 사이의 랜덤한 숫자
+            int pattern = Random.Range(2, 6); // 2부터 5 사이의 랜덤한 숫자
 
             switch (pattern)
             {
