@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Debug.Log(collision.gameObject.name);
+        Debug.Log(collision.gameObject.name);
 
         if (collision.gameObject.CompareTag("MonsterAttackArea"))
         {

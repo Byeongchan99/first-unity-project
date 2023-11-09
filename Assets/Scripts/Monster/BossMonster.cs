@@ -22,7 +22,10 @@ public class BossMonster : MonoBehaviour
     [Header("레이저 관련")]
     public LineRenderer lineRenderer1; // Line Renderer 컴포넌트 / 회전 레이저
     public LineRenderer lineRenderer2; // Line Renderer 컴포넌트 / 중앙 레이저
+    public BoxCollider2D laserColider1; // 회전 레이저 콜라이더
+    public BoxCollider2D laserColider2; // 중앙 레이저 콜라이더
     public Transform laserStart; // 레이저 시작점
+
     public float defDistanceRay = 100;
     public float laserDuration; // 레이저 지속 시간
     Quaternion lineRendererRotation = Quaternion.Euler(0, 0, 10); // 라인 렌더러 회전되어 있는 정도
