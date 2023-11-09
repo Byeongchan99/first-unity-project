@@ -24,6 +24,7 @@ public class BossMonster : MonoBehaviour
     public LineRenderer lineRenderer2; // Line Renderer 컴포넌트 / 중앙 레이저
     public BoxCollider2D laserColider1; // 회전 레이저 콜라이더
     public BoxCollider2D laserColider2; // 중앙 레이저 콜라이더
+    public SpriteRenderer laserAttackAreaSpriteRenderer2;   // 중앙 레이저 공격 범위 스프라이트
     public Transform laserStart; // 레이저 시작점
 
     public float defDistanceRay = 100;
@@ -39,6 +40,11 @@ public class BossMonster : MonoBehaviour
         animator = GetComponent<Animator>();
         leftHandAnimator = leftHand.GetComponent<Animator>();
         rightHandAnimator = rightHand.GetComponent<Animator>();
+
+        // 공격 관련 콜라이더와 스프라이트 비활성화
+        laserColider1.enabled = false;
+        laserColider2.enabled = false;
+        laserAttackAreaSpriteRenderer2.enabled = false;
     }
 
     void Start()
@@ -385,6 +391,7 @@ public class BossMonster : MonoBehaviour
         // 레이저 초기화 및 활성화
         laserStart.transform.rotation = Quaternion.identity;
         lineRenderer1.enabled = true;
+        laserColider1.enabled = true;
 
         float elapsedTime = 0;   // 경과 시간
         float rotationSpeed = -130f / laserDuration; // 초당 회전 속도
@@ -405,6 +412,7 @@ public class BossMonster : MonoBehaviour
 
         // 레이저 비활성화
         lineRenderer1.enabled = false;
+        laserColider1.enabled = false;
 
         Debug.Log("패턴 3 완료");
         yield return new WaitForSeconds(2f); // 1.5초간 대기
@@ -435,7 +443,12 @@ public class BossMonster : MonoBehaviour
 
         // 레이저 초기화 및 활성화
         laserStart.transform.rotation = Quaternion.FromToRotation(Vector3.right, attackDirection);
+        laserAttackAreaSpriteRenderer2.enabled = true;
+
+        // 레이저 범위 보여준 후 1초 후 발사
+        yield return new WaitForSeconds(1.0f);
         lineRenderer2.enabled = true;
+        laserColider2.enabled = true;
 
         float elapsedTime = 0;   // 경과 시간
 
@@ -452,6 +465,8 @@ public class BossMonster : MonoBehaviour
 
         // 레이저 비활성화
         lineRenderer2.enabled = false;
+        laserColider2.enabled = false;
+        laserAttackAreaSpriteRenderer2.enabled = false;
 
         // 주먹 -> 보자기 전환
         StartCoroutine(ChangeHandRockToPaper());
@@ -555,7 +570,7 @@ public class BossMonster : MonoBehaviour
         else
         {
             // 패턴 1을 제외한 나머지 중에서 랜덤하게 실행
-            int pattern = Random.Range(2, 6); // 2부터 5 사이의 랜덤한 숫자
+            int pattern = Random.Range(4, 5); // 2부터 5 사이의 랜덤한 숫자
 
             switch (pattern)
             {
