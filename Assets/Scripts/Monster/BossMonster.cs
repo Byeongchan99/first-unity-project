@@ -7,6 +7,7 @@ public class BossMonster : MonoBehaviour
 {
     protected Transform target;   // 플레이어 위치
     private Animator animator; // 애니메이터 컴포넌트
+    private Animator leftHandAnimator, rightHandAnimator;   // 양 손 애니메이터
 
     private float attackCooldown; // 다음 공격까지의 시간
     private bool isPatternActive = false; // 현재 공격 패턴이 실행 중인지 추적하는 변수
@@ -33,7 +34,8 @@ public class BossMonster : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-
+        leftHandAnimator = leftHand.GetComponent<Animator>();
+        rightHandAnimator = rightHand.GetComponent<Animator>();
     }
 
     void Start()
@@ -71,6 +73,52 @@ public class BossMonster : MonoBehaviour
     {
         // 손 이동 코루틴 시작
         StartCoroutine(MoveArmRoutine(selectedHand, startPosition, endPosition, duration));
+    }
+
+    void SetHandAnimatorPaperToRock1()
+    {
+        leftHandAnimator.SetBool("IsPaper", false);
+        leftHandAnimator.SetBool("IsChange", true);
+        rightHandAnimator.SetBool("IsPaper", false);
+        rightHandAnimator.SetBool("IsChange", true);
+    }
+
+    void SetHandAnimatorPaperToRock2()
+    {
+        leftHandAnimator.SetBool("IsRock", true);
+        leftHandAnimator.SetBool("IsChange", false);
+        rightHandAnimator.SetBool("IsRock", true);
+        rightHandAnimator.SetBool("IsChange", false);
+    }
+
+    void SetHandAnimatorRockToPaper1()
+    {
+        leftHandAnimator.SetBool("IsRock", false);
+        leftHandAnimator.SetBool("IsChange", true);
+        rightHandAnimator.SetBool("IsRock", false);
+        rightHandAnimator.SetBool("IsChange", true);
+    }
+
+    void SetHandAnimatorRockToPaper2()
+    {
+        leftHandAnimator.SetBool("IsPaper", true);
+        leftHandAnimator.SetBool("IsChange", false);
+        rightHandAnimator.SetBool("IsPaper", true);
+        rightHandAnimator.SetBool("IsChange", false);
+    }
+
+    IEnumerator ChangeHandPaperToRock()
+    {
+        SetHandAnimatorPaperToRock1();
+        yield return new WaitForSeconds(0.25f);
+        SetHandAnimatorPaperToRock2();
+    }
+
+    IEnumerator ChangeHandRockToPaper()
+    {
+        SetHandAnimatorRockToPaper1();
+        yield return new WaitForSeconds(0.25f);
+        SetHandAnimatorRockToPaper2();
     }
 
     // 손 이동 코루틴
@@ -202,6 +250,8 @@ public class BossMonster : MonoBehaviour
 
         // 플레이어의 위치로 선택한 손 이동
         //Debug.Log("첫번째 손 이동");
+        // 보자기 -> 주먹 전환
+        StartCoroutine(ChangeHandPaperToRock());
         MoveHand(firstHand, firstHand.transform.position, target.position + new Vector3(0, 2f, 0), 0.5f);
         yield return new WaitForSeconds(0.5f);
 
@@ -213,6 +263,7 @@ public class BossMonster : MonoBehaviour
         // 시간차를 두고 반대손 이동
         yield return new WaitForSeconds(0.5f);
         //Debug.Log("두번째 손 이동");
+        // 보자기 -> 주먹 전환
         MoveHand(secondHand, secondHand.transform.position, target.position + new Vector3(0, 2f, 0), 0.5f);
         yield return new WaitForSeconds(0.5f);
 
@@ -225,6 +276,10 @@ public class BossMonster : MonoBehaviour
         //Debug.Log("손 복귀");
         MoveHand(leftHand, leftHand.transform.position, originalPositionLeft, 0.5f);
         MoveHand(rightHand, rightHand.transform.position, originalPositionRight, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+
+        // 주먹 -> 보자기 전환
+        StartCoroutine(ChangeHandRockToPaper());
 
         Debug.Log("패턴 1 완료");
         yield return new WaitForSeconds(2.0f); // 2초간 대기
@@ -241,6 +296,9 @@ public class BossMonster : MonoBehaviour
         MoveHand(rightHand, rightHand.transform.position, originalPositionRight, 1f);
         yield return new WaitForSeconds(1.0f);
 
+        // 보자기 -> 주먹 전환
+        StartCoroutine(ChangeHandPaperToRock());
+        // 공격 범위  스프라이트 활성화
         ShowEllipseSprite();
 
         int hits = 3; // 충격파를 생성할 횟수
@@ -269,6 +327,9 @@ public class BossMonster : MonoBehaviour
         }
 
         InitEllipseSprite();
+
+        // 주먹 -> 보자기 전환
+        StartCoroutine(ChangeHandRockToPaper());
 
         Debug.Log("패턴 2 완료");
         yield return new WaitForSeconds(2f); // 0.5초간 대기
@@ -355,10 +416,14 @@ public class BossMonster : MonoBehaviour
         laserLeftHandPosition = originalPositionLeft + new Vector2(-1f, 0);
         laserRightHandPosition = originalPositionRight + new Vector2(1f, 0);
 
+        // 보자기 -> 주먹 전환
+        StartCoroutine(ChangeHandPaperToRock());
+
         // 양 손 모두 본체 근처로 이동
         MoveHand(leftHand, leftHand.transform.position, laserLeftHandPosition, 1f);
         MoveHand(rightHand, rightHand.transform.position, laserRightHandPosition, 1f);
         yield return new WaitForSeconds(2.0f);
+
         // 힘 모으는 동작 / 주먹
 
         // 힘 모으는 동작 후 플레이어를 향해 강한 레이저 발사
@@ -384,6 +449,9 @@ public class BossMonster : MonoBehaviour
 
         // 레이저 비활성화
         lineRenderer2.enabled = false;
+
+        // 주먹 -> 보자기 전환
+        StartCoroutine(ChangeHandRockToPaper());
 
         Debug.Log("패턴 4 완료");
         yield return new WaitForSeconds(2.0f); // 2초간 대기
@@ -427,6 +495,9 @@ public class BossMonster : MonoBehaviour
         MoveHand(rightHand, rightHand.transform.position, originalPositionRight, 1f);
         yield return new WaitForSeconds(1.0f);
 
+        // 보자기 -> 주먹 전환
+        StartCoroutine(ChangeHandPaperToRock());
+
         float duration = 3.0f; // 낙석이 떨어지는 총 시간
         float interval = 0.5f; // 낙석 간의 시간 간격
 
@@ -458,6 +529,9 @@ public class BossMonster : MonoBehaviour
             yield return new WaitForSeconds(interval);
             duration -= interval;
         }
+
+        // 주먹 -> 보자기 전환
+        StartCoroutine(ChangeHandRockToPaper());
 
         Debug.Log("패턴 5 완료");
         yield return new WaitForSeconds(2.0f); // 2초간 대기
