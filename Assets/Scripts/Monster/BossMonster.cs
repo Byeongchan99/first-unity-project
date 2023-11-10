@@ -37,7 +37,7 @@ public class BossMonster : MonoBehaviour
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         leftHandAnimator = leftHand.GetComponent<Animator>();
         rightHandAnimator = rightHand.GetComponent<Animator>();
 
@@ -383,10 +383,12 @@ public class BossMonster : MonoBehaviour
         // 양 손 모두 본체 근처로 이동
         MoveHand(leftHand, leftHand.transform.position, laserLeftHandPosition, 1f);
         MoveHand(rightHand, rightHand.transform.position, laserRightHandPosition, 1f);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
 
         // 힘 모으는 동작 / 보자기
-        
+        animator.SetBool("IsCharge", true);
+        yield return new WaitForSeconds(1.0f);
+        animator.SetBool("IsAttack", true);
 
         // 레이저 초기화 및 활성화
         laserStart.transform.rotation = Quaternion.identity;
@@ -414,8 +416,12 @@ public class BossMonster : MonoBehaviour
         lineRenderer1.enabled = false;
         laserColider1.enabled = false;
 
+        animator.SetBool("IsAttack", false);
+        yield return new WaitForSeconds(1.0f);
+        animator.SetBool("IsCharge", false);
+
         Debug.Log("패턴 3 완료");
-        yield return new WaitForSeconds(2f); // 1.5초간 대기
+        yield return new WaitForSeconds(1f);
         isPatternActive = false; // 패턴 종료
     }
 
@@ -433,9 +439,12 @@ public class BossMonster : MonoBehaviour
         // 양 손 모두 본체 근처로 이동
         MoveHand(leftHand, leftHand.transform.position, laserLeftHandPosition, 1f);
         MoveHand(rightHand, rightHand.transform.position, laserRightHandPosition, 1f);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
 
         // 힘 모으는 동작 / 주먹
+        animator.SetBool("IsCharge", true);
+        yield return new WaitForSeconds(1.0f);
+        animator.SetBool("IsAttack", true);
 
         // 힘 모으는 동작 후 플레이어를 향해 강한 레이저 발사
         // 레이저 초기화 및 활성화
@@ -471,8 +480,12 @@ public class BossMonster : MonoBehaviour
         // 주먹 -> 보자기 전환
         StartCoroutine(ChangeHandRockToPaper());
 
+        animator.SetBool("IsAttack", false);
+        yield return new WaitForSeconds(1.0f);
+        animator.SetBool("IsCharge", false);
+
         Debug.Log("패턴 4 완료");
-        yield return new WaitForSeconds(2.0f); // 2초간 대기
+        yield return new WaitForSeconds(1.0f); // 2초간 대기
         isPatternActive = false; // 패턴 종료
     }
 
@@ -570,7 +583,7 @@ public class BossMonster : MonoBehaviour
         else
         {
             // 패턴 1을 제외한 나머지 중에서 랜덤하게 실행
-            int pattern = Random.Range(4, 5); // 2부터 5 사이의 랜덤한 숫자
+            int pattern = Random.Range(1, 6); // 2부터 5 사이의 랜덤한 숫자
 
             switch (pattern)
             {
