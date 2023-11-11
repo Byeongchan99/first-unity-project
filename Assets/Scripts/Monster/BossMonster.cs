@@ -8,6 +8,7 @@ public class BossMonster : MonoBehaviour
     protected Transform target;   // 플레이어 위치
     private Animator animator; // 애니메이터 컴포넌트
     private Animator leftHandAnimator, rightHandAnimator;   // 양 손 애니메이터
+    private Animator leftHandShadowAnimator, rightHandShadowAnimator;   // 양 손 그림자 애니메이터
 
     private float attackCooldown; // 다음 공격까지의 시간
     private bool isPatternActive = false; // 현재 공격 패턴이 실행 중인지 추적하는 변수
@@ -40,6 +41,8 @@ public class BossMonster : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         leftHandAnimator = leftHand.GetComponent<Animator>();
         rightHandAnimator = rightHand.GetComponent<Animator>();
+        leftHandShadowAnimator = leftHand.transform.Find("Shadow").GetComponent<Animator>();
+        rightHandShadowAnimator = rightHand.transform.Find("Shadow").GetComponent<Animator>();
 
         // 공격 관련 콜라이더와 스프라이트 비활성화
         laserColider1.enabled = false;
@@ -86,10 +89,17 @@ public class BossMonster : MonoBehaviour
 
     void SetHandAnimatorPaperToRock1()
     {
+        // 손
         leftHandAnimator.SetBool("IsPaper", false);
         leftHandAnimator.SetBool("IsChange", true);
         rightHandAnimator.SetBool("IsPaper", false);
         rightHandAnimator.SetBool("IsChange", true);
+
+        // 그림자
+        leftHandShadowAnimator.SetBool("IsPaper", false);
+        leftHandShadowAnimator.SetBool("IsChange", true);
+        rightHandShadowAnimator.SetBool("IsPaper", false);
+        rightHandShadowAnimator.SetBool("IsChange", true);
     }
 
     void SetHandAnimatorPaperToRock2()
@@ -98,6 +108,11 @@ public class BossMonster : MonoBehaviour
         leftHandAnimator.SetBool("IsChange", false);
         rightHandAnimator.SetBool("IsRock", true);
         rightHandAnimator.SetBool("IsChange", false);
+
+        leftHandShadowAnimator.SetBool("IsRock", true);
+        leftHandShadowAnimator.SetBool("IsChange", false);
+        rightHandShadowAnimator.SetBool("IsRock", true);
+        rightHandShadowAnimator.SetBool("IsChange", false);
     }
 
     void SetHandAnimatorRockToPaper1()
@@ -106,6 +121,11 @@ public class BossMonster : MonoBehaviour
         leftHandAnimator.SetBool("IsChange", true);
         rightHandAnimator.SetBool("IsRock", false);
         rightHandAnimator.SetBool("IsChange", true);
+
+        leftHandShadowAnimator.SetBool("IsRock", false);
+        leftHandShadowAnimator.SetBool("IsChange", true);
+        rightHandShadowAnimator.SetBool("IsRock", false);
+        rightHandShadowAnimator.SetBool("IsChange", true);
     }
 
     void SetHandAnimatorRockToPaper2()
@@ -114,6 +134,11 @@ public class BossMonster : MonoBehaviour
         leftHandAnimator.SetBool("IsChange", false);
         rightHandAnimator.SetBool("IsPaper", true);
         rightHandAnimator.SetBool("IsChange", false);
+
+        leftHandShadowAnimator.SetBool("IsPaper", true);
+        leftHandShadowAnimator.SetBool("IsChange", false);
+        rightHandShadowAnimator.SetBool("IsPaper", true);
+        rightHandShadowAnimator.SetBool("IsChange", false);
     }
 
     IEnumerator ChangeHandPaperToRock()
