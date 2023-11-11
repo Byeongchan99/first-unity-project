@@ -272,7 +272,7 @@ public class BossMonster : MonoBehaviour
     IEnumerator Pattern1()
     {
         isPatternActive = true; // 패턴 시작
-
+       
         // 양 손 모두 본체 근처로 이동
         MoveHand(leftHand, leftHand.transform.position, originalPositionLeft, 1f);
         MoveHand(rightHand, rightHand.transform.position, originalPositionRight, 1f);
@@ -283,28 +283,29 @@ public class BossMonster : MonoBehaviour
         GameObject secondHand = (firstHand == leftHand) ? rightHand : leftHand;
 
         // 플레이어의 위치로 선택한 손 이동
-        //Debug.Log("첫번째 손 이동");
         // 보자기 -> 주먹 전환
         StartCoroutine(ChangeHandPaperToRock());
+
+        //Debug.Log("첫번째 손 들어올리기");
+        MoveHand(firstHand, firstHand.transform.position, firstHand.transform.position + new Vector3(0, 2f, 0), 0.2f);
+        yield return new WaitForSeconds(0.2f);
+        //Debug.Log("첫번째 손 이동");
         MoveHand(firstHand, firstHand.transform.position, target.position + new Vector3(0, 2f, 0), 0.5f);
         yield return new WaitForSeconds(0.5f);
-
-        // 내리찍기 동작
         //Debug.Log("첫번째 손 내려찍기");
-        MoveHand(firstHand, firstHand.transform.position, firstHand.transform.position + new Vector3(0, -2f, 0), 0.5f);
-        yield return new WaitForSeconds(0.5f);
+        MoveHand(firstHand, firstHand.transform.position, firstHand.transform.position + new Vector3(0, -2f, 0), 0.2f);
+        yield return new WaitForSeconds(0.2f);
 
-        // 시간차를 두고 반대손 이동
-        yield return new WaitForSeconds(0.5f);
+        // 시간차를 두고 반대손 이동       
+        //Debug.Log("두번째 손 들어올리기");
+        MoveHand(secondHand, secondHand.transform.position, secondHand.transform.position + new Vector3(0, 2f, 0), 0.2f);
+        yield return new WaitForSeconds(0.2f);
         //Debug.Log("두번째 손 이동");
-        // 보자기 -> 주먹 전환
         MoveHand(secondHand, secondHand.transform.position, target.position + new Vector3(0, 2f, 0), 0.5f);
         yield return new WaitForSeconds(0.5f);
-
-        // 내려찍기 동작
         //Debug.Log("두번째 손 내려찍기");
-        MoveHand(secondHand, secondHand.transform.position, secondHand.transform.position + new Vector3(0, -2f, 0), 0.5f);
-        yield return new WaitForSeconds(0.5f);
+        MoveHand(secondHand, secondHand.transform.position, secondHand.transform.position + new Vector3(0, -2f, 0), 0.2f);
+        yield return new WaitForSeconds(0.2f);
 
         // 손 원래 위치로 복귀
         //Debug.Log("손 복귀");
@@ -343,9 +344,9 @@ public class BossMonster : MonoBehaviour
         {
             // 양 손을 올리고 내려치는 동작
             Debug.Log("양 손 들어올리기");
-            MoveHand(leftHand, originalPositionLeft, raiseLeftHandPosition, 0.5f);
-            MoveHand(rightHand, originalPositionRight, raiseRightHandPosition, 0.5f);
-            yield return new WaitForSeconds(0.5f);
+            MoveHand(leftHand, originalPositionLeft, raiseLeftHandPosition, 0.3f);
+            MoveHand(rightHand, originalPositionRight, raiseRightHandPosition, 0.3f);
+            yield return new WaitForSeconds(0.3f);
 
             Debug.Log("양 손 내려치기");
             MoveHand(leftHand, raiseLeftHandPosition, originalPositionLeft, 0.3f);
@@ -530,14 +531,14 @@ public class BossMonster : MonoBehaviour
         while (elapsedTime < duration)
         {
             Debug.Log("손 마구 내려치기");
-            MoveHand(leftHand, originalPositionLeft, raiseLeftHandPosition, 0.3f);
-            yield return new WaitForSeconds(0.3f);
-            MoveHand(rightHand, originalPositionRight, raiseRightHandPosition, 0.3f);
-            MoveHand(leftHand, raiseLeftHandPosition, originalPositionLeft, 0.3f);
-            yield return new WaitForSeconds(0.3f);
-            MoveHand(rightHand, raiseRightHandPosition, originalPositionRight, 0.3f);
+            MoveHand(leftHand, originalPositionLeft, raiseLeftHandPosition, 0.2f);
+            yield return new WaitForSeconds(0.2f);
+            MoveHand(rightHand, originalPositionRight, raiseRightHandPosition, 0.2f);
+            MoveHand(leftHand, raiseLeftHandPosition, originalPositionLeft, 0.2f);
+            yield return new WaitForSeconds(0.2f);
+            MoveHand(rightHand, raiseRightHandPosition, originalPositionRight, 0.2f);
 
-            elapsedTime += 0.6f;
+            elapsedTime += 0.4f;
         }
     }
 

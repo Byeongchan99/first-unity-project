@@ -74,22 +74,14 @@ public class FallingRock : MonsterBullet
     // 동일한 위치에 떨어지거나, 플레이어와 충돌할 시 비활성화
     protected override void HandleCollision(Collider2D collision)
     {
-        // AttackAreaColider에서 충돌했는지 확인
-        if (collision == AttackAreaColider)
+        if (collision.CompareTag("Player"))
         {
-            if (collision.CompareTag("Player"))
-            {
-                gameObject.SetActive(false);
-            }
+            gameObject.SetActive(false);
         }
-        // StandAreaCollider에서 충돌했는지 확인
-        else if (collision == StandAreaCollider)
+        
+        if (collision.CompareTag("Rock"))
         {
-            if (collision.CompareTag("MonsterBullet"))
-            {
-                gameObject.SetActive(false);
-            }
+            gameObject.SetActive(false);
         }
     }
-
 }
