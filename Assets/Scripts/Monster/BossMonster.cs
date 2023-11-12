@@ -14,10 +14,12 @@ public class BossMonster : MonoBehaviour
     private bool isPatternActive = false; // 현재 공격 패턴이 실행 중인지 추적하는 변수
 
     [Header("손 관련")]
-    public GameObject leftHand; // 왼쪽 팔 오브젝트
-    public GameObject rightHand; // 오른쪽 팔 오브젝트
+    public GameObject leftHand, rightHand; // 손 오브젝트
+    public GameObject leftHandShadow, rightHandShadow; // 손 그림자 오브젝트
     public Vector2 originalPositionLeft, originalPositionRight;   // 기존 손의 위치
+    public Vector2 originalPositionLeftShadow, originalPositionRightShadow;   // 기존 손 그림자의 위치
     public Vector2 laserLeftHandPosition, laserRightHandPosition;   // 레이저 쏠 때 손의 위치
+    public Vector2 laserLeftHandShadowPosition, laserRightHandShadowPosition;   // 레이저 쏠 때 손 그림자의 위치
     public Vector2 raiseLeftHandPosition, raiseRightHandPosition;   // 들어올렸을 때의 손 위치
 
     [Header("레이저 관련")]
@@ -41,8 +43,8 @@ public class BossMonster : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         leftHandAnimator = leftHand.GetComponent<Animator>();
         rightHandAnimator = rightHand.GetComponent<Animator>();
-        leftHandShadowAnimator = leftHand.transform.Find("Shadow").GetComponent<Animator>();
-        rightHandShadowAnimator = rightHand.transform.Find("Shadow").GetComponent<Animator>();
+        leftHandShadowAnimator = leftHandShadow.GetComponent<Animator>();
+        rightHandShadowAnimator = rightHandShadow.GetComponent<Animator>();
 
         // 공격 관련 콜라이더와 스프라이트 비활성화
         laserColider1.enabled = false;
@@ -56,6 +58,8 @@ public class BossMonster : MonoBehaviour
         // 보스 몬스터의 위치에서 (-2, -2), (2, -2) 이동한 위치를 기존 손의 위치로 설정
         originalPositionLeft = (Vector2)transform.position + new Vector2(2, -2);
         originalPositionRight = (Vector2)transform.position + new Vector2(-2, -2);
+        originalPositionLeftShadow = (Vector2)transform.position + new Vector2(2, -2.22f);
+        originalPositionRightShadow = (Vector2)transform.position + new Vector2(-2, -2.22f);
         InitEllipseSprite();
     }
 
@@ -84,7 +88,13 @@ public class BossMonster : MonoBehaviour
     public void MoveHand(GameObject selectedHand, Vector3 startPosition, Vector3 endPosition, float duration)
     {
         // 손 이동 코루틴 시작
-        StartCoroutine(MoveArmRoutine(selectedHand, startPosition, endPosition, duration));
+        StartCoroutine(MoveHandRoutine(selectedHand, startPosition, endPosition, duration));
+    }
+
+    public void MoveHand(GameObject selectedHand, GameObject selectedHandShadow, Vector3 startPosition, Vector3 endPosition, Vector3 shadowStartPosition, Vector3 shadowEndPosition, float duration)
+    {
+        // 손 + 그림자 이동 코루틴 시작
+        StartCoroutine(MoveHandWithShadowRoutine(selectedHand, selectedHandShadow, startPosition, endPosition, shadowStartPosition, shadowEndPosition, duration));
     }
 
     void SetHandAnimatorPaperToRock1()
@@ -156,7 +166,7 @@ public class BossMonster : MonoBehaviour
     }
 
     // 손 이동 코루틴
-    IEnumerator MoveArmRoutine(GameObject hand, Vector3 start, Vector3 end, float time)
+    IEnumerator MoveHandRoutine(GameObject hand, Vector3 start, Vector3 end, float time)
     {
         float elapsedTime = 0;   // 경과 시간
 
@@ -174,6 +184,29 @@ public class BossMonster : MonoBehaviour
 
         // 최종 위치 설정
         hand.transform.position = end;
+    }
+
+    // 손 + 그림자 이동 코루틴
+    IEnumerator MoveHandWithShadowRoutine(GameObject hand, GameObject shadow, Vector3 start, Vector3 end, Vector3 shadowStart, Vector3 shadowEnd, float time)
+    {
+        float elapsedTime = 0;   // 경과 시간
+
+        while (elapsedTime < time)
+        {
+            // 손의 위치를 시작 위치에서 끝 위치로 선형 보간
+            hand.transform.position = Vector3.Lerp(start, end, (elapsedTime / time));
+            shadow.transform.position = Vector3.Lerp(shadowStart, shadowEnd, (elapsedTime / time));
+
+            // 경과 시간 증가
+            elapsedTime += Time.deltaTime;
+
+            // 다음 프레임까지 대기
+            yield return null;
+        }
+
+        // 최종 위치 설정
+        hand.transform.position = end;
+        shadow.transform.position = shadowEnd;
     }
 
     // 손 선택 메서드
@@ -274,13 +307,15 @@ public class BossMonster : MonoBehaviour
         isPatternActive = true; // 패턴 시작
        
         // 양 손 모두 본체 근처로 이동
-        MoveHand(leftHand, leftHand.transform.position, originalPositionLeft, 1f);
-        MoveHand(rightHand, rightHand.transform.position, originalPositionRight, 1f);
+        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 1f);
+        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 1f);
         yield return new WaitForSeconds(1.0f);
 
         // 플레이어의 위치를 기준으로 손 선택 - 맵의 왼쪽에 있으면 왼손, 오른쪽에 있으면 오른손
         GameObject firstHand = selectHand();
         GameObject secondHand = (firstHand == leftHand) ? rightHand : leftHand;
+        GameObject firstHandShadow = (firstHand == leftHand) ? leftHandShadow : rightHandShadow;
+        GameObject secondHandShadow = (firstHandShadow == leftHandShadow) ? rightHandShadow : leftHandShadow;
 
         // 플레이어의 위치로 선택한 손 이동
         // 보자기 -> 주먹 전환
@@ -290,7 +325,7 @@ public class BossMonster : MonoBehaviour
         MoveHand(firstHand, firstHand.transform.position, firstHand.transform.position + new Vector3(0, 2f, 0), 0.2f);
         yield return new WaitForSeconds(0.2f);
         //Debug.Log("첫번째 손 이동");
-        MoveHand(firstHand, firstHand.transform.position, target.position + new Vector3(0, 2f, 0), 0.5f);
+        MoveHand(firstHand, firstHandShadow, firstHand.transform.position, target.position + new Vector3(0, 2f, 0), firstHandShadow.transform.position, target.position, 0.5f);
         yield return new WaitForSeconds(0.5f);
         //Debug.Log("첫번째 손 내려찍기");
         MoveHand(firstHand, firstHand.transform.position, firstHand.transform.position + new Vector3(0, -2f, 0), 0.2f);
@@ -301,7 +336,7 @@ public class BossMonster : MonoBehaviour
         MoveHand(secondHand, secondHand.transform.position, secondHand.transform.position + new Vector3(0, 2f, 0), 0.2f);
         yield return new WaitForSeconds(0.2f);
         //Debug.Log("두번째 손 이동");
-        MoveHand(secondHand, secondHand.transform.position, target.position + new Vector3(0, 2f, 0), 0.5f);
+        MoveHand(secondHand, secondHandShadow, secondHand.transform.position, target.position + new Vector3(0, 2f, 0), secondHandShadow.transform.position, target.position, 0.5f);
         yield return new WaitForSeconds(0.5f);
         //Debug.Log("두번째 손 내려찍기");
         MoveHand(secondHand, secondHand.transform.position, secondHand.transform.position + new Vector3(0, -2f, 0), 0.2f);
@@ -309,8 +344,8 @@ public class BossMonster : MonoBehaviour
 
         // 손 원래 위치로 복귀
         //Debug.Log("손 복귀");
-        MoveHand(leftHand, leftHand.transform.position, originalPositionLeft, 0.5f);
-        MoveHand(rightHand, rightHand.transform.position, originalPositionRight, 0.5f);
+        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 0.5f);
+        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 0.5f);
         yield return new WaitForSeconds(0.5f);
 
         // 주먹 -> 보자기 전환
@@ -327,8 +362,8 @@ public class BossMonster : MonoBehaviour
         isPatternActive = true; // 패턴 시작
 
         // 양 손 모두 본체 근처로 이동
-        MoveHand(leftHand, leftHand.transform.position, originalPositionLeft, 1f);
-        MoveHand(rightHand, rightHand.transform.position, originalPositionRight, 1f);
+        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 1f);
+        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 1f);
         yield return new WaitForSeconds(1.0f);
 
         // 보자기 -> 주먹 전환
@@ -405,10 +440,12 @@ public class BossMonster : MonoBehaviour
 
         laserLeftHandPosition = originalPositionLeft + new Vector2(-1f, 0);
         laserRightHandPosition = originalPositionRight + new Vector2(1f, 0);
+        laserLeftHandShadowPosition = originalPositionLeftShadow + new Vector2(-1f, 0);
+        laserRightHandShadowPosition = originalPositionRightShadow + new Vector2(1f, 0);
 
-        // 양 손 모두 본체 근처로 이동
-        MoveHand(leftHand, leftHand.transform.position, laserLeftHandPosition, 1f);
-        MoveHand(rightHand, rightHand.transform.position, laserRightHandPosition, 1f);
+        // 양 손 모으기
+        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, laserLeftHandPosition, leftHandShadow.transform.position, laserLeftHandShadowPosition, 1f);
+        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, laserRightHandPosition, rightHandShadow.transform.position, laserRightHandShadowPosition, 1f);
         yield return new WaitForSeconds(1.0f);
 
         // 힘 모으는 동작 / 보자기
@@ -462,9 +499,9 @@ public class BossMonster : MonoBehaviour
         // 보자기 -> 주먹 전환
         StartCoroutine(ChangeHandPaperToRock());
 
-        // 양 손 모두 본체 근처로 이동
-        MoveHand(leftHand, leftHand.transform.position, laserLeftHandPosition, 1f);
-        MoveHand(rightHand, rightHand.transform.position, laserRightHandPosition, 1f);
+        // 양 손 모으기
+        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, laserLeftHandPosition, leftHandShadow.transform.position, laserLeftHandShadowPosition, 1f);
+        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, laserRightHandPosition, rightHandShadow.transform.position, laserRightHandShadowPosition, 1f);
         yield return new WaitForSeconds(1.0f);
 
         // 힘 모으는 동작 / 주먹
@@ -548,8 +585,8 @@ public class BossMonster : MonoBehaviour
         isPatternActive = true; // 패턴 시작
 
         // 양 손 모두 본체 근처로 이동
-        MoveHand(leftHand, leftHand.transform.position, originalPositionLeft, 1f);
-        MoveHand(rightHand, rightHand.transform.position, originalPositionRight, 1f);
+        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 1f);
+        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 1f);
         yield return new WaitForSeconds(1.0f);
 
         // 보자기 -> 주먹 전환
