@@ -495,6 +495,8 @@ public class BossMonster : MonoBehaviour
 
         laserLeftHandPosition = originalPositionLeft + new Vector2(-1f, 0);
         laserRightHandPosition = originalPositionRight + new Vector2(1f, 0);
+        laserLeftHandShadowPosition = originalPositionLeftShadow + new Vector2(-1f, 0);
+        laserRightHandShadowPosition = originalPositionRightShadow + new Vector2(1f, 0);
 
         // 보자기 -> 주먹 전환
         StartCoroutine(ChangeHandPaperToRock());
@@ -591,13 +593,14 @@ public class BossMonster : MonoBehaviour
 
         // 보자기 -> 주먹 전환
         StartCoroutine(ChangeHandPaperToRock());
+        yield return new WaitForSeconds(0.5f);
 
         float duration = 3.0f; // 낙석이 떨어지는 총 시간
         float interval = 0.5f; // 낙석 간의 시간 간격
 
         // 손을 내려칠 때 올리는 위치
-        raiseLeftHandPosition = originalPositionLeft + new Vector2(0, 1f);
-        raiseRightHandPosition = originalPositionRight + new Vector2(0, 1f);
+        raiseLeftHandPosition = originalPositionLeft + new Vector2(0, 2f);
+        raiseRightHandPosition = originalPositionRight + new Vector2(0, 2f);
 
         // 손을 내리치는 코루틴 시작
         StartCoroutine(ShakeHand(duration));
@@ -611,7 +614,7 @@ public class BossMonster : MonoBehaviour
             // 플레이어의 위치 근처 랜덤으로 결정
             spawnPosition = new Vector2(
                 Random.Range(target.position.x - 2f, target.position.x + 2f), // 맵의 범위를 예상하여 난수 설정
-                Random.Range(target.position.y - 2f, target.position.y + 2f) + 4f // 위쪽에서 생성되도록
+                Random.Range(target.position.y - 2f, target.position.y + 2f) + 6f // 위쪽에서 생성되도록
             );
 
             // 낙석 생성
@@ -646,7 +649,7 @@ public class BossMonster : MonoBehaviour
         else
         {
             // 패턴 1을 제외한 나머지 중에서 랜덤하게 실행
-            int pattern = Random.Range(1, 6); // 2부터 5 사이의 랜덤한 숫자
+            int pattern = Random.Range(5, 6); // 2부터 5 사이의 랜덤한 숫자
 
             switch (pattern)
             {

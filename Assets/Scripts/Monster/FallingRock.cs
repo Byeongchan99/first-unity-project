@@ -6,9 +6,10 @@ public class FallingRock : MonsterBullet
 {
     public float fallSpeed = -9.8f; // 낙석의 하강 속도
     private Vector2 originalPosition; // 낙석이 시작하는 위치
-    private float fallDistance = 4.0f; // 낙석이 떨어지는 최대 거리
+    private float fallDistance = 6.0f; // 낙석이 떨어지는 최대 거리
 
     private BoxCollider2D AttackAreaColider, StandAreaCollider;
+    public SpriteRenderer FallingRockShadow;
 
     protected override void Awake()
     {
@@ -19,6 +20,7 @@ public class FallingRock : MonsterBullet
         {
             StandAreaCollider = childTransform.GetComponent<BoxCollider2D>();
         }
+        FallingRockShadow.enabled = false;
     }
 
     protected override void ResetBullet()
@@ -26,6 +28,7 @@ public class FallingRock : MonsterBullet
         base.ResetBullet();
         AttackAreaColider.enabled = false;
         StandAreaCollider.enabled = false;
+        FallingRockShadow.enabled = false;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
@@ -35,6 +38,10 @@ public class FallingRock : MonsterBullet
         this.transform.position = spawnPosition;
         originalPosition = spawnPosition;
 
+        // 그림자의 월드 위치를 초기화
+        FallingRockShadow.transform.position = spawnPosition + new Vector2(0, -6f); // 그림자를 낙석의 시작 위치 아래에 고정
+        FallingRockShadow.enabled = true;
+
         // 코루틴 시작
         StartCoroutine(Fall());
     }
@@ -43,6 +50,7 @@ public class FallingRock : MonsterBullet
     {
         // 이동할 거리 계산
         float distanceFallen = 0f;
+        Vector2 shadowStartPosition = FallingRockShadow.transform.position;
 
         while (distanceFallen < fallDistance)
         {
@@ -60,6 +68,9 @@ public class FallingRock : MonsterBullet
             {
                 AttackAreaColider.enabled = true;
             }
+
+            // 그림자의 월드 위치를 고정
+            FallingRockShadow.transform.position = shadowStartPosition;
 
             // 다음 프레임까지 기다림
             yield return null;
