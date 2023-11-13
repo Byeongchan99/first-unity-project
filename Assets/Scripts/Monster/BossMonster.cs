@@ -12,6 +12,7 @@ public class BossMonster : MonoBehaviour
 
     private float attackCooldown; // 다음 공격까지의 시간
     private bool isPatternActive = false; // 현재 공격 패턴이 실행 중인지 추적하는 변수
+    Vector2 bottomLeft, topRight;
 
     [Header("손 관련")]
     public GameObject leftHand, rightHand; // 손 오브젝트
@@ -55,6 +56,8 @@ public class BossMonster : MonoBehaviour
     void Start()
     {
         target = PlayerStat.Instance.transform;
+        topRight = StageManager.Instance.currentStage.topRight;
+        bottomLeft = StageManager.Instance.currentStage.bottomLeft;
         // 보스 몬스터의 위치에서 (-2, -2), (2, -2) 이동한 위치를 기존 손의 위치로 설정
         originalPositionLeft = (Vector2)transform.position + new Vector2(2, -2);
         originalPositionRight = (Vector2)transform.position + new Vector2(-2, -2);
@@ -611,10 +614,10 @@ public class BossMonster : MonoBehaviour
             // 예: 애니메이터를 사용하여 힘을 모으는 애니메이션 재생
             // animator.SetTrigger("Charge");
 
-            // 플레이어의 위치 근처 랜덤으로 결정
+            // 플레이어의 위치 근처 랜덤으로 결정, 맵 범위 내에서 생성되도록 함
             spawnPosition = new Vector2(
-                Random.Range(target.position.x - 2f, target.position.x + 2f), // 맵의 범위를 예상하여 난수 설정
-                Random.Range(target.position.y - 2f, target.position.y + 2f) + 6f // 위쪽에서 생성되도록
+                Random.Range(Mathf.Max(bottomLeft.x, target.position.x - 2f), Mathf.Min(topRight.x, target.position.x + 2f)),
+                Random.Range(Mathf.Max(bottomLeft.y, target.position.y - 2f), Mathf.Min(topRight.y, target.position.y + 2f)) + 6f
             );
 
             // 낙석 생성
