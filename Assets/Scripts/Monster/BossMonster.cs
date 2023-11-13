@@ -17,6 +17,7 @@ public class BossMonster : MonoBehaviour
     [Header("손 관련")]
     public GameObject leftHand, rightHand; // 손 오브젝트
     public GameObject leftHandShadow, rightHandShadow; // 손 그림자 오브젝트
+    public BoxCollider2D leftHandAttackArea, rightHandAttackArea;   // 손 공격 범위 콜라이더
     public Vector2 originalPositionLeft, originalPositionRight;   // 기존 손의 위치
     public Vector2 originalPositionLeftShadow, originalPositionRightShadow;   // 기존 손 그림자의 위치
     public Vector2 laserLeftHandPosition, laserRightHandPosition;   // 레이저 쏠 때 손의 위치
@@ -46,11 +47,15 @@ public class BossMonster : MonoBehaviour
         rightHandAnimator = rightHand.GetComponent<Animator>();
         leftHandShadowAnimator = leftHandShadow.GetComponent<Animator>();
         rightHandShadowAnimator = rightHandShadow.GetComponent<Animator>();
+        leftHandAttackArea = leftHand.GetComponent<BoxCollider2D>();
+        rightHandAttackArea = rightHand.GetComponent<BoxCollider2D>();
 
         // 공격 관련 콜라이더와 스프라이트 비활성화
         laserColider1.enabled = false;
         laserColider2.enabled = false;
         laserAttackAreaSpriteRenderer2.enabled = false;
+        leftHandAttackArea.enabled = false;
+        rightHandAttackArea.enabled = false;
     }
 
     void Start()
@@ -319,6 +324,8 @@ public class BossMonster : MonoBehaviour
         GameObject secondHand = (firstHand == leftHand) ? rightHand : leftHand;
         GameObject firstHandShadow = (firstHand == leftHand) ? leftHandShadow : rightHandShadow;
         GameObject secondHandShadow = (firstHandShadow == leftHandShadow) ? rightHandShadow : leftHandShadow;
+        BoxCollider2D firstHandAttackArea = (firstHand == leftHand) ? leftHandAttackArea : rightHandAttackArea;
+        BoxCollider2D secondHandAttackArea = (firstHandAttackArea == leftHandAttackArea) ? rightHandAttackArea : leftHandAttackArea;
 
         // 플레이어의 위치로 선택한 손 이동
         // 보자기 -> 주먹 전환
@@ -331,8 +338,10 @@ public class BossMonster : MonoBehaviour
         MoveHand(firstHand, firstHandShadow, firstHand.transform.position, target.position + new Vector3(0, 2f, 0), firstHandShadow.transform.position, target.position, 0.5f);
         yield return new WaitForSeconds(0.5f);
         //Debug.Log("첫번째 손 내려찍기");
+        firstHandAttackArea.enabled = true;
         MoveHand(firstHand, firstHand.transform.position, firstHand.transform.position + new Vector3(0, -2f, 0), 0.2f);
         yield return new WaitForSeconds(0.2f);
+        firstHandAttackArea.enabled = false;
 
         // 시간차를 두고 반대손 이동       
         //Debug.Log("두번째 손 들어올리기");
@@ -342,8 +351,10 @@ public class BossMonster : MonoBehaviour
         MoveHand(secondHand, secondHandShadow, secondHand.transform.position, target.position + new Vector3(0, 2f, 0), secondHandShadow.transform.position, target.position, 0.5f);
         yield return new WaitForSeconds(0.5f);
         //Debug.Log("두번째 손 내려찍기");
+        secondHandAttackArea.enabled = true;
         MoveHand(secondHand, secondHand.transform.position, secondHand.transform.position + new Vector3(0, -2f, 0), 0.2f);
         yield return new WaitForSeconds(0.2f);
+        secondHandAttackArea.enabled = false;
 
         // 손 원래 위치로 복귀
         //Debug.Log("손 복귀");
@@ -386,10 +397,14 @@ public class BossMonster : MonoBehaviour
             MoveHand(rightHand, originalPositionRight, raiseRightHandPosition, 0.3f);
             yield return new WaitForSeconds(0.3f);
 
+            leftHandAttackArea.enabled = true;
+            rightHandAttackArea.enabled = true;
             Debug.Log("양 손 내려치기");
             MoveHand(leftHand, raiseLeftHandPosition, originalPositionLeft, 0.3f);
             MoveHand(rightHand, raiseRightHandPosition, originalPositionRight, 0.3f);
             yield return new WaitForSeconds(0.3f);
+            leftHandAttackArea.enabled = false;
+            rightHandAttackArea.enabled = false;
 
             // 맵을 퍼쳐나가는 충격파 발생
             Debug.Log("충격파 발생");
@@ -576,11 +591,16 @@ public class BossMonster : MonoBehaviour
             MoveHand(leftHand, originalPositionLeft, raiseLeftHandPosition, 0.2f);
             yield return new WaitForSeconds(0.2f);
             MoveHand(rightHand, originalPositionRight, raiseRightHandPosition, 0.2f);
+            leftHandAttackArea.enabled = true;
             MoveHand(leftHand, raiseLeftHandPosition, originalPositionLeft, 0.2f);
             yield return new WaitForSeconds(0.2f);
+            rightHandAttackArea.enabled = true;
+            leftHandAttackArea.enabled = false;
             MoveHand(rightHand, raiseRightHandPosition, originalPositionRight, 0.2f);
+            yield return new WaitForSeconds(0.2f);
+            rightHandAttackArea.enabled = false;
 
-            elapsedTime += 0.4f;
+            elapsedTime += 0.6f;
         }
     }
 
@@ -598,8 +618,8 @@ public class BossMonster : MonoBehaviour
         StartCoroutine(ChangeHandPaperToRock());
         yield return new WaitForSeconds(0.5f);
 
-        float duration = 3.0f; // 낙석이 떨어지는 총 시간
-        float interval = 0.5f; // 낙석 간의 시간 간격
+        float duration = 4.8f; // 낙석이 떨어지는 총 시간
+        float interval = 0.6f; // 낙석 간의 시간 간격
 
         // 손을 내려칠 때 올리는 위치
         raiseLeftHandPosition = originalPositionLeft + new Vector2(0, 2f);
@@ -652,7 +672,7 @@ public class BossMonster : MonoBehaviour
         else
         {
             // 패턴 1을 제외한 나머지 중에서 랜덤하게 실행
-            int pattern = Random.Range(5, 6); // 2부터 5 사이의 랜덤한 숫자
+            int pattern = Random.Range(2, 6); // 2부터 5 사이의 랜덤한 숫자
 
             switch (pattern)
             {

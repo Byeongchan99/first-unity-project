@@ -13,6 +13,7 @@ TagManager:
   - ShopInteractionRange
   - PortalInteractionRange
   - Rock
+  - BossAttackArea
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - MonsterAttackArea
   - PlayerBullet
   - MonsterBullet
-  - 
+  - BossAttackArea
   - 
   - 
   - 
