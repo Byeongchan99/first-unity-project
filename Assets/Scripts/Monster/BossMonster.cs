@@ -425,13 +425,7 @@ public class BossMonster : MonoBehaviour
     }
 
     // 레이저 관련 메서드
-    // 휩쓸기 레이저
-    void ShootLaser(LineRenderer lineRenderer)
-    {
-        Draw2DRay(lineRenderer, laserStart.position, laserStart.transform.right * defDistanceRay);
-    }
-
-    // 강력한 레이저
+    // 레이저
     void ShootLaser(LineRenderer lineRenderer, Vector3 attackDirection)
     {
         // 레이저가 시작되는 위치를 설정합니다.
@@ -472,19 +466,26 @@ public class BossMonster : MonoBehaviour
         animator.SetBool("IsAttack", true);
 
         // 레이저 초기화 및 활성화
-        laserStart.transform.rotation = Quaternion.identity;
+        Vector3 startDirection = (Quaternion.Euler(0, 0, -30) * Vector3.right).normalized;
+        Vector3 targetDirection = (Quaternion.Euler(0, 0, -160) * Vector3.right).normalized;
+        Quaternion startRotation = Quaternion.FromToRotation(Vector3.right, startDirection);
+        Quaternion targetRotation = Quaternion.FromToRotation(Vector3.right, targetDirection);
+        laserStart.transform.rotation = Quaternion.FromToRotation(Vector3.right, startDirection);
         lineRenderer1.enabled = true;
         laserColider1.enabled = true;
 
-        float elapsedTime = 0;   // 경과 시간
-        float rotationSpeed = -130f / laserDuration; // 초당 회전 속도
+        float elapsedTime = 0; // 경과 시간
 
         while (elapsedTime < laserDuration)
         {
-            ShootLaser(lineRenderer1);
-
             // 레이저 회전
-            laserStart.transform.Rotate(0, 0, rotationSpeed * Time.deltaTime); // 매 프레임마다 고정된 각도만큼 회전
+            float progress = elapsedTime / laserDuration; // 보간을 위한 진행도 계산
+            Quaternion currentRotation = Quaternion.Lerp(startRotation, targetRotation, progress);
+            laserStart.transform.rotation = currentRotation;
+
+            // 현재 회전 방향으로 레이저 발사
+            Vector3 currentDirection = currentRotation * Vector3.right;
+            ShootLaser(lineRenderer1, currentDirection);
 
             // 경과 시간 증가
             elapsedTime += Time.deltaTime;
@@ -672,7 +673,7 @@ public class BossMonster : MonoBehaviour
         else
         {
             // 패턴 1을 제외한 나머지 중에서 랜덤하게 실행
-            int pattern = Random.Range(2, 6); // 2부터 5 사이의 랜덤한 숫자
+            int pattern = Random.Range(3, 4); // 2부터 5 사이의 랜덤한 숫자
 
             switch (pattern)
             {
