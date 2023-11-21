@@ -467,7 +467,7 @@ public class BossMonster : MonoBehaviour
 
         // 레이저 초기화 및 활성화
         Vector3 startDirection = (Quaternion.Euler(0, 0, -30) * Vector3.right).normalized;
-        Vector3 targetDirection = (Quaternion.Euler(0, 0, -160) * Vector3.right).normalized;
+        Vector3 targetDirection = (Quaternion.Euler(0, 0, -140) * Vector3.right).normalized;
         Quaternion startRotation = Quaternion.FromToRotation(Vector3.right, startDirection);
         Quaternion targetRotation = Quaternion.FromToRotation(Vector3.right, targetDirection);
         laserStart.transform.rotation = Quaternion.FromToRotation(Vector3.right, startDirection);

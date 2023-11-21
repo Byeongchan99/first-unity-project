@@ -183,87 +183,70 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.name);
-
-        if (collision.gameObject.CompareTag("MonsterAttackArea"))
+        if (collision.CompareTag("ShopInteractionRange")) // 상점 상호작용 범위 확인
         {
-            Debug.Log("몬스터 공격 영역과 충돌");
-            // 몬스터의 공격 영역과 충돌한 경우
-            MonsterAttackArea monsterAttackArea = collision.GetComponent<MonsterAttackArea>();
-            int currentAttackID = monsterAttackArea.GetAttackID();
-
-            // 만약 현재의 공격 ID가 몬스터가 마지막으로 받은 공격 ID와 다르면 데미지 처리
-            if (currentAttackID != lastAttackID)
-            {
-                // 현재 무적 시간이면 피해 무시
-                if (GameManager.instance.isInvincible) 
-                    return;
-
-                PlayerStat.Instance.CurrentHP -= 1;
-                Debug.Log("플레이어 체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
-
-                if (PlayerStat.Instance.CurrentHP <= 0)
-                {
-                    PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
-                    playerStat.stateMachine.ChangeState(StateName.DEAD);
-                }
-
-                // 피격 이벤트 실행
-                playerStat.animator.SetTrigger("Hit");
-                StartCoroutine(GetHitRoutine());
-                lastAttackID = currentAttackID;  // 현재 공격 ID로 업데이트
-            }
-
+            HandleShopInteraction();
             return;
         }
 
-        if (collision.CompareTag("ExplosionArea") || collision.CompareTag("MonsterBullet"))
-        {
-            // 현재 무적 시간이면 피해 무시
-            if (GameManager.instance.isInvincible)
-                return;
-
-            PlayerStat.Instance.CurrentHP -= 1;
-            Debug.Log("플레이어 체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
-
-            if (PlayerStat.Instance.CurrentHP <= 0)
-            {
-                PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
-                playerStat.stateMachine.ChangeState(StateName.DEAD);
-            }
-
-            // 피격 이벤트 실행
-            playerStat.animator.SetTrigger("Hit");
-            StartCoroutine(GetHitRoutine());
+        // 무적 시간이거나 구르고 있을 경우 피해 무시
+        if (GameManager.instance.isInvincible || RollState.IsRoll)
             return;
-        }
 
-        // 상점 상호작용 범위 들어올 때
-        if (collision.CompareTag("ShopInteractionRange"))
+        switch (collision.gameObject.tag)
         {
-            isNearShop = true;
+            case "MonsterAttackArea":   // 일반 몬스터 공격 범위
+                HandleMonsterAttack(collision);
+                break;
+            case "ExplosionArea":   // 폭발 범위
+            case "MonsterBullet":   // 몬스터 원거리 공격
+                ApplyDamage();
+                break;
+            case "BossAttackArea":   // 보스 몬스터 공격 범위
+                HandleBossAttack(collision);
+                break;
         }
+    }
 
-        if (collision.CompareTag("BossAttackArea"))
+    void ApplyDamage()
+    {
+        PlayerStat.Instance.CurrentHP -= 1;
+        Debug.Log("플레이어 체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
+
+        if (PlayerStat.Instance.CurrentHP <= 0)
         {
-            // 현재 무적 시간이면 피해 무시
-            if (GameManager.instance.isInvincible)
-                return;
-
-            PlayerStat.Instance.CurrentHP -= 1;
-            Debug.Log("플레이어 체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
-
-            if (PlayerStat.Instance.CurrentHP <= 0)
-            {
-                PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
-                playerStat.stateMachine.ChangeState(StateName.DEAD);
-            }
-
-            // 피격 이벤트 실행
-            playerStat.animator.SetTrigger("Hit");
-            StartCoroutine(GetHitRoutine());
-            // lastAttackID = currentAttackID;  // 현재 공격 ID로 업데이트
+            PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
+            playerStat.stateMachine.ChangeState(StateName.DEAD);
         }
+
+        // 피격 이벤트 실행
+        playerStat.animator.SetTrigger("Hit");
+        StartCoroutine(GetHitRoutine());
+    }
+
+    void HandleMonsterAttack(Collider2D collision)
+    {
+        MonsterAttackArea monsterAttackArea = collision.GetComponent<MonsterAttackArea>();
+        int currentAttackID = monsterAttackArea.GetAttackID();
+        if (currentAttackID != lastAttackID)
+        {
+            ApplyDamage();
+            lastAttackID = currentAttackID;
+        }
+    }
+
+    void HandleBossAttack(Collider2D collision)
+    {
+        // 보스 공격 처리 로직
+        ApplyDamage();
+        // lastAttackID 업데이트 필요한 경우 추가
+    }
+
+    // 상점 상호작용 범위 들어올 때
+    void HandleShopInteraction()
+    {
+        // 상점 상호작용 로직
+        isNearShop = true;
     }
 
     // 오브젝트 상호작용 범위 벗어날 때
