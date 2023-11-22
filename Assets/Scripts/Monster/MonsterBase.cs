@@ -149,72 +149,32 @@ public abstract class MonsterBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("PlayerAttackArea") && !collision.CompareTag("Bullet") && !collision.CompareTag("ExplosionArea"))
-            return;
-
-        if (collision.gameObject.CompareTag("PlayerAttackArea"))
+        switch (collision.gameObject.tag)
         {
-            Debug.Log("PlayerAttackArea와 충돌");
-            // Player의 공격 영역과 충돌한 경우
-            PlayerAttackArea playerAttackArea = collision.GetComponent<PlayerAttackArea>();
-            int currentAttackID = playerAttackArea.GetAttackID();
+            case "PlayerAttackArea":
+                ProcessDamage(collision.GetComponent<PlayerAttackArea>().GetAttackID(),
+                    PlayerStat.Instance.weaponManager.Weapon.AttackDamage + PlayerStat.Instance.AttackPower);
+                break;
 
-            // 만약 현재의 공격 ID가 몬스터가 마지막으로 받은 공격 ID와 다르면 데미지 처리
-            if (currentAttackID != lastAttackID)
-            {
-                /*
-                health -= PlayerStat.Instance.weaponManager.Weapon.AttackDamage;
-                StartCoroutine(FlashSprite());  // 깜빡거림 시작
-                StartCoroutine(KnockBack());
-                Debug.Log("체력 감소! 남은 체력 " + health);
+            case "Bullet":
+                ProcessDamage(-1, collision.GetComponent<Bullet>().Damage); // -1은 고유 ID가 없음을 나타냄
+                break;
 
-                if (health <= 0)
-                {
-                    ChangeState(MonsterState.DEAD);
-                }
-                */
-                health -= (PlayerStat.Instance.weaponManager.Weapon.AttackDamage + PlayerStat.Instance.AttackPower);   // 데미지 = 무기 공격력 + 플레이어 공격력
-
-                if (health > 0)
-                {
-                    StartCoroutine(FlashSprite());  // 깜빡거림 시작
-                    StartCoroutine(KnockBack());
-                    Debug.Log("체력 감소! 남은 체력 " + health);
-                }
-                else
-                {
-                    ChangeState(MonsterState.DEAD);
-                }
-
-                lastAttackID = currentAttackID;  // 현재 공격 ID로 업데이트
-                Debug.Log("lastAttackID: " + lastAttackID);
-            }
+            case "ExplosionArea":
+                ProcessDamage(-1, collision.transform.parent.GetComponent<FireBolt>().explosionDamage);
+                break;
         }
+    }
 
-        if (collision.CompareTag("Bullet"))
+    private void ProcessDamage(int attackID, float damage)
+    {
+        // 공격 ID가 다르거나 ID가 없는 경우에만 피해 처리
+        if (attackID != lastAttackID || attackID == -1)
         {
-            health -= collision.GetComponent<Bullet>().Damage;
-            ;
+            health -= damage;
             if (health > 0)
             {
-                StartCoroutine(FlashSprite());  // 깜빡거림 시작
-                StartCoroutine(KnockBack());
-                Debug.Log("체력 감소! 남은 체력 " + health);
-            }
-            else
-            {
-                Debug.Log("Dead State로 전환");
-                ChangeState(MonsterState.DEAD);
-            }
-        }
-
-        if (collision.CompareTag("ExplosionArea"))
-        {
-            health -= collision.transform.parent.GetComponent<FireBolt>().explosionDamage;
-
-            if (health > 0)
-            {
-                StartCoroutine(FlashSprite());  // 깜빡거림 시작
+                StartCoroutine(FlashSprite());
                 StartCoroutine(KnockBack());
                 Debug.Log("체력 감소! 남은 체력 " + health);
             }
@@ -222,6 +182,8 @@ public abstract class MonsterBase : MonoBehaviour
             {
                 ChangeState(MonsterState.DEAD);
             }
+
+            lastAttackID = attackID;
         }
     }
 

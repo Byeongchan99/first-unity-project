@@ -10,9 +10,14 @@ public class BossMonster : MonoBehaviour
     private Animator leftHandAnimator, rightHandAnimator;   // 양 손 애니메이터
     private Animator leftHandShadowAnimator, rightHandShadowAnimator;   // 양 손 그림자 애니메이터
 
+    [Header("스텟 관련")]
+    protected bool IsLive;
+    public float health;
+    public float maxHealth;
+    private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
     private float attackCooldown; // 다음 공격까지의 시간
     private bool isPatternActive = false; // 현재 공격 패턴이 실행 중인지 추적하는 변수
-    Vector2 bottomLeft, topRight;
+    Vector2 bottomLeft, topRight;   // 보스 맵 스테이지 맵 크기
 
     [Header("손 관련")]
     public GameObject leftHand, rightHand; // 손 오브젝트
@@ -40,6 +45,15 @@ public class BossMonster : MonoBehaviour
     public int bulletID;   // 사용하는 총알의 프리팹 ID
     public Vector2 spawnPosition;   // 낙석 생성 위치
 
+    enum BossState
+    {
+        CHASE,
+        ATTACK,
+        DEAD
+    }
+
+    BossState bossState;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
@@ -58,6 +72,18 @@ public class BossMonster : MonoBehaviour
         rightHandAttackArea.enabled = false;
     }
 
+    void OnEnable()
+    {
+        IsLive = true;
+        health = maxHealth;
+    }
+
+    public void ActivateBossMonster()
+    {
+        bossState = BossState.CHASE;
+        StartCoroutine(StateMachine());
+    }
+
     void Start()
     {
         target = PlayerStat.Instance.transform;
@@ -71,6 +97,15 @@ public class BossMonster : MonoBehaviour
         InitEllipseSprite();
     }
 
+    IEnumerator StateMachine()
+    {
+        while (IsLive)
+        {
+            yield return StartCoroutine(bossState.ToString());
+        }
+    }
+
+    /*
     void Update()
     {
         if (attackCooldown <= 0 && !isPatternActive)
@@ -89,7 +124,7 @@ public class BossMonster : MonoBehaviour
     {
         return Random.Range(2f, 4f); // 2초에서 5초 사이의 무작위 시간
     }
-
+    */
 
     // 손 관련 메서드
     // 손을 움직이는 메서드
@@ -306,8 +341,73 @@ public class BossMonster : MonoBehaviour
         }
     }
 
+    // 한 손으로는 플레이어의 위치를 추적해 내려찍기, 다른 손으로는 시간차를 두고 내려찍기
+    IEnumerator CHASE()
+    {
+        isPatternActive = true; // 패턴 시작
+
+        //Debug.Log("양 손 모두 본체 근처로 이동");
+        Debug.Log(originalPositionLeft + " " + originalPositionRight);
+        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 1f);
+        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 1f);
+        yield return new WaitForSeconds(1.0f);
+
+        // 플레이어의 위치를 기준으로 손 선택 - 맵의 왼쪽에 있으면 왼손, 오른쪽에 있으면 오른손
+        GameObject firstHand = selectHand();
+        GameObject secondHand = (firstHand == leftHand) ? rightHand : leftHand;
+        GameObject firstHandShadow = (firstHand == leftHand) ? leftHandShadow : rightHandShadow;
+        GameObject secondHandShadow = (firstHandShadow == leftHandShadow) ? rightHandShadow : leftHandShadow;
+        BoxCollider2D firstHandAttackArea = (firstHand == leftHand) ? leftHandAttackArea : rightHandAttackArea;
+        BoxCollider2D secondHandAttackArea = (firstHandAttackArea == leftHandAttackArea) ? rightHandAttackArea : leftHandAttackArea;
+
+        // 플레이어의 위치로 선택한 손 이동
+        // 보자기 -> 주먹 전환
+        StartCoroutine(ChangeHandPaperToRock());
+
+        //Debug.Log("첫번째 손 들어올리기");
+        MoveHand(firstHand, firstHand.transform.position, firstHand.transform.position + new Vector3(0, 2f, 0), 0.2f);
+        yield return new WaitForSeconds(0.2f);
+        //Debug.Log("첫번째 손 이동");
+        MoveHand(firstHand, firstHandShadow, firstHand.transform.position, target.position + new Vector3(0, 2f, 0), firstHandShadow.transform.position, target.position, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        //Debug.Log("첫번째 손 내려찍기");
+        firstHandAttackArea.enabled = true;
+        MoveHand(firstHand, firstHand.transform.position, firstHand.transform.position + new Vector3(0, -2f, 0), 0.2f);
+        yield return new WaitForSeconds(0.2f);
+        firstHandAttackArea.enabled = false;
+
+        // 시간차를 두고 반대손 이동       
+        //Debug.Log("두번째 손 들어올리기");
+        MoveHand(secondHand, secondHand.transform.position, secondHand.transform.position + new Vector3(0, 2f, 0), 0.2f);
+        yield return new WaitForSeconds(0.2f);
+        //Debug.Log("두번째 손 이동");
+        MoveHand(secondHand, secondHandShadow, secondHand.transform.position, target.position + new Vector3(0, 2f, 0), secondHandShadow.transform.position, target.position, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        //Debug.Log("두번째 손 내려찍기");
+        secondHandAttackArea.enabled = true;
+        MoveHand(secondHand, secondHand.transform.position, secondHand.transform.position + new Vector3(0, -2f, 0), 0.2f);
+        yield return new WaitForSeconds(0.2f);
+        secondHandAttackArea.enabled = false;
+
+        // 손 원래 위치로 복귀
+        //Debug.Log("손 복귀");
+        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 0.5f);
+        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+
+        // 주먹 -> 보자기 전환
+        StartCoroutine(ChangeHandRockToPaper());
+
+        Debug.Log("패턴 1 완료");
+        yield return new WaitForSeconds(2.0f); // 2초간 대기
+        isPatternActive = false; // 패턴 종료
+
+        ChangeState(BossState.ATTACK);   // ATTACK 상태로 전환
+    }
+
     // 공격 패턴 코루틴
 
+    /*
     // 패턴 1: 한 손씩 내려찍기
     // 한 손으로는 플레이어의 위치를 추적해 내려찍기, 다른 손으로는 시간차를 두고 내려찍기
     IEnumerator Pattern1()
@@ -369,9 +469,10 @@ public class BossMonster : MonoBehaviour
         yield return new WaitForSeconds(2.0f); // 2초간 대기
         isPatternActive = false; // 패턴 종료
     }
+    */
 
-    // 패턴 2: 주먹을 여러번 내리쳐 충격파 생성
-    IEnumerator Pattern2()
+    // 패턴 1: 주먹을 여러번 내리쳐 충격파 생성
+    IEnumerator Pattern1()
     {
         isPatternActive = true; // 패턴 시작
 
@@ -445,8 +546,8 @@ public class BossMonster : MonoBehaviour
         lineRenderer.SetPosition(1, endPos);
     }
 
-    // 패턴 3: 힘을 모아 전방 휩쓸기 레이저 발사
-    IEnumerator Pattern3()
+    // 패턴 2: 힘을 모아 전방 휩쓸기 레이저 발사
+    IEnumerator Pattern2()
     {
         isPatternActive = true; // 패턴 시작
 
@@ -507,8 +608,8 @@ public class BossMonster : MonoBehaviour
         isPatternActive = false; // 패턴 종료
     }
 
-    // 패턴 4: 힘을 모아 강한 레이저 발사
-    IEnumerator Pattern4()
+    // 패턴 3: 힘을 모아 강한 레이저 발사
+    IEnumerator Pattern3()
     {
         isPatternActive = true; // 패턴 시작
 
@@ -605,8 +706,8 @@ public class BossMonster : MonoBehaviour
         }
     }
 
-    // 패턴 5: 낙석 생성
-    IEnumerator Pattern5()
+    // 패턴 4: 낙석 생성
+    IEnumerator Pattern4()
     {
         isPatternActive = true; // 패턴 시작
 
@@ -659,40 +760,98 @@ public class BossMonster : MonoBehaviour
         isPatternActive = false; // 패턴 종료
     }
 
-    // 공격 패턴을 번갈아 실행하기 위한 변수 추가
-    private bool alternatePattern = true;
+    IEnumerator ATTACK()
+    {
+        yield return ExecuteRandomPattern();
+
+        if (health < 0)
+            ChangeState(BossState.DEAD);   // DEAD 상태로 전환
+        else
+            ChangeState(BossState.CHASE);   // CHASE 상태로 전환
+    }
 
     // 공격 패턴을 랜덤으로 선택하여 실행
-    public void ExecuteRandomPattern()
+    public IEnumerator ExecuteRandomPattern()
     {
-        if (alternatePattern)
-        {
-            // 항상 패턴 1을 실행
-            StartCoroutine(Pattern1());
-        }
-        else
-        {
-            // 패턴 1을 제외한 나머지 중에서 랜덤하게 실행
-            int pattern = Random.Range(3, 4); // 2부터 5 사이의 랜덤한 숫자
+        // 패턴 1을 제외한 나머지 중에서 랜덤하게 실행
+        int pattern = Random.Range(1, 5); // 1부터 4 사이의 랜덤한 숫자
 
-            switch (pattern)
-            {
-                case 2:
-                    StartCoroutine(Pattern2());
-                    break;
-                case 3:
-                    StartCoroutine(Pattern3());
-                    break;
-                case 4:
-                    StartCoroutine(Pattern4());
-                    break;
-                case 5:
-                    StartCoroutine(Pattern5());
-                    break;
+        switch (pattern)
+        {
+            case 1:
+                yield return StartCoroutine(Pattern1());
+                break;
+            case 2:
+                yield return StartCoroutine(Pattern2());
+                break;
+            case 3:
+                yield return StartCoroutine(Pattern3());
+                break;
+            case 4:
+                yield return StartCoroutine(Pattern4());
+                break;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "PlayerAttackArea":
+                ProcessDamage(collision.GetComponent<PlayerAttackArea>().GetAttackID(),
+                    PlayerStat.Instance.weaponManager.Weapon.AttackDamage + PlayerStat.Instance.AttackPower);
+                break;
+
+            case "Bullet":
+                ProcessDamage(-1, collision.GetComponent<Bullet>().Damage); // -1은 고유 ID가 없음을 나타냄
+                break;
+
+            case "ExplosionArea":
+                ProcessDamage(-1, collision.transform.parent.GetComponent<FireBolt>().explosionDamage);
+                break;
+        }
+    }
+
+    private void ProcessDamage(int attackID, float damage)
+    {
+        // 공격 ID가 다르거나 ID가 없는 경우에만 피해 처리
+        if (attackID != lastAttackID || attackID == -1)
+        {
+            health -= damage;
+            if (health > 0)
+            {               
+                Debug.Log("체력 감소! 남은 체력 " + health);
             }
-        }
+            else
+            {
+                ChangeState(BossState.DEAD);
+            }
 
-        // 다음 번에는 다른 패턴이 실행되도록 토글
-        alternatePattern = !alternatePattern;
+            lastAttackID = attackID;
+        }
+    }
+
+    IEnumerator DEAD()
+    {
+        Debug.Log("몬스터 사망");
+        IsLive = false;
+        WaveManager.Instance.OnMonsterDeath();
+        int randomGold = Random.Range(500, 600);
+        PlayerStat.Instance.Gold += randomGold;
+
+        /*
+        아직 보스 몬스터 사망 애니메이션 미구현
+        // 몬스터 상태 초기화 및 애니메이션 처리 (예: 사망 애니메이션 재생)
+        animator.SetTrigger("Dead");
+        */
+        yield return new WaitForSeconds(1); // 사망 애니메이션 재생 시간 (예: 1초)
+     
+        gameObject.SetActive(false);  // 오브젝트 비활성화
+    }
+
+    void ChangeState(BossState newMonsterState)
+    {
+        // Debug.Log("상태 전환 " + newMonsterState);
+        bossState = newMonsterState;
     }
 }

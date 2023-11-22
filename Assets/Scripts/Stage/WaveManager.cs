@@ -171,8 +171,13 @@ public class WaveManager : MonoBehaviour
         if (monsterToSpawn != null)
         {
             Debug.Log("spwan point position: " + spawnPointPosition + "");
-            monsterToSpawn.transform.position = spawnPointPosition;   // 스폰 포인트 위치 설정           
-            monsterToSpawn.SetActive(true);
+            monsterToSpawn.transform.position = spawnPointPosition;   // 스폰 포인트 위치 설정
+            BossMonster bossComponent = monsterToSpawn.GetComponent<BossMonster>();
+            if (bossComponent != null)
+            {
+                monsterToSpawn.SetActive(true);
+                bossComponent.ActivateBossMonster(); // 추가 초기화나 설정이 필요한 경우
+            }        
         }
     }
 
