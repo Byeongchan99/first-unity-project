@@ -76,16 +76,7 @@ public class BossMonster : MonoBehaviour
     {
         IsLive = true;
         health = maxHealth;
-    }
 
-    public void ActivateBossMonster()
-    {
-        bossState = BossState.CHASE;
-        StartCoroutine(StateMachine());
-    }
-
-    void Start()
-    {
         target = PlayerStat.Instance.transform;
         topRight = StageManager.Instance.currentStage.topRight;
         bottomLeft = StageManager.Instance.currentStage.bottomLeft;
@@ -95,6 +86,12 @@ public class BossMonster : MonoBehaviour
         originalPositionLeftShadow = (Vector2)transform.position + new Vector2(2, -2.22f);
         originalPositionRightShadow = (Vector2)transform.position + new Vector2(-2, -2.22f);
         InitEllipseSprite();
+    }
+
+    public void ActivateBossMonster()
+    {
+        bossState = BossState.CHASE;
+        StartCoroutine(StateMachine());
     }
 
     IEnumerator StateMachine()
@@ -136,6 +133,7 @@ public class BossMonster : MonoBehaviour
 
     public void MoveHand(GameObject selectedHand, GameObject selectedHandShadow, Vector3 startPosition, Vector3 endPosition, Vector3 shadowStartPosition, Vector3 shadowEndPosition, float duration)
     {
+        Debug.Log(startPosition + "에서 " + endPosition + "로 이동");
         // 손 + 그림자 이동 코루틴 시작
         StartCoroutine(MoveHandWithShadowRoutine(selectedHand, selectedHandShadow, startPosition, endPosition, shadowStartPosition, shadowEndPosition, duration));
     }
@@ -406,71 +404,6 @@ public class BossMonster : MonoBehaviour
     }
 
     // 공격 패턴 코루틴
-
-    /*
-    // 패턴 1: 한 손씩 내려찍기
-    // 한 손으로는 플레이어의 위치를 추적해 내려찍기, 다른 손으로는 시간차를 두고 내려찍기
-    IEnumerator Pattern1()
-    {
-        isPatternActive = true; // 패턴 시작
-       
-        // 양 손 모두 본체 근처로 이동
-        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 1f);
-        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 1f);
-        yield return new WaitForSeconds(1.0f);
-
-        // 플레이어의 위치를 기준으로 손 선택 - 맵의 왼쪽에 있으면 왼손, 오른쪽에 있으면 오른손
-        GameObject firstHand = selectHand();
-        GameObject secondHand = (firstHand == leftHand) ? rightHand : leftHand;
-        GameObject firstHandShadow = (firstHand == leftHand) ? leftHandShadow : rightHandShadow;
-        GameObject secondHandShadow = (firstHandShadow == leftHandShadow) ? rightHandShadow : leftHandShadow;
-        BoxCollider2D firstHandAttackArea = (firstHand == leftHand) ? leftHandAttackArea : rightHandAttackArea;
-        BoxCollider2D secondHandAttackArea = (firstHandAttackArea == leftHandAttackArea) ? rightHandAttackArea : leftHandAttackArea;
-
-        // 플레이어의 위치로 선택한 손 이동
-        // 보자기 -> 주먹 전환
-        StartCoroutine(ChangeHandPaperToRock());
-
-        //Debug.Log("첫번째 손 들어올리기");
-        MoveHand(firstHand, firstHand.transform.position, firstHand.transform.position + new Vector3(0, 2f, 0), 0.2f);
-        yield return new WaitForSeconds(0.2f);
-        //Debug.Log("첫번째 손 이동");
-        MoveHand(firstHand, firstHandShadow, firstHand.transform.position, target.position + new Vector3(0, 2f, 0), firstHandShadow.transform.position, target.position, 0.5f);
-        yield return new WaitForSeconds(0.5f);
-        //Debug.Log("첫번째 손 내려찍기");
-        firstHandAttackArea.enabled = true;
-        MoveHand(firstHand, firstHand.transform.position, firstHand.transform.position + new Vector3(0, -2f, 0), 0.2f);
-        yield return new WaitForSeconds(0.2f);
-        firstHandAttackArea.enabled = false;
-
-        // 시간차를 두고 반대손 이동       
-        //Debug.Log("두번째 손 들어올리기");
-        MoveHand(secondHand, secondHand.transform.position, secondHand.transform.position + new Vector3(0, 2f, 0), 0.2f);
-        yield return new WaitForSeconds(0.2f);
-        //Debug.Log("두번째 손 이동");
-        MoveHand(secondHand, secondHandShadow, secondHand.transform.position, target.position + new Vector3(0, 2f, 0), secondHandShadow.transform.position, target.position, 0.5f);
-        yield return new WaitForSeconds(0.5f);
-        //Debug.Log("두번째 손 내려찍기");
-        secondHandAttackArea.enabled = true;
-        MoveHand(secondHand, secondHand.transform.position, secondHand.transform.position + new Vector3(0, -2f, 0), 0.2f);
-        yield return new WaitForSeconds(0.2f);
-        secondHandAttackArea.enabled = false;
-
-        // 손 원래 위치로 복귀
-        //Debug.Log("손 복귀");
-        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 0.5f);
-        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 0.5f);
-        yield return new WaitForSeconds(0.5f);
-
-        // 주먹 -> 보자기 전환
-        StartCoroutine(ChangeHandRockToPaper());
-
-        Debug.Log("패턴 1 완료");
-        yield return new WaitForSeconds(2.0f); // 2초간 대기
-        isPatternActive = false; // 패턴 종료
-    }
-    */
-
     // 패턴 1: 주먹을 여러번 내리쳐 충격파 생성
     IEnumerator Pattern1()
     {
