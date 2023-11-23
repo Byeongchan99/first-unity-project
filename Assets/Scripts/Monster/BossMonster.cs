@@ -783,7 +783,7 @@ public class BossMonster : MonoBehaviour
 
         // 몬스터 상태 초기화 및 애니메이션 처리 (예: 사망 애니메이션 재생)
         animator.SetTrigger("Dead");
-        yield return new WaitForSeconds(1); // 사망 애니메이션 재생 시간 (예: 1초)
+        yield return new WaitForSeconds(2f); // 사망 애니메이션 재생 시간 (예: 1초)
      
         gameObject.SetActive(false);  // 오브젝트 비활성화
     }

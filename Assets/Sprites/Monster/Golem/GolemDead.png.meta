@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 55
-        y: 68
+        y: 74
         width: 150
         height: 92
       alignment: 7
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 550eeab6cf361d5498d4d7e14497f182
-      internalID: -1494404604
+      spriteID: 24312892ea1f75e4e9288448c89e07d4
+      internalID: -1616130498
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 311
-        y: 67
+        y: 73
         width: 150
         height: 91
       alignment: 7
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be8cad102e82a474b8fe8306aee71ea2
-      internalID: 1934284624
+      spriteID: ce55ff291b27d08479a59a2ad26bd0f3
+      internalID: -1249326901
       vertices: []
       indices: 
       edges: []
@@ -169,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 567
-        y: 67
+        y: 73
         width: 150
         height: 89
       alignment: 7
@@ -179,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e62a328535f6e2f4794ce8d3a851d5da
-      internalID: 776291220
+      spriteID: 9998a6b8b2bb8f74d916e8595b2e6584
+      internalID: -1495407174
       vertices: []
       indices: 
       edges: []
@@ -190,7 +190,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 823
-        y: 67
+        y: 73
         width: 150
         height: 87
       alignment: 7
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5c79403591c8c14fa19a36679b3ced1
-      internalID: -548682321
+      spriteID: 04bf6eae29700524bb18673ffac0d75f
+      internalID: -661382670
       vertices: []
       indices: 
       edges: []
@@ -211,7 +211,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1079
-        y: 67
+        y: 73
         width: 150
         height: 85
       alignment: 7
@@ -221,8 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 481230fc526fb6c40b718e86f849ba5f
-      internalID: 1115806086
+      spriteID: 742dc6a5bd6d9ff48b502a4222226a9c
+      internalID: 1263447610
       vertices: []
       indices: 
       edges: []
@@ -232,7 +232,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1335
-        y: 67
+        y: 73
         width: 150
         height: 83
       alignment: 7
@@ -242,8 +242,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34d74d58455c8ff4b959facff933d152
-      internalID: -266515965
+      spriteID: 3c469ea3ca1b9a9439bca3452c6faad1
+      internalID: -1345300882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GolemDead_6
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 73
+        width: 150
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b174f5cb73c586c4bb8b086c284a2a44
+      internalID: -1516336683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GolemDead_7
+      rect:
+        serializedVersion: 2
+        x: 1847
+        y: 73
+        width: 150
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bb06cc506bfa8d4ea643361d0ace85e
+      internalID: -1193844224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GolemDead_8
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 73
+        width: 150
+        height: 77
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a89ea8b264360042b9fc90d9b2b1c51
+      internalID: -301494820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GolemDead_9
+      rect:
+        serializedVersion: 2
+        x: 2359
+        y: 73
+        width: 150
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c4a55ca43cd34840b1251657c4cea19
+      internalID: 1769753566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GolemDead_10
+      rect:
+        serializedVersion: 2
+        x: 2615
+        y: 73
+        width: 150
+        height: 73
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5758c32075ecd7349b3c70c9d1abf54b
+      internalID: -1337320970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GolemDead_11
+      rect:
+        serializedVersion: 2
+        x: 2871
+        y: 73
+        width: 150
+        height: 71
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0005ae049ddce564398b6e6146ba166c
+      internalID: -707185542
       vertices: []
       indices: 
       edges: []
@@ -259,12 +385,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GolemDead_0: -1494404604
-      GolemDead_1: 1934284624
-      GolemDead_2: 776291220
-      GolemDead_3: -548682321
-      GolemDead_4: 1115806086
-      GolemDead_5: -266515965
+      GolemDead_0: -1616130498
+      GolemDead_1: -1249326901
+      GolemDead_10: -1337320970
+      GolemDead_11: -707185542
+      GolemDead_2: -1495407174
+      GolemDead_3: -661382670
+      GolemDead_4: 1263447610
+      GolemDead_5: -1345300882
+      GolemDead_6: -1516336683
+      GolemDead_7: -1193844224
+      GolemDead_8: -301494820
+      GolemDead_9: 1769753566
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
