@@ -12,8 +12,8 @@ public class BossMonster : MonoBehaviour
 
     [Header("스텟 관련")]
     protected bool IsLive;
-    public float health;
-    public float maxHealth;
+    private float health;
+    private float maxHealth = 500;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
     private float attackCooldown; // 다음 공격까지의 시간
     private bool isPatternActive = false; // 현재 공격 패턴이 실행 중인지 추적하는 변수
@@ -672,7 +672,7 @@ public class BossMonster : MonoBehaviour
             // 플레이어의 위치 근처 랜덤으로 결정, 맵 범위 내에서 생성되도록 함
             spawnPosition = new Vector2(
                 Random.Range(Mathf.Max(bottomLeft.x, target.position.x - 2f), Mathf.Min(topRight.x, target.position.x + 2f)),
-                Random.Range(Mathf.Max(bottomLeft.y, target.position.y - 2f), Mathf.Min(topRight.y, target.position.y + 2f)) + 6f
+                Random.Range(Mathf.Max(bottomLeft.y, target.position.y - 2f), Mathf.Min(topRight.y - 5f, target.position.y + 2f)) + 6f
             );
 
             // 낙석 생성
@@ -762,6 +762,18 @@ public class BossMonster : MonoBehaviour
 
             lastAttackID = attackID;
         }
+    }
+
+    public float GetCurrentHealth()
+    {
+        Debug.Log("현재 체력 반환 " + health);
+        return health;
+    }
+
+    public float GetMaxHealth()
+    {
+        Debug.Log("최대 체력 반환 " + maxHealth);
+        return maxHealth;
     }
 
     IEnumerator DEAD()

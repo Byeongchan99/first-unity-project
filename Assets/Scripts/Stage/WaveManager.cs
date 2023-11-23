@@ -177,6 +177,9 @@ public class WaveManager : MonoBehaviour
             {
                 monsterToSpawn.SetActive(true);
                 bossComponent.ActivateBossMonster(); // 추가 초기화나 설정이 필요한 경우
+
+                // BossHPBar 스크립트에 보스 몬스터 참조 전달
+                BossHPBar.Instance.SetBossMonster(bossComponent);
             }        
         }
     }
