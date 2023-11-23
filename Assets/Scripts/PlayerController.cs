@@ -208,8 +208,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void ApplyDamage()
+    public void ApplyDamage()
     {
+        // 무적 시간이거나 구르고 있을 경우 피해 무시
+        if (GameManager.instance.isInvincible || RollState.IsRoll)
+            return;
+
         PlayerStat.Instance.CurrentHP -= 1;
         Debug.Log("플레이어 체력 감소! 남은 체력 " + PlayerStat.Instance.CurrentHP);
 

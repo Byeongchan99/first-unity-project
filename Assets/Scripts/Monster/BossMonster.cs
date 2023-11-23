@@ -13,7 +13,7 @@ public class BossMonster : MonoBehaviour
     [Header("스텟 관련")]
     protected bool IsLive;
     private float health;
-    private float maxHealth = 500;
+    private float maxHealth = 50;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
     private float attackCooldown; // 다음 공격까지의 시간
     private bool isPatternActive = false; // 현재 공격 패턴이 실행 중인지 추적하는 변수
@@ -132,8 +132,7 @@ public class BossMonster : MonoBehaviour
     }
 
     public void MoveHand(GameObject selectedHand, GameObject selectedHandShadow, Vector3 startPosition, Vector3 endPosition, Vector3 shadowStartPosition, Vector3 shadowEndPosition, float duration)
-    {
-        Debug.Log(startPosition + "에서 " + endPosition + "로 이동");
+    {      
         // 손 + 그림자 이동 코루틴 시작
         StartCoroutine(MoveHandWithShadowRoutine(selectedHand, selectedHandShadow, startPosition, endPosition, shadowStartPosition, shadowEndPosition, duration));
     }
@@ -327,7 +326,7 @@ public class BossMonster : MonoBehaviour
                 if (!ellipseScript.isSafeZone)
                 {
                     // 플레이어가 위험 구역 내에 있습니다. 피해를 적용하세요.
-                    Debug.Log("피해 입음");
+                    PlayerController.Instance.ApplyDamage();
                     break; // 한 타원 내에 있으면 추가 확인은 불필요합니다.
                 }
                 else
@@ -345,7 +344,7 @@ public class BossMonster : MonoBehaviour
         isPatternActive = true; // 패턴 시작
 
         //Debug.Log("양 손 모두 본체 근처로 이동");
-        Debug.Log(originalPositionLeft + " " + originalPositionRight);
+        // Debug.Log(originalPositionLeft + " " + originalPositionRight);
         MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 1f);
         MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 1f);
         yield return new WaitForSeconds(1.0f);
@@ -426,14 +425,14 @@ public class BossMonster : MonoBehaviour
         for (int i = 0; i < hits; i++)
         {
             // 양 손을 올리고 내려치는 동작
-            Debug.Log("양 손 들어올리기");
+            // Debug.Log("양 손 들어올리기");
             MoveHand(leftHand, originalPositionLeft, raiseLeftHandPosition, 0.3f);
             MoveHand(rightHand, originalPositionRight, raiseRightHandPosition, 0.3f);
             yield return new WaitForSeconds(0.3f);
 
             leftHandAttackArea.enabled = true;
             rightHandAttackArea.enabled = true;
-            Debug.Log("양 손 내려치기");
+            // Debug.Log("양 손 내려치기");
             MoveHand(leftHand, raiseLeftHandPosition, originalPositionLeft, 0.3f);
             MoveHand(rightHand, raiseRightHandPosition, originalPositionRight, 0.3f);
             yield return new WaitForSeconds(0.3f);
@@ -441,7 +440,7 @@ public class BossMonster : MonoBehaviour
             rightHandAttackArea.enabled = false;
 
             // 맵을 퍼쳐나가는 충격파 발생
-            Debug.Log("충격파 발생");
+            // Debug.Log("충격파 발생");
             // 플레이어가 위험 구역 내에 있는지 확인하고 피해 적용
             CheckPlayerPositionAndApplyDamage();
             // 안전 구역과 위험 구역 재정의
@@ -622,7 +621,7 @@ public class BossMonster : MonoBehaviour
 
         while (elapsedTime < duration)
         {
-            Debug.Log("손 마구 내려치기");
+            // Debug.Log("손 마구 내려치기");
             MoveHand(leftHand, originalPositionLeft, raiseLeftHandPosition, 0.2f);
             yield return new WaitForSeconds(0.2f);
             MoveHand(rightHand, originalPositionRight, raiseRightHandPosition, 0.2f);
@@ -672,7 +671,7 @@ public class BossMonster : MonoBehaviour
             // 플레이어의 위치 근처 랜덤으로 결정, 맵 범위 내에서 생성되도록 함
             spawnPosition = new Vector2(
                 Random.Range(Mathf.Max(bottomLeft.x, target.position.x - 2f), Mathf.Min(topRight.x, target.position.x + 2f)),
-                Random.Range(Mathf.Max(bottomLeft.y, target.position.y - 2f), Mathf.Min(topRight.y - 5f, target.position.y + 2f)) + 6f
+                Random.Range(Mathf.Max(bottomLeft.y, target.position.y - 2f), Mathf.Min(topRight.y - 1f, target.position.y + 2f)) + 6f
             );
 
             // 낙석 생성
@@ -765,14 +764,12 @@ public class BossMonster : MonoBehaviour
     }
 
     public float GetCurrentHealth()
-    {
-        Debug.Log("현재 체력 반환 " + health);
+    {   
         return health;
     }
 
     public float GetMaxHealth()
     {
-        Debug.Log("최대 체력 반환 " + maxHealth);
         return maxHealth;
     }
 
@@ -796,7 +793,7 @@ public class BossMonster : MonoBehaviour
 
     void ChangeState(BossState newMonsterState)
     {
-        // Debug.Log("상태 전환 " + newMonsterState);
+        Debug.Log("상태 전환 " + newMonsterState);
         bossState = newMonsterState;
     }
 }
