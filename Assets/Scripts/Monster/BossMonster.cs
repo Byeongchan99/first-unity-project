@@ -13,7 +13,7 @@ public class BossMonster : MonoBehaviour
     [Header("스텟 관련")]
     protected bool IsLive;
     private float health;
-    private float maxHealth = 50;
+    private float maxHealth = 30;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
     private float attackCooldown; // 다음 공격까지의 시간
     private bool isPatternActive = false; // 현재 공격 패턴이 실행 중인지 추적하는 변수
@@ -781,11 +781,8 @@ public class BossMonster : MonoBehaviour
         int randomGold = Random.Range(500, 600);
         PlayerStat.Instance.Gold += randomGold;
 
-        /*
-        아직 보스 몬스터 사망 애니메이션 미구현
         // 몬스터 상태 초기화 및 애니메이션 처리 (예: 사망 애니메이션 재생)
         animator.SetTrigger("Dead");
-        */
         yield return new WaitForSeconds(1); // 사망 애니메이션 재생 시간 (예: 1초)
      
         gameObject.SetActive(false);  // 오브젝트 비활성화
