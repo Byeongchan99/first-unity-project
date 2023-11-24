@@ -12,6 +12,7 @@ public class BossMonster : MonoBehaviour
 
     [Header("스텟 관련")]
     protected bool IsLive;
+    private bool isDeadWhileCoroutine;   // 코루틴 도중 사망 여부 확인
     private float health;
     private float maxHealth = 30;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
@@ -122,6 +123,24 @@ public class BossMonster : MonoBehaviour
         return Random.Range(2f, 4f); // 2초에서 5초 사이의 무작위 시간
     }
     */
+
+    // WaitForSeconds 코루틴을 대체하여 패턴 도중 사망했는지 확인 
+    IEnumerator WaitForConditionOrTime(float waitTime)
+    {
+        float startTime = Time.time;
+
+        while (Time.time - startTime < waitTime)
+        {
+            if (health < 0) 
+            {
+                isDeadWhileCoroutine = true;
+                yield return true; // 조건이 충족되면 코루틴 종료
+            }
+
+            yield return null;
+        }
+        yield return false; // 시간 초과 시 false 반환
+    }
 
     // 손 관련 메서드
     // 손을 움직이는 메서드
@@ -338,8 +357,8 @@ public class BossMonster : MonoBehaviour
         }
     }
 
-    // 한 손으로는 플레이어의 위치를 추적해 내려찍기, 다른 손으로는 시간차를 두고 내려찍기
-    IEnumerator CHASE()
+    // 패턴 1: 한 손으로는 플레이어의 위치를 추적해 내려찍기, 다른 손으로는 시간차를 두고 내려찍기
+    IEnumerator Pattern1()
     {
         isPatternActive = true; // 패턴 시작
 
@@ -361,12 +380,24 @@ public class BossMonster : MonoBehaviour
         // 보자기 -> 주먹 전환
         StartCoroutine(ChangeHandPaperToRock());
 
+        yield return StartCoroutine(WaitForConditionOrTime(2.0f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
+
         //Debug.Log("첫번째 손 들어올리기");
         MoveHand(firstHand, firstHand.transform.position, firstHand.transform.position + new Vector3(0, 2f, 0), 0.2f);
         yield return new WaitForSeconds(0.2f);
         //Debug.Log("첫번째 손 이동");
         MoveHand(firstHand, firstHandShadow, firstHand.transform.position, target.position + new Vector3(0, 2f, 0), firstHandShadow.transform.position, target.position, 0.5f);
-        yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine(WaitForConditionOrTime(0.5f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
         //Debug.Log("첫번째 손 내려찍기");
         firstHandAttackArea.enabled = true;
         MoveHand(firstHand, firstHand.transform.position, firstHand.transform.position + new Vector3(0, -2f, 0), 0.2f);
@@ -379,7 +410,12 @@ public class BossMonster : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         //Debug.Log("두번째 손 이동");
         MoveHand(secondHand, secondHandShadow, secondHand.transform.position, target.position + new Vector3(0, 2f, 0), secondHandShadow.transform.position, target.position, 0.5f);
-        yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine(WaitForConditionOrTime(0.5f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
         //Debug.Log("두번째 손 내려찍기");
         secondHandAttackArea.enabled = true;
         MoveHand(secondHand, secondHand.transform.position, secondHand.transform.position + new Vector3(0, -2f, 0), 0.2f);
@@ -390,28 +426,43 @@ public class BossMonster : MonoBehaviour
         //Debug.Log("손 복귀");
         MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 0.5f);
         MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 0.5f);
-        yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine(WaitForConditionOrTime(0.5f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
 
         // 주먹 -> 보자기 전환
         StartCoroutine(ChangeHandRockToPaper());
 
         Debug.Log("패턴 1 완료");
-        yield return new WaitForSeconds(2.0f); // 2초간 대기
+        yield return StartCoroutine(WaitForConditionOrTime(2.0f));   // 2초간 대기
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        } 
         isPatternActive = false; // 패턴 종료
 
-        ChangeState(BossState.ATTACK);   // ATTACK 상태로 전환
+        ChangeState(BossState.ATTACK);   // ATTACK 상태로 전환       
     }
 
     // 공격 패턴 코루틴
-    // 패턴 1: 주먹을 여러번 내리쳐 충격파 생성
-    IEnumerator Pattern1()
+    // 패턴 2: 주먹을 여러번 내리쳐 충격파 생성
+    IEnumerator Pattern2()
     {
         isPatternActive = true; // 패턴 시작
 
         // 양 손 모두 본체 근처로 이동
         MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 1f);
         MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 1f);
-        yield return new WaitForSeconds(1.0f);
+        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
 
         // 보자기 -> 주먹 전환
         StartCoroutine(ChangeHandPaperToRock());
@@ -428,14 +479,24 @@ public class BossMonster : MonoBehaviour
             // Debug.Log("양 손 들어올리기");
             MoveHand(leftHand, originalPositionLeft, raiseLeftHandPosition, 0.3f);
             MoveHand(rightHand, originalPositionRight, raiseRightHandPosition, 0.3f);
-            yield return new WaitForSeconds(0.3f);
+            yield return StartCoroutine(WaitForConditionOrTime(0.3f));
+            if (isDeadWhileCoroutine)
+            {
+                // 조건이 충족되어 코루틴 종료
+                yield break;
+            }
 
             leftHandAttackArea.enabled = true;
             rightHandAttackArea.enabled = true;
             // Debug.Log("양 손 내려치기");
             MoveHand(leftHand, raiseLeftHandPosition, originalPositionLeft, 0.3f);
             MoveHand(rightHand, raiseRightHandPosition, originalPositionRight, 0.3f);
-            yield return new WaitForSeconds(0.3f);
+            yield return StartCoroutine(WaitForConditionOrTime(0.3f));
+            if (isDeadWhileCoroutine)
+            {
+                // 조건이 충족되어 코루틴 종료
+                yield break;
+            }
             leftHandAttackArea.enabled = false;
             rightHandAttackArea.enabled = false;
 
@@ -453,7 +514,12 @@ public class BossMonster : MonoBehaviour
         StartCoroutine(ChangeHandRockToPaper());
 
         Debug.Log("패턴 2 완료");
-        yield return new WaitForSeconds(2f); // 0.5초간 대기
+        yield return StartCoroutine(WaitForConditionOrTime(2f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
         isPatternActive = false; // 패턴 종료
     }
 
@@ -478,8 +544,8 @@ public class BossMonster : MonoBehaviour
         lineRenderer.SetPosition(1, endPos);
     }
 
-    // 패턴 2: 힘을 모아 전방 휩쓸기 레이저 발사
-    IEnumerator Pattern2()
+    // 패턴 3: 힘을 모아 전방 휩쓸기 레이저 발사
+    IEnumerator Pattern3()
     {
         isPatternActive = true; // 패턴 시작
 
@@ -491,11 +557,21 @@ public class BossMonster : MonoBehaviour
         // 양 손 모으기
         MoveHand(leftHand, leftHandShadow, leftHand.transform.position, laserLeftHandPosition, leftHandShadow.transform.position, laserLeftHandShadowPosition, 1f);
         MoveHand(rightHand, rightHandShadow, rightHand.transform.position, laserRightHandPosition, rightHandShadow.transform.position, laserRightHandShadowPosition, 1f);
-        yield return new WaitForSeconds(1.0f);
+        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
 
         // 힘 모으는 동작 / 보자기
         animator.SetBool("IsCharge", true);
-        yield return new WaitForSeconds(1.0f);
+        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
         animator.SetBool("IsAttack", true);
 
         // 레이저 초기화 및 활성화
@@ -532,16 +608,26 @@ public class BossMonster : MonoBehaviour
         laserColider1.enabled = false;
 
         animator.SetBool("IsAttack", false);
-        yield return new WaitForSeconds(1.0f);
+        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
         animator.SetBool("IsCharge", false);
 
         Debug.Log("패턴 3 완료");
-        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
         isPatternActive = false; // 패턴 종료
     }
 
-    // 패턴 3: 힘을 모아 강한 레이저 발사
-    IEnumerator Pattern3()
+    // 패턴 4: 힘을 모아 강한 레이저 발사
+    IEnumerator Pattern4()
     {
         isPatternActive = true; // 패턴 시작
 
@@ -556,11 +642,21 @@ public class BossMonster : MonoBehaviour
         // 양 손 모으기
         MoveHand(leftHand, leftHandShadow, leftHand.transform.position, laserLeftHandPosition, leftHandShadow.transform.position, laserLeftHandShadowPosition, 1f);
         MoveHand(rightHand, rightHandShadow, rightHand.transform.position, laserRightHandPosition, rightHandShadow.transform.position, laserRightHandShadowPosition, 1f);
-        yield return new WaitForSeconds(1.0f);
+        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
 
         // 힘 모으는 동작 / 주먹
         animator.SetBool("IsCharge", true);
-        yield return new WaitForSeconds(1.0f);
+        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
         animator.SetBool("IsAttack", true);
 
         // 힘 모으는 동작 후 플레이어를 향해 강한 레이저 발사
@@ -572,7 +668,12 @@ public class BossMonster : MonoBehaviour
         laserAttackAreaSpriteRenderer2.enabled = true;
 
         // 레이저 범위 보여준 후 1초 후 발사
-        yield return new WaitForSeconds(1.0f);
+        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
         lineRenderer2.enabled = true;
         laserColider2.enabled = true;
 
@@ -598,11 +699,21 @@ public class BossMonster : MonoBehaviour
         StartCoroutine(ChangeHandRockToPaper());
 
         animator.SetBool("IsAttack", false);
-        yield return new WaitForSeconds(1.0f);
+        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
         animator.SetBool("IsCharge", false);
 
         Debug.Log("패턴 4 완료");
-        yield return new WaitForSeconds(1.0f); // 2초간 대기
+        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
         isPatternActive = false; // 패턴 종료
     }
 
@@ -631,26 +742,41 @@ public class BossMonster : MonoBehaviour
             rightHandAttackArea.enabled = true;
             leftHandAttackArea.enabled = false;
             MoveHand(rightHand, raiseRightHandPosition, originalPositionRight, 0.2f);
-            yield return new WaitForSeconds(0.2f);
+            yield return StartCoroutine(WaitForConditionOrTime(0.2f));
+            if (isDeadWhileCoroutine)
+            {
+                // 조건이 충족되어 코루틴 종료
+                yield break;
+            }
             rightHandAttackArea.enabled = false;
 
             elapsedTime += 0.6f;
         }
     }
 
-    // 패턴 4: 낙석 생성
-    IEnumerator Pattern4()
+    // 패턴 5: 낙석 생성
+    IEnumerator Pattern5()
     {
         isPatternActive = true; // 패턴 시작
 
         // 양 손 모두 본체 근처로 이동
         MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 1f);
         MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 1f);
-        yield return new WaitForSeconds(1.0f);
+        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
 
         // 보자기 -> 주먹 전환
         StartCoroutine(ChangeHandPaperToRock());
-        yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine(WaitForConditionOrTime(0.5f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
 
         float duration = 4.8f; // 낙석이 떨어지는 총 시간
         float interval = 0.6f; // 낙석 간의 시간 간격
@@ -688,8 +814,23 @@ public class BossMonster : MonoBehaviour
         StartCoroutine(ChangeHandRockToPaper());
 
         Debug.Log("패턴 5 완료");
-        yield return new WaitForSeconds(2.0f); // 2초간 대기
+        yield return StartCoroutine(WaitForConditionOrTime(2f));
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        } // 2초간 대기
         isPatternActive = false; // 패턴 종료
+    }
+
+    IEnumerator CHASE()
+    {
+        yield return StartCoroutine(Pattern1());
+
+        if (health < 0)
+            ChangeState(BossState.DEAD);   // DEAD 상태로 전환
+        else
+            ChangeState(BossState.ATTACK);   // ATTACK 상태로 전환
     }
 
     IEnumerator ATTACK()
@@ -706,13 +847,10 @@ public class BossMonster : MonoBehaviour
     public IEnumerator ExecuteRandomPattern()
     {
         // 패턴 1을 제외한 나머지 중에서 랜덤하게 실행
-        int pattern = Random.Range(1, 5); // 1부터 4 사이의 랜덤한 숫자
+        int pattern = Random.Range(2, 6); // 2부터 5 사이의 랜덤한 숫자
 
         switch (pattern)
         {
-            case 1:
-                yield return StartCoroutine(Pattern1());
-                break;
             case 2:
                 yield return StartCoroutine(Pattern2());
                 break;
@@ -721,6 +859,9 @@ public class BossMonster : MonoBehaviour
                 break;
             case 4:
                 yield return StartCoroutine(Pattern4());
+                break;
+            case 5:
+                yield return StartCoroutine(Pattern5());
                 break;
         }
     }
