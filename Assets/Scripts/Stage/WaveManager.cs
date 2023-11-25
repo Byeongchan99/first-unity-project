@@ -188,6 +188,7 @@ public class WaveManager : MonoBehaviour
     public void OnMonsterDeath()
     {
         remainingMonsters--;
+        PlayerStat.Instance.Kill++;   // 플레이어 킬 수 증가
 
         if (remainingMonsters <= 0)   // 남은 몬스터가 없다면
         {

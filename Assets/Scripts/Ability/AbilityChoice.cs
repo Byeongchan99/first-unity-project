@@ -104,6 +104,7 @@ public class AbilityChoice : MonoBehaviour
         }
     }
 
+    // 어빌리티 구매창 띄우기
     public void DisplayPurchaseConfirmation(int abilityID)
     {
         if (purchaseConfirmationPanel != null)
@@ -121,6 +122,7 @@ public class AbilityChoice : MonoBehaviour
         }
     }
 
+    // 리롤
     public void Reroll()
     {
         // 현재 골드
@@ -147,6 +149,7 @@ public class AbilityChoice : MonoBehaviour
         if (abilityScript != null)
         {
             abilityScript.ActivateAbility(id);
+            AchieveManager.instance.CheckAchieve();   // 어빌리티를 통해 스텟이 업데이트될 때, 업적 잠금 해제 조건 확인
             Hide();
         }
         else
