@@ -10,8 +10,7 @@ public class AchieveManager : MonoBehaviour
     public GameObject[] unlockWeapon;
     public GameObject uiNotice;
 
-    enum Achieve { UnlockRedSword, UnlockYellowSword, UnlockBlueSword }
-    Achieve[] achieves;
+    public LoadoutData[] meleeLoadouts;   // 무기 데이터
     WaitForSecondsRealtime wait;   // Time.timeScale에 영향 안 받음
 
     void Awake()
@@ -26,7 +25,6 @@ public class AchieveManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        achieves = (Achieve[])System.Enum.GetValues(typeof(Achieve));
         wait = new WaitForSecondsRealtime(5);
 
         if (!PlayerPrefs.HasKey("MyData"))
@@ -37,12 +35,20 @@ public class AchieveManager : MonoBehaviour
 
     void Init()
     {
+        Debug.Log("AchieveManager init");
         // 간단한 저장 기능
         PlayerPrefs.SetInt("MyData", 1);
-
-        foreach (Achieve Achieve in achieves)
+      
+        foreach (LoadoutData loadout in meleeLoadouts)
         {
-            PlayerPrefs.SetInt(Achieve.ToString(), 0);
+            if (loadout.weaponID == 0)   // 기본 무기는 해금되어있음
+            {                  
+                PlayerPrefs.SetInt(loadout.weaponName, 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt(loadout.weaponName, 0);
+            }
         }
     }
 
@@ -53,60 +59,54 @@ public class AchieveManager : MonoBehaviour
 
     void UnlockWeapon()
     {
-        for (int index = 0; index < lockWeapon.Length; index++)
+        for (int index = 0; index < meleeLoadouts.Length; index++)
         {
-            string AchieveName = achieves[index].ToString();
-            bool isUnlock = PlayerPrefs.GetInt(AchieveName) == 1;
-            lockWeapon[index].SetActive(!isUnlock);
-            unlockWeapon[index].SetActive(isUnlock);
+            string weaponName = meleeLoadouts[index].weaponName;
+            bool isUnlock = PlayerPrefs.GetInt(weaponName) == 1;           
         }
     }
 
     public void CheckAchieve()
     {
         // 업적 잠금 해제 조건 순회하며 확인
-        foreach (Achieve achieve in achieves)
+        Debug.Log("업적 잠금 해제 조건 확인");
+        foreach (LoadoutData loadout in meleeLoadouts)
         {
-            UpdateAchieve(achieve);
+            UpdateAchieve(loadout);
         }
     }
 
-    void UpdateAchieve(Achieve achieve)
+    void UpdateAchieve(LoadoutData loadout)
     {
         bool isAchieve = false;
-
+       
         // 업적 해금 확인
-        switch (achieve)
+        switch (loadout.weaponID)
         {
-            case Achieve.UnlockRedSword:
-                if (GameManager.instance.isLive)
-                {
-                    isAchieve = PlayerStat.Instance.AttackPower >= 10;
-                }
+            case 1:
+                isAchieve = PlayerStat.Instance.AttackPower >= 10;
                 break;
-            case Achieve.UnlockYellowSword:
-                if (GameManager.instance.isLive)
-                {
-                    isAchieve = PlayerStat.Instance.MoveSpeed >= 300;
-                }
+            case 2:
+
+                isAchieve = PlayerStat.Instance.MoveSpeed >= 300;
                 break;
-            case Achieve.UnlockBlueSword:
-                if (GameManager.instance.isLive)
-                {
-                    isAchieve = PlayerStat.Instance.MaxEnergy >= 7;
-                }
+            case 3:
+
+                isAchieve = PlayerStat.Instance.MaxEnergy >= 7;
                 break;
         }
 
+        // Debug.Log(isAchieve + " "  + loadout.weaponName);
         // 업적 해금 저장
-        if (isAchieve && PlayerPrefs.GetInt(achieve.ToString()) == 0)
+        if (isAchieve && PlayerPrefs.GetInt(loadout.weaponName) == 0)
         {
-            PlayerPrefs.SetInt(achieve.ToString(), 1);
+            // Debug.Log(loadout.weaponName + " 잠금 해제");
+            PlayerPrefs.SetInt(loadout.weaponName, 1);
 
             // 공지 내용 활성화
             for (int index = 0; index < uiNotice.transform.childCount; index++)
             {
-                bool isActive = index == (int)achieve;
+                bool isActive = index == (loadout.weaponID - 1);   // weaponID와 UI에서의 index는 1 차이
                 uiNotice.transform.GetChild(index).gameObject.SetActive(isActive);
             }
             StartCoroutine(NoticeRoutine());

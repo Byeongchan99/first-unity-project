@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("상점")]
     private bool isNearShop = false;   // 상점 상호작용
-    public Shop shopUI;
 
     private bool isNearPortal = false;   // 포탈 상호작용
     public int transitionToStageIndex;
@@ -91,8 +90,8 @@ public class PlayerController : MonoBehaviour
     {
         if (isNearShop)
         {
-            shopUI.Show();
-            shopUI.DisplayRandomShopItems();
+            UIManager.instance.shopUI.Show();
+            UIManager.instance.shopUI.DisplayRandomShopItems();
         }
 
         if (isNearPortal)

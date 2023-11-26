@@ -37,6 +37,15 @@ public class Shop : MonoBehaviour
         rect = GetComponent<RectTransform>();
         if (itemDetailPanel != null)
             itemDetailPanel.SetActive(false);  // 상세정보 창 비활성화
+
+        if (UIManager.instance != null)   // UI 매니저를 통해 참조
+        {
+            UIManager.instance.SetShopUI(this);
+        }
+        else
+        {
+            Debug.LogError("UIManager instance not found");
+        }
     }
 
     public void Show()

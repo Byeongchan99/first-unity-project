@@ -77,9 +77,19 @@ public class LoadoutMeleeChoice : MonoBehaviour
     {
         Debug.Log("DisplayWeaponIcon called");
 
-        for (int i = 0; i < meleeLoadouts.Length; i++)
-        {
-            UpdateWeaponIcon(meleeLoadouts[i], i);
+        for (int i = 0; i < 4; i++)   // 무기 4종류
+        {         
+            bool isUnlocked = PlayerPrefs.GetInt(meleeLoadouts[i].weaponName, 0) == 1;
+            Debug.Log(meleeLoadouts[i].weaponName + " " + isUnlocked);
+
+            if (isUnlocked)   // 해금됐을 시
+            {
+                UpdateWeaponIcon(meleeLoadouts[i], i);
+            }
+            else   // 해금 안됐을 시
+            {
+                UpdateWeaponIcon(meleeLoadouts[i + 3], i);
+            }
         }
     }
 
