@@ -29,4 +29,14 @@ public class PauseMenu : MonoBehaviour
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         // AudioManager.instance.EffectBgm(false);
     }
+
+    // 게임종료. 전처리기를 이용해 에디터 아닐때 종료.
+    public void GameExit()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
+    }
 }
