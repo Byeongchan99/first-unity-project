@@ -5,9 +5,6 @@ using UnityEngine;
 public class AchieveManager : MonoBehaviour
 {
     public static AchieveManager instance;
-
-    public GameObject[] lockWeapon;
-    public GameObject[] unlockWeapon;
     public GameObject uiNotice;
 
     public LoadoutData[] meleeLoadouts;   // 무기 데이터

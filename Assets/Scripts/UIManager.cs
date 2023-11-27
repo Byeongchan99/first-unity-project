@@ -20,12 +20,15 @@ public class UIManager : MonoBehaviour
     }
 
     // UIManager의 다른 메서드들...
-
+    // 상점  UI
     public Shop shopUI;
 
     public void SetShopUI(Shop newShopUI)
     {
         shopUI = newShopUI;
     }
+
+    // 일시정지 UI
+    public PauseMenu pauseMenuUI;
 }
 

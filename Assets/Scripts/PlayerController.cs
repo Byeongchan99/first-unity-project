@@ -85,6 +85,20 @@ public class PlayerController : MonoBehaviour
         isPointerOverUI = EventSystem.current.IsPointerOverGameObject();
     }
 
+    // 일시정지
+    void OnPause()
+    {
+        if (UIManager.instance.pauseMenuUI.isPaused)
+        {
+            UIManager.instance.pauseMenuUI.Hide();
+        }
+        else
+        {
+            UIManager.instance.pauseMenuUI.Show();
+        }
+        UIManager.instance.pauseMenuUI.isPaused = !UIManager.instance.pauseMenuUI.isPaused;
+    }
+
     // 상호작용
     void OnInteract()
     {
