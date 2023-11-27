@@ -22,7 +22,7 @@ public class SoundSettingMenu : MonoBehaviour
         SoundEffectVolumeSlider.value = soundEffectTempVolume;
 
         backGroundTempVolume = BackGroundSource.volume;
-        SoundEffectVolumeSlider.value = backGroundTempVolume;
+        BackGroundVolumeSlider.value = backGroundTempVolume;
     }
 
     public void Show()
