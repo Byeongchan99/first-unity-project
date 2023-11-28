@@ -9,6 +9,9 @@ public class PauseMenu : MonoBehaviour
     RectTransform rect;
     public bool isPaused = false;   // 토글 플래그
 
+    // 게임종료 확인
+    public GameObject gameExitConfirmPanel;
+
     void Awake()
     {
         rect = GetComponent<RectTransform>();
@@ -28,6 +31,22 @@ public class PauseMenu : MonoBehaviour
         GameManager.instance.Resume();
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         // AudioManager.instance.EffectBgm(false);
+    }
+
+    public void GameExitConfirm()
+    {
+        if (gameExitConfirmPanel != null)
+        {
+            gameExitConfirmPanel.SetActive(true);
+        }
+    }
+
+    public void GameExitCancel()
+    {
+        if (gameExitConfirmPanel != null)
+        {
+            gameExitConfirmPanel.SetActive(false);
+        }
     }
 
     // 게임종료. 전처리기를 이용해 에디터 아닐때 종료.
