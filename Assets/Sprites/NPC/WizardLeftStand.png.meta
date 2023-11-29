@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8c267c5218b13884eae51597c23057a7
+guid: 3a70a23f11b9aad47a41fef2a893ca97
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,18 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,13 +103,27 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MerchantRight_0
+      name: WizardLeftStand_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94ab64962ff8c394897521d9f9151668
-      internalID: -1576571336
+      spriteID: d20cd6945bc8fb840942317ffddfe1a3
+      internalID: 260788211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MerchantRight_1
+      name: WizardLeftStand_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41d046db5a7aafa4c93a183a62aaad8d
-      internalID: -258517797
+      spriteID: 2cee52ece22235c4f917fc1d11746eb9
+      internalID: 825193262
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MerchantRight_2
+      name: WizardLeftStand_2
       rect:
         serializedVersion: 2
         x: 64
@@ -173,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ede69b6ccbc5c441a5d561cc6d84697
-      internalID: -1872809480
+      spriteID: 5d5890263d9bc64449b859138f582b92
+      internalID: -1350268850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MerchantRight_3
+      name: WizardLeftStand_3
       rect:
         serializedVersion: 2
         x: 96
@@ -194,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9148a36489c1b124d934688851d97217
-      internalID: -471455167
+      spriteID: 6d791332873d2c742b55ba0d0fdf4808
+      internalID: 857136604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MerchantRight_4
+      name: WizardLeftStand_4
       rect:
         serializedVersion: 2
         x: 128
@@ -215,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78768f3a5f57d28408245d06864725f1
-      internalID: -1700183754
+      spriteID: eb884f153268afa47b36d68494eb917b
+      internalID: -1995280329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MerchantRight_5
+      name: WizardLeftStand_5
       rect:
         serializedVersion: 2
         x: 160
@@ -236,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9c21588fcb5823448368f30708317ba
-      internalID: -1360542214
+      spriteID: b57544ad62a8ec2418fdc713519b35b4
+      internalID: -170622079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MerchantRight_6
+      name: WizardLeftStand_6
       rect:
         serializedVersion: 2
         x: 192
@@ -257,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eede902a52a994848965d23144e6ec21
-      internalID: 1934027911
+      spriteID: ab22c4822a626e54686934e0bbcbcf94
+      internalID: 1233610405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MerchantRight_7
+      name: WizardLeftStand_7
       rect:
         serializedVersion: 2
         x: 224
@@ -278,50 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0415204ca2dd2b4b976e89d6c5cefef
-      internalID: -167685346
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MerchantRight_8
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4eed49fbcc638340be1a23586f406c2
-      internalID: -749721929
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MerchantRight_9
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b6ab2aa3637a6b14eb380655329d0bb1
-      internalID: 1339890524
+      spriteID: cc5e21c5719ffb045b44fa6530b10c5a
+      internalID: -1658944335
       vertices: []
       indices: 
       edges: []
@@ -337,19 +301,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MerchantRight_0: -1576571336
-      MerchantRight_1: -258517797
-      MerchantRight_2: -1872809480
-      MerchantRight_3: -471455167
-      MerchantRight_4: -1700183754
-      MerchantRight_5: -1360542214
-      MerchantRight_6: 1934027911
-      MerchantRight_7: -167685346
-      MerchantRight_8: -749721929
-      MerchantRight_9: 1339890524
-  spritePackingTag: 
+      WizardLeftStand_0: 260788211
+      WizardLeftStand_1: 825193262
+      WizardLeftStand_2: -1350268850
+      WizardLeftStand_3: 857136604
+      WizardLeftStand_4: -1995280329
+      WizardLeftStand_5: -170622079
+      WizardLeftStand_6: 1233610405
+      WizardLeftStand_7: -1658944335
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
