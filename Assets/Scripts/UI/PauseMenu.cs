@@ -8,9 +8,13 @@ public class PauseMenu : MonoBehaviour
 {
     RectTransform rect;
     public bool isPaused = false;   // 토글 플래그
+    public bool isOpenedSoundSetting = false;   // 사운드 설정 플래그
+    public bool isOpenedGameExitConfirm = false;   // 게임종료 확인 플래그
 
     // 게임종료 확인
     public GameObject gameExitConfirmPanel;
+    // 사운드 설정
+    public SoundSettingMenu soundSettingPanel;
 
     void Awake()
     {
@@ -38,6 +42,7 @@ public class PauseMenu : MonoBehaviour
         if (gameExitConfirmPanel != null)
         {
             gameExitConfirmPanel.SetActive(true);
+            isOpenedGameExitConfirm = true;
         }
     }
 
@@ -46,6 +51,7 @@ public class PauseMenu : MonoBehaviour
         if (gameExitConfirmPanel != null)
         {
             gameExitConfirmPanel.SetActive(false);
+            isOpenedGameExitConfirm = false;
         }
     }
 

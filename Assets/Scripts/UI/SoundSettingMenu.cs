@@ -28,7 +28,7 @@ public class SoundSettingMenu : MonoBehaviour
     public void Show()
     {
         rect.localScale = Vector3.one;
-        
+        UIManager.instance.pauseMenuUI.isOpenedSoundSetting = true;
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
         // AudioManager.instance.EffectBgm(true);
     }
@@ -64,5 +64,6 @@ public class SoundSettingMenu : MonoBehaviour
         //SoundEffectVolumeSlider.value = SoundEffectSource.volume;
         //BackGroundVolumeSlider.value = BackGroundSource.volume;
         rect.localScale = Vector3.zero;
+        UIManager.instance.pauseMenuUI.isOpenedSoundSetting = false;
     }
 }

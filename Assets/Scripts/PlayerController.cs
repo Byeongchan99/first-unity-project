@@ -88,11 +88,24 @@ public class PlayerController : MonoBehaviour
     // 일시정지
     void OnPause()
     {
-        if (UIManager.instance.pauseMenuUI.isPaused)
+        if (UIManager.instance.pauseMenuUI.isPaused)   // 일시정지 창이 켜져있을 때
         {
-            UIManager.instance.pauseMenuUI.Hide();
+            if (UIManager.instance.pauseMenuUI.isOpenedSoundSetting)   // 사운드 설정 창이 켜져있을 때
+            {
+                UIManager.instance.pauseMenuUI.soundSettingPanel.OnExitButton();
+                UIManager.instance.pauseMenuUI.isOpenedSoundSetting = false;
+            }
+            else if (UIManager.instance.pauseMenuUI.isOpenedGameExitConfirm)   // 게임종료 확인 창이 켜져있을 때
+            {
+                UIManager.instance.pauseMenuUI.GameExitCancel();
+                UIManager.instance.pauseMenuUI.isOpenedGameExitConfirm = false;
+            }
+            else   // 일시정지 창만 켜져있을 때
+            {
+                UIManager.instance.pauseMenuUI.Hide();
+            }
         }
-        else
+        else   // 일시정지 창이 꺼져있을 때
         {
             UIManager.instance.pauseMenuUI.Show();
         }
