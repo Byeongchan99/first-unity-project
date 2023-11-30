@@ -118,7 +118,7 @@ Transform:
   m_GameObject: {fileID: 122958307212806171}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28598,7 +28598,7 @@ GameObject:
   - component: {fileID: 1641932658698927288}
   - component: {fileID: 1747493764837051603}
   - component: {fileID: 5787113896696461984}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ForeGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
