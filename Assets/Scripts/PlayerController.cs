@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
     // 차지 공격
     void OnCharge()
     {
-        if (RollState.IsRoll || AttackState.IsAttack || PlayerStat.Instance.CurrentEnergy < 1) 
+        if (RollState.IsRoll || AttackState.IsAttack || PlayerStat.Instance.CurrentEnergy < 1 || StageManager.Instance.currentStage.stageType == "Hub") 
             return;
 
         playerStat.stateMachine.ChangeState(StateName.CHARGE);
