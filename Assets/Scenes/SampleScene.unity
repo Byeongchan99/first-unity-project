@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 32676897}
   - component: {fileID: 32676898}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 47296120}
   - component: {fileID: 47296122}
   - component: {fileID: 47296121}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MagicCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4404,7 +4404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1501707187}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: ChargeWeaponPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5005,7 +5005,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1916391717}
   - component: {fileID: 1916391718}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}

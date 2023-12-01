@@ -414,7 +414,7 @@ TextureImporter:
         x: 24
         y: 359
         width: 113
-        height: 139
+        height: 69
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -435,7 +435,7 @@ TextureImporter:
         x: 295
         y: 361
         width: 79
-        height: 120
+        height: 60
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -456,7 +456,7 @@ TextureImporter:
         x: 161
         y: 359
         width: 95
-        height: 136
+        height: 68
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -911,6 +911,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: TX Plant_0
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 421
+        width: 79
+        height: 60
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ecef956d1e22a7419bb8f9c04350419
+      internalID: 894085646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Plant_1
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 427
+        width: 95
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd732d1f673980242a1fdfccba46272d
+      internalID: -701405733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Plant_2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 428
+        width: 113
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9efc44f09a8ced4486e1d2e3a6a1968
+      internalID: -2017442056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -944,6 +1007,9 @@ TextureImporter:
       TX Grass M: 21300168
       TX Grass N: 21300170
       TX Grass O: 21300172
+      TX Plant_0: 894085646
+      TX Plant_1: -701405733
+      TX Plant_2: -2017442056
       TX Tree T1 Lower: 21300122
       TX Tree T1 Upper: 21300124
       TX Tree T2 Lower: 21300126
