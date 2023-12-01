@@ -35,9 +35,9 @@ TagManager:
   - 
   - 
   - 
-  - Layer 1
-  - Layer 2
-  - Layer 3
+  - Floor 1
+  - Floor 2
+  - Floor 3
   - 
   - 
   - 
@@ -60,9 +60,21 @@ TagManager:
   - name: Layer 3
     uniqueID: 4189426099
     locked: 0
-  - name: BackGround
+  - name: BackGround Floor 1
     uniqueID: 1554884301
     locked: 0
-  - name: ForeGround
+  - name: ForeGround Floor 1
     uniqueID: 3844426729
+    locked: 0
+  - name: BackGround Floor 2
+    uniqueID: 2168123903
+    locked: 0
+  - name: ForeGround Floor 2
+    uniqueID: 1850047817
+    locked: 0
+  - name: BackGround Floor 3
+    uniqueID: 1678009973
+    locked: 0
+  - name: ForeGround Floor 3
+    uniqueID: 3086182697
     locked: 0
