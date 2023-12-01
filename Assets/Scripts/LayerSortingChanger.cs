@@ -9,13 +9,13 @@ public class LayerSortingChanger : MonoBehaviour
 
     private void ChangeLayerAndSorting(GameObject obj, string layerName, string sortingLayerName)
     {
-        if (obj.name == "Shadow" || obj.name == "StandArea")
+        if (obj.name == "Shadow" || obj.name == "StandArea" || obj.name == "Player")
         {
             // Layer 변경
             obj.layer = LayerMask.NameToLayer(layerName);
 
-            // Sorting Layer 변경 (Shadow에만 적용)
-            if (obj.name == "Shadow")
+            // Sorting Layer 변경 (Shadow와 Player 적용)
+            if (obj.name == "Shadow" || obj.name == "Player")
             {
                 SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
                 if (spriteRenderer != null)

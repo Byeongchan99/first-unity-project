@@ -18,6 +18,6 @@ MonoBehaviour:
   waves: []
   stagePrefab: {fileID: 122958307212806171, guid: 7d16955a988c71d408df69913afd178d,
     type: 3}
-  startPosition: {x: 0, y: 0}
+  startPosition: {x: 0, y: -3}
   bottomLeft: {x: -22, y: -17}
   topRight: {x: 16, y: 15}
