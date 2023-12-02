@@ -6,6 +6,7 @@ public class LayerSortingChanger : MonoBehaviour
 {
     public string layerToChange; // 이 콜라이더에 접촉했을 때 변경할 Layer 이름
     public string sortingLayerToChange; // 변경할 Sorting Layer 이름
+    public bool ToNotMain;   // 허브 스테이지가 아닌 곳으로 이동할 때
 
     private void ChangeLayerAndSorting(GameObject obj, string layerName, string sortingLayerName)
     {
@@ -13,6 +14,11 @@ public class LayerSortingChanger : MonoBehaviour
         {
             // Layer 변경
             obj.layer = LayerMask.NameToLayer(layerName);
+
+            if (obj.name == "StandArea" && ToNotMain)   // 메인 스테이지가 아닐 때에는 StandArea는 따로 바꿔주기
+            {
+                obj.layer = LayerMask.NameToLayer("PlayerStandArea");
+            }
 
             // Sorting Layer 변경 (Shadow와 Player 적용)
             if (obj.name == "Shadow" || obj.name == "Player")

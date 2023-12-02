@@ -52,15 +52,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Layer 1
-    uniqueID: 2425651459
-    locked: 0
-  - name: Layer 2
-    uniqueID: 4250941897
-    locked: 0
-  - name: Layer 3
-    uniqueID: 4189426099
-    locked: 0
   - name: BackGround Floor 1
     uniqueID: 1554884301
     locked: 0
@@ -78,4 +69,16 @@ TagManager:
     locked: 0
   - name: ForeGround Floor 3
     uniqueID: 3086182697
+    locked: 0
+  - name: Layer 1
+    uniqueID: 2425651459
+    locked: 0
+  - name: Layer 2
+    uniqueID: 4250941897
+    locked: 0
+  - name: Layer 3
+    uniqueID: 4189426099
+    locked: 0
+  - name: Effect
+    uniqueID: 2170942231
     locked: 0
