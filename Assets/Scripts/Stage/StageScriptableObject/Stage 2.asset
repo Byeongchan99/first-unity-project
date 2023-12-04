@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af3116445bdb43498c7e7641e8f4bc9, type: 3}
   m_Name: Stage 2
   m_EditorClassIdentifier: 
-  stageName: Test Desert Stage
+  stageName: FOREST STAGE
   stageType: battle
   stageID: 2
-  waves:
-  - {fileID: 11400000, guid: a08e2f59c325bf646b520ef749cebabe, type: 2}
-  stagePrefab: {fileID: 8217171110964469077, guid: b801fb04fcd0c6849a68285d2c4fbc89,
+  waves: []
+  stagePrefab: {fileID: 122958307212806171, guid: 29feb9b935f288548a424e70deea5123,
     type: 3}
   startPosition: {x: 0, y: -20}
   bottomLeft: {x: -5, y: -25}
