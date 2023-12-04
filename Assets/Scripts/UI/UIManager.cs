@@ -30,5 +30,13 @@ public class UIManager : MonoBehaviour
 
     // 일시정지 UI
     public PauseMenu pauseMenuUI;
+
+    // 대화창 UI
+    public Dialogue dialogueUI;
+
+    public void SetDialogueUI(Dialogue newDialogueUI)
+    {
+        dialogueUI = newDialogueUI;
+    }
 }
 

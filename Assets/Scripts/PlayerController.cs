@@ -35,7 +35,10 @@ public class PlayerController : MonoBehaviour
     [Header("상점")]
     private bool isNearShop = false;   // 상점 상호작용
 
+    [Header("기타 상호작용")]
     private bool isNearPortal = false;   // 포탈 상호작용
+    private bool isNearNPC = false;   // NPC 상호작용
+    public GameObject currentNearNPC;
     public int transitionToStageIndex;
 
     void Awake()
@@ -124,6 +127,16 @@ public class PlayerController : MonoBehaviour
         if (isNearPortal)
         {
             StageManager.Instance.TransitionToStage(transitionToStageIndex);
+        }
+
+        if (isNearNPC)   // NPC 대화 상호작용
+        {
+            NPCDialogue npcDialogue = currentNearNPC.GetComponent<NPCDialogue>();
+            if (npcDialogue != null)
+            {
+                Debug.Log("NPC와 상호작용");
+                npcDialogue.ShowDialogue(); // NPCDialogue의 상호작용 메서드 호출
+            }
         }
     }
 
@@ -215,6 +228,13 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        if (collision.CompareTag("NPCInteractionRange")) // 상점 상호작용 범위 확인
+        {
+            currentNearNPC = collision.gameObject.transform.parent.gameObject;
+            HandleNPCInteraction();
+            return;
+        }
+
         // 무적 시간이거나 구르고 있을 경우 피해 무시
         if (GameManager.instance.isInvincible || RollState.IsRoll)
             return;
@@ -279,12 +299,24 @@ public class PlayerController : MonoBehaviour
         isNearShop = true;
     }
 
+    void HandleNPCInteraction()
+    {
+        // 상점 상호작용 로직
+        isNearNPC = true;
+    }
+
     // 오브젝트 상호작용 범위 벗어날 때
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("ShopInteractionRange"))
         {
             isNearShop = false;
+        }
+
+        if (collision.CompareTag("NPCInteractionRange"))
+        {
+            isNearNPC = false;
+            UIManager.instance.dialogueUI.Hide();
         }
     }
 

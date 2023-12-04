@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 5164144523751164265}
   - component: {fileID: 5164144523751164264}
   - component: {fileID: 5164144523751164267}
+  - component: {fileID: 1588470641357047548}
   m_Layer: 0
   m_Name: Kight
   m_TagString: Untagged
@@ -337,3 +338,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1588470641357047548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5164144523751164266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a478490c58844e468d5171e0bc4aa1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogues:
+  - "\uAC11\uC637\uC758 \uBB34\uAC8C\uB294, \uB0B4\uAC00 \uC9C0\uD0A4\uACE0\uC790
+    \uD558\uB294 \uAC83\uB4E4\uC758 \uC911\uC694\uC131\uC744 \uC0C1\uAE30\uC2DC\uCF1C\uC90D\uB2C8\uB2E4"

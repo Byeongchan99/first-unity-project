@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 5164144523751164265}
   - component: {fileID: 5164144523751164264}
   - component: {fileID: 5164144523751164267}
+  - component: {fileID: -2063540875500544518}
   m_Layer: 0
   m_Name: Crossbow
   m_TagString: Untagged
@@ -337,3 +338,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-2063540875500544518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5164144523751164266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a478490c58844e468d5171e0bc4aa1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogues:
+  - "\uD55C \uBC1C, \uD55C \uBAA9\uC228. \uC81C \uC11D\uAD81\uC740 \uC808\uB300 \uC2E4\uB9DD\uC2DC\uD0A4\uC9C0
+    \uC54A\uC2B5\uB2C8\uB2E4"

@@ -1915,6 +1915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopUI: {fileID: 0}
   pauseMenuUI: {fileID: 1481797386}
+  dialogueUI: {fileID: 0}
 --- !u!1 &602649357
 GameObject:
   m_ObjectHideFlags: 0
@@ -6049,6 +6050,7 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   mouseDirection: {x: 0, y: 0, z: 0}
   attackDirection: {x: 0, y: 0}
+  currentNearNPC: {fileID: 0}
   transitionToStageIndex: 0
 --- !u!114 &2127830148
 MonoBehaviour:
