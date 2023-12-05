@@ -65,10 +65,9 @@ public class StageManager : MonoBehaviour
             // 플레이어를 새 스테이지의 시작 위치로 이동
             PlayerStat.Instance.transform.position = currentStage.startPosition;
            
-            /* 전투 스테이지일 경우 몬스터 소환
+            // 전투 스테이지일 경우 몬스터 소환
             if (currentStage.stageType == "battle" || currentStage.stageType == "boss") 
                 WaveManager.Instance.StartWave();
-            */
         }
     }
 

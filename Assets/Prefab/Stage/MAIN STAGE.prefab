@@ -38559,6 +38559,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7275354728930455933}
     m_Modifications:
+    - target: {fileID: -5039283401177525857, guid: c626f1133c12e404a87a1aea487a2a34,
+        type: 3}
+      propertyPath: dialogues.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5164144523543668905, guid: c626f1133c12e404a87a1aea487a2a34,
         type: 3}
       propertyPath: m_SortingLayer
@@ -44403,6 +44408,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7275354728930455933}
     m_Modifications:
+    - target: {fileID: -5775194122364192196, guid: 17e995fb2f22c994cafaf20538daa57d,
+        type: 3}
+      propertyPath: dialogues.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5164144523543668905, guid: 17e995fb2f22c994cafaf20538daa57d,
         type: 3}
       propertyPath: m_SortingLayer
@@ -45906,6 +45916,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7275354728930455933}
     m_Modifications:
+    - target: {fileID: -2063540875500544518, guid: 3b3dca86bf911834c87bebb262902631,
+        type: 3}
+      propertyPath: dialogues.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5164144523543668905, guid: 3b3dca86bf911834c87bebb262902631,
         type: 3}
       propertyPath: m_SortingLayer
@@ -47102,12 +47117,12 @@ PrefabInstance:
     - target: {fileID: 1058358463653758515, guid: f6a97b59af1943a469aaaff81f16046d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.026
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 1058358463653758515, guid: f6a97b59af1943a469aaaff81f16046d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.666
+      value: -2.51
       objectReference: {fileID: 0}
     - target: {fileID: 1058358463653758515, guid: f6a97b59af1943a469aaaff81f16046d,
         type: 3}
@@ -47152,22 +47167,37 @@ PrefabInstance:
     - target: {fileID: 1651151342071635892, guid: f6a97b59af1943a469aaaff81f16046d,
         type: 3}
       propertyPath: m_Size.x
-      value: 1.5342274
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1651151342071635892, guid: f6a97b59af1943a469aaaff81f16046d,
         type: 3}
       propertyPath: m_Size.y
-      value: 1.6539669
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 1651151342071635892, guid: f6a97b59af1943a469aaaff81f16046d,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.046053886
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1651151342071635892, guid: f6a97b59af1943a469aaaff81f16046d,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.32698345
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3049293197581648666, guid: f6a97b59af1943a469aaaff81f16046d,
+        type: 3}
+      propertyPath: MoveToNotMain
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3049293197581648666, guid: f6a97b59af1943a469aaaff81f16046d,
+        type: 3}
+      propertyPath: layerToChange
+      value: ForeGround Floor 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3049293197581648666, guid: f6a97b59af1943a469aaaff81f16046d,
+        type: 3}
+      propertyPath: sortingLayerToChange
+      value: Layer 1
       objectReference: {fileID: 0}
     - target: {fileID: 5107184318594838359, guid: f6a97b59af1943a469aaaff81f16046d,
         type: 3}
@@ -48722,6 +48752,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5359424339236578653, guid: 26603a7794826c445bd456e22e17088f,
+        type: 3}
+      propertyPath: dialogues.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -49176,6 +49211,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7275354728930455933}
     m_Modifications:
+    - target: {fileID: 1588470641357047548, guid: 63a042cebb5b503418ed1e392c02ddf0,
+        type: 3}
+      propertyPath: dialogues.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5164144523543668905, guid: 63a042cebb5b503418ed1e392c02ddf0,
         type: 3}
       propertyPath: m_SortingLayer
@@ -50304,6 +50344,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7275354728930455933}
     m_Modifications:
+    - target: {fileID: 1022152622619673633, guid: 85616383f5e70ae47913e7cd05898253,
+        type: 3}
+      propertyPath: dialogues.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5164144523543668905, guid: 85616383f5e70ae47913e7cd05898253,
         type: 3}
       propertyPath: m_SortingLayer

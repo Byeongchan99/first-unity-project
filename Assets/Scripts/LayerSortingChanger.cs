@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class LayerSortingChanger : MonoBehaviour
 {
-    public string layerToChange; // 이 콜라이더에 접촉했을 때 변경할 Layer 이름
-    public string sortingLayerToChange; // 변경할 Sorting Layer 이름
-    public bool ToNotMain;   // 허브 스테이지가 아닌 곳으로 이동할 때
+    [Tooltip("이 콜라이더에 접촉했을 때 변경할 Layer 이름")]
+    public string layerToChange;
+
+    [Tooltip("변경할 Sorting Layer 이름")]
+    public string sortingLayerToChange;
+
+    [Tooltip("허브 스테이지가 아닌 곳으로 이동할 때 true로 설정")]
+    public bool MoveToNotMain;
 
     private void ChangeLayerAndSorting(GameObject obj, string layerName, string sortingLayerName)
     {
@@ -15,7 +20,7 @@ public class LayerSortingChanger : MonoBehaviour
             // Layer 변경
             obj.layer = LayerMask.NameToLayer(layerName);
 
-            if (obj.name == "StandArea" && ToNotMain)   // 메인 스테이지가 아닐 때에는 StandArea는 따로 바꿔주기
+            if (obj.name == "StandArea" && MoveToNotMain)   // 메인 스테이지가 아닐 때에는 StandArea는 따로 바꿔주기
             {
                 obj.layer = LayerMask.NameToLayer("PlayerStandArea");
             }

@@ -20,5 +20,5 @@ MonoBehaviour:
   stagePrefab: {fileID: 122958307212806171, guid: f4663bcba4db9c443abc7edb87d3e125,
     type: 3}
   startPosition: {x: 20, y: 0}
-  bottomLeft: {x: 4, y: -16}
-  topRight: {x: 36, y: 16}
+  bottomLeft: {x: -6, y: -23}
+  topRight: {x: 6, y: 20}
