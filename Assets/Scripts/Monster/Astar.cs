@@ -20,6 +20,7 @@ public class Astar : MonoBehaviour
     public Vector2Int bottomLeft, topRight;   // 맵의 하단 좌측과 상단 우측의 월드 좌표
     public List<Node> FinalNodeList = new List<Node>();  // 바로 초기화하여 null 문제 제거
     public bool allowDiagonal, dontCrossCorner;
+    public bool playerInWall = false;   // 플레이어가 Wall 타일 근처에 있을 때
 
     int sizeX, sizeY;   // 맵 크기
     Node[,] NodeArray;
@@ -63,7 +64,7 @@ public class Astar : MonoBehaviour
             {
                 bool isWall = false;
                 Vector2 worldPosition = TilemapToWorldPosition(new Vector2Int(i, j));
-                foreach (Collider2D col in Physics2D.OverlapCircleAll(worldPosition, 0.4f))
+                foreach (Collider2D col in Physics2D.OverlapCircleAll(worldPosition, 0.1f))
                     if (col.gameObject.layer == LayerMask.NameToLayer("Wall")) isWall = true;
 
                 NodeArray[i, j] = new Node(isWall, i, j);
@@ -71,6 +72,18 @@ public class Astar : MonoBehaviour
         }
 
         // Debug.Log("startPos + " + startPos.x + startPos.y);
+
+        // 플레이어의 위치가 벽 타일인 경우 검사
+        if (NodeArray[targetPos.x, targetPos.y].isWall)
+        {
+            playerInWall = true;
+
+        }
+        else
+        {
+            playerInWall = false;
+            TargetNode = NodeArray[targetPos.x, targetPos.y]; // 기존 목표 노드 설정
+        }
 
         StartNode = NodeArray[startPos.x, startPos.y];   // 시작 노드
         TargetNode = NodeArray[targetPos.x, targetPos.y];   // 목표 노드
@@ -125,7 +138,7 @@ public class Astar : MonoBehaviour
         Vector2Int tilemapBottomLeft = WorldToTilemapPosition(bottomLeft);
         Vector2Int tilemapTopRight = WorldToTilemapPosition(topRight);
 
-        if (checkX >= tilemapBottomLeft.x && checkX < tilemapTopRight.x  && checkY >= tilemapBottomLeft.y && checkY < tilemapTopRight.y ) 
+        if (checkX >= tilemapBottomLeft.x && checkX < tilemapTopRight.x && checkY >= tilemapBottomLeft.y && checkY < tilemapTopRight.y)
         {
             Node checkingNode = NodeArray[checkX, checkY];
             if (!checkingNode.isWall && !ClosedList.Contains(checkingNode))

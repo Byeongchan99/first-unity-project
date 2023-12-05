@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public abstract class MonsterBase : MonoBehaviour
 {
@@ -74,15 +75,24 @@ public abstract class MonsterBase : MonoBehaviour
 
     IEnumerator CHASE()
     {
-        // A* 알고리즘을 이용한 추적 로직 구현
         while (monsterState == MonsterState.CHASE)
         {
             Vector2Int monsterPos = astarComponent.WorldToTilemapPosition(transform.position);
             Vector2Int playerPos = astarComponent.WorldToTilemapPosition(target.position);
 
-            List<Node> path = astarComponent.PathFinding(monsterPos, playerPos);  // Astar 컴포넌트를 이용해 경로 탐색
+            List<Node> path = astarComponent.PathFinding(monsterPos, playerPos);
 
-            if (path != null && path.Count > 1) // 첫 번째 노드는 현재 위치이므로 두 번째 노드로 이동
+            if (astarComponent.playerInWall)
+            {
+                moveDirection = (target.position - transform.position).normalized;
+                rb.velocity = moveDirection * speed;
+
+                if (Vector2.Distance(transform.position, target.position) < attackDetectionRange)
+                {
+                    ChangeState(MonsterState.ATTACK);
+                }
+            }
+            else if (path != null && path.Count > 1)
             {
                 Vector2 nextPosition = astarComponent.TilemapToWorldPosition(new Vector2Int(path[1].x, path[1].y));
                 moveDirection = (nextPosition - (Vector2)transform.position).normalized;
@@ -90,15 +100,16 @@ public abstract class MonsterBase : MonoBehaviour
                 anim.SetFloat("Direction.Y", moveDirection.y);
                 rb.velocity = moveDirection * speed;
 
-                // 몬스터가 플레이어와 충분히 가까워지면 ATTACK 상태로 전환
                 if (Vector2.Distance(transform.position, target.position) < attackDetectionRange)
                 {
                     ChangeState(MonsterState.ATTACK);
                 }
             }
-            yield return new WaitForSeconds(0.1f); // 0.1초마다 경로를 업데이트 (빈도 조절 가능)
+
+            yield return new WaitForSeconds(0.1f); // 코루틴이 일정 시간마다 대기
         }
     }
+
 
     IEnumerator ATTACK()
     {

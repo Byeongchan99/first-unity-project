@@ -287,6 +287,7 @@ MonoBehaviour:
   FinalNodeList: []
   allowDiagonal: 1
   dontCrossCorner: 0
+  playerInWall: 0
 --- !u!114 &3237249040982229145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,7 +323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1111858504780720430}
-  - component: {fileID: 5579093973467923691}
+  - component: {fileID: 464336785276272241}
   m_Layer: 7
   m_Name: StandArea
   m_TagString: Untagged
@@ -345,8 +346,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9192981983275964418}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &5579093973467923691
-BoxCollider2D:
+--- !u!70 &464336785276272241
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -377,16 +378,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00003707409, y: 0.012544155}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.24978471, y: 0.062360764}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.00079511263, y: 0.012432964}
+  m_Size: {x: 0.09, y: 0.062029272}
+  m_Direction: 1

@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d06819c9353bc1f488d6d66b9b3febb8, type: 3}
-  m_Name: Wave 0
+  m_Name: Wave 2
   m_EditorClassIdentifier: 
   spawnInfos:
   - monstersToSpawn:
-    - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
+    - monsterPrefab: {fileID: 6775636773419384046, guid: 1b96233f3cbf5194db9ae385c4a04a2d,
         type: 3}
       count: 1
     spawnPointIndex: 0
   - monstersToSpawn:
-    - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
+    - monsterPrefab: {fileID: 6775636773419384046, guid: 1b96233f3cbf5194db9ae385c4a04a2d,
         type: 3}
       count: 1
     spawnPointIndex: 1
   - monstersToSpawn:
-    - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
+    - monsterPrefab: {fileID: 6775636773419384046, guid: 1b96233f3cbf5194db9ae385c4a04a2d,
         type: 3}
       count: 1
     spawnPointIndex: 2
