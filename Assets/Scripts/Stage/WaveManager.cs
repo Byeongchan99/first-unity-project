@@ -79,7 +79,7 @@ public class WaveManager : MonoBehaviour
         currentStageID = currentStageData.stageID;
 
         // 해당 스테이지가 이미 완료되었다면 더 이상 웨이브를 시작하지 않음
-        if (StageManager.Instance.IsStageCompleted(currentStageID))
+        if (StageManager.Instance.IsStageCompleted(currentStageID) || (currentWave >= currentStageData.waves.Count))
         {
             Debug.LogWarning("This stage is already completed!");
             return;
@@ -112,17 +112,6 @@ public class WaveManager : MonoBehaviour
                     remainingMonsters++;
                 }
             }
-        }
-
-        currentWave++;  // 웨이브 시작 후 currentWave 값을 증가시킵니다.
-
-        // 마지막 웨이브 클리어 후 스테이지 완료 상태 업데이트
-        if (currentWave >= currentStageData.waves.Count)
-        {
-            StageManager.Instance.SetStageCompleted(currentStageID, true); // 스테이지 완료 상태 업데이트
-            Debug.LogWarning("No more waves in the current stage!");
-            currentWave = 0;   // 한 스테이지의 웨이브가 모두 끝났다면 0으로 초기화
-            return;
         }
     }
 
@@ -187,22 +176,37 @@ public class WaveManager : MonoBehaviour
     // 몬스터가 죽었을 때 호출되는 메서드
     public void OnMonsterDeath()
     {
+        Debug.Log("OnMonsterDeath 호출");
         remainingMonsters--;
         PlayerStat.Instance.Kill++;   // 플레이어 킬 수 증가
 
         if (remainingMonsters <= 0)   // 남은 몬스터가 없다면
         {
             GameManager.instance.isBattle = false;
-            StartCoroutine(StartNextWaveWithDelay(2.0f));  // 2초 후에 다음 웨이브 시작
+            StageData currentStageData = StageManager.Instance.currentStage;
+            currentWave++;    // 웨이브 시작 전에 currentWave 값을 증가시킵니다.
+            
+            if (currentWave >= currentStageData.waves.Count)
+            {
+                // 마지막 웨이브 클리어 후 스테이지 완료 상태 업데이트
+                StageManager.Instance.SetStageCompleted(currentStageID, true);
+                Debug.LogWarning("Stage completed!");
+                currentWave = 0;   // 한 스테이지의 웨이브가 모두 끝났다면 0으로 초기화
+            }
+            else
+            {
+                StartCoroutine(StartNextWaveWithDelay(2.0f));  // 2초 후에 다음 웨이브 시작
+            }
         }
     }
 
     // 일정 시간 대기 후 웨이브 시작
     IEnumerator StartNextWaveWithDelay(float delay)
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(delay); 
         StartWave();
     }
+
 }
 
 [System.Serializable]

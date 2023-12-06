@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     */
     public void GameStart()
     {
-        waveManager.StartWave();
+        //waveManager.StartWave();
     }
 
     public void GameOver()
