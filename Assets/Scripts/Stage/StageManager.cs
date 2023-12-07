@@ -52,7 +52,7 @@ public class StageManager : MonoBehaviour
         return new Vector2(tilemapPos.x * 0.5f + bottomLeft.x, tilemapPos.y * 0.5f + bottomLeft.y);
     }
 
-    // NodeArray를 초기화하는 메서드. 게임 시작 시나 맵이 로드될 때 한 번만 호출
+    // 벽 노드 배열인 NodeArray를 초기화하는 메서드
     public void InitializeNodeArray()
     {
         int sizeX, sizeY;   // 맵 크기

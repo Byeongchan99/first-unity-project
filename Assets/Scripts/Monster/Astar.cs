@@ -52,7 +52,7 @@ public class Astar : MonoBehaviour
 
     public List<Node> PathFinding(Vector2Int startPos, Vector2Int targetPos)   // 시작 타일맵 좌표, 목표 타일맵 좌표
     {
-        /*
+        /* 초기화 부분은 StageManager에서 수행
         sizeX = Mathf.Abs(topRight.x - bottomLeft.x) * 2;  // 타일맵 가로 크기
         sizeY = Mathf.Abs(topRight.y - bottomLeft.y) * 2;  // 타일맵 세로 크기
 
