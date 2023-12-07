@@ -70,6 +70,15 @@ public class MonsterBullet : MonoBehaviour
     // 충돌 관리
     protected virtual void HandleCollision(Collider2D collision)
     {
+        // 벽과의 충돌을 감지
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+            // 벽과 충돌했을 때의 로직을 수행
+            rb.velocity = Vector2.zero;
+            gameObject.SetActive(false);
+            return;
+        }
+
         if (!collision.CompareTag("Player") || Per == 0)
             return;
 

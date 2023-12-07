@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d06819c9353bc1f488d6d66b9b3febb8, type: 3}
-  m_Name: Wave 2
+  m_Name: Wave FS 1
   m_EditorClassIdentifier: 
   spawnInfos:
   - monstersToSpawn:
@@ -29,6 +29,6 @@ MonoBehaviour:
       count: 1
     spawnPointIndex: 2
   spawnPointsPositions:
-  - {x: 2, y: 7}
-  - {x: 3, y: 8}
-  - {x: 4, y: 7}
+  - {x: 5, y: 4}
+  - {x: 3, y: 6}
+  - {x: 7, y: 2}
