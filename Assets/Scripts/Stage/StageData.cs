@@ -9,8 +9,9 @@ public class StageData : ScriptableObject
     [Header("Stage Settings")]
     public string stageName;   // 스테이지 이름
     public string stageType;   // 스테이지 종류
-    [Tooltip("이 스테이지의 ID")]
+    [Tooltip("이 스테이지의 정보")]
     public int stageID;
+    public Node[,] NodeArray;   // 벽 노드 확인
     [Tooltip("이 스테이지의 웨이브 정보")]
     public List<WaveData> waves;   // 이 스테이지의 웨이브 정보
     public GameObject stagePrefab;   // 스테이지 오브젝트의 프리팹

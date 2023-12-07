@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -45,6 +46,39 @@ public class StageManager : MonoBehaviour
         currentStage = stages[0];
     }
 
+    public Vector2 TilemapToWorldPosition(Vector2Int tilemapPos, Vector2Int bottomLeft, Vector2Int topRight)   // 타일맵 좌표를 월드 좌표로 변환
+    {
+        // 여기서 bottomLeft를 사용하여 올바른 월드 좌표를 계산합니다.
+        return new Vector2(tilemapPos.x * 0.5f + bottomLeft.x, tilemapPos.y * 0.5f + bottomLeft.y);
+    }
+
+    // NodeArray를 초기화하는 메서드. 게임 시작 시나 맵이 로드될 때 한 번만 호출
+    public void InitializeNodeArray()
+    {
+        int sizeX, sizeY;   // 맵 크기
+        Vector2Int bottomLeft, topRight;   // 맵의 하단 좌측과 상단 우측의 월드 좌표
+
+        bottomLeft = currentStage.bottomLeft;
+        topRight = currentStage.topRight;
+
+        sizeX = Mathf.Abs(topRight.x - bottomLeft.x) * 2;  // 타일맵 가로 크기
+        sizeY = Mathf.Abs(topRight.y - bottomLeft.y) * 2;  // 타일맵 세로 크기
+
+        currentStage.NodeArray = new Node[sizeX, sizeY];
+
+        for (int i = 0; i < sizeX; i++)
+        {
+            for (int j = 0; j < sizeY; j++)
+            {
+                bool isWall = false;
+                Vector2 worldPosition = TilemapToWorldPosition(new Vector2Int(i, j), bottomLeft, topRight);
+                foreach (Collider2D col in Physics2D.OverlapCircleAll(worldPosition, 0.1f))
+                    if (col.gameObject.layer == LayerMask.NameToLayer("Wall")) isWall = true;
+
+                currentStage.NodeArray[i, j] = new Node(isWall, i, j);
+            }
+        }
+    }
 
     // 스테이지로 이동하는 메서드
     public void TransitionToStage(int stageIndex)
@@ -61,6 +95,7 @@ public class StageManager : MonoBehaviour
             Debug.Log("이동할 스테이지: " + currentStage.stageID);
             // 새 스테이지 활성화
             stageInstances[stageIndex].SetActive(true);
+            InitializeNodeArray();   // NodeArray 초기화
 
             // 플레이어를 새 스테이지의 시작 위치로 이동
             PlayerStat.Instance.transform.position = currentStage.startPosition;

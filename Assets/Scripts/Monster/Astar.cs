@@ -33,6 +33,7 @@ public class Astar : MonoBehaviour
         bottomLeft = stageData.bottomLeft;
         topRight = stageData.topRight;
         // 필요한 경우 추가 초기화 로직을 여기에 추가합니다.
+        NodeArray = StageManager.Instance.currentStage.NodeArray;
     }
 
     public Vector2Int WorldToTilemapPosition(Vector2 worldPos)   // 월드 좌표를 타일맵 좌표로 변환
@@ -51,6 +52,7 @@ public class Astar : MonoBehaviour
 
     public List<Node> PathFinding(Vector2Int startPos, Vector2Int targetPos)   // 시작 타일맵 좌표, 목표 타일맵 좌표
     {
+        /*
         sizeX = Mathf.Abs(topRight.x - bottomLeft.x) * 2;  // 타일맵 가로 크기
         sizeY = Mathf.Abs(topRight.y - bottomLeft.y) * 2;  // 타일맵 세로 크기
 
@@ -70,14 +72,16 @@ public class Astar : MonoBehaviour
                 NodeArray[i, j] = new Node(isWall, i, j);
             }
         }
+        */
 
         // Debug.Log("startPos + " + startPos.x + startPos.y);
 
         // 플레이어의 위치가 벽 타일인 경우 검사
         if (NodeArray[targetPos.x, targetPos.y].isWall)
         {
+            Debug.Log("플레이어가 벽 타일에 있음");
             playerInWall = true;
-
+            return new List<Node>(); // 빈 리스트 반환하여 빠르게 종료
         }
         else
         {
