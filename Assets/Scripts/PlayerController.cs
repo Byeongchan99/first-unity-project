@@ -139,12 +139,12 @@ public class PlayerController : MonoBehaviour
                 npcDialogue.ShowDialogue(); // NPCDialogue의 상호작용 메서드 호출
             }
 
-            InteractiveObject interactiveObject = currentNearNPC.GetComponent<InteractiveObject>();
+            InteractiveRunePillar interactiveRunePillar = currentNearNPC.GetComponent<InteractiveRunePillar>();
 
-            if (interactiveObject != null)
+            if (interactiveRunePillar != null)
             {
                 Debug.Log("상호작용");
-                interactiveObject.Interaction(); // InteractiveObject의 상호작용 메서드 호출
+                interactiveRunePillar.Interaction(); // interactiveRunePillar의 상호작용 메서드 호출
             }
         }
     }

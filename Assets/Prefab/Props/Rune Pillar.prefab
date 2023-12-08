@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7824087072851708898}
-  - component: {fileID: 5437104336351874362}
+  - component: {fileID: 7654732047584076018}
   m_Layer: 0
   m_Name: Rune Pillar
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 6504845356422671879}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5437104336351874362
+--- !u!114 &7654732047584076018
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
