@@ -30,6 +30,7 @@ namespace CharacterController
 
         public override void OnEnterState()
         {
+            IsCharge = true;
             chargeTime = 0f;  // 충전 초기화
             // 손 스프라이트 활성화
             PlayerController.leftHand.GetComponent<SpriteRenderer>().enabled = true;
