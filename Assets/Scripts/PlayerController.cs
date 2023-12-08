@@ -132,10 +132,19 @@ public class PlayerController : MonoBehaviour
         if (isNearNPC)   // NPC 대화 상호작용
         {
             NPCDialogue npcDialogue = currentNearNPC.GetComponent<NPCDialogue>();
+
             if (npcDialogue != null)
             {
                 Debug.Log("NPC와 상호작용");
                 npcDialogue.ShowDialogue(); // NPCDialogue의 상호작용 메서드 호출
+            }
+
+            InteractiveObject interactiveObject = currentNearNPC.GetComponent<InteractiveObject>();
+
+            if (interactiveObject != null)
+            {
+                Debug.Log("상호작용");
+                interactiveObject.Interaction(); // InteractiveObject의 상호작용 메서드 호출
             }
         }
     }
