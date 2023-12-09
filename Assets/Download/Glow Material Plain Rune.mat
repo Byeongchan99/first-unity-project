@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Glow Material
+  m_Name: Glow Material Plain Rune
   m_Shader: {fileID: -6465566751694194690, guid: 6f496d5ccc866cb459ddbb019bef1aa6,
     type: 3}
   m_Parent: {fileID: 0}
@@ -42,11 +42,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GlowTex:
-        m_Texture: {fileID: 2800000, guid: dd4da25645266d74084a62655f11eccd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 55dcac9d314b20c4aad3d1077fc1ad87, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 923a502132a44d546820e058f922cb81, type: 3}
+        m_Texture: {fileID: 2800000, guid: b33aa10fe28f9764495429df18aacdaa, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Maintex:
@@ -79,6 +79,6 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0.18903366, g: 0.09019608, b: 0.5019608, a: 0}
+    - _GlowColor: {r: 0, g: 0.972549, b: 5.992157, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
