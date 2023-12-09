@@ -38,5 +38,8 @@ public class UIManager : MonoBehaviour
     {
         dialogueUI = newDialogueUI;
     }
+
+    // ¸Ê ·é È¿°ú
+    public MapRune mapRuneUI;
 }
 
