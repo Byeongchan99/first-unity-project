@@ -17,8 +17,8 @@ public class InteractiveRunePillar : MonoBehaviour
 
     void SwapPrefabs()
     {
-        firstPrefab.SetActive(!firstPrefab.activeSelf);
-        secondPrefab.SetActive(!secondPrefab.activeSelf);
+        firstPrefab.SetActive(false);
+        secondPrefab.SetActive(true);
     }
 
     void AcivePortalSprite()
@@ -30,7 +30,7 @@ public class InteractiveRunePillar : MonoBehaviour
     {
         SwapPrefabs();
         StageManager.Instance.SetRuneStageCompleted(runeStageID, true);
-        RuneGlowPillar.Instance.ActivatePillar(runeStageID);
+        RuneGlowPillar.Instance.ActivateRune(runeStageID);
         UIManager.instance.mapRuneUI.ActivateRune(runeStageID);
         AcivePortalSprite();
     }
