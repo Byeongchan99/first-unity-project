@@ -41,5 +41,7 @@ public class UIManager : MonoBehaviour
 
     // ¸Ê ·é È¿°ú
     public MapRune mapRuneUI;
+
+    public MapBackground mapBackgroundUI;
 }
 

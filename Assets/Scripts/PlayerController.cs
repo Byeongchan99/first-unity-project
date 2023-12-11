@@ -149,6 +149,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // 맵 보기
+    void OnMap()
+    {
+        if (UIManager.instance.mapBackgroundUI.isOpened)   // 맵이 켜져있을 때
+        {
+            UIManager.instance.mapBackgroundUI.Hide();
+        }
+        else   // 맵이 꺼져있을 때
+        {
+            UIManager.instance.mapBackgroundUI.Show();
+        }
+        UIManager.instance.mapBackgroundUI.isOpened = !UIManager.instance.mapBackgroundUI.isOpened;
+    }
+
     // 이동
     void OnMove(InputValue value)
     {

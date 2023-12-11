@@ -3821,6 +3821,7 @@ GameObject:
   - component: {fileID: 5835805711217628540}
   - component: {fileID: 6473936328862515148}
   - component: {fileID: 6557757906108240251}
+  - component: {fileID: 4176506685953053179}
   m_Layer: 5
   m_Name: Map Background
   m_TagString: Untagged
@@ -3886,6 +3887,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4176506685953053179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840836944585862054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bf71757e0bbee4b800e24e748d74a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpened: 0
 --- !u!1 &7128431130865782044
 GameObject:
   m_ObjectHideFlags: 0
