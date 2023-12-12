@@ -6463,7 +6463,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &1172696143619880037
 GameObject:
   m_ObjectHideFlags: 0
@@ -6617,7 +6617,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &3449773105087172852
 GameObject:
   m_ObjectHideFlags: 0
@@ -6986,7 +6986,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &8373716355960206743
 GameObject:
   m_ObjectHideFlags: 0
@@ -7058,6 +7058,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: -450540567
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
@@ -7142,6 +7147,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: -450540567
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
@@ -7528,6 +7538,11 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -450540567
       objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7611,6 +7626,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: -450540567
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
@@ -7801,6 +7821,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: -450540567
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
@@ -8235,6 +8260,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: -450540567
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
@@ -9331,6 +9361,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9034747020821982134}
     m_Modifications:
+    - target: {fileID: 4779116766770743059, guid: d8dbbb2821721a4488fc2fe552e28139,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7460208211389799067, guid: d8dbbb2821721a4488fc2fe552e28139,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9420,6 +9455,11 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -450540567
       objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9504,6 +9544,11 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -450540567
       objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9582,6 +9627,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: -450540567
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512300591850750446, guid: 668c8eb322895494297add8ec697979b,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5561417354554007643, guid: 668c8eb322895494297add8ec697979b,
         type: 3}
@@ -10037,6 +10087,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9034747020821982134}
     m_Modifications:
+    - target: {fileID: 4779116766770743059, guid: d8dbbb2821721a4488fc2fe552e28139,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7460208211389799067, guid: d8dbbb2821721a4488fc2fe552e28139,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10126,6 +10181,11 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -450540567
       objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10210,6 +10270,11 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -450540567
       objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10293,6 +10358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: -450540567
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
@@ -10446,6 +10516,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: -450540567
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512300591850750446, guid: 668c8eb322895494297add8ec697979b,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5561417354554007643, guid: 668c8eb322895494297add8ec697979b,
         type: 3}
@@ -10629,6 +10704,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: -450540567
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
@@ -11076,6 +11156,11 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -450540567
       objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11160,6 +11245,11 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -450540567
       objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11243,6 +11333,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: -450540567
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: d5a59f88f72edfa4296a1d204cd9b18d,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: d5a59f88f72edfa4296a1d204cd9b18d,
         type: 3}
@@ -11518,6 +11613,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9034747020821982134}
     m_Modifications:
+    - target: {fileID: 4779116766770743059, guid: d8dbbb2821721a4488fc2fe552e28139,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7460208211389799067, guid: d8dbbb2821721a4488fc2fe552e28139,
         type: 3}
       propertyPath: m_LocalScale.x

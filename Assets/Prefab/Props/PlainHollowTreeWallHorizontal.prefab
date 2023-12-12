@@ -113,6 +113,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2003230886, guid: 68ff569b7ff9e6242b75fb73ed5d7f16,
         type: 3}
+    - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -193,6 +198,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2003230886, guid: 68ff569b7ff9e6242b75fb73ed5d7f16,
         type: 3}
+    - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -273,6 +283,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2003230886, guid: 68ff569b7ff9e6242b75fb73ed5d7f16,
         type: 3}
+    - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
       propertyPath: m_LocalPosition.x

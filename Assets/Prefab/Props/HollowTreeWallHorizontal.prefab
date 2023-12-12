@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15a1047e96a5934aa8776cae728bb55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStageID: 0
 --- !u!1001 &722523826980983360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,6 +106,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HollowTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
@@ -180,6 +186,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HollowTree (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -253,6 +264,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HollowTree (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4550916856838328649, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
