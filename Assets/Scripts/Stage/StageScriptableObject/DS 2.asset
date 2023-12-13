@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6af3116445bdb43498c7e7641e8f4bc9, type: 3}
-  m_Name: Stage 1
+  m_Name: DS 2
   m_EditorClassIdentifier: 
-  stageName: Boss Stage
-  stageType: boss
-  stageID: 1
+  stageName: DESERT STAGE 2
+  stageType: battle
+  stageID: 11
   waves:
-  - {fileID: 11400000, guid: d7c7bcbc11536a44d8bcafe94b6ec7b4, type: 2}
-  stagePrefab: {fileID: 122958307212806171, guid: f4663bcba4db9c443abc7edb87d3e125,
+  - {fileID: 11400000, guid: 5a98c9a0e203c02489da683f6edac711, type: 2}
+  - {fileID: 11400000, guid: 5a98c9a0e203c02489da683f6edac711, type: 2}
+  stagePrefab: {fileID: 122958307212806171, guid: 8e353cfb362c0f54c859f54e44eb6eb1,
     type: 3}
-  startPosition: {x: 0, y: 0}
-  bottomLeft: {x: -8, y: -8}
-  topRight: {x: 8, y: 8}
+  startPosition: {x: 5.47, y: 9}
+  bottomLeft: {x: 0, y: 0}
+  topRight: {x: 16, y: 11}

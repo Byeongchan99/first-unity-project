@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06819c9353bc1f488d6d66b9b3febb8, type: 3}
+  m_Name: Wave DS 4
+  m_EditorClassIdentifier: 
+  spawnInfos:
+  - monstersToSpawn:
+    - monsterPrefab: {fileID: 7285737326918540868, guid: a43e28856feb0164db9bb179e43ad5fd,
+        type: 3}
+      count: 1
+    spawnPointIndex: 0
+  - monstersToSpawn:
+    - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
+        type: 3}
+      count: 1
+    spawnPointIndex: 1
+  - monstersToSpawn:
+    - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
+        type: 3}
+      count: 1
+    spawnPointIndex: 1
+  spawnPointsPositions:
+  - {x: 2.79, y: 10.43}
+  - {x: 7.45, y: 9.23}
+  - {x: 8.91, y: 12.04}

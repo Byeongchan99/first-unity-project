@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6af3116445bdb43498c7e7641e8f4bc9, type: 3}
-  m_Name: Stage 9
+  m_Name: FS 3
   m_EditorClassIdentifier: 
-  stageName: PLAIN STAGE 4
+  stageName: FOREST STAGE 3
   stageType: battle
-  stageID: 9
+  stageID: 4
   waves:
-  - {fileID: 11400000, guid: dd5dd5876169ecb458fca8c6b9688432, type: 2}
-  - {fileID: 11400000, guid: dd5dd5876169ecb458fca8c6b9688432, type: 2}
-  stagePrefab: {fileID: 122958307212806171, guid: 9bdebcc93582e2e428a0701bb31f4193,
+  - {fileID: 11400000, guid: 1b4209ed9a2fac6489a8b433589b5371, type: 2}
+  - {fileID: 11400000, guid: 1b4209ed9a2fac6489a8b433589b5371, type: 2}
+  stagePrefab: {fileID: 122958307212806171, guid: 520db6dc0b1d10749af247b41fc64afa,
     type: 3}
-  startPosition: {x: 1.4, y: 4.19}
+  startPosition: {x: 3.74, y: 11.04}
   bottomLeft: {x: 0, y: 0}
-  topRight: {x: 22, y: 8}
+  topRight: {x: 12, y: 12}
