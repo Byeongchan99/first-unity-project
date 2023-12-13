@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06819c9353bc1f488d6d66b9b3febb8, type: 3}
+  m_Name: Wave SS 1
+  m_EditorClassIdentifier: 
+  spawnInfos:
+  - monstersToSpawn:
+    - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
+        type: 3}
+      count: 1
+    spawnPointIndex: 0
+  - monstersToSpawn:
+    - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
+        type: 3}
+      count: 1
+    spawnPointIndex: 1
+  - monstersToSpawn:
+    - monsterPrefab: {fileID: 6499440422579365713, guid: fbb91cccd299bb14c82bd2d974809dc8,
+        type: 3}
+      count: 1
+    spawnPointIndex: 2
+  spawnPointsPositions:
+  - {x: 2.5, y: 2.5}
+  - {x: 5, y: 3.5}
+  - {x: 7.5, y: 4}
