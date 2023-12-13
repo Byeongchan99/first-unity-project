@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3900932980325529334}
   - component: {fileID: 2005181553467842039}
   m_Layer: 0
-  m_Name: PlainHollowTreeWallVertical 1
+  m_Name: PlainHollowTreeWallVertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,13 +111,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2003230886, guid: 68ff569b7ff9e6242b75fb73ed5d7f16,
+      objectReference: {fileID: 21300000, guid: ced17d6cc0fb9984ab95d30ae98770b8,
         type: 3}
     - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
       propertyPath: m_SpriteSortPoint
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bca1af2ced50c0b4eb9e1485e9a2f903, type: 2}
     - target: {fileID: 4550916856838328649, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -196,13 +201,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2003230886, guid: 68ff569b7ff9e6242b75fb73ed5d7f16,
+      objectReference: {fileID: 21300000, guid: ced17d6cc0fb9984ab95d30ae98770b8,
         type: 3}
     - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
       propertyPath: m_SpriteSortPoint
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bca1af2ced50c0b4eb9e1485e9a2f903, type: 2}
     - target: {fileID: 4550916856838328649, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -281,13 +291,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2003230886, guid: 68ff569b7ff9e6242b75fb73ed5d7f16,
+      objectReference: {fileID: 21300000, guid: ced17d6cc0fb9984ab95d30ae98770b8,
         type: 3}
     - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
       propertyPath: m_SpriteSortPoint
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bca1af2ced50c0b4eb9e1485e9a2f903, type: 2}
     - target: {fileID: 4550916856838328649, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
       propertyPath: m_LocalPosition.x

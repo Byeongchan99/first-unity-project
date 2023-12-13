@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Glow Material Tree
+  m_Name: Glow Material Snow Tree
   m_Shader: {fileID: -6465566751694194690, guid: 6f496d5ccc866cb459ddbb019bef1aa6,
     type: 3}
   m_Parent: {fileID: 0}
@@ -42,11 +42,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GlowTex:
-        m_Texture: {fileID: 2800000, guid: dd4da25645266d74084a62655f11eccd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 081c72d6908a3d94993250d0466a20d1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 923a502132a44d546820e058f922cb81, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6fe1a48e998f54e4797a031a2114a47a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Maintex:
@@ -79,6 +79,6 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0.16524453, g: 0.08810966, b: 0.41509432, a: 0}
+    - _GlowColor: {r: 0.21698111, g: 0.013305452, b: 0.20340274, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
