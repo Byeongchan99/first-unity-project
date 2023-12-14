@@ -115,6 +115,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
+      propertyPath: m_Color.a
+      value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
+        type: 3}
       propertyPath: m_SpriteSortPoint
       value: 1
       objectReference: {fileID: 0}
@@ -203,6 +208,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 6fe1a48e998f54e4797a031a2114a47a,
         type: 3}
+    - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.74509805
+      objectReference: {fileID: 0}
     - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
       propertyPath: m_DrawMode
@@ -308,6 +318,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 6fe1a48e998f54e4797a031a2114a47a,
         type: 3}
+    - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.74509805
+      objectReference: {fileID: 0}
     - target: {fileID: 4004527397738742932, guid: 62c620468d4e5fc4f9e704cc791e1368,
         type: 3}
       propertyPath: m_SpriteSortPoint
