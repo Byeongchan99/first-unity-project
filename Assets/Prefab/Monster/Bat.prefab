@@ -62,7 +62,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -372,12 +372,12 @@ MonoBehaviour:
   health: 10
   maxHealth: 10
   attackDetectionRange: 3
-  attackRange: 1
+  attackRange: 0.5
   attackTiming: 0
   totalAttackTime: 2
   attackDuration: 0
   attackDirection: {x: 0, y: 0}
-  attackColliderOffset: 0
+  attackColliderOffset: 0.2
   moveDirection: {x: 0, y: 0}
   chargeTime: 1
   rushSpeed: 5

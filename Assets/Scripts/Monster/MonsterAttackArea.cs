@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MonsterAttackArea : BaseAttackArea
 {
-    private Vector2 basePosition = new Vector2(0, 0.325f); // 초기 콜라이더 위치
+    //private Vector2 basePosition = new Vector2(0, 0.325f); // 초기 콜라이더 위치
     private MonsterBase monsterStat;
 
     void Awake()
@@ -41,7 +41,8 @@ public class MonsterAttackArea : BaseAttackArea
 
         // 콜라이더의 로컬 위치 조정
         Vector2 forwardOffset = attackDirection.normalized * monsterStat.attackColliderOffset;
-        transform.localPosition = basePosition + forwardOffset; // 초기 위치에 이동 거리를 더함
+        //transform.localPosition = basePosition + forwardOffset; // 초기 위치에 이동 거리를 더함
+        transform.localPosition = forwardOffset; // 초기 위치에 이동 거리를 더함
 
         attackRangeCollider.enabled = true;
     }

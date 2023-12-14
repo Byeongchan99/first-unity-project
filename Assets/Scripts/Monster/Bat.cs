@@ -33,7 +33,7 @@ public class Bat : MonsterBase
         // 돌진 방향 설정
         Vector2 chargeDirection = (target.position - transform.position).normalized;
         // 돌진하는 동안 공격 범위 콜라이더 활성화
-        monsterAttackArea.ActivateAttackRange(attackDirection);
+        monsterAttackArea.ActivateAttackRange(chargeDirection);
         anim.SetBool("IsAttack", true);
         anim.SetFloat("Direction.X", chargeDirection.x);
         anim.SetFloat("Direction.Y", chargeDirection.y);

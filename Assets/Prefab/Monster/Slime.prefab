@@ -423,7 +423,7 @@ MonoBehaviour:
   totalAttackTime: 0.833
   attackDuration: 0.2
   attackDirection: {x: 0, y: 0}
-  attackColliderOffset: 0.5
+  attackColliderOffset: 0.4
   moveDirection: {x: 0, y: 0}
 --- !u!95 &3685640397257479430
 Animator:
