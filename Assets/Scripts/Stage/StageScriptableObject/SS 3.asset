@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6af3116445bdb43498c7e7641e8f4bc9, type: 3}
-  m_Name: SS 2
+  m_Name: SS 3
   m_EditorClassIdentifier: 
-  stageName: SNOW STAGE 2
+  stageName: SNOW STAGE 3
   stageType: battle
-  stageID: 15
+  stageID: 16
   waves:
-  - {fileID: 11400000, guid: 1d881c8ffb06ad8498793a7c4074ad0f, type: 2}
-  stagePrefab: {fileID: 122958307212806171, guid: 5dc0428fc873a304bbb9793a46ef6b34,
+  - {fileID: 11400000, guid: ed4730acdad05e84fab0048c41c3b18a, type: 2}
+  - {fileID: 11400000, guid: ed4730acdad05e84fab0048c41c3b18a, type: 2}
+  stagePrefab: {fileID: 122958307212806171, guid: 4bd4a6ff3037d0844950fe72335f0f9c,
     type: 3}
-  startPosition: {x: 7.61, y: 1.39}
+  startPosition: {x: 13.02, y: 1.4}
   bottomLeft: {x: 0, y: 0}
-  topRight: {x: 11, y: 11}
+  topRight: {x: 21, y: 16}
