@@ -4908,6 +4908,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750450, guid: ba7fef4c928d8c4459466bf93171730e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750455, guid: ba7fef4c928d8c4459466bf93171730e,
         type: 3}
       propertyPath: m_Name
@@ -4980,6 +4985,11 @@ PrefabInstance:
     - target: {fileID: 7947911505737750448, guid: 713b33322b495794e92184973ece3034,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750450, guid: 713b33322b495794e92184973ece3034,
+        type: 3}
+      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750455, guid: 713b33322b495794e92184973ece3034,
