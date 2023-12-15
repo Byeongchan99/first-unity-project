@@ -131,7 +131,7 @@ public class BossMonster : MonoBehaviour
 
         while (Time.time - startTime < waitTime)
         {
-            if (health < 0) 
+            if (health <= 0) 
             {
                 isDeadWhileCoroutine = true;
                 yield return true; // 조건이 충족되면 코루틴 종료

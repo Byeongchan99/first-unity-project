@@ -24,6 +24,7 @@ public abstract class MonsterBase : MonoBehaviour
     public float totalAttackTime;   // 총 공격 시간 = chargeTime + attackDuration/rushDuration + stunTime
     public float attackDuration;  // 애니메이션 공격 모션 지속 시간
     public Vector2 attackDirection;   // 공격 방향
+    public Vector2 attackBasePosition;   // 공격 범위 중심
     public float attackColliderOffset;   // 공격 범위 콜라이더 이동 거리
     private Coroutine attackPatternCoroutine;   // 공격 패턴 코루틴
 

@@ -372,12 +372,13 @@ MonoBehaviour:
   health: 10
   maxHealth: 10
   attackDetectionRange: 3
-  attackRange: 0.5
+  attackRange: 0.8
   attackTiming: 0
   totalAttackTime: 2
   attackDuration: 0
   attackDirection: {x: 0, y: 0}
-  attackColliderOffset: 0.2
+  attackBasePosition: {x: 0, y: 0.15}
+  attackColliderOffset: 0
   moveDirection: {x: 0, y: 0}
   chargeTime: 1
   rushSpeed: 5

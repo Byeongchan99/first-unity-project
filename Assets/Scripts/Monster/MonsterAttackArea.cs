@@ -41,8 +41,8 @@ public class MonsterAttackArea : BaseAttackArea
 
         // 콜라이더의 로컬 위치 조정
         Vector2 forwardOffset = attackDirection.normalized * monsterStat.attackColliderOffset;
-        //transform.localPosition = basePosition + forwardOffset; // 초기 위치에 이동 거리를 더함
-        transform.localPosition = forwardOffset; // 초기 위치에 이동 거리를 더함
+        transform.localPosition = monsterStat.attackBasePosition + forwardOffset; // 초기 위치에 이동 거리를 더함
+        //transform.localPosition = forwardOffset; // 초기 위치에 이동 거리를 더함
 
         attackRangeCollider.enabled = true;
     }

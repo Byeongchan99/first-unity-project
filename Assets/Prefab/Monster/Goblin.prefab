@@ -378,6 +378,7 @@ MonoBehaviour:
   totalAttackTime: 1
   attackDuration: 0.2
   attackDirection: {x: 0, y: 0}
+  attackBasePosition: {x: 0, y: 0.2618}
   attackColliderOffset: 0.4
   moveDirection: {x: 0, y: 0}
 --- !u!1 &7411331322152980462

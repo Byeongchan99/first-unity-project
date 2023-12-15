@@ -17,7 +17,7 @@ public class Ghost : MonsterBase
 
         for (float t = 0; t < chargeTime; t += Time.deltaTime)
         {
-            if (health < 0)
+            if (health <= 0)
             {
                 anim.SetBool("IsCharge", false);
                 yield break; // 상태 확인 후 코루틴 종료
@@ -37,7 +37,7 @@ public class Ghost : MonsterBase
 
         for (float t = 0; t < attackDuration; t += Time.deltaTime)
         {
-            if (health < 0)
+            if (health <= 0)
             {
                 anim.SetBool("IsAttack", false);
                 yield break; // 상태 확인 후 코루틴 종료
@@ -55,7 +55,7 @@ public class Ghost : MonsterBase
 
         for (float t = 0; t < stunTime; t += Time.deltaTime)
         {
-            if (health < 0)
+            if (health <= 0)
             {
                 anim.SetBool("IsAttack", false);
                 yield break; // 상태 확인 후 코루틴 종료
