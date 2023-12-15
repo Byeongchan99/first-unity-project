@@ -8388,13 +8388,13 @@ CompositeCollider2D:
         Y: 3340000
   - m_Collider: {fileID: 8168522455961018514}
     m_ColliderPaths:
-    - - X: 38090008
+    - - X: 51132204
         Y: 119839992
-      - X: -709991
+      - X: 1217775
         Y: 119839992
-      - X: -709991
+      - X: 1217775
         Y: 115840000
-      - X: 38090008
+      - X: 51132204
         Y: 115840000
   - m_Collider: {fileID: 3088940421430382463}
     m_ColliderPaths:
@@ -8528,17 +8528,9 @@ CompositeCollider2D:
       - {x: 11.933971, y: 12.614}
       - {x: 11.304002, y: 12.613971}
       - {x: 11.303972, y: 11.983999}
-      - {x: 3.8550851, y: 11.98397}
-      - {x: 3.855056, y: 11.772304}
-      - {x: 3.8090007, y: 11.772333}
-      - {x: 3.8089716, y: 11.983999}
       - {x: 0.6840008, y: 11.984029}
       - {x: 0.6839715, y: 12.614}
       - {x: 0.054000802, y: 12.613971}
-      - {x: 0.053971402, y: 11.983999}
-      - {x: -0.0709991, y: 11.98397}
-      - {x: -0.0709698, y: 11.584001}
-      - {x: 0.054000802, y: 11.58397}
       - {x: 0.053971402, y: 0.7339999}
       - {x: -0.071, y: 0.7339706}
       - {x: -0.0709707, y: 0.334}
@@ -9233,6 +9225,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TreeWallHorizontal (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416032109778657474, guid: f3e67c65692600147bcbd3e6e52d022d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 4.9914427
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416032109778657474, guid: f3e67c65692600147bcbd3e6e52d022d,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 2.248498
       objectReference: {fileID: 0}
     - target: {fileID: 8416032109778657474, guid: f3e67c65692600147bcbd3e6e52d022d,
         type: 3}
@@ -13287,7 +13289,7 @@ PrefabInstance:
     - target: {fileID: 1058358463653758515, guid: f6a97b59af1943a469aaaff81f16046d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.56
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 1058358463653758515, guid: f6a97b59af1943a469aaaff81f16046d,
         type: 3}

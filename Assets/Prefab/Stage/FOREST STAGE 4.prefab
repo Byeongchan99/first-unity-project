@@ -6301,13 +6301,13 @@ CompositeCollider2D:
         Y: 65000000
   - m_Collider: {fileID: 1445932609025924703}
     m_ColliderPaths:
-    - - X: 38999992
+    - - X: 52361172
         Y: 153200000
       - X: 199990
         Y: 153200000
       - X: 199990
         Y: 149200000
-      - X: 38999992
+      - X: 52361172
         Y: 149200000
   - m_Collider: {fileID: 8168522455961018514}
     m_ColliderPaths:
@@ -6502,9 +6502,9 @@ CompositeCollider2D:
   - m_Collider: {fileID: 4428849107392360280}
     m_ColliderPaths:
     - - X: 47407492
-        Y: 157496048
+        Y: 151194240
       - X: 29911862
-        Y: 157496048
+        Y: 151194240
       - X: 29911862
         Y: 149202592
       - X: 47407492
@@ -6533,10 +6533,8 @@ CompositeCollider2D:
       - {x: 3.101605, y: 6.9}
       - {x: 0.7949995, y: 6.9000297}
       - {x: 0.7950289, y: 14.92}
-      - {x: 4.7407494, y: 14.920288}
-      - {x: 4.7407203, y: 15.749605}
-      - {x: 2.9911861, y: 15.749577}
-      - {x: 2.9911568, y: 15.320001}
+      - {x: 5.2361174, y: 14.920029}
+      - {x: 5.2360883, y: 15.320001}
       - {x: 0.7949995, y: 15.320029}
       - {x: 0.7949702, y: 15.77109}
       - {x: 0.1649995, y: 15.771061}
@@ -7117,7 +7115,7 @@ PrefabInstance:
     - target: {fileID: 2599480549948516144, guid: 5690d60c71403354685118c1a79db96e,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.8293456
+      value: 0.19916475
       objectReference: {fileID: 0}
     - target: {fileID: 2599480549948516144, guid: 5690d60c71403354685118c1a79db96e,
         type: 3}
@@ -7127,7 +7125,7 @@ PrefabInstance:
     - target: {fileID: 2599480549948516144, guid: 5690d60c71403354685118c1a79db96e,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.41493183
+      value: 0.099841416
       objectReference: {fileID: 0}
     - target: {fileID: 3077142323858958790, guid: 5690d60c71403354685118c1a79db96e,
         type: 3}
@@ -10873,6 +10871,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TreeWallHorizontal (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416032109778657474, guid: f3e67c65692600147bcbd3e6e52d022d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 5.2161183
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416032109778657474, guid: f3e67c65692600147bcbd3e6e52d022d,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 2.168059
       objectReference: {fileID: 0}
     - target: {fileID: 8416032109778657474, guid: f3e67c65692600147bcbd3e6e52d022d,
         type: 3}

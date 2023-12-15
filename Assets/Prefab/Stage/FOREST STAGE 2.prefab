@@ -7929,13 +7929,13 @@ CompositeCollider2D:
         Y: 115840000
   - m_Collider: {fileID: 3088940421430382463}
     m_ColliderPaths:
-    - - X: 82903480
+    - - X: 103689240
         Y: 119839992
       - X: 36790004
         Y: 119839992
       - X: 36790004
         Y: 115840000
-      - X: 82903480
+      - X: 103689240
         Y: 115840000
   - m_Collider: {fileID: 6693184593068939992}
     m_ColliderPaths:
@@ -8061,10 +8061,6 @@ CompositeCollider2D:
       - {x: 11.933971, y: 12.614}
       - {x: 11.304002, y: 12.613971}
       - {x: 11.303972, y: 11.983999}
-      - {x: 9.124086, y: 11.98397}
-      - {x: 9.124057, y: 11.772304}
-      - {x: 8.290348, y: 11.772333}
-      - {x: 8.2903185, y: 11.983999}
       - {x: 0.684, y: 11.984029}
       - {x: 0.6839707, y: 12.614}
       - {x: 0.0539999, y: 12.613971}
@@ -10774,7 +10770,7 @@ PrefabInstance:
     - target: {fileID: 1058358463653758515, guid: f6a97b59af1943a469aaaff81f16046d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.31
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 1058358463653758515, guid: f6a97b59af1943a469aaaff81f16046d,
         type: 3}
@@ -11198,12 +11194,12 @@ PrefabInstance:
     - target: {fileID: 8416032109778657474, guid: f3e67c65692600147bcbd3e6e52d022d,
         type: 3}
       propertyPath: m_Size.x
-      value: 4.611348
+      value: 6.689924
       objectReference: {fileID: 0}
     - target: {fileID: 8416032109778657474, guid: f3e67c65692600147bcbd3e6e52d022d,
         type: 3}
       propertyPath: m_Offset.x
-      value: 1.8656735
+      value: 2.9049613
       objectReference: {fileID: 0}
     - target: {fileID: 8416032109778657474, guid: f3e67c65692600147bcbd3e6e52d022d,
         type: 3}
