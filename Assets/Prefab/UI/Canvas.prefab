@@ -2761,7 +2761,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_Spacing: 10
+  m_Spacing: 15
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -2784,6 +2784,8 @@ MonoBehaviour:
   energyPrefab: {fileID: 2467560813522443773, guid: c110328240d8cf847ab1df6da0900b79,
     type: 3}
   playerEnergy: []
+  blueGem: {fileID: 253076681, guid: 86c4c956d4b148e49a36c1cdd193df75, type: 3}
+  blackGem: {fileID: 32089211, guid: 86c4c956d4b148e49a36c1cdd193df75, type: 3}
 --- !u!1 &4429930370145895088
 GameObject:
   m_ObjectHideFlags: 0
@@ -4265,6 +4267,8 @@ MonoBehaviour:
   healthPrefab: {fileID: 6454115889790410949, guid: a22c6d449f4ee2b4595ad66f516c52a0,
     type: 3}
   playerHealth: []
+  redHeart: {fileID: -1246526287, guid: 0bdca2ae83dba4c459122f3f20f63e98, type: 3}
+  blackHeart: {fileID: 379387616, guid: 0bdca2ae83dba4c459122f3f20f63e98, type: 3}
 --- !u!1 &7765851547712065194
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AchieveManager : MonoBehaviour
 {
+    RectTransform rect;
     public static AchieveManager instance;
     public GameObject uiNotice;
 
@@ -113,11 +114,11 @@ public class AchieveManager : MonoBehaviour
     // 공지창 활성화
     IEnumerator NoticeRoutine()
     {
-        uiNotice.SetActive(true);
+        rect.localScale = Vector3.one;
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
 
         yield return wait;
 
-        uiNotice.SetActive(false);
+        rect.localScale = Vector3.zero;
     }
 }

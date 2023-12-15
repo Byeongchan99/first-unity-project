@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class EnergyManager : MonoBehaviour
 {
-    public static EnergyManager Instance { get; private set; }
-
     [SerializeField] private GameObject energyPrefab;
     [SerializeField] private List<Image> playerEnergy;
+
+    public static EnergyManager Instance { get; private set; }
+    public Sprite blueGem;
+    public Sprite blackGem;
 
     private void Awake()
     {
@@ -66,10 +68,12 @@ public class EnergyManager : MonoBehaviour
             if (i < currentEnergy)
             {
                 playerEnergy[i].gameObject.SetActive(true);
+                playerEnergy[i].sprite = blueGem;
             }
             else
             {
-                playerEnergy[i].gameObject.SetActive(false);
+                //playerEnergy[i].gameObject.SetActive(false);
+                playerEnergy[i].sprite = blackGem;
             }
         }
     }
