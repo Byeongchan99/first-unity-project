@@ -41,6 +41,7 @@ public class Shop : MonoBehaviour
         if (UIManager.instance != null)   // UI 매니저를 통해 참조
         {
             UIManager.instance.SetShopUI(this);
+            DisplayRandomShopItems();   // 게임이 실행될 때 상점 물품 초기화
         }
         else
         {
@@ -84,14 +85,19 @@ public class Shop : MonoBehaviour
         }
     }
 
-    // 아이템 목록 중 랜덤으로 3개 선택 후 반환
+    // 품절이 아닌 아이템 목록 중 랜덤으로 3개 선택 후 반환
     private List<ShopItemData> ChooseRandomItems(int count)
     {
         HashSet<int> selectedIndices = new HashSet<int>();
+
         while (selectedIndices.Count < count && selectedIndices.Count < allShopItems.Length)
         {
             int randomIndex = Random.Range(0, allShopItems.Length);
-            selectedIndices.Add(randomIndex);
+
+            if (!IsItemPurchased(randomIndex))
+            {
+                selectedIndices.Add(randomIndex);
+            }
         }
 
         List<ShopItemData> chosen = new List<ShopItemData>();

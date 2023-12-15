@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
         if (isNearShop)
         {
             UIManager.instance.shopUI.Show();
-            UIManager.instance.shopUI.DisplayRandomShopItems();
+            //UIManager.instance.shopUI.DisplayRandomShopItems();
         }
 
         if (isNearPortal)

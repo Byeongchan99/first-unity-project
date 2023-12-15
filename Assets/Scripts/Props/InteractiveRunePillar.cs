@@ -29,9 +29,10 @@ public class InteractiveRunePillar : MonoBehaviour
     public void Interaction()
     {
         SwapPrefabs();
-        StageManager.Instance.SetRuneStageCompleted(runeStageID, true);
-        RuneGlowPillar.Instance.ActivateRune(runeStageID);
-        UIManager.instance.mapRuneUI.ActivateRune(runeStageID);
-        AcivePortalSprite();
+        StageManager.Instance.SetRuneStageCompleted(runeStageID, true);   // 룬 스테이지 클리어 여부 설정
+        RuneGlowPillar.Instance.ActivateRune(runeStageID);   // 메인 스테이지 중앙의 룬 기둥과 제단 룬 표시
+        UIManager.instance.mapRuneUI.ActivateRune(runeStageID);   // 맵에 룬 표시
+        UIManager.instance.shopUI.DisplayRandomShopItems();   // 상점 물품 초기화
+        AcivePortalSprite();   // 포탈 스프라이트 표시
     }
 }
