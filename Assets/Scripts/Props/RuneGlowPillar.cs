@@ -6,6 +6,7 @@ using static Unity.Collections.Unicode;
 
 public class RuneGlowPillar : MonoBehaviour
 {
+    public GameObject[] portals;   // 룬 스테이지 포탈
     public GameObject[] pillars;  // 각 기둥 프리팹 배열
     public GameObject[] runes;   // 제단의 각 룬
     public static RuneGlowPillar Instance;  // 싱글톤 인스턴스
@@ -24,6 +25,12 @@ public class RuneGlowPillar : MonoBehaviour
 
     void Start()
     {
+        // 모든 포탈 오브젝트 활성화
+        foreach (GameObject portal in portals)
+        {
+            portal.gameObject.SetActive(true);
+        }
+
         // 모든 기둥의 Glow 오브젝트를 비활성화
         foreach (GameObject pillar in pillars)
         {
@@ -41,6 +48,7 @@ public class RuneGlowPillar : MonoBehaviour
     {
         // runeStageID 변수에 따라 Glow 오브젝트와 룬 활성화
         Debug.Log("Activate Pillar: " + runeStageID);
+        portals[runeStageID].gameObject.SetActive(false);
         pillars[runeStageID].transform.GetChild(0).gameObject.SetActive(true);
         runes[runeStageID].gameObject.SetActive(true);
     }
