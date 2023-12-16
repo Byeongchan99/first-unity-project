@@ -130,7 +130,7 @@ public abstract class MonsterBase : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;   // 위치 고정 해제
         */
 
-        if (health < 0)
+        if (health <= 0)
             ChangeState(MonsterState.DEAD);   // DEAD 상태로 전환
         else
             ChangeState(MonsterState.CHASE);   // CHASE 상태로 전환
@@ -184,7 +184,7 @@ public abstract class MonsterBase : MonoBehaviour
         if (attackID != lastAttackID || attackID == -1)
         {
             health -= damage;
-            if (health > 0)
+            if (health <= 0)
             {
                 StartCoroutine(FlashSprite());
                 StartCoroutine(KnockBack());

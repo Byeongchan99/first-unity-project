@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.U2D.Aseprite;
@@ -8,6 +9,7 @@ public class StageManager : MonoBehaviour
 {
     public static StageManager Instance { get; private set; }
 
+    //public PolygonCollider2D boundingShape; // Cinemachine Confiner 컴포넌트 참조 용 콜라이더
     public List<StageData> stages; // 모든 스테이지의 데이터 리스트
     public StageData currentStage; // 현재 활성화된 스테이지 데이터
     private Dictionary<int, GameObject> stageInstances = new Dictionary<int, GameObject>(); // 스테이지 인스턴스 저장
@@ -48,6 +50,7 @@ public class StageManager : MonoBehaviour
 
         // 첫 번째 스테이지를 현재 스테이지로 설정
         currentStage = stages[0];
+        //boundingShape.enabled = false;
     }
 
     public Vector2 TilemapToWorldPosition(Vector2Int tilemapPos, Vector2Int bottomLeft, Vector2Int topRight)   // 타일맵 좌표를 월드 좌표로 변환
@@ -93,6 +96,7 @@ public class StageManager : MonoBehaviour
             {
                 // 이전 스테이지 비활성화
                 stageInstances[currentStage.stageID].SetActive(false);
+                //boundingShape.enabled = false;
             }
 
             currentStage = stages[stageIndex];
@@ -103,12 +107,39 @@ public class StageManager : MonoBehaviour
 
             // 플레이어를 새 스테이지의 시작 위치로 이동
             PlayerStat.Instance.transform.position = currentStage.startPosition;
-           
+            //UpdateConfinerBounds();   // Confiner 업데이트
+
             // 전투 스테이지일 경우 몬스터 소환
             if (currentStage.stageType == "battle" || currentStage.stageType == "boss") 
                 WaveManager.Instance.StartWave();
         }
     }
+
+    /*
+    // 시네머신 Confiner 업데이트
+    private void UpdateConfinerBounds()
+    {
+        if (boundingShape != null && currentStage != null)
+        {
+            int topRightX = currentStage.topRight.x;
+            int topRightY = currentStage.topRight.y;
+            int bottomLeftX = currentStage.bottomLeft.x;
+            int bottomLeftY = currentStage.bottomLeft.y;
+
+            Vector2[] boxPoints = new Vector2[5];
+
+            // 사각형의 꼭짓점 설정
+            boxPoints[0] = new Vector2(bottomLeftX - 3, bottomLeftY - 3);  // 왼쪽 하단
+            boxPoints[1] = new Vector2(topRightX + 3, bottomLeftY - 3);   // 오른쪽 하단
+            boxPoints[2] = new Vector2(topRightX + 3, topRightY + 3);    // 오른쪽 상단
+            boxPoints[3] = new Vector2(bottomLeftX - 3, topRightY + 3);   // 왼쪽 상단
+            boxPoints[4] = boxPoints[0]; // 마지막 꼭짓점은 처음 꼭짓점과 같아야 폴리곤이 닫힌다.
+
+            boundingShape.SetPath(0, boxPoints);
+        }
+        boundingShape.enabled = true;
+    }
+    */
 
     // 스테이지 완료 상태 업데이트 메서드
     public void SetStageCompleted(int stageID, bool completed)

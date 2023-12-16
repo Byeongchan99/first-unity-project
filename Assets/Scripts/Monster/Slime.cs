@@ -20,6 +20,7 @@ public class Slime : MonsterBase
             if (health <= 0)
             {
                 anim.SetBool("IsAttack", false);
+                monsterAttackArea.attackRangeCollider.enabled = false;   // 공격 범위 콜라이더 비활성화
                 yield break; // 상태 확인 후 코루틴 종료
             }
             yield return null; // 다음 프레임까지 대기

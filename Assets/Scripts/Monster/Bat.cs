@@ -44,6 +44,7 @@ public class Bat : MonsterBase
             if (health <= 0)
             {
                 anim.SetBool("IsAttack", false);
+                monsterAttackArea.attackRangeCollider.enabled = false;
                 yield break; // 상태 확인 후 코루틴 종료
             }
             yield return null; // 다음 프레임까지 대기
@@ -62,7 +63,7 @@ public class Bat : MonsterBase
         {
             if (health <= 0)
             {
-                anim.SetBool("IsAttack", false);
+                anim.SetBool("IsStun", false);
                 yield break; // 상태 확인 후 코루틴 종료
             }
             yield return null; // 다음 프레임까지 대기
