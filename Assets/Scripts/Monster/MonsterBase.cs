@@ -184,7 +184,7 @@ public abstract class MonsterBase : MonoBehaviour
         if (attackID != lastAttackID || attackID == -1)
         {
             health -= damage;
-            if (health <= 0)
+            if (health > 0)
             {
                 StartCoroutine(FlashSprite());
                 StartCoroutine(KnockBack());
@@ -248,6 +248,7 @@ public abstract class MonsterBase : MonoBehaviour
 
         // 몬스터 상태 초기화 및 애니메이션 처리 (예: 사망 애니메이션 재생)
         rb.velocity = Vector2.zero;
+        spriteRenderer.color = Color.white;  // 스프라이트 색상을 원래대로 (흰색) 변경
         rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;   // 위치 고정
         anim.SetTrigger("Dead");
         yield return new WaitForSeconds(1); // 사망 애니메이션 재생 시간 (예: 1초)

@@ -160,7 +160,6 @@ public class PlayerController : MonoBehaviour
         {
             UIManager.instance.mapBackgroundUI.Show();
         }
-        UIManager.instance.mapBackgroundUI.isOpened = !UIManager.instance.mapBackgroundUI.isOpened;
     }
 
     // 이동
