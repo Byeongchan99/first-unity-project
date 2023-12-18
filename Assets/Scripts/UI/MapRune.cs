@@ -21,7 +21,7 @@ public class MapRune : MonoBehaviour
         if (runeStageID >= 0 && runeStageID < runes.Length)
         {
             runes[runeStageID].gameObject.SetActive(true);
-            StartCoroutine(FadeIn(runes[runeStageID], 2.0f)); // 페이드인 코루틴 호출
+            StartCoroutine(FadeIn(runes[runeStageID], 3.0f)); // 페이드인 코루틴 호출
         }
         else
         {
@@ -43,7 +43,7 @@ public class MapRune : MonoBehaviour
         }
 
         image.color = new Color(image.color.r, image.color.g, image.color.b, 1); // 최종 알파값 1로 설정
-        yield return new WaitForSecondsRealtime(2.0f);
-        UIManager.instance.mapBackgroundUI.Hide();   // 2초 후 맵 닫기
+        yield return new WaitForSecondsRealtime(1.0f);
+        UIManager.instance.mapBackgroundUI.Hide();   // 맵 닫기
     }
 }

@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     [Header("기타 상호작용")]
     private bool isNearPortal = false;   // 포탈 상호작용
     private bool isNearNPC = false;   // NPC 상호작용
+    public bool isSystemNotice = false;   // 시스템 공지
     public GameObject currentNearNPC;
     public int transitionToStageIndex;
 
@@ -143,7 +144,8 @@ public class PlayerController : MonoBehaviour
 
             if (interactiveRunePillar != null)
             {
-                Debug.Log("상호작용");
+                Debug.Log("봉인석과 상호작용");
+                isSystemNotice = true;
                 interactiveRunePillar.Interaction(); // interactiveRunePillar의 상호작용 메서드 호출
             }
         }
@@ -250,7 +252,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (collision.CompareTag("NPCInteractionRange")) // 상점 상호작용 범위 확인
+        if (collision.CompareTag("NPCInteractionRange")) // NPC 상호작용 범위 확인
         {
             currentNearNPC = collision.gameObject.transform.parent.gameObject;
             HandleNPCInteraction();
@@ -338,7 +340,11 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("NPCInteractionRange"))
         {
             isNearNPC = false;
-            UIManager.instance.dialogueUI.Hide();
+
+            if (!isSystemNotice)   // 시스템 공지가 아닌 경우
+            {
+                UIManager.instance.dialogueUI.Hide();   
+            }
         }
     }
 

@@ -12568,6 +12568,11 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -450540567
       objectReference: {fileID: 0}
+    - target: {fileID: 4163502688230369962, guid: 0d3a26b68900fbd4987e6c4b36b7d5ba,
+        type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: "\uC0AC\uB9C9\uC758 \uBD09\uC778\uC11D\uC744 \uBCF5\uAD6C\uD569\uB2C8\uB2E4"
+      objectReference: {fileID: 0}
     - target: {fileID: 5958310197804338256, guid: 0d3a26b68900fbd4987e6c4b36b7d5ba,
         type: 3}
       propertyPath: m_SortingLayer
@@ -12587,6 +12592,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayerID
       value: -450540567
+      objectReference: {fileID: 0}
+    - target: {fileID: 7654732047584076018, guid: 0d3a26b68900fbd4987e6c4b36b7d5ba,
+        type: 3}
+      propertyPath: text
+      value: "\uC0AC\uB9C9\uC758 \uBD09\uC778\uC11D\uC744 \uBCF5\uAD6C\uD588\uB2E4"
       objectReference: {fileID: 0}
     - target: {fileID: 7654732047584076018, guid: 0d3a26b68900fbd4987e6c4b36b7d5ba,
         type: 3}

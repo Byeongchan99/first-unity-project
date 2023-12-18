@@ -34,14 +34,18 @@ public class UIManager : MonoBehaviour
     // 대화창 UI
     public Dialogue dialogueUI;
 
+    /*
     public void SetDialogueUI(Dialogue newDialogueUI)
     {
         dialogueUI = newDialogueUI;
     }
+    */
 
     // 맵 룬 효과
     public MapRune mapRuneUI;
-
     public MapBackground mapBackgroundUI;
+
+    // 룬 복구 애니메이션
+    public GameObject repairAnimation;
 }
 
