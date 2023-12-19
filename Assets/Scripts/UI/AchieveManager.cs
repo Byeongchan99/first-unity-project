@@ -31,6 +31,12 @@ public class AchieveManager : MonoBehaviour
         }
     }
 
+    public void DestroyInstance()
+    {
+        Destroy(gameObject);
+        instance = null;
+    }
+
     void Init()
     {
         Debug.Log("AchieveManager init");

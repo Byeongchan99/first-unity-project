@@ -24,6 +24,7 @@ namespace CharacterController
         // 구르기 로직
         private void Roll()
         {
+            PlayerStat.Instance.animator.SetFloat("Speed", 1);   // 에러 방지
             Vector2 rollDirection = PlayerController.Instance.rollDirection;
 
             canRoll = false;

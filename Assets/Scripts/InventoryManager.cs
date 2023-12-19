@@ -13,6 +13,12 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void DestroyInstance()
+    {
+        Destroy(gameObject);
+        _instance = null;
+    }
+
     // 테스트용 한손검 프리팹
     public GameObject oneHandSwordBasic;
     public GameObject oneHandSwordRed;

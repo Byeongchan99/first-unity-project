@@ -19,6 +19,12 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void DestroyInstance()
+    {
+        Destroy(gameObject);
+        instance = null;
+    }
+
     // UIManager의 다른 메서드들...
     // 상점  UI
     public Shop shopUI;

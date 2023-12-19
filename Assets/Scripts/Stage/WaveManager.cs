@@ -38,6 +38,12 @@ public class WaveManager : MonoBehaviour
         }
     }
 
+    public void DestroyInstance()
+    {
+        Destroy(gameObject);
+        Instance = null;
+    }
+
     private void Start()
     {
         InitializeObjectPools();

@@ -34,6 +34,12 @@ public class StageManager : MonoBehaviour
         }
     }
 
+    public void DestroyInstance()
+    {
+        Destroy(gameObject);
+        Instance = null;
+    }
+
     // 시작 스테이지를 제외하고 비활성화
     private void Start()
     {

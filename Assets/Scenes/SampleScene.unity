@@ -1679,6 +1679,7 @@ MonoBehaviour:
   pool: {fileID: 2119090328}
   playerController: {fileID: 0}
   waveManager: {fileID: 976260177}
+  enemyCleaner: {fileID: 0}
 --- !u!4 &2062460085
 Transform:
   m_ObjectHideFlags: 0
@@ -2002,6 +2003,7 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   mouseDirection: {x: 0, y: 0, z: 0}
   attackDirection: {x: 0, y: 0}
+  isSystemNotice: 0
   currentNearNPC: {fileID: 0}
   transitionToStageIndex: 0
 --- !u!114 &2127830148

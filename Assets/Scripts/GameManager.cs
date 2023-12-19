@@ -33,6 +33,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void DestroyInstance()
+    {
+        Destroy(gameObject);
+        instance = null;
+    }
+
     /*
     public void GameStart(int id)
     {
@@ -101,6 +107,18 @@ public class GameManager : MonoBehaviour
 
     public void GameRetry()
     {
+        Debug.Log("GameRetry");
+        // 현재 실행 중인 모든 코루틴 중지
+        StopAllCoroutines();
+        // 모든 싱글톤 초기화
+        GameManager.instance.DestroyInstance();
+        InventoryManager.Instance.DestroyInstance();
+        AchieveManager.instance.DestroyInstance();
+        StageManager.Instance.DestroyInstance();
+        UIManager.instance.DestroyInstance();
+        WaveManager.Instance.DestroyInstance();
+        PlayerController.Instance.DestroyInstance();
+
         SceneManager.LoadScene(0);
     }
 

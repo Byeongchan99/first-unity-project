@@ -174,7 +174,7 @@ public abstract class MonsterBase : MonoBehaviour
 
             case "ExplosionArea":
                 ProcessDamage(-1, collision.transform.parent.GetComponent<FireBolt>().explosionDamage);
-                break;
+                break;         
         }
     }
 

@@ -65,6 +65,13 @@ public class PlayerController : MonoBehaviour
         rightHand.GetComponent<SpriteRenderer>().enabled = false;
     }
 
+    // 싱글톤 파괴 메서드
+    public void DestroyInstance()
+    {
+        Destroy(gameObject);
+        Instance = null;
+    }
+
     void Start()
     {    
         // rollState = playerStat.stateMachine.GetState(StateName.ROLL) as RollState;
@@ -189,7 +196,7 @@ public class PlayerController : MonoBehaviour
        // 구르고 있지 않을 때
        if (!RollState.IsRoll)
         {
-            // Debug.Log("대시 처음 발동");
+            //Debug.Log("구른다");
             playerStat.stateMachine.ChangeState(StateName.ROLL);
         } 
     }
@@ -246,6 +253,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         if (collision.CompareTag("ShopInteractionRange")) // 상점 상호작용 범위 확인
         {
             HandleShopInteraction();
