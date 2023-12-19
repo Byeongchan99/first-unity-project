@@ -49,10 +49,10 @@ public class InteractiveRunePillar : MonoBehaviour
         UIManager.instance.shopUI.DisplayRandomShopItems();   // 상점 아이템 초기화
 
         yield return new WaitForSeconds(1.0f); // 4초 동안 대기(맵 활성화 후 룬 나타나는 시간 3초 + 1초 후 맵 비활성화)
-        UIManager.instance.dialogueUI.Show(text);   // 봉인석 복구 메시지
+        UIManager.instance.dialogueUI.Show(text);   // 봉인석 복구 메시지 활성화
         yield return new WaitForSeconds(3.0f); // 3초 동안 대기
-        UIManager.instance.dialogueUI.Hide();
-        PlayerController.Instance.isSystemNotice = false;
+        UIManager.instance.dialogueUI.Hide();   // 봉인석 복구 메시지 비활성화
+        PlayerController.Instance.isSystemNotice = false;   // 시스템 공지 여부 - 봉인석 복구 메시지
         AcivePortalSprite();
     }
 }

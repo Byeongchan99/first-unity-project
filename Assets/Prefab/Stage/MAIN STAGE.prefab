@@ -36467,6 +36467,7 @@ MonoBehaviour:
   - {fileID: 829614329491187210}
   - {fileID: 8385294338147388178}
   - {fileID: 5798789368718500455}
+  altarPortal: {fileID: 9023425169810829990}
 --- !u!1 &7613895700836133143
 GameObject:
   m_ObjectHideFlags: 0
@@ -50658,6 +50659,12 @@ PrefabInstance:
 --- !u!4 &7168858571632916576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 875220999130077459, guid: ab84119a5766c5e4bb74153c2485807c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8023600616367317363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9023425169810829990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1324105972398511061, guid: ab84119a5766c5e4bb74153c2485807c,
     type: 3}
   m_PrefabInstance: {fileID: 8023600616367317363}
   m_PrefabAsset: {fileID: 0}

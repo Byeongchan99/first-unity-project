@@ -6,10 +6,12 @@ using static Unity.Collections.Unicode;
 
 public class RuneGlowPillar : MonoBehaviour
 {
+    public static RuneGlowPillar Instance;  // 싱글톤 인스턴스
+
     public GameObject[] portals;   // 룬 스테이지 포탈
     public GameObject[] pillars;  // 각 기둥 프리팹 배열
     public GameObject[] runes;   // 제단의 각 룬
-    public static RuneGlowPillar Instance;  // 싱글톤 인스턴스
+    public GameObject altarPortal;   // 제단 포탈
 
     void Awake()
     {
@@ -42,6 +44,9 @@ public class RuneGlowPillar : MonoBehaviour
         {
             rune.gameObject.SetActive(false);
         }
+
+        // altar의 Portal 자식 오브젝트 비활성화
+        altarPortal.SetActive(false);
     }
 
     public void ActivateRune(int runeStageID)
@@ -51,5 +56,22 @@ public class RuneGlowPillar : MonoBehaviour
         portals[runeStageID].gameObject.SetActive(false);
         pillars[runeStageID].transform.GetChild(0).gameObject.SetActive(true);
         runes[runeStageID].gameObject.SetActive(true);
+
+        // 모든 룬 스테이지를 클리어 했는지 확인 후 altar의 Portal 스크립트 오브젝트 활성화
+        bool allStageCleared = true;
+        foreach (var runeStage in StageManager.Instance.completedRuneStages)
+        {
+            if (!runeStage.Value)
+            {
+                allStageCleared = false;
+                break;
+            }           
+        }
+
+        if (allStageCleared)
+        {
+            // altar의 Portal 자식 오브젝트 비활성화
+            altarPortal.SetActive(true);
+        }
     }
 }
