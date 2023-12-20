@@ -15,7 +15,7 @@ public class BossMonster : MonoBehaviour
     public bool IsLive;
     private bool isDeadWhileCoroutine;   // 코루틴 도중 사망 여부 확인
     public float health;
-    private float maxHealth = 50;
+    private float maxHealth = 500;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
     private float attackCooldown; // 다음 공격까지의 시간
     private bool isPatternActive = false; // 현재 공격 패턴이 실행 중인지 추적하는 변수
@@ -438,7 +438,7 @@ public class BossMonster : MonoBehaviour
         StartCoroutine(ChangeHandRockToPaper());
 
         Debug.Log("패턴 1 완료");
-        yield return StartCoroutine(WaitForConditionOrTime(1.0f));   // 1초간 대기
+        yield return StartCoroutine(WaitForConditionOrTime(0.5f));   // 1초간 대기
         if (isDeadWhileCoroutine)
         {
             // 조건이 충족되어 코루틴 종료
@@ -520,7 +520,7 @@ public class BossMonster : MonoBehaviour
         StartCoroutine(ChangeHandRockToPaper());
 
         Debug.Log("패턴 2 완료");
-        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        yield return StartCoroutine(WaitForConditionOrTime(0.5f));
         if (isDeadWhileCoroutine)
         {
             // 조건이 충족되어 코루틴 종료
@@ -628,7 +628,7 @@ public class BossMonster : MonoBehaviour
         animator.SetBool("IsCharge", false);
 
         Debug.Log("패턴 3 완료");
-        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        yield return StartCoroutine(WaitForConditionOrTime(0.5f));
         if (isDeadWhileCoroutine)
         {
             // 조건이 충족되어 코루틴 종료
@@ -719,7 +719,7 @@ public class BossMonster : MonoBehaviour
         animator.SetBool("IsCharge", false);
 
         Debug.Log("패턴 4 완료");
-        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        yield return StartCoroutine(WaitForConditionOrTime(0.5f));
         if (isDeadWhileCoroutine)
         {
             // 조건이 충족되어 코루틴 종료
@@ -825,7 +825,7 @@ public class BossMonster : MonoBehaviour
         StartCoroutine(ChangeHandRockToPaper());
 
         Debug.Log("패턴 5 완료");
-        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        yield return StartCoroutine(WaitForConditionOrTime(0.5f));
         if (isDeadWhileCoroutine)
         {
             // 조건이 충족되어 코루틴 종료

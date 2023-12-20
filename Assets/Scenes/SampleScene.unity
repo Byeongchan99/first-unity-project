@@ -2060,13 +2060,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightHand: {fileID: 257092321}
   chargeWeaponPos: {fileID: 1501707187}
+  isLive: 0
   playerID: 0
-  maxHP: 2
-  currentHP: 2
+  maxHP: 5
+  currentHP: 5
   attackPower: 0
   level: 0
   kill: 0
-  gold: 1000
+  gold: 0
   moveSpeed: 200
   rollSpeed: 0.02
   rollCooltime: 0.1
@@ -2381,6 +2382,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365879290310755104, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -105
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365879290960916903, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365879291102136305, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365879291102136305, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365879291102136310, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8065337398984321213, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
