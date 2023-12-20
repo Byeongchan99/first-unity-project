@@ -14,7 +14,7 @@ public class BossMonster : MonoBehaviour
     [Header("스텟 관련")]
     public bool IsLive;
     private bool isDeadWhileCoroutine;   // 코루틴 도중 사망 여부 확인
-    private float health;
+    public float health;
     private float maxHealth = 50;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
     private float attackCooldown; // 다음 공격까지의 시간
@@ -365,9 +365,9 @@ public class BossMonster : MonoBehaviour
 
         //Debug.Log("양 손 모두 본체 근처로 이동");
         // Debug.Log(originalPositionLeft + " " + originalPositionRight);
-        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 1f);
-        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 1f);
-        yield return new WaitForSeconds(1.0f);
+        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 0.5f);
+        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 0.5f);
+        yield return new WaitForSeconds(0.5f);
 
         // 플레이어의 위치를 기준으로 손 선택 - 맵의 왼쪽에 있으면 왼손, 오른쪽에 있으면 오른손
         GameObject firstHand = selectHand();
@@ -438,7 +438,7 @@ public class BossMonster : MonoBehaviour
         StartCoroutine(ChangeHandRockToPaper());
 
         Debug.Log("패턴 1 완료");
-        yield return StartCoroutine(WaitForConditionOrTime(2.0f));   // 2초간 대기
+        yield return StartCoroutine(WaitForConditionOrTime(1.0f));   // 1초간 대기
         if (isDeadWhileCoroutine)
         {
             // 조건이 충족되어 코루틴 종료
@@ -456,9 +456,9 @@ public class BossMonster : MonoBehaviour
         isPatternActive = true; // 패턴 시작
 
         // 양 손 모두 본체 근처로 이동
-        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 1f);
-        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 1f);
-        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 0.5f);
+        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 0.5f);
+        yield return StartCoroutine(WaitForConditionOrTime(0.5f));
         if (isDeadWhileCoroutine)
         {
             // 조건이 충족되어 코루틴 종료
@@ -478,9 +478,9 @@ public class BossMonster : MonoBehaviour
         {
             // 양 손을 올리고 내려치는 동작
             // Debug.Log("양 손 들어올리기");
-            MoveHand(leftHand, originalPositionLeft, raiseLeftHandPosition, 0.3f);
-            MoveHand(rightHand, originalPositionRight, raiseRightHandPosition, 0.3f);
-            yield return StartCoroutine(WaitForConditionOrTime(0.3f));
+            MoveHand(leftHand, originalPositionLeft, raiseLeftHandPosition, 0.5f);
+            MoveHand(rightHand, originalPositionRight, raiseRightHandPosition, 0.5f);
+            yield return StartCoroutine(WaitForConditionOrTime(0.5f));
             if (isDeadWhileCoroutine)
             {
                 // 조건이 충족되어 코루틴 종료
@@ -508,6 +508,11 @@ public class BossMonster : MonoBehaviour
             // 안전 구역과 위험 구역 재정의
             ToggleSafeZones();
         }
+        if (isDeadWhileCoroutine)
+        {
+            // 조건이 충족되어 코루틴 종료
+            yield break;
+        }
 
         InitEllipseSprite();
 
@@ -515,7 +520,7 @@ public class BossMonster : MonoBehaviour
         StartCoroutine(ChangeHandRockToPaper());
 
         Debug.Log("패턴 2 완료");
-        yield return StartCoroutine(WaitForConditionOrTime(2f));
+        yield return StartCoroutine(WaitForConditionOrTime(1f));
         if (isDeadWhileCoroutine)
         {
             // 조건이 충족되어 코루틴 종료
@@ -556,9 +561,9 @@ public class BossMonster : MonoBehaviour
         laserRightHandShadowPosition = originalPositionRightShadow + new Vector2(1f, 0);
 
         // 양 손 모으기
-        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, laserLeftHandPosition, leftHandShadow.transform.position, laserLeftHandShadowPosition, 1f);
-        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, laserRightHandPosition, rightHandShadow.transform.position, laserRightHandShadowPosition, 1f);
-        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, laserLeftHandPosition, leftHandShadow.transform.position, laserLeftHandShadowPosition, 0.5f);
+        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, laserRightHandPosition, rightHandShadow.transform.position, laserRightHandShadowPosition, 0.5f);
+        yield return StartCoroutine(WaitForConditionOrTime(0.5f));
         if (isDeadWhileCoroutine)
         {
             // 조건이 충족되어 코루틴 종료
@@ -588,6 +593,11 @@ public class BossMonster : MonoBehaviour
 
         while (elapsedTime < laserDuration)
         {
+            if (health <= 0)
+            {
+                isDeadWhileCoroutine = true;
+                yield break;
+            }
             // 레이저 회전
             float progress = elapsedTime / laserDuration; // 보간을 위한 진행도 계산
             Quaternion currentRotation = Quaternion.Lerp(startRotation, targetRotation, progress);
@@ -641,9 +651,9 @@ public class BossMonster : MonoBehaviour
         StartCoroutine(ChangeHandPaperToRock());
 
         // 양 손 모으기
-        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, laserLeftHandPosition, leftHandShadow.transform.position, laserLeftHandShadowPosition, 1f);
-        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, laserRightHandPosition, rightHandShadow.transform.position, laserRightHandShadowPosition, 1f);
-        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, laserLeftHandPosition, leftHandShadow.transform.position, laserLeftHandShadowPosition, 0.5f);
+        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, laserRightHandPosition, rightHandShadow.transform.position, laserRightHandShadowPosition, 0.5f);
+        yield return StartCoroutine(WaitForConditionOrTime(0.5f));
         if (isDeadWhileCoroutine)
         {
             // 조건이 충족되어 코루틴 종료
@@ -761,9 +771,9 @@ public class BossMonster : MonoBehaviour
         isPatternActive = true; // 패턴 시작
 
         // 양 손 모두 본체 근처로 이동
-        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 1f);
-        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 1f);
-        yield return StartCoroutine(WaitForConditionOrTime(1f));
+        MoveHand(leftHand, leftHandShadow, leftHand.transform.position, originalPositionLeft, leftHandShadow.transform.position, originalPositionLeftShadow, 0.5f);
+        MoveHand(rightHand, rightHandShadow, rightHand.transform.position, originalPositionRight, rightHandShadow.transform.position, originalPositionRightShadow, 0.5f);
+        yield return StartCoroutine(WaitForConditionOrTime(0.5f));
         if (isDeadWhileCoroutine)
         {
             // 조건이 충족되어 코루틴 종료
@@ -815,7 +825,7 @@ public class BossMonster : MonoBehaviour
         StartCoroutine(ChangeHandRockToPaper());
 
         Debug.Log("패턴 5 완료");
-        yield return StartCoroutine(WaitForConditionOrTime(2f));
+        yield return StartCoroutine(WaitForConditionOrTime(1f));
         if (isDeadWhileCoroutine)
         {
             // 조건이 충족되어 코루틴 종료
@@ -828,7 +838,7 @@ public class BossMonster : MonoBehaviour
     {
         yield return StartCoroutine(Pattern1());
 
-        if (health < 0)
+        if (health <= 0)
             ChangeState(BossState.DEAD);   // DEAD 상태로 전환
         else
             ChangeState(BossState.ATTACK);   // ATTACK 상태로 전환
@@ -838,7 +848,7 @@ public class BossMonster : MonoBehaviour
     {
         yield return ExecuteRandomPattern();
 
-        if (health < 0)
+        if (health <= 0)
             ChangeState(BossState.DEAD);   // DEAD 상태로 전환
         else
             ChangeState(BossState.CHASE);   // CHASE 상태로 전환

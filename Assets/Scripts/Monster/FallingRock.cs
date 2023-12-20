@@ -64,7 +64,7 @@ public class FallingRock : MonsterBullet
             distanceFallen += Mathf.Abs(fallThisFrame);
 
             // 낙석이 땅에 닿기 직전에 AttackAreaCollider를 활성화
-            if (fallDistance - distanceFallen < 0.5f) // 0.1은 거리 여유분입니다. 필요에 따라 조정하세요.
+            if (fallDistance - distanceFallen < 0.1f) // 0.1은 거리 여유분입니다. 필요에 따라 조정하세요.
             {
                 AttackAreaColider.enabled = true;
             }
