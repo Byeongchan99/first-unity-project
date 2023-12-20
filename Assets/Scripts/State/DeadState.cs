@@ -10,7 +10,7 @@ namespace CharacterController
 
         public override void OnEnterState()
         {
-            GameManager.instance.isLive = false;
+            PlayerStat.Instance.isLive = false;
             Dead();
         }
 

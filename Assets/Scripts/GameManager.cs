@@ -72,8 +72,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);   // 사망 애니메이션 재생 시간 0.5초
 
         Stop();
-
-        yield return null;
         /*
         uiResult.gameObject.SetActive(true);
         uiResult.Lose();
@@ -85,9 +83,7 @@ public class GameManager : MonoBehaviour
         GameRetry();
         */
     }
-    
-
-    /*
+       
     public void GameVictory()
     {
         StartCoroutine(GameVictoryRoutine());
@@ -96,6 +92,11 @@ public class GameManager : MonoBehaviour
     IEnumerator GameVictoryRoutine()
     {
         isLive = false;
+
+        UIManager.instance.gameVictoryUI.SetActive(true);
+        yield return null; 
+
+        /*
         enemyCleaner.SetActive(true);
 
         // 몬스터를 청소하기 위한 딜레이
@@ -107,8 +108,8 @@ public class GameManager : MonoBehaviour
 
         AudioManager.instance.PlayBgm(false);
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Win);
+        */
     }
-    */
 
     public void GameRetry()
     {
@@ -124,7 +125,8 @@ public class GameManager : MonoBehaviour
         WaveManager.Instance.DestroyInstance();
         PlayerController.Instance.DestroyInstance();
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);   // 게임 재시작
+        Resume();   // 씬 로드 시에도 시간이 멈춰있으므로, 다시 풀어주기
     }
 
     void Update()

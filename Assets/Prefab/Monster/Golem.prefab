@@ -826,6 +826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b32f580abb3914c44b50b51d26d5b3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shoulderSprite: {fileID: 3068474651722219112}
   leftHand: {fileID: 2336405462959815992}
   rightHand: {fileID: 2336405462781482954}
   leftHandShadow: {fileID: 2336405463661691760}

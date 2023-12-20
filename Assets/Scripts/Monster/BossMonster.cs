@@ -9,12 +9,13 @@ public class BossMonster : MonoBehaviour
     private Animator animator; // 애니메이터 컴포넌트
     private Animator leftHandAnimator, rightHandAnimator;   // 양 손 애니메이터
     private Animator leftHandShadowAnimator, rightHandShadowAnimator;   // 양 손 그림자 애니메이터
+    public GameObject shoulderSprite;   // 어깨 스프라이트
 
     [Header("스텟 관련")]
-    protected bool IsLive;
+    public bool IsLive;
     private bool isDeadWhileCoroutine;   // 코루틴 도중 사망 여부 확인
     private float health;
-    private float maxHealth = 500;
+    private float maxHealth = 50;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
     private float attackCooldown; // 다음 공격까지의 시간
     private bool isPatternActive = false; // 현재 공격 패턴이 실행 중인지 추적하는 변수
@@ -923,10 +924,12 @@ public class BossMonster : MonoBehaviour
         PlayerStat.Instance.Gold += randomGold;
 
         // 몬스터 상태 초기화 및 애니메이션 처리 (예: 사망 애니메이션 재생)
+        shoulderSprite.SetActive(false);   // 사망 애니메이션 적용할 때 어깨 스프라이트 비활성화
         animator.SetTrigger("Dead");
         yield return new WaitForSeconds(2f); // 사망 애니메이션 재생 시간 (예: 1초)
      
         gameObject.SetActive(false);  // 오브젝트 비활성화
+        GameManager.instance.GameVictory(); // 게임 승리
     }
 
     void ChangeState(BossState newMonsterState)

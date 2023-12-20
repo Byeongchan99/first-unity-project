@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CharacterController;
+using System.ComponentModel;
 
 public class PlayerStat : MonoBehaviour
 {
@@ -97,6 +98,7 @@ public class PlayerStat : MonoBehaviour
     }
 
     [Header("Ä³¸¯ÅÍ ½ºÅÈ")]
+    public bool isLive;
     [SerializeField] protected int playerID;
     [SerializeField] protected int maxHP;
     [SerializeField] protected int currentHP;
@@ -136,7 +138,12 @@ public class PlayerStat : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Start()
+    void OnEnable()
+    {
+        isLive = true;
+    }
+
+        void Start()
     {
         // InitStateMachine();
     }

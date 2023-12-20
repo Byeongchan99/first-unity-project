@@ -390,7 +390,7 @@ public class PlayerController : MonoBehaviour
         float elapsedTime = 0;
         bool isRed = false;
         
-        if (!GameManager.instance.isLive)
+        if (!PlayerStat.Instance.isLive)
         {
             spriteRenderer.color = Color.white; // 원래 색상으로 변경하고 코루틴 종료
             yield break;

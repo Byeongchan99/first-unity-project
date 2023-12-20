@@ -55,6 +55,8 @@ public class UIManager : MonoBehaviour
     public GameObject repairAnimation;
 
     // 게임오버 UI
-    public GameObject gameOverUI; 
+    public GameObject gameOverUI;
+    // 게임 승리 UI
+    public GameObject gameVictoryUI;
 }
 

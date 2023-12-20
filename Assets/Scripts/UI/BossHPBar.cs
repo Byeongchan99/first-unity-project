@@ -30,8 +30,15 @@ public class BossHPBar : MonoBehaviour
     {
         if (bossMonster != null)
         {
-            float healthRatio = bossMonster.GetCurrentHealth() / bossMonster.GetMaxHealth();
-            healthSlider.value = healthRatio;
+            if (!bossMonster.IsLive || !PlayerStat.Instance.isLive) // 보스나 플레이어가 죽었는지 체크
+            {
+                gameObject.SetActive(false); // 체력바 UI 비활성화
+            }
+            else
+            {
+                float healthRatio = bossMonster.GetCurrentHealth() / bossMonster.GetMaxHealth();
+                healthSlider.value = healthRatio;
+            }
         }
     }
 }
