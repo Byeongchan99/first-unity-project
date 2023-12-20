@@ -53,5 +53,8 @@ public class UIManager : MonoBehaviour
 
     // 룬 복구 애니메이션
     public GameObject repairAnimation;
+
+    // 게임오버 UI
+    public GameObject gameOverUI; 
 }
 

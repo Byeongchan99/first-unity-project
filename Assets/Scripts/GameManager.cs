@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -66,19 +67,23 @@ public class GameManager : MonoBehaviour
     {
         isLive = false;
 
+        UIManager.instance.gameOverUI.SetActive(true);
         // 사망 애니메이션을 적용하기 위한 딜레이
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);   // 사망 애니메이션 재생 시간 0.5초
 
+        Stop();
+
+        yield return null;
         /*
         uiResult.gameObject.SetActive(true);
         uiResult.Lose();
-        Stop();
+        
 
         AudioManager.instance.PlayBgm(false);
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Lose);
-        */
-
+        
         GameRetry();
+        */
     }
     
 

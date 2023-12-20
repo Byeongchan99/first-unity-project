@@ -783,6 +783,7 @@ MonoBehaviour:
   mapRuneUI: {fileID: 231973158}
   mapBackgroundUI: {fileID: 4176506684789718347}
   repairAnimation: {fileID: 7454217726384657886}
+  gameOverUI: {fileID: 670470583}
 --- !u!1 &602649357
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +848,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &670470583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2847006383655089053, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+    type: 3}
+  m_PrefabInstance: {fileID: 7454217726384657885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &789486013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,6 +1565,33 @@ Transform:
   - {fileID: 539479920}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1860166187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6449636375505251058, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+    type: 3}
+  m_PrefabInstance: {fileID: 7454217726384657885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1860166191
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860166187}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: daa9538e248c78341bf59cbb45f96ef0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1916391716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,7 +1713,6 @@ MonoBehaviour:
   pool: {fileID: 2119090328}
   playerController: {fileID: 0}
   waveManager: {fileID: 976260177}
-  enemyCleaner: {fileID: 0}
 --- !u!4 &2062460085
 Transform:
   m_ObjectHideFlags: 0
@@ -2021,13 +2054,13 @@ MonoBehaviour:
   rightHand: {fileID: 257092321}
   chargeWeaponPos: {fileID: 1501707187}
   playerID: 0
-  maxHP: 5
-  currentHP: 5
-  attackPower: 30
+  maxHP: 2
+  currentHP: 2
+  attackPower: 0
   level: 0
   kill: 0
   gold: 1000
-  moveSpeed: 250
+  moveSpeed: 200
   rollSpeed: 0.02
   rollCooltime: 0.1
   invincibleTime: 1.5
@@ -2101,11 +2134,42 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1147352066507681147, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 192464963, guid: 96baaaad2b57d5242ab063f2b4dc8af8,
+        type: 3}
+    - target: {fileID: 1342258647102917091, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2062460084}
+    - target: {fileID: 1342258647102917091, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GameRetry
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342258647102917091, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342258647102917091, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1579033323595681179, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 889140449}
+    - target: {fileID: 2847006383655089053, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3029852048316601879, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2221,6 +2285,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6449636375505251058, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerDeadAnimation
+      objectReference: {fileID: 0}
     - target: {fileID: 6913648556587871347, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2229,6 +2298,26 @@ PrefabInstance:
     - target: {fileID: 6913648556587871347, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
       propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7275327176556971387, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7275327176556971387, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7275327176556971387, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7275327176556971387, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8065337398984321213, guid: bd13f97f349b4fe48adba1e53a6d9c42,
@@ -2244,7 +2333,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6449636375505251058, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1860166191}
   m_SourcePrefab: {fileID: 100100000, guid: bd13f97f349b4fe48adba1e53a6d9c42, type: 3}
 --- !u!1 &7454217726384657886 stripped
 GameObject:
