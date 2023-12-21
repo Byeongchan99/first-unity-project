@@ -33,6 +33,8 @@ public class LoadoutMeleeChoice : MonoBehaviour
         weaponName = weaponInformation.Find("Weapon Name");
         weaponDescription = weaponInformation.Find("Weapon Description");
         weaponImage = weaponInformation.Find("Weapon Image");
+
+        selectedLoadout = meleeLoadouts[0];   // 처음에 장착된 무기는 기본 무기
     }
 
     public void Show()
@@ -141,7 +143,7 @@ public class LoadoutMeleeChoice : MonoBehaviour
         {
             UpdateWeaponInformation(loadout);
 
-            if (weaponID == 100)   // 무기 아이디 100은 잠김 상태
+            if (weaponID >= 100)   // 무기 아이디 100 이상은 잠김 상태
                 equipButton.interactable = false;
             else
                 equipButton.interactable = true;
