@@ -10,6 +10,7 @@ public class InteractiveRunePillar : MonoBehaviour
     public int runeStageID;  // 룬의 ID
     public GameObject PortalSprite;
     public string text;   // 봉인석 복구 완료 메시지
+    public bool isInteracted = false;   // 상호작용 여부
 
     void Start()
     {
@@ -32,11 +33,15 @@ public class InteractiveRunePillar : MonoBehaviour
 
     public void Interaction()
     {
-        StartCoroutine(WaitAndProcess());
+        if (!isInteracted)
+        {
+            StartCoroutine(WaitAndProcess());
+        }      
     }
 
     IEnumerator WaitAndProcess()
     {
+        isInteracted = true;
         UIManager.instance.repairAnimation.SetActive(true);   // 복구 애니메이션
         yield return new WaitForSeconds(3.0f); // 3초 동안 대기
         UIManager.instance.repairAnimation.SetActive(false);

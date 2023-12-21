@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 6233642589640023692}
   - component: {fileID: 588219166006699791}
   - component: {fileID: 4856773771776841181}
+  - component: {fileID: 2273992213888163860}
   m_Layer: 5
   m_Name: Player Victory Animation
   m_TagString: Untagged
@@ -368,7 +369,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1512672810, guid: 1fe79a365148d534f8617f454b3d12a5, type: 3}
+  m_Sprite: {fileID: -1043713438, guid: 5419178332ef94c4e82bdc7d1e2db97c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -378,6 +379,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &2273992213888163860
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801340302719648220}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cad51b230890fa4f91e1efa91ffab1b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &896272274169648384
 GameObject:
   m_ObjectHideFlags: 0
@@ -7067,7 +7089,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285066825
+    rgba: 4281401088
   m_fontColor: {r: 0, g: 1, b: 0.18787885, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
