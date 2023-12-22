@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AchieveManager : MonoBehaviour
 {
-    RectTransform rect;
     public static AchieveManager instance;
     public GameObject uiNotice;
 
@@ -104,7 +103,7 @@ public class AchieveManager : MonoBehaviour
         // 업적 해금 저장
         if (isAchieve && PlayerPrefs.GetInt(loadout.weaponName) == 0)
         {
-            // Debug.Log(loadout.weaponName + " 잠금 해제");
+            Debug.Log(loadout.weaponName + " 잠금 해제");
             PlayerPrefs.SetInt(loadout.weaponName, 1);
 
             // 공지 내용 활성화
@@ -120,11 +119,12 @@ public class AchieveManager : MonoBehaviour
     // 공지창 활성화
     IEnumerator NoticeRoutine()
     {
-        rect.localScale = Vector3.one;
+        Debug.Log("공지창 활성화");
+        uiNotice.SetActive(true);
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
 
         yield return wait;
 
-        rect.localScale = Vector3.zero;
+        uiNotice.SetActive(false);
     }
 }

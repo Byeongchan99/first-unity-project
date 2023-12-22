@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ab9a74091a0ad44bf523f1357fb521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiNotice: {fileID: 0}
+  uiNotice: {fileID: 1343454140}
   meleeLoadouts:
   - {fileID: 11400000, guid: 38d1e18c17a387f4491285aad53a7766, type: 2}
   - {fileID: 11400000, guid: ffcf5210b9fb5bc4eb3f9900545f64b8, type: 2}
@@ -1406,6 +1406,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRangeCollider: {fileID: 1329977112}
+--- !u!1 &1343454140 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5649928385380128381, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+    type: 3}
+  m_PrefabInstance: {fileID: 7454217726384657885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1430308549
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,7 +2073,7 @@ MonoBehaviour:
   attackPower: 0
   level: 0
   kill: 0
-  gold: 0
+  gold: 1000
   moveSpeed: 200
   rollSpeed: 0.02
   rollCooltime: 0.1
@@ -2642,7 +2648,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d62b1171994a6404c9f5c70c50642b59,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7667948939867410684, guid: bd13f97f349b4fe48adba1e53a6d9c42, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
