@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
         //waveManager.StartWave();
+        StageManager.Instance.TransitionToStage(0);
+        Resume();
     }
 
     public void GameOver()
@@ -126,7 +128,6 @@ public class GameManager : MonoBehaviour
         PlayerController.Instance.DestroyInstance();
 
         SceneManager.LoadScene(0);   // 게임 재시작
-        Resume();   // 씬 로드 시에도 시간이 멈춰있으므로, 다시 풀어주기
     }
 
     void Update()
@@ -134,9 +135,7 @@ public class GameManager : MonoBehaviour
         if (!isLive)
             return;
 
-        gameTime += Time.deltaTime;
-
-        
+        gameTime += Time.deltaTime;       
     }
 
     public void Stop()

@@ -8,13 +8,14 @@ public class HollowTree : MonoBehaviour
 
     void Update()
     {
-        currentStageID = StageManager.Instance.currentStage.stageID;
-
-        // 현재 스테이지가 클리어되었는지 확인
-        if (StageManager.Instance.IsStageCompleted(currentStageID))
+        if (StageManager.Instance != null)
         {
-            // 클리어되었다면 이 오브젝트를 비활성화
-            gameObject.SetActive(false);
+            currentStageID = StageManager.Instance.currentStage.stageID;
+
+            if (StageManager.Instance.IsStageCompleted(currentStageID))
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }

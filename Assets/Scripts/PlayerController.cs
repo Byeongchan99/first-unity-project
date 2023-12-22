@@ -288,6 +288,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // 플레이어 데미지 처리
     public void ApplyDamage()
     {
         // 무적 시간이거나 구르고 있을 경우 피해 무시
@@ -308,6 +309,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(GetHitRoutine());
     }
 
+    // 일반 몬스터 공격 처리 로직
     void HandleMonsterAttack(Collider2D collision)
     {
         MonsterAttackArea monsterAttackArea = collision.GetComponent<MonsterAttackArea>();
@@ -319,9 +321,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // 보스 공격 처리 로직
     void HandleBossAttack(Collider2D collision)
     {
-        // 보스 공격 처리 로직
         ApplyDamage();
         // lastAttackID 업데이트 필요한 경우 추가
     }
@@ -333,6 +335,7 @@ public class PlayerController : MonoBehaviour
         isNearShop = true;
     }
 
+    // NPC 상호작용 범위 들어올 때
     void HandleNPCInteraction()
     {
         // 상점 상호작용 로직
