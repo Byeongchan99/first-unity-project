@@ -833,6 +833,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c5882671d9779234ab2c5d72cc42d42f, type: 2}
   - {fileID: 11400000, guid: 07dbc58257ee72946871e910ced1c6ba, type: 2}
   - {fileID: 11400000, guid: 7cc9193fd322f6c48808c420d81663bf, type: 2}
+  - {fileID: 11400000, guid: b0fe927467d05b4498079068f53ab670, type: 2}
   currentStage: {fileID: 0}
 --- !u!4 &602649359
 Transform:
@@ -1186,6 +1187,9 @@ MonoBehaviour:
       type: 3}
     poolSize: 3
   - monsterPrefab: {fileID: 2336405463250997864, guid: d724c08dcc44bc448bc15514505eaa36,
+      type: 3}
+    poolSize: 1
+  - monsterPrefab: {fileID: 8697315753361090948, guid: fd2dd6eef00b0f74b88e5933d9b926a8,
       type: 3}
     poolSize: 1
 --- !u!1 &1139024530
@@ -2658,6 +2662,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d62b1171994a6404c9f5c70c50642b59,
         type: 3}
+    - target: {fileID: 8910507241773565830, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910507241773565830, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 602649358}
+    - target: {fileID: 8910507241773565830, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TransitionToStage
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910507241773565830, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: StageManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910507241773565830, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910507241773565830, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7667948939867410684, guid: bd13f97f349b4fe48adba1e53a6d9c42, type: 3}
     m_RemovedGameObjects: []
