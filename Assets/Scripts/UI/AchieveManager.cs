@@ -71,6 +71,9 @@ public class AchieveManager : MonoBehaviour
 
     public void CheckAchieve()
     {
+        if (StageManager.Instance.currentStage.stageID == 18)   // 튜토리얼 스테이지일 경우
+            return;
+
         // 업적 잠금 해제 조건 순회하며 확인
         Debug.Log("업적 잠금 해제 조건 확인");
         foreach (LoadoutData loadout in meleeLoadouts)

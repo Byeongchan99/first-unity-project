@@ -53,6 +53,16 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
     }
     */
+
+    public void TutorialStart()
+    {
+        StageManager.Instance.TransitionToStage(18);
+        PlayerStat.Instance.CurrentHP -= 1;
+        PlayerStat.Instance.CurrentEnergy -= 1;
+        PlayerStat.Instance.Gold += 1000;
+        Resume();
+    }
+
     public void GameStart()
     {
         //waveManager.StartWave();

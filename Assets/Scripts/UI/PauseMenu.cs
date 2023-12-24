@@ -9,9 +9,12 @@ public class PauseMenu : MonoBehaviour
     RectTransform rect;
     public bool isPaused = false;   // 토글 플래그
     public bool isOpenedSoundSetting = false;   // 사운드 설정 플래그
+    public bool isOpenedMainMenuConfirm = false;   // 메인메뉴로 나가기 확인 플래그
     public bool isOpenedGameExitConfirm = false;   // 게임종료 확인 플래그
 
-    // 게임종료 확인
+    // 메인메뉴 나가기 확인 패널
+    public GameObject mainMenuConfirmPanel;
+    // 게임종료 확인 패널
     public GameObject gameExitConfirmPanel;
     // 사운드 설정
     public SoundSettingMenu soundSettingPanel;
@@ -35,6 +38,24 @@ public class PauseMenu : MonoBehaviour
         GameManager.instance.Resume();
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         // AudioManager.instance.EffectBgm(false);
+    }
+
+    public void MainMenuConfirm()
+    {
+        if (mainMenuConfirmPanel != null)
+        {
+            mainMenuConfirmPanel.SetActive(true);
+            isOpenedMainMenuConfirm = true;
+        }
+    }
+
+    public void MainMenuCancel()
+    {
+        if (mainMenuConfirmPanel != null)
+        {
+            mainMenuConfirmPanel.SetActive(false);
+            isOpenedMainMenuConfirm = false;
+        }
     }
 
     public void GameExitConfirm()

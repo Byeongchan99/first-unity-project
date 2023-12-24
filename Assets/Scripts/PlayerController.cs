@@ -134,7 +134,14 @@ public class PlayerController : MonoBehaviour
 
         if (isNearPortal)
         {
-            StageManager.Instance.TransitionToStage(transitionToStageIndex);
+            if (StageManager.Instance.currentStage.stageID == 18)   // 현재 스테이지가 튜토리얼 스테이지라면
+            {
+                GameManager.instance.GameRetry();
+            }
+            else if (!GameManager.instance.isBattle)   // 전투 중이 아닐 때에만
+            {
+                StageManager.Instance.TransitionToStage(transitionToStageIndex);
+            }
         }
 
         if (isNearNPC)   // NPC 대화 상호작용

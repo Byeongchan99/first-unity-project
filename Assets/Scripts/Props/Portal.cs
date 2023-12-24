@@ -10,7 +10,7 @@ public class Portal : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Debug.Log("포탈 진입");
-        if (collision.CompareTag("Player") && !GameManager.instance.isBattle)   // 전투 중이 아닐 때만
+        if (collision.CompareTag("Player"))
         {
             PlayerController playerController = collision.GetComponent<PlayerController>();
 
