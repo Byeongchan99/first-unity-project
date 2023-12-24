@@ -739,6 +739,12 @@ MonoBehaviour:
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
+--- !u!1 &563108899 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4748101703638569230, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+    type: 3}
+  m_PrefabInstance: {fileID: 7454217726384657885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &582853633
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,6 +797,9 @@ MonoBehaviour:
   repairAnimation: {fileID: 7454217726384657886}
   gameOverUI: {fileID: 670470583}
   gameVictoryUI: {fileID: 2096298642}
+  healthUI: {fileID: 2090470366}
+  energyUI: {fileID: 1352063051}
+  goldUI: {fileID: 563108899}
 --- !u!1 &602649357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,6 +1431,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7454217726384657885}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1352063051 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8077191249659247477, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+    type: 3}
+  m_PrefabInstance: {fileID: 7454217726384657885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1430308549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,6 +1760,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2090470366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4917492109067327791, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+    type: 3}
+  m_PrefabInstance: {fileID: 7454217726384657885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2096298642 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 99104963689552898, guid: bd13f97f349b4fe48adba1e53a6d9c42,

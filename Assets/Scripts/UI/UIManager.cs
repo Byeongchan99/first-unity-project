@@ -58,5 +58,12 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverUI;
     // 게임 승리 UI
     public GameObject gameVictoryUI;
+
+    // 체력 UI
+    public GameObject healthUI;
+    // 에너지 UI
+    public GameObject energyUI;
+    // 현재 골드 UI
+    public GameObject goldUI;
 }
 
