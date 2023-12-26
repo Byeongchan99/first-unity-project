@@ -834,7 +834,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1043713438, guid: 5419178332ef94c4e82bdc7d1e2db97c, type: 3}
+  m_Sprite: {fileID: -1020718366, guid: 5419178332ef94c4e82bdc7d1e2db97c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7102,6 +7102,7 @@ GameObject:
   - component: {fileID: 7275327176556971387}
   - component: {fileID: 1948347647479441525}
   - component: {fileID: 1147352066507681147}
+  - component: {fileID: 2401787378066257524}
   m_Layer: 5
   m_Name: Tombstone
   m_TagString: Untagged
@@ -7166,6 +7167,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &2401787378066257524
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449636375505251058}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e94304b3782430d4c934b272170bf2a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6675496088266995897
 GameObject:
   m_ObjectHideFlags: 0
