@@ -11,6 +11,8 @@ public class WaveManager : MonoBehaviour
     private int currentWave = 0;  // 현재 웨이브 ID
     private int remainingMonsters; // 현재 웨이브의 남은 몬스터 수
 
+    public GameObject monsterSpawnEffect;   // 몬스터 소환 이펙트
+
     [System.Serializable]
     public class MonsterPool
     {
@@ -122,6 +124,44 @@ public class WaveManager : MonoBehaviour
         }
     }
 
+    // 페이드인 효과
+    IEnumerator FadeIn(GameObject monster)
+    {
+        SpriteRenderer renderer = monster.GetComponent<SpriteRenderer>();
+        if (renderer != null)
+        {
+            // 투명도를 0에서 1까지 점진적으로 변경
+            for (float alpha = 0f; alpha <= 1f; alpha += Time.deltaTime / 1f) // 1초 동안 페이드인
+            {
+                Color newColor = renderer.color;
+                newColor.a = alpha;
+                renderer.color = newColor;
+                yield return null; // 다음 프레임까지 기다림
+            }
+        }
+    }
+
+    // 몬스터 소환 이펙트
+    IEnumerator DeactivateAfterSeconds(GameObject objectToDeactivate, float seconds)
+    {
+        yield return new WaitForSeconds(seconds); // 지정된 시간만큼 기다림
+        objectToDeactivate.SetActive(false); // 객체 비활성화
+    }
+
+    // 몬스터 대기
+    IEnumerator StopMonsterMoment(GameObject monster, MonsterBase monsterComponent)
+    {
+        monsterComponent.rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;   // 위치 고정  
+        yield return new WaitForSeconds(0.5f);
+        monsterComponent.rb.constraints = RigidbodyConstraints2D.FreezeRotation;   // 위치 고정 해제
+    }
+
+    public void DeactivateEffect(GameObject effect)
+    {
+        // 몬스터 소환 애니메이션 시간
+        StartCoroutine(DeactivateAfterSeconds(effect, 0.834f));
+    }
+
     // 일반 몬스터 소환
     void SpawnMonster(GameObject monsterPrefab, Vector2 spawnPointPosition)
     {
@@ -142,10 +182,19 @@ public class WaveManager : MonoBehaviour
             MonsterBase monsterComponent = monsterToSpawn.GetComponent<MonsterBase>();
             Astar Astar = monsterToSpawn.GetComponent<Astar>();
             if (monsterComponent != null)
-            {
+            {              
+                GameObject monsterSpawnEffect = GameManager.instance.pool.Get(4);   // 몬스터 소환 애니메이션 활성화
+                monsterSpawnEffect.transform.position = spawnPointPosition;
+                DeactivateEffect(monsterSpawnEffect); // 몬스터 소환 애니메이션 비활성화 코루틴 호출
+
+                // 일반 몬스터 소환
                 monsterToSpawn.SetActive(true);
                 Astar.Initialize(StageManager.Instance.currentStage);   // Astar 알고리즘에 맵 데이터 업데이트
                 monsterComponent.ActivateMonster(); // 추가 초기화나 설정이 필요한 경우
+                StartCoroutine(StopMonsterMoment(monsterToSpawn, monsterComponent));   // 몬스터 약간 대기
+
+                // 페이드인 효과 시작
+                StartCoroutine(FadeIn(monsterToSpawn));
             }
         }
     }

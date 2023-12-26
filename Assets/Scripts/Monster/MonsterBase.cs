@@ -8,7 +8,7 @@ public abstract class MonsterBase : MonoBehaviour
 {
     protected Transform target;
     protected Animator anim;
-    protected Rigidbody2D rb;
+    public Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
     WaitForFixedUpdate wait;   // 다음 FixedUpdate까지 기다림
 
@@ -67,7 +67,7 @@ public abstract class MonsterBase : MonoBehaviour
     }
 
     IEnumerator StateMachine()
-    {
+    {     
         while (IsLive)
         {
             yield return StartCoroutine(monsterState.ToString());
