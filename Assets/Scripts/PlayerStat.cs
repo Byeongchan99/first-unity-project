@@ -13,6 +13,7 @@ public class PlayerStat : MonoBehaviour
     public Rigidbody2D rigidBody { get; private set; }
     public Animator animator { get; private set; }
     public Animator shadowAnimator { get; private set; }   // 그림자
+    public Animator particleAnimator { get; private set; }   // 파티클
     public Animator magicCircleAnimator { get; private set; }   // 마법진
     // 체력 에너지 UI 이벤트 추가
     public delegate void StatChangeDelegate();
@@ -128,6 +129,7 @@ public class PlayerStat : MonoBehaviour
             rigidBody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             shadowAnimator = transform.Find("Shadow").GetComponent<Animator>();
+            particleAnimator = transform.Find("Particle").GetComponent <Animator>();
             magicCircleAnimator = transform.Find("MagicCircle").GetComponent<Animator>();
             InitStateMachine();
             // 씬 전환 시에 파괴되지 않도록 지정하는 함수

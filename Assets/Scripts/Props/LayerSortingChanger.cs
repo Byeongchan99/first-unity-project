@@ -15,7 +15,7 @@ public class LayerSortingChanger : MonoBehaviour
 
     private void ChangeLayerAndSorting(GameObject obj, string layerName, string sortingLayerName)
     {
-        if (obj.name == "Shadow" || obj.name == "StandArea" || obj.name == "Player")
+        if (obj.name == "Shadow" || obj.name == "Particle" || obj.name == "StandArea" || obj.name == "Player")
         {
             // Layer 변경
             obj.layer = LayerMask.NameToLayer(layerName);
@@ -26,7 +26,7 @@ public class LayerSortingChanger : MonoBehaviour
             }
 
             // Sorting Layer 변경 (Shadow와 Player 적용)
-            if (obj.name == "Shadow" || obj.name == "Player")
+            if (obj.name == "Shadow" || obj.name == "Particle" || obj.name == "Player")
             {
                 SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
                 if (spriteRenderer != null)

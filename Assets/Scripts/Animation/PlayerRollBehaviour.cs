@@ -29,6 +29,7 @@ public class PlayerRollBehaviour : StateMachineBehaviour
         RollState.IsRoll = false;
         PlayerStat.Instance.animator.SetBool("IsRoll", false);
         PlayerStat.Instance.shadowAnimator.SetBool("IsRoll", false);
+        PlayerStat.Instance.particleAnimator.SetBool("IsRoll", false);
         PlayerStat.Instance.stateMachine.ChangeState(StateName.MOVE);
     }
 }
