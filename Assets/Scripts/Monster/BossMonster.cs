@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class BossMonster : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class BossMonster : MonoBehaviour
     private Animator animator; // 애니메이터 컴포넌트
     private Animator leftHandAnimator, rightHandAnimator;   // 양 손 애니메이터
     private Animator leftHandShadowAnimator, rightHandShadowAnimator;   // 양 손 그림자 애니메이터
+    private Animator LeftHandParticleAnimator, rightHandParticleAnimator;   // 양 손 파티클 애니메이터
     public GameObject shoulderSprite;   // 어깨 스프라이트
 
     [Header("스텟 관련")]
@@ -24,6 +27,7 @@ public class BossMonster : MonoBehaviour
     [Header("손 관련")]
     public GameObject leftHand, rightHand; // 손 오브젝트
     public GameObject leftHandShadow, rightHandShadow; // 손 그림자 오브젝트
+    public GameObject leftHandParticle, rightHandParticle;   // 손 파티클 오브젝트
     public BoxCollider2D leftHandAttackArea, rightHandAttackArea;   // 손 공격 범위 콜라이더
     public Vector2 originalPositionLeft, originalPositionRight;   // 기존 손의 위치
     public Vector2 originalPositionLeftShadow, originalPositionRightShadow;   // 기존 손 그림자의 위치
@@ -62,7 +66,9 @@ public class BossMonster : MonoBehaviour
         leftHandAnimator = leftHand.GetComponent<Animator>();
         rightHandAnimator = rightHand.GetComponent<Animator>();
         leftHandShadowAnimator = leftHandShadow.GetComponent<Animator>();
+        LeftHandParticleAnimator = leftHandParticle.GetComponent<Animator>();
         rightHandShadowAnimator = rightHandShadow.GetComponent<Animator>();
+        rightHandParticleAnimator = rightHandParticle.GetComponent<Animator>();
         leftHandAttackArea = leftHand.GetComponent<BoxCollider2D>();
         rightHandAttackArea = rightHand.GetComponent<BoxCollider2D>();
 
@@ -155,6 +161,23 @@ public class BossMonster : MonoBehaviour
     {      
         // 손 + 그림자 이동 코루틴 시작
         StartCoroutine(MoveHandWithShadowRoutine(selectedHand, selectedHandShadow, startPosition, endPosition, shadowStartPosition, shadowEndPosition, duration));
+    }
+
+    // 파티클 이동
+    public void MoveParticle(GameObject selectedParticle, Vector3 endPosition)
+    {
+        selectedParticle.transform.position = endPosition;
+    }
+
+    // 내려찍을 때 파티클 활성화
+    IEnumerator ActiveParticle(GameObject selectedParticle)
+    {
+        Debug.Log("ActiveParticle 시작");
+        Animator particleAnimator = selectedParticle.GetComponent<Animator>();
+        particleAnimator.SetBool("IsAttack", true);
+        yield return new WaitForSeconds(0.417f);
+        particleAnimator.SetBool("IsAttack", false);
+
     }
 
     void SetHandAnimatorPaperToRock1()
@@ -374,6 +397,8 @@ public class BossMonster : MonoBehaviour
         GameObject secondHand = (firstHand == leftHand) ? rightHand : leftHand;
         GameObject firstHandShadow = (firstHand == leftHand) ? leftHandShadow : rightHandShadow;
         GameObject secondHandShadow = (firstHandShadow == leftHandShadow) ? rightHandShadow : leftHandShadow;
+        GameObject firstHandParticle = (firstHand == leftHand) ? leftHandParticle : rightHandParticle;
+        GameObject secondHandParticle = (firstHandParticle == leftHandParticle) ? rightHandParticle : leftHandParticle;
         BoxCollider2D firstHandAttackArea = (firstHand == leftHand) ? leftHandAttackArea : rightHandAttackArea;
         BoxCollider2D secondHandAttackArea = (firstHandAttackArea == leftHandAttackArea) ? rightHandAttackArea : leftHandAttackArea;
 
@@ -402,8 +427,10 @@ public class BossMonster : MonoBehaviour
         //Debug.Log("첫번째 손 내려찍기");
         firstHandAttackArea.enabled = true;
         MoveHand(firstHand, firstHand.transform.position, firstHand.transform.position + new Vector3(0, -2f, 0), 0.2f);
+        MoveParticle(firstHandParticle, firstHand.transform.position + new Vector3(0, -2f, 0));
         yield return new WaitForSeconds(0.2f);
         firstHandAttackArea.enabled = false;
+        StartCoroutine(ActiveParticle(firstHandParticle));
 
         // 시간차를 두고 반대손 이동       
         //Debug.Log("두번째 손 들어올리기");
@@ -420,8 +447,10 @@ public class BossMonster : MonoBehaviour
         //Debug.Log("두번째 손 내려찍기");
         secondHandAttackArea.enabled = true;
         MoveHand(secondHand, secondHand.transform.position, secondHand.transform.position + new Vector3(0, -2f, 0), 0.2f);
+        MoveParticle(secondHandParticle, secondHand.transform.position + new Vector3(0, -2f, 0));
         yield return new WaitForSeconds(0.2f);
         secondHandAttackArea.enabled = false;
+        StartCoroutine(ActiveParticle(secondHandParticle));
 
         // 손 원래 위치로 복귀
         //Debug.Log("손 복귀");
@@ -491,8 +520,12 @@ public class BossMonster : MonoBehaviour
             rightHandAttackArea.enabled = true;
             // Debug.Log("양 손 내려치기");
             MoveHand(leftHand, raiseLeftHandPosition, originalPositionLeft, 0.3f);
-            MoveHand(rightHand, raiseRightHandPosition, originalPositionRight, 0.3f);
+            MoveHand(rightHand, raiseRightHandPosition, originalPositionRight, 0.3f);          
             yield return StartCoroutine(WaitForConditionOrTime(0.3f));
+            MoveParticle(leftHandParticle, originalPositionLeft);
+            MoveParticle(rightHandParticle, originalPositionRight);
+            StartCoroutine(ActiveParticle(leftHandParticle));
+            StartCoroutine(ActiveParticle(rightHandParticle));
             if (isDeadWhileCoroutine)
             {
                 // 조건이 충족되어 코루틴 종료
@@ -743,17 +776,23 @@ public class BossMonster : MonoBehaviour
 
         while (elapsedTime < duration)
         {
-            // Debug.Log("손 마구 내려치기");
+            // Debug.Log("양손 순서대로 마구 내려치기");
+            // 손 들어올리기
             MoveHand(leftHand, originalPositionLeft, raiseLeftHandPosition, 0.2f);
             yield return new WaitForSeconds(0.2f);
             MoveHand(rightHand, originalPositionRight, raiseRightHandPosition, 0.2f);
             leftHandAttackArea.enabled = true;
-            MoveHand(leftHand, raiseLeftHandPosition, originalPositionLeft, 0.2f);
+            // 손 내려치기
+            MoveHand(leftHand, raiseLeftHandPosition, originalPositionLeft, 0.2f);                    
             yield return new WaitForSeconds(0.2f);
+            MoveParticle(leftHandParticle, originalPositionLeft);
+            StartCoroutine(ActiveParticle(leftHandParticle));
             rightHandAttackArea.enabled = true;
             leftHandAttackArea.enabled = false;
-            MoveHand(rightHand, raiseRightHandPosition, originalPositionRight, 0.2f);
+            MoveHand(rightHand, raiseRightHandPosition, originalPositionRight, 0.2f);            
             yield return StartCoroutine(WaitForConditionOrTime(0.2f));
+            MoveParticle(rightHandParticle, originalPositionRight);
+            StartCoroutine(ActiveParticle(rightHandParticle));
             if (isDeadWhileCoroutine)
             {
                 // 조건이 충족되어 코루틴 종료
