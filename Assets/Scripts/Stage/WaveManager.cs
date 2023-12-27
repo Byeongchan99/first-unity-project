@@ -148,6 +148,12 @@ public class WaveManager : MonoBehaviour
         objectToDeactivate.SetActive(false); // 객체 비활성화
     }
 
+    public void DeactivateSpawnEffect(GameObject effect)
+    {
+        // 몬스터 소환 애니메이션 시간
+        StartCoroutine(DeactivateAfterSeconds(effect, 0.834f));
+    }
+
     // 몬스터 대기
     IEnumerator StopMonsterMoment(GameObject monster, MonsterBase monsterComponent)
     {
@@ -156,11 +162,6 @@ public class WaveManager : MonoBehaviour
         monsterComponent.rb.constraints = RigidbodyConstraints2D.FreezeRotation;   // 위치 고정 해제
     }
 
-    public void DeactivateEffect(GameObject effect)
-    {
-        // 몬스터 소환 애니메이션 시간
-        StartCoroutine(DeactivateAfterSeconds(effect, 0.834f));
-    }
 
     // 일반 몬스터 소환
     void SpawnMonster(GameObject monsterPrefab, Vector2 spawnPointPosition)
@@ -185,7 +186,7 @@ public class WaveManager : MonoBehaviour
             {              
                 GameObject monsterSpawnEffect = GameManager.instance.pool.Get(4);   // 몬스터 소환 애니메이션 활성화
                 monsterSpawnEffect.transform.position = spawnPointPosition;
-                DeactivateEffect(monsterSpawnEffect); // 몬스터 소환 애니메이션 비활성화 코루틴 호출
+                DeactivateSpawnEffect(monsterSpawnEffect); // 몬스터 소환 애니메이션 비활성화 코루틴 호출
 
                 // 일반 몬스터 소환
                 monsterToSpawn.SetActive(true);

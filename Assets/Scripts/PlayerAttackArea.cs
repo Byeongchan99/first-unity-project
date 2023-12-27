@@ -45,6 +45,19 @@ public class PlayerAttackArea : BaseAttackArea
         attackRangeCollider.SetPath(0, points);
     }
 
+    // 몬스터 타격 이펙트
+    IEnumerator DeactivateAfterSeconds(GameObject objectToDeactivate, float seconds)
+    {
+        yield return new WaitForSeconds(seconds); // 지정된 시간만큼 기다림
+        objectToDeactivate.SetActive(false); // 객체 비활성화
+    }
+
+    public void DeactivateHitEffect(GameObject effect)
+    {
+        // 몬스터 타격 애니메이션 시간
+        StartCoroutine(DeactivateAfterSeconds(effect, 0.417f));
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         // 적에게 적중되었을 때
@@ -55,6 +68,20 @@ public class PlayerAttackArea : BaseAttackArea
             // Debug.Log("에너지: " + PlayerStat.Instance.CurrentEnergy);
             // 최대 Energy를 초과하는지 검사하고 초과 시 최대치로 설정
             PlayerStat.Instance.CurrentEnergy = Mathf.Min(PlayerStat.Instance.CurrentEnergy, PlayerStat.Instance.MaxEnergy);
+
+            Debug.Log("이펙트 생성");
+            // 충돌 위치를 계산
+            //Vector3 hitPosition = other.transform.position;
+            Vector3 hitPosition = other.ClosestPoint(transform.position);
+            // 적중 위치에 타격 이펙트 활성화
+            GameObject hitEffect = GameManager.instance.pool.Get(5);
+            hitEffect.transform.position = hitPosition;
+            // 타격 이펙트 회전
+            Vector2 direction = (hitPosition - PlayerStat.Instance.transform.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Debug.Log("angle:" + angle);
+            hitEffect.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+            DeactivateHitEffect(hitEffect);
         }
     }
 }
