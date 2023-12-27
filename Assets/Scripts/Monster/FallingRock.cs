@@ -8,13 +8,14 @@ public class FallingRock : MonsterBullet
     private Vector2 originalPosition; // 낙석이 시작하는 위치
     private float fallDistance = 6.0f; // 낙석이 떨어지는 최대 거리
 
-    private BoxCollider2D AttackAreaColider, StandAreaCollider;
+    private CircleCollider2D AttackAreaColider;
+    private BoxCollider2D StandAreaCollider;
     public SpriteRenderer FallingRockShadow;
 
     protected override void Awake()
     {
         base.Awake(); // Call the base class Awake method
-        AttackAreaColider = GetComponent<BoxCollider2D>();
+        AttackAreaColider = GetComponent<CircleCollider2D>();
         Transform childTransform = transform.Find("StandArea");
         if (childTransform != null)
         {

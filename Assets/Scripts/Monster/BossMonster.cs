@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,8 @@ public class BossMonster : MonoBehaviour
     private Animator leftHandShadowAnimator, rightHandShadowAnimator;   // 양 손 그림자 애니메이터
     private Animator LeftHandParticleAnimator, rightHandParticleAnimator;   // 양 손 파티클 애니메이터
     public GameObject shoulderSprite;   // 어깨 스프라이트
+    public CameraShake cameraShake; // 카메라 흔들기
+    private CinemachineVirtualCamera cinemachineVirtualCamera;
 
     [Header("스텟 관련")]
     public bool IsLive;
@@ -96,7 +99,20 @@ public class BossMonster : MonoBehaviour
         InitEllipseSprite();
     }
 
-    public void ActivateBossMonster()
+    void Start()
+    {
+        // 시네머신 가상 카메라 찾기
+        cinemachineVirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+
+        // 카메라 흔들기 컴포넌트를 찾아 참조 설정
+        if (cinemachineVirtualCamera != null)
+        {
+            cameraShake = cinemachineVirtualCamera.GetComponent<CameraShake>();
+
+        }
+    }
+
+        public void ActivateBossMonster()
     {
         bossState = BossState.CHASE;
         StartCoroutine(StateMachine());
@@ -430,7 +446,9 @@ public class BossMonster : MonoBehaviour
         MoveParticle(firstHandParticle, firstHand.transform.position + new Vector3(0, -2f, 0));
         yield return new WaitForSeconds(0.2f);
         firstHandAttackArea.enabled = false;
-        StartCoroutine(ActiveParticle(firstHandParticle));
+        StartCoroutine(ActiveParticle(firstHandParticle));    
+        cameraShake.ShakeCamera(0.3f, 2f, 2.0f); // 카메라 흔들기
+        
 
         // 시간차를 두고 반대손 이동       
         //Debug.Log("두번째 손 들어올리기");
@@ -451,6 +469,7 @@ public class BossMonster : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         secondHandAttackArea.enabled = false;
         StartCoroutine(ActiveParticle(secondHandParticle));
+        cameraShake.ShakeCamera(0.3f, 2f, 2.0f); // 카메라 흔들기
 
         // 손 원래 위치로 복귀
         //Debug.Log("손 복귀");
@@ -526,6 +545,7 @@ public class BossMonster : MonoBehaviour
             MoveParticle(rightHandParticle, originalPositionRight);
             StartCoroutine(ActiveParticle(leftHandParticle));
             StartCoroutine(ActiveParticle(rightHandParticle));
+            cameraShake.ShakeCamera(0.3f, 2f, 2.0f); // 카메라 흔들기
             if (isDeadWhileCoroutine)
             {
                 // 조건이 충족되어 코루틴 종료
@@ -787,12 +807,14 @@ public class BossMonster : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             MoveParticle(leftHandParticle, originalPositionLeft);
             StartCoroutine(ActiveParticle(leftHandParticle));
+            cameraShake.ShakeCamera(0.3f, 2f, 2.0f); // 카메라 흔들기
             rightHandAttackArea.enabled = true;
             leftHandAttackArea.enabled = false;
             MoveHand(rightHand, raiseRightHandPosition, originalPositionRight, 0.2f);            
             yield return StartCoroutine(WaitForConditionOrTime(0.2f));
             MoveParticle(rightHandParticle, originalPositionRight);
             StartCoroutine(ActiveParticle(rightHandParticle));
+            cameraShake.ShakeCamera(0.3f, 2f, 2.0f); // 카메라 흔들기
             if (isDeadWhileCoroutine)
             {
                 // 조건이 충족되어 코루틴 종료

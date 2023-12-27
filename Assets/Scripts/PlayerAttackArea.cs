@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class PlayerAttackArea : BaseAttackArea
 {
+    public CameraShake cameraShake; // 카메라 흔들기
+
     private List<Vector2> points = new List<Vector2>();
+
+    void Start()
+    {
+        // 카메라 흔들기 컴포넌트를 찾아 참조 설정
+        if (cameraShake == null) // 인스펙터에서 할당하지 않았다면
+        {
+            cameraShake = Camera.main.GetComponent<CameraShake>();
+        }
+    }
 
     public void Initialize()
     {
@@ -69,19 +80,26 @@ public class PlayerAttackArea : BaseAttackArea
             // 최대 Energy를 초과하는지 검사하고 초과 시 최대치로 설정
             PlayerStat.Instance.CurrentEnergy = Mathf.Min(PlayerStat.Instance.CurrentEnergy, PlayerStat.Instance.MaxEnergy);
 
-            Debug.Log("이펙트 생성");
             // 충돌 위치를 계산
             //Vector3 hitPosition = other.transform.position;
             Vector3 hitPosition = other.ClosestPoint(transform.position);
+
             // 적중 위치에 타격 이펙트 활성화
             GameObject hitEffect = GameManager.instance.pool.Get(5);
             hitEffect.transform.position = hitPosition;
+
             // 타격 이펙트 회전
             Vector2 direction = (hitPosition - PlayerStat.Instance.transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Debug.Log("angle:" + angle);
             hitEffect.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
             DeactivateHitEffect(hitEffect);
+          
+            // 공격 적중 시 카메라 흔들기 효과 실행
+            if (cameraShake != null)
+            {
+                cameraShake.ShakeCamera(0.1f, 1.2f, 1.0f); // 지속 시간과 강도 설정
+            }
         }
     }
 }
