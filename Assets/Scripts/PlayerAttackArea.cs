@@ -82,19 +82,21 @@ public class PlayerAttackArea : BaseAttackArea
 
             // 충돌 위치를 계산
             //Vector3 hitPosition = other.transform.position;
-            Vector3 hitPosition = other.ClosestPoint(transform.position);
+            //Vector3 hitPosition = other.ClosestPoint(transform.position);
+            // 공격 방향을 기준으로 콜라이더의 끝 부분을 계산
+            Vector2 attackDirectionNormalized = (other.ClosestPoint(transform.position) - (Vector2)transform.position).normalized;
+            Vector2 colliderEndPoint = transform.position + (Vector3)(attackDirectionNormalized * PlayerStat.Instance.weaponManager.Weapon.AttackRange);
+
 
             // 적중 위치에 타격 이펙트 활성화
             GameObject hitEffect = GameManager.instance.pool.Get(5);
-            hitEffect.transform.position = hitPosition;
+            hitEffect.transform.position = colliderEndPoint;
 
             // 타격 이펙트 회전
-            Vector2 direction = (hitPosition - PlayerStat.Instance.transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Debug.Log("angle:" + angle);
+            float angle = Mathf.Atan2(attackDirectionNormalized.y, attackDirectionNormalized.x) * Mathf.Rad2Deg;
             hitEffect.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
             DeactivateHitEffect(hitEffect);
-          
+
             // 공격 적중 시 카메라 흔들기 효과 실행
             if (cameraShake != null)
             {
