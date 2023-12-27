@@ -51,25 +51,59 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
         {
             weapon = PlayerStat.Instance.GetComponentInChildren<OneHandSwordBasic>();
         }
-        // 애니메이션 진행도(stateInfo.normalizedTime)를 기준으로 로직을 수행
-        if (!hasCheckedInput && stateInfo.normalizedTime > triggerPercentage && stateInfo.normalizedTime < triggerPercentage + 0.1f)
-        {
-            MoveForward();
-            CheckAttackInput();
-            hasCheckedInput = true;
-        }
 
-        if (!hasDisabledCollider && stateInfo.normalizedTime > triggerPercentage + 0.1f && stateInfo.normalizedTime < triggerPercentage + 0.2f)
+        if (weapon.ComboCount == 3)   // 세번째 공격 모션일 때 - 1타와 2타가 있음
         {
-            Debug.Log("콜라이더 비활성화 " + PlayerStat.Instance.weaponManager.Weapon.ComboCount);
-            playerAttackArea.attackRangeCollider.enabled = false;
-            hasDisabledCollider = true;
-        }
+            // 애니메이션 진행도(stateInfo.normalizedTime)를 기준으로 로직을 수행
+            if (!hasDisabledCollider && stateInfo.normalizedTime >= 0.3f && stateInfo.normalizedTime <= 0.4f)
+            {
+                MoveForward();
+                // Debug.Log("콜라이더 비활성화 " + PlayerStat.Instance.weaponManager.Weapon.ComboCount);
+                playerAttackArea.attackRangeCollider.enabled = false;   // 1타 공격 범위 콜라이더 비활성화
+                hasDisabledCollider = true;
+            }
 
-        if (!hasFinishedAttack && stateInfo.normalizedTime >= 0.95f)
+            if (hasDisabledCollider && stateInfo.normalizedTime > triggerPercentage && stateInfo.normalizedTime < triggerPercentage + 0.1f)   // 3번째 공격 모션에서는 추가 입력 X
+            {
+                playerAttackArea.ActivateAttackRange(PlayerController.Instance.attackDirection);   // 2타 공격 범위 콜라이더 활성화
+                hasDisabledCollider = false;
+            }
+
+            if (!hasDisabledCollider && stateInfo.normalizedTime > triggerPercentage + 0.1f && stateInfo.normalizedTime < triggerPercentage + 0.2f)   
+            {
+                // Debug.Log("콜라이더 비활성화 " + PlayerStat.Instance.weaponManager.Weapon.ComboCount);
+                playerAttackArea.attackRangeCollider.enabled = false;   // 2타 공격 범위 콜라이더 비활성화
+                hasDisabledCollider = true;
+            }
+
+            if (!hasFinishedAttack && stateInfo.normalizedTime >= 0.95f)
+            {
+                hasFinishedAttack = true;
+                OnFinishedAttack();
+            }
+        }
+        else   // 첫번째와 두번째 공격 모션일 때
         {
-            hasFinishedAttack = true;
-            OnFinishedAttack();
+            // 애니메이션 진행도(stateInfo.normalizedTime)를 기준으로 로직을 수행
+            if (!hasCheckedInput && stateInfo.normalizedTime > triggerPercentage && stateInfo.normalizedTime < triggerPercentage + 0.1f)
+            {
+                MoveForward();
+                CheckAttackInput();
+                hasCheckedInput = true;
+            }
+
+            if (!hasDisabledCollider && stateInfo.normalizedTime > triggerPercentage + 0.1f && stateInfo.normalizedTime < triggerPercentage + 0.2f)
+            {
+                // Debug.Log("콜라이더 비활성화 " + PlayerStat.Instance.weaponManager.Weapon.ComboCount);
+                playerAttackArea.attackRangeCollider.enabled = false;
+                hasDisabledCollider = true;
+            }
+
+            if (!hasFinishedAttack && stateInfo.normalizedTime >= 0.95f)
+            {
+                hasFinishedAttack = true;
+                OnFinishedAttack();
+            }
         }
     }
 
@@ -149,6 +183,7 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
         }
     }
 
+    // 공격할 때 약간 전진하는 모션
     private void MoveForward()
     {
         // Debug.Log("약간 전진");

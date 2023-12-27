@@ -8,6 +8,12 @@ public class PlayerAttackArea : BaseAttackArea
 
     private List<Vector2> points = new List<Vector2>();
 
+    void Awake()
+    {
+        if (attackRangeCollider != null)
+            attackRangeCollider.enabled = false;
+    }
+
     void Start()
     {
         // 카메라 흔들기 컴포넌트를 찾아 참조 설정
@@ -31,7 +37,7 @@ public class PlayerAttackArea : BaseAttackArea
         float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 90);
 
-        Debug.Log("콜라이더 활성화");
+        // Debug.Log("공격 범위 콜라이더 활성화");
         attackRangeCollider.enabled = true;
     }
 
