@@ -11,19 +11,27 @@ public class TypingEffect : MonoBehaviour
     public bool complete = false; // 전체 텍스트 표시 여부
     public bool readyForInput = false; // 입력 받을 준비가 되었는지 여부
 
-    // 시작 시 타이핑 시작
-    void Start()
+    public Dialogue dialoguePanel;   // 대화창
+    public bool usingDialoguePanel;   // 대화창 사용 여부 - 튜토리얼에서 사용
+    private bool justStartedDialogue = false;
+
+    // 초기화
+    void Init()
     {
-        StartCoroutine(ShowText());
+        complete = false;
+        justStartedDialogue = false;
+        readyForInput = false;
     }
 
     // 타이핑 효과 코루틴
-    IEnumerator ShowText()
+    public IEnumerator ShowText()
     {
+        Init();
+        justStartedDialogue = true;
         for (int i = 0; i <= fullText.Length; i++)
         {
             if (complete) // 전체 텍스트가 표시되면 반복 중단
-                break; 
+                break;
             txt.text = fullText.Substring(0, i);
             yield return new WaitForSeconds(delay);
         }
@@ -34,19 +42,49 @@ public class TypingEffect : MonoBehaviour
     }
 
     void Update()
-    {   
-        if (Input.anyKeyDown)
+    {  
+        if (!usingDialoguePanel)   // 대화창을 사용하지 않는 텍스트일 때 ex) 튜토리얼 컷씬
         {
-            if (!complete)
+            if (Input.anyKeyDown)
             {
-                // 타이핑을 스킵하고 바로 전체 텍스트를 표시
-                complete = true;
-                txt.text = fullText;
+                if (!complete)
+                {
+                    // 타이핑을 스킵하고 바로 전체 텍스트를 표시
+                    complete = true;
+                    txt.text = fullText;
+                }
+                else
+                {
+                    // 타이핑이 완료된 상태에서 키를 누르면 readyForInput을 false로 설정
+                    readyForInput = false;
+                }
             }
-            else
+        }
+        else   // 대화창을 사용하는 텍스트일 때
+        {
+            if (dialoguePanel.isOpened)   // 대화창이 열려있을 때
             {
-                // 타이핑이 완료된 상태에서 키를 누르면 readyForInput을 false로 설정
-                readyForInput = false;
+                if (Input.anyKeyDown)
+                {
+                    if (!complete)
+                    {
+                        if (justStartedDialogue)
+                        {
+                            justStartedDialogue = false; // 첫 입력(NPC와 상호작용)을 무시
+                        }
+                        else
+                        {
+                            // 타이핑을 스킵하고 바로 전체 텍스트를 표시
+                            complete = true;
+                            txt.text = fullText;
+                        }
+                    }
+                    else
+                    {
+                        // 타이핑이 완료된 상태에서 키를 누르면 readyForInput을 false로 설정
+                        readyForInput = false;
+                    }
+                }
             }
         }
     }

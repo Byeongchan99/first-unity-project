@@ -1701,6 +1701,30 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1299660839 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3528247056781957309, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+    type: 3}
+  m_PrefabInstance: {fileID: 7454217726384657885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a88cd41fd03a4845b57c574a27a69db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1299660840 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1185034544758647535, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+    type: 3}
+  m_PrefabInstance: {fileID: 7454217726384657885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1323498721 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5878905674976446266, guid: bd13f97f349b4fe48adba1e53a6d9c42,
@@ -2002,18 +2026,6 @@ MonoBehaviour:
   ShakeDuration: 0.1
   ShakeAmplitude: 1.2
   ShakeFrequency: 1
---- !u!114 &1742951667 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2002654556220812473, guid: bd13f97f349b4fe48adba1e53a6d9c42,
-    type: 3}
-  m_PrefabInstance: {fileID: 7454217726384657885}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1860166187 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6449636375505251058, guid: bd13f97f349b4fe48adba1e53a6d9c42,
@@ -2802,6 +2814,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3528247056781957309, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: usingDialoguePanel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3707694693991689224, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2921,7 +2938,12 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogueText
       value: 
-      objectReference: {fileID: 1742951667}
+      objectReference: {fileID: 1299660840}
+    - target: {fileID: 5878905674976446266, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: typingEffect
+      value: 
+      objectReference: {fileID: 1299660839}
     - target: {fileID: 6449636375505251058, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
       propertyPath: m_Name

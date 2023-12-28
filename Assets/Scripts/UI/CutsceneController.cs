@@ -38,6 +38,7 @@ public class CutsceneController : MonoBehaviour
 
             if (typingEffect != null)
             {
+                typingEffect.StartCoroutine(typingEffect.ShowText());
                 // 타이핑 효과가 끝날 때까지 기다림
                 yield return new WaitUntil(() => typingEffect.complete);
 

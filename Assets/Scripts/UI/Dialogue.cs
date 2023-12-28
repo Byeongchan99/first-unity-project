@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using static MerchantDialogue;
 
 public class Dialogue : MonoBehaviour
 {
     RectTransform rect;
-    public Text dialogueText;
+    public TypingEffect typingEffect;
+    public bool isOpened = false;
 
     void Awake()
     {
@@ -28,8 +30,11 @@ public class Dialogue : MonoBehaviour
     // 자식 오브젝트인 Dialogue에 대사 업데이트
     public void Show(string dialogue)
     {
+        Debug.Log("Dialogue Show()");
         rect.localScale = Vector3.one;
-        dialogueText.text = dialogue;
+        isOpened = true;
+        typingEffect.fullText = dialogue;
+        typingEffect.StartCoroutine(typingEffect.ShowText());
         //GameManager.instance.Stop();
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
         // AudioManager.instance.EffectBgm(true);
@@ -38,6 +43,7 @@ public class Dialogue : MonoBehaviour
     public void Hide()
     {
         rect.localScale = Vector3.zero;
+        isOpened = false;
         //GameManager.instance.Resume();
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         // AudioManager.instance.EffectBgm(false);
