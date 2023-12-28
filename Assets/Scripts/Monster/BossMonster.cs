@@ -21,7 +21,7 @@ public class BossMonster : MonoBehaviour
     public bool IsLive;
     private bool isDeadWhileCoroutine;   // 코루틴 도중 사망 여부 확인
     public float health;
-    private float maxHealth = 500;
+    private float maxHealth = 50;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
     private float attackCooldown; // 다음 공격까지의 시간
     private bool isPatternActive = false; // 현재 공격 패턴이 실행 중인지 추적하는 변수
@@ -880,6 +880,12 @@ public class BossMonster : MonoBehaviour
                 Random.Range(Mathf.Max(bottomLeft.y, target.position.y - 2f), Mathf.Min(topRight.y - 1f, target.position.y + 2f)) + 6f
             );
 
+            if (isDeadWhileCoroutine)
+            {
+                // 조건이 충족되어 코루틴 종료
+                yield break;
+            }
+
             // 낙석 생성
             CreateFallingRock(spawnPosition);
 
@@ -899,7 +905,7 @@ public class BossMonster : MonoBehaviour
         {
             // 조건이 충족되어 코루틴 종료
             yield break;
-        } // 2초간 대기
+        }
         isPatternActive = false; // 패턴 종료
     }
 
@@ -1005,6 +1011,8 @@ public class BossMonster : MonoBehaviour
         // 몬스터 상태 초기화 및 애니메이션 처리 (예: 사망 애니메이션 재생)
         shoulderSprite.SetActive(false);   // 사망 애니메이션 적용할 때 어깨 스프라이트 비활성화
         animator.SetTrigger("Dead");
+        Debug.Log("카메라 흔들기");
+        cameraShake.ShakeCamera(2.0f, 2f, 2.0f); // 카메라 흔들기
         yield return new WaitForSeconds(2f); // 사망 애니메이션 재생 시간 (예: 1초)
      
         gameObject.SetActive(false);  // 오브젝트 비활성화
