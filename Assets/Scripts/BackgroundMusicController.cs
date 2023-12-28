@@ -64,4 +64,24 @@ public class BackgroundMusicController : MonoBehaviour
 
         musicSource.volume = 1f; // 페이드인이 끝난 후 볼륨을 다시 1로 설정
     }
+
+    // 배경음악을 멈추는 메서드
+    public void StopMusic()
+    {
+        StartCoroutine(FadeOutMusic());
+    }
+
+    // 페이드아웃 효과와 함께 음악을 멈추는 코루틴
+    IEnumerator FadeOutMusic()
+    {
+        // 페이드아웃
+        for (float t = 0; t < fadeTime; t += Time.deltaTime)
+        {
+            musicSource.volume = 1 - (t / fadeTime);
+            yield return null;
+        }
+
+        musicSource.Stop(); // 음악 정지
+        musicSource.volume = 1f; // 볼륨을 원래대로 복구 (다음 재생을 위해)
+    }
 }

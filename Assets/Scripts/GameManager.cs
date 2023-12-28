@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        BackgroundMusicController.Instance.StopMusic();
         StartCoroutine(GameOverRoutine());
     }
 
@@ -88,6 +89,7 @@ public class GameManager : MonoBehaviour
         isLive = false;
 
         UIManager.instance.gameOverUI.SetActive(true);
+        AudioManager.Instance.PlaySound(1);
         // 사망 애니메이션을 적용하기 위한 딜레이
         yield return new WaitForSeconds(1f);   // 사망 애니메이션 재생 시간 0.5초
 
@@ -106,6 +108,7 @@ public class GameManager : MonoBehaviour
        
     public void GameVictory()
     {
+        BackgroundMusicController.Instance.StopMusic();
         StartCoroutine(GameVictoryRoutine());
     }
 
@@ -114,6 +117,7 @@ public class GameManager : MonoBehaviour
         isLive = false;
 
         UIManager.instance.gameVictoryUI.SetActive(true);
+        AudioManager.Instance.PlaySound(0);
         yield return null; 
 
         /*
@@ -144,7 +148,9 @@ public class GameManager : MonoBehaviour
         UIManager.instance.DestroyInstance();
         WaveManager.Instance.DestroyInstance();
         PlayerController.Instance.DestroyInstance();
+        PlayerStat.Instance.DestroyInstance();
         BackgroundMusicController.Instance.DestroyInstance();
+        AudioManager.Instance.DestroyInstance();
 
         SceneManager.LoadScene(0);   // 게임 재시작
     }

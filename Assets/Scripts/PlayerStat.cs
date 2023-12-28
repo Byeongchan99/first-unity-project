@@ -140,6 +140,12 @@ public class PlayerStat : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void DestroyInstance()
+    {
+        Destroy(gameObject);
+        instance = null;
+    }
+
     void OnEnable()
     {
         isLive = true;
