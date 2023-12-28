@@ -93,6 +93,23 @@ public class StageManager : MonoBehaviour
         }
     }
 
+    // 스테이지 ID에 따라 배경음악 변경
+    void ChageBackgroundMusic(int stageIndex)
+    {
+        if (stageIndex == 0 || stageIndex == 18)   // 메인 스테이지, 튜토리얼 스테이지
+        {
+            BackgroundMusicController.Instance.ChangeMusic(1);
+        }
+        else if (stageIndex == 1)   // 보스 스테이지
+        {
+            BackgroundMusicController.Instance.ChangeMusic(3);
+        }
+        else   // 일반 스테이지
+        {
+            BackgroundMusicController.Instance.ChangeMusic(2);
+        }
+    }
+
     // 스테이지로 이동하는 메서드
     public void TransitionToStage(int stageIndex)
     {
@@ -104,6 +121,9 @@ public class StageManager : MonoBehaviour
                 stageInstances[currentStage.stageID].SetActive(false);
                 //boundingShape.enabled = false;
             }
+
+            // 배경음악 변경
+            ChageBackgroundMusic(stageIndex);
 
             currentStage = stages[stageIndex];
             Debug.Log("이동할 스테이지: " + currentStage.stageID);

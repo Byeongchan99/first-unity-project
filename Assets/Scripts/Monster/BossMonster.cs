@@ -45,6 +45,8 @@ public class BossMonster : MonoBehaviour
     public BoxCollider2D laserColider2; // 중앙 레이저 콜라이더
     public SpriteRenderer laserAttackAreaSpriteRenderer2;   // 중앙 레이저 공격 범위 스프라이트
     public Transform laserStart; // 레이저 시작점
+    public AudioSource laserAudioSource1;
+    public AudioSource laserAudioSource2;
 
     public float defDistanceRay = 100;
     public float laserDuration; // 레이저 지속 시간
@@ -110,6 +112,10 @@ public class BossMonster : MonoBehaviour
             cameraShake = cinemachineVirtualCamera.GetComponent<CameraShake>();
 
         }
+
+        // 각 AudioSource 컴포넌트를 할당합니다.
+        laserAudioSource1 = GetComponents<AudioSource>()[0];
+        laserAudioSource2 = GetComponents<AudioSource>()[1];
     }
 
         public void ActivateBossMonster()
@@ -641,6 +647,7 @@ public class BossMonster : MonoBehaviour
         laserStart.transform.rotation = Quaternion.FromToRotation(Vector3.right, startDirection);
         lineRenderer1.enabled = true;
         laserColider1.enabled = true;
+        laserAudioSource1.Play();
 
         float elapsedTime = 0; // 경과 시간
 
@@ -740,6 +747,7 @@ public class BossMonster : MonoBehaviour
         }
         lineRenderer2.enabled = true;
         laserColider2.enabled = true;
+        laserAudioSource2.Play();
 
         float elapsedTime = 0;   // 경과 시간
 

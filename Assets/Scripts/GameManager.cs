@@ -40,6 +40,12 @@ public class GameManager : MonoBehaviour
         instance = null;
     }
 
+    void Start()
+    {
+        Stop();
+        //BackgroundMusicController.Instance.ChangeMusic(0);
+    }
+
     /*
     public void GameStart(int id)
     {
@@ -57,6 +63,7 @@ public class GameManager : MonoBehaviour
     public void TutorialStart()
     {
         StageManager.Instance.TransitionToStage(18);
+        BackgroundMusicController.Instance.ChangeMusic(1);
         PlayerStat.Instance.CurrentHP -= 1;
         PlayerStat.Instance.CurrentEnergy -= 1;
         PlayerStat.Instance.Gold += 1000;
@@ -67,6 +74,7 @@ public class GameManager : MonoBehaviour
     {
         //waveManager.StartWave();
         StageManager.Instance.TransitionToStage(0);
+        BackgroundMusicController.Instance.ChangeMusic(1);
         Resume();
     }
 
@@ -136,6 +144,7 @@ public class GameManager : MonoBehaviour
         UIManager.instance.DestroyInstance();
         WaveManager.Instance.DestroyInstance();
         PlayerController.Instance.DestroyInstance();
+        BackgroundMusicController.Instance.DestroyInstance();
 
         SceneManager.LoadScene(0);   // 게임 재시작
     }
