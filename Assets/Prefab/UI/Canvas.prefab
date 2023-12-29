@@ -358,14 +358,14 @@ RectTransform:
   - {fileID: 8616542360134736587}
   - {fileID: 7726381326928944159}
   - {fileID: 8995232184679857479}
-  - {fileID: 8615979082485789506}
-  - {fileID: 2436104549953847978}
   - {fileID: 1605001963428030764}
   - {fileID: 6913648556587871347}
   - {fileID: 3312607446561382243}
   - {fileID: 4380224454866577179}
   - {fileID: 2518473009399275355}
   - {fileID: 1424473647162302168}
+  - {fileID: 2436104549953847978}
+  - {fileID: 8615979082485789506}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7592,9 +7592,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1424473647162302171}
-        m_TargetAssemblyTypeName: LoadoutChoice, Assembly-CSharp
-        m_MethodName: Show
+      - m_Target: {fileID: 6746437771783134547}
+        m_TargetAssemblyTypeName: MainScreen, Assembly-CSharp
+        m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7604,9 +7604,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6746437771783134547}
-        m_TargetAssemblyTypeName: MainScreen, Assembly-CSharp
-        m_MethodName: Hide
+      - m_Target: {fileID: 1424473647162302171}
+        m_TargetAssemblyTypeName: LoadoutChoice, Assembly-CSharp
+        m_MethodName: Show
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

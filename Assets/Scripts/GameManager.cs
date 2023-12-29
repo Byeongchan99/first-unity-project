@@ -1,3 +1,4 @@
+using CharacterController;
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
@@ -151,6 +152,10 @@ public class GameManager : MonoBehaviour
         PlayerStat.Instance.DestroyInstance();
         BackgroundMusicController.Instance.DestroyInstance();
         AudioManager.Instance.DestroyInstance();
+        // static 변수 초기화
+        RollState.IsRoll = false;
+        RollState.canRoll = true;
+        AttackState.IsAttack = false;
 
         SceneManager.LoadScene(0);   // 게임 재시작
     }

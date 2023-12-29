@@ -1132,6 +1132,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7454217726384657885}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &570317410 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6746437771783134547, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+    type: 3}
+  m_PrefabInstance: {fileID: 7454217726384657885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fc0854bf6779dd4ab48d3246ed283c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &582853633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1838,6 +1850,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRangeCollider: {fileID: 1329977112}
   cameraShake: {fileID: 1533094298}
+--- !u!114 &1333735400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1424473647162302171, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+    type: 3}
+  m_PrefabInstance: {fileID: 7454217726384657885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd65b0e659ade534dac0434213f2ed01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1343454140 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5649928385380128381, guid: bd13f97f349b4fe48adba1e53a6d9c42,
@@ -2531,18 +2555,18 @@ MonoBehaviour:
   chargeWeaponPos: {fileID: 1501707187}
   isLive: 0
   playerID: 0
-  maxHP: 5
-  currentHP: 5
+  maxHP: 4
+  currentHP: 4
   attackPower: 0
   level: 0
   kill: 0
-  gold: 1000
-  moveSpeed: 200
+  gold: 100
+  moveSpeed: 150
   rollSpeed: 0.02
   rollCooltime: 0.1
   invincibleTime: 1.5
-  currentEnergy: 5
-  maxEnergy: 5
+  currentEnergy: 3
+  maxEnergy: 3
 --- !u!95 &2127830149
 Animator:
   serializedVersion: 5
@@ -2711,6 +2735,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695226566286789415, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 570317410}
+    - target: {fileID: 1695226566286789415, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1333735400}
+    - target: {fileID: 1695226566286789415, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Hide
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695226566286789415, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Show
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695226566286789415, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695226566286789415, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LoadoutChoice, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1852962373779892661, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}

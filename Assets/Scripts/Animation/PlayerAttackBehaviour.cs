@@ -79,7 +79,7 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
             if (!hasFinishedAttack && stateInfo.normalizedTime >= 0.95f)
             {
                 hasFinishedAttack = true;
-                OnFinishedAttack();
+                PlayerStat.Instance.StartCoroutine(DelayedOnFinishedAttack(0.1f));  // 0.1초 지연 후 OnFinishedAttack 호출
             }
         }
         else   // 첫번째와 두번째 공격 모션일 때
@@ -159,6 +159,13 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
         }
 
         isCoroutineRunning = false;
+    }
+
+    // 지연된 OnFinishedAttack 호출을 위한 코루틴
+    private IEnumerator DelayedOnFinishedAttack(float delay)
+    {
+        yield return new WaitForSeconds(delay); // 지정된 지연 시간만큼 기다림
+        OnFinishedAttack(); // 지연 후 OnFinishedAttack 호출
     }
 
     private void OnFinishedAttack()

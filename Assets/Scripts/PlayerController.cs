@@ -118,7 +118,8 @@ public class PlayerController : MonoBehaviour
         }
         else   // 일시정지 창이 꺼져있을 때
         {
-            UIManager.instance.pauseMenuUI.Show();
+            if (GameManager.instance.isLive) 
+                UIManager.instance.pauseMenuUI.Show();
         }
         UIManager.instance.pauseMenuUI.isPaused = !UIManager.instance.pauseMenuUI.isPaused;
     }
@@ -312,7 +313,8 @@ public class PlayerController : MonoBehaviour
         }
 
         // 피격 이벤트 실행
-        playerStat.animator.SetTrigger("Hit");
+        if (!AttackState.IsAttack && !ChargeState.IsCharge)   // 공격 중이 아닐 때 피격 애니메이션 실행
+            playerStat.animator.SetTrigger("Hit");
         StartCoroutine(GetHitRoutine());
     }
 

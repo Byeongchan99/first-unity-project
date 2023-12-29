@@ -21,7 +21,7 @@ public class BossMonster : MonoBehaviour
     public bool IsLive;
     private bool isDeadWhileCoroutine;   // 코루틴 도중 사망 여부 확인
     public float health;
-    private float maxHealth = 50;
+    private float maxHealth = 500;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
     private float attackCooldown; // 다음 공격까지의 시간
     private bool isPatternActive = false; // 현재 공격 패턴이 실행 중인지 추적하는 변수
@@ -933,7 +933,7 @@ public class BossMonster : MonoBehaviour
     public IEnumerator ExecuteRandomPattern()
     {
         // 패턴 1을 제외한 나머지 중에서 랜덤하게 실행
-        int pattern = Random.Range(2, 6); // 2부터 5 사이의 랜덤한 숫자
+        int pattern = Random.Range(5, 6); // 2부터 5 사이의 랜덤한 숫자
 
         switch (pattern)
         {
