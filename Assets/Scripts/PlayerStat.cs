@@ -9,6 +9,7 @@ public class PlayerStat : MonoBehaviour
     public static PlayerStat Instance { get { return instance; } }
     public WeaponManager weaponManager { get; private set; }
     public ChargeWeaponManager chargeWeaponManager { get; private set; }
+    public PlayerAudioManager playerAudioManager;
     public StateMachine stateMachine { get; private set; }
     public Rigidbody2D rigidBody { get; private set; }
     public Animator animator { get; private set; }
@@ -125,6 +126,7 @@ public class PlayerStat : MonoBehaviour
             weaponManager.unRegisterWeapon = (weapon) => { Destroy(weapon); };
             chargeWeaponManager = new ChargeWeaponManager(chargeWeaponPos);
             chargeWeaponManager.unRegisterWeapon = (weapon) => { Destroy(weapon); };
+            playerAudioManager = GetComponent<PlayerAudioManager>();
 
             rigidBody = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();

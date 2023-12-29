@@ -31,6 +31,7 @@ namespace CharacterController
             PlayerStat.Instance.animator.SetBool("IsRoll", true);
             PlayerStat.Instance.shadowAnimator.SetBool("IsRoll", true);
             PlayerStat.Instance.particleAnimator.SetBool("IsRoll", true);
+            PlayerStat.Instance.playerAudioManager.PlayRollSound();
             PlayerStat.Instance.rigidBody.velocity = rollDirection * PlayerStat.Instance.RollSpeed * PlayerStat.Instance.MoveSpeed;
         }
 
