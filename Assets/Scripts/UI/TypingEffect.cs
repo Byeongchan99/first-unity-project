@@ -11,7 +11,6 @@ public class TypingEffect : MonoBehaviour
     public bool complete = false; // 전체 텍스트 표시 여부
     public bool readyForInput = false; // 입력 받을 준비가 되었는지 여부
 
-    public Dialogue dialoguePanel;   // 대화창
     public bool usingDialoguePanel;   // 대화창 사용 여부 - 튜토리얼에서 사용
     private bool justStartedDialogue = false;
 
@@ -62,7 +61,7 @@ public class TypingEffect : MonoBehaviour
         }
         else   // 대화창을 사용하는 텍스트일 때
         {
-            if (dialoguePanel.isOpened)   // 대화창이 열려있을 때
+            if (UIManager.instance.dialogueUI.isOpened)   // 대화창이 열려있을 때
             {
                 if (Input.anyKeyDown)
                 {

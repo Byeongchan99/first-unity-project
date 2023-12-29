@@ -156,8 +156,11 @@ public class PlayerController : MonoBehaviour
 
             if (npcDialogue != null)
             {
-                Debug.Log("NPC와 상호작용");
-                npcDialogue.ShowDialogue(); // NPCDialogue의 상호작용 메서드 호출
+                if (!UIManager.instance.dialogueUI.isOpened)   // 대화창이 닫혀있을 때
+                {    
+                    Debug.Log("NPC와 상호작용");
+                    npcDialogue.ShowDialogue(); // NPCDialogue의 상호작용 메서드 호출
+                }
             }
 
             InteractiveRunePillar interactiveRunePillar = currentNearNPC.GetComponent<InteractiveRunePillar>();

@@ -38,6 +38,20 @@ public class Dialogue : MonoBehaviour
         //GameManager.instance.Stop();
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
         // AudioManager.instance.EffectBgm(true);
+
+        StartCoroutine(WaitForInput()); // 입력 대기 코루틴 시작
+    }
+
+    // 입력을 기다리는 코루틴
+    private IEnumerator WaitForInput()
+    {
+        // 대화가 완료될 때까지 기다림
+        yield return new WaitUntil(() => typingEffect.readyForInput);
+        // 대화가 완료되면 사용자 입력을 기다림
+        yield return new WaitUntil(() => Input.anyKeyDown);
+
+        // 아무 키나 입력되면 대화창을 숨김
+        Hide();
     }
 
     public void Hide()
