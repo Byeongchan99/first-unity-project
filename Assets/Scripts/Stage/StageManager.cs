@@ -57,6 +57,12 @@ public class StageManager : MonoBehaviour
         // 첫 번째 스테이지를 현재 스테이지로 설정
         currentStage = stages[0];
         //boundingShape.enabled = false;
+
+        // 룬 스테이지 클리어 여부 초기화
+        for (int i=0; i<4; i++)
+        {
+            SetRuneStageCompleted(i, false);
+        }
     }
 
     public Vector2 TilemapToWorldPosition(Vector2Int tilemapPos, Vector2Int bottomLeft, Vector2Int topRight)   // 타일맵 좌표를 월드 좌표로 변환
@@ -104,7 +110,7 @@ public class StageManager : MonoBehaviour
         {
             BackgroundMusicController.Instance.ChangeMusic(3);
         }
-        else   // 일반 스테이지
+        else if (stageIndex == 2 || stageIndex == 6 || stageIndex == 10 || stageIndex == 14)  // 일반 스테이지 시작
         {
             BackgroundMusicController.Instance.ChangeMusic(2);
         }

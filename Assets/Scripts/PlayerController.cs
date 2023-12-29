@@ -106,6 +106,11 @@ public class PlayerController : MonoBehaviour
                 UIManager.instance.pauseMenuUI.soundSettingPanel.OnExitButton();
                 UIManager.instance.pauseMenuUI.isOpenedSoundSetting = false;
             }
+            else if (UIManager.instance.pauseMenuUI.isOpenedMainMenuConfirm)   // 메인메뉴 나가기 확인 창이 켜져있을 때
+            {
+                UIManager.instance.pauseMenuUI.MainMenuCancel();
+                UIManager.instance.pauseMenuUI.isOpenedMainMenuConfirm = false;
+            }
             else if (UIManager.instance.pauseMenuUI.isOpenedGameExitConfirm)   // 게임종료 확인 창이 켜져있을 때
             {
                 UIManager.instance.pauseMenuUI.GameExitCancel();
