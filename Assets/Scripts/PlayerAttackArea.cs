@@ -39,6 +39,8 @@ public class PlayerAttackArea : BaseAttackArea
 
         // Debug.Log("공격 범위 콜라이더 활성화");
         attackRangeCollider.enabled = true;
+        // 공격 사운드
+        PlayerStat.Instance.playerAudioManager.PlayAttackSound();
     }
 
     // 콜라이더 모양 계산

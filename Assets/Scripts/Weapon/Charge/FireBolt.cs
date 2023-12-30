@@ -18,6 +18,11 @@ public class FireBolt : Bullet
     [Header("Explosion Animation")]
     private Animator explosionAnimator;  // 파이어볼트의 애니메이터 참조
 
+    [Header("Sound Effects")]
+    public AudioClip flyingSound;    // 날아가는 효과음
+    public AudioClip explosionSound; // 폭발 효과음
+    private AudioSource audioSource; // AudioSource 컴포넌트
+
     private new void Awake()
     {
         base.Awake();
@@ -25,12 +30,21 @@ public class FireBolt : Bullet
         explosionCollider = explosionArea.GetComponent<CircleCollider2D>();
         explosionAnimator = explosionArea.GetComponent<Animator>(); // 폭발 애니메이터 초기화
         explosionCollider.enabled = false;   // 처음에는 비활성화 상태
+        // AudioSource 컴포넌트 초기화
+        audioSource = GetComponent<AudioSource>();
     }
 
     private new void OnEnable()
     {
         base.OnEnable();
         ResetExplosion();
+        // 파이어볼트 발사 시 날아가는 효과음 재생
+        if (flyingSound != null)
+        {
+            audioSource.clip = flyingSound;
+            audioSource.loop = true; // 날아가는 동안 계속 재생
+            audioSource.Play();
+        }
     }
 
     private void ResetExplosion()
@@ -68,14 +82,24 @@ public class FireBolt : Bullet
         }
     }
 
+    // 폭발
     private void Explode()
     {
         // 폭발 시 원 콜라이더 활성화
         explosionCollider.enabled = true;
         // 폭발 애니메이션 실행      
         explosionAnimator.SetTrigger("Hit");
-
+        
         StartCoroutine(ExplostionEffectAnimation());
+        // 폭발 효과음 재생
+        if (explosionSound != null)
+        {
+            audioSource.Stop(); // 날아가는 효과음 중지
+            audioSource.clip = explosionSound;
+            audioSource.pitch = 2;
+            audioSource.loop = false; // 폭발 효과음은 한 번만 재생
+            audioSource.Play();
+        }
     }
 
     IEnumerator ExplostionEffectAnimation()

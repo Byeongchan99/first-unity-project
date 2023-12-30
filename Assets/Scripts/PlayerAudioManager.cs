@@ -48,11 +48,11 @@ public class PlayerAudioManager : MonoBehaviour
     {
         switch (weaponIdx)
         {
-            case 0:
+            case 10:
                 audioSource.PlayOneShot(chargeSoundBow);
                 break;
 
-            case 1:
+            case 11:
                 audioSource.PlayOneShot(chargeSoundMagic);
                 break;
         }
@@ -65,4 +65,37 @@ public class PlayerAudioManager : MonoBehaviour
             audioSource.PlayOneShot(hitSound);
         }
     }
+
+    // 사운드 조절 기능들
+    // 페이드 아웃
+    public void FadeOutSound(float fadeTime)
+    {
+        StartCoroutine(FadeOutCoroutine(fadeTime));
+    }
+
+    private IEnumerator FadeOutCoroutine(float fadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / fadeTime;
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    }
+
+    // 볼륨 및 피치 제어
+    public void SetVolume(float volume)
+    {
+        audioSource.volume = volume;
+    }
+
+    public void SetPitch(float pitch)
+    {
+        audioSource.pitch = pitch;
+    }
+
 }

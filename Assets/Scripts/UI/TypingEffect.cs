@@ -61,27 +61,30 @@ public class TypingEffect : MonoBehaviour
         }
         else   // 대화창을 사용하는 텍스트일 때
         {
-            if (UIManager.instance.dialogueUI.isOpened)   // 대화창이 열려있을 때
+            if (UIManager.instance != null)
             {
-                if (Input.anyKeyDown)
+                if (UIManager.instance.dialogueUI.isOpened)   // 대화창이 열려있을 때
                 {
-                    if (!complete)
+                    if (Input.anyKeyDown)
                     {
-                        if (justStartedDialogue)
+                        if (!complete)
                         {
-                            justStartedDialogue = false; // 첫 입력(NPC와 상호작용)을 무시
+                            if (justStartedDialogue)
+                            {
+                                justStartedDialogue = false; // 첫 입력(NPC와 상호작용)을 무시
+                            }
+                            else
+                            {
+                                // 타이핑을 스킵하고 바로 전체 텍스트를 표시
+                                complete = true;
+                                txt.text = fullText;
+                            }
                         }
                         else
                         {
-                            // 타이핑을 스킵하고 바로 전체 텍스트를 표시
-                            complete = true;
-                            txt.text = fullText;
+                            // 타이핑이 완료된 상태에서 키를 누르면 readyForInput을 false로 설정
+                            readyForInput = false;
                         }
-                    }
-                    else
-                    {
-                        // 타이핑이 완료된 상태에서 키를 누르면 readyForInput을 false로 설정
-                        readyForInput = false;
                     }
                 }
             }

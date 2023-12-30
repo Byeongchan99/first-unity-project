@@ -41,6 +41,8 @@ namespace CharacterController
             // 고정된 상태에서 무기 발사
             PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
             PlayerStat.Instance.chargeWeaponManager.Weapon.BeginAttack();
+            // 차지 사운드 재생
+            PlayerStat.Instance.playerAudioManager.PlayChargeSound(PlayerStat.Instance.chargeWeaponManager.Weapon.WeaponID);
         }
 
         public override void OnUpdateState()
@@ -94,6 +96,9 @@ namespace CharacterController
                 Vector2 bowWorldPosition = PlayerStat.Instance.transform.position + (Vector3)PlayerStat.Instance.chargeWeaponManager.Weapon.HandleData.localPosition;
                 direction = mousePosition - bowWorldPosition;
                 rightHandRenderer.sortingOrder = 10;
+
+                // 차지 사운드 페이드 아웃
+                PlayerStat.Instance.playerAudioManager.FadeOutSound(1f);
 
                 if (chargeLevel != 0)
                     PlayerStat.Instance.chargeWeaponManager.Weapon?.ChargingAttack(this, direction.normalized, chargeLevel);
