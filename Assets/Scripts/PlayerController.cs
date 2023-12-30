@@ -146,6 +146,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (!GameManager.instance.isBattle)   // 전투 중이 아닐 때에만
             {
+                AudioManager.Instance.PlaySound(4);
                 StageManager.Instance.TransitionToStage(transitionToStageIndex);
             }
         }
