@@ -14,6 +14,18 @@ public class Bullet : MonoBehaviour
     public float baseSpeed = 15f;
 
     protected Rigidbody2D rb;
+    [Header("Sound Effects")]
+    public AudioClip flyingSound;    // 날아가는 효과음
+    protected AudioSource audioSource; // AudioSource 컴포넌트
+
+    protected void Awake()
+    {
+        originalDamage = Damage;
+        originalPer = Per;
+
+        // AudioSource 컴포넌트 초기화
+        audioSource = GetComponent<AudioSource>();
+    }
 
     protected void OnEnable()
     {
@@ -23,6 +35,14 @@ public class Bullet : MonoBehaviour
             rb = GetComponent<Rigidbody2D>();
         ResetBullet();
         StartCoroutine(DeactivateBulletAfterTime());
+
+        // 화살 발사 시 날아가는 효과음 재생
+        if (flyingSound != null)
+        {
+            audioSource.clip = flyingSound;
+            audioSource.volume = 0.2f;
+            audioSource.Play();
+        }
     }
 
     // 화살 초기화
@@ -38,12 +58,6 @@ public class Bullet : MonoBehaviour
     {
         yield return new WaitForSeconds(bulletLifeTime);
         gameObject.SetActive(false);
-    }
-
-    protected void Awake()
-    {
-        originalDamage = Damage;
-        originalPer = Per;
     }
 
     // 데미지, 관통력, 방향

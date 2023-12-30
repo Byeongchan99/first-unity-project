@@ -19,9 +19,7 @@ public class FireBolt : Bullet
     private Animator explosionAnimator;  // 파이어볼트의 애니메이터 참조
 
     [Header("Sound Effects")]
-    public AudioClip flyingSound;    // 날아가는 효과음
     public AudioClip explosionSound; // 폭발 효과음
-    private AudioSource audioSource; // AudioSource 컴포넌트
 
     private new void Awake()
     {

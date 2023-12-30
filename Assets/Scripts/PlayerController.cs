@@ -323,6 +323,7 @@ public class PlayerController : MonoBehaviour
         // 피격 이벤트 실행
         if (!AttackState.IsAttack && !ChargeState.IsCharge)   // 공격 중이 아닐 때 피격 애니메이션 실행
             playerStat.animator.SetTrigger("Hit");
+        PlayerStat.Instance.playerAudioManager.PlayHitSound();
         StartCoroutine(GetHitRoutine());
     }
 
