@@ -131,6 +131,8 @@ public class AbilityChoice : MonoBehaviour
         if (playerGold >= 20)
         {
             PlayerStat.Instance.Gold -= 20;
+            // 구매 사운드
+            AudioManager.Instance.PlaySound(2);
             DisplayRandomAbilities();
         }
         else

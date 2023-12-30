@@ -28,6 +28,8 @@ public class ConsumableItem : MonoBehaviour
     private void recoveryHealth(int value)
     {
         PlayerStat.Instance.CurrentHP += value;
+        // 체력 회복 사운드
+        AudioManager.Instance.PlaySound(3);
         HealthManager.Instance.AdjustHearts();
     }
 }

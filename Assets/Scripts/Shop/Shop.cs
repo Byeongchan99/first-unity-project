@@ -216,6 +216,9 @@ public class Shop : MonoBehaviour
             // 골드 차감
             PlayerStat.Instance.Gold -= itemToPurchase.itemPrice;
 
+            // 구매 사운드
+            AudioManager.Instance.PlaySound(2);
+
             // 아이템 효과 실행
             ConsumableItem consumableItem = GetComponent<ConsumableItem>();
             if (consumableItem != null)
@@ -281,6 +284,8 @@ public class Shop : MonoBehaviour
     public void UseGold(int amount)
     {
         PlayerStat.Instance.Gold -= amount;
+        // 구매 사운드
+        AudioManager.Instance.PlaySound(2);
     }
 
     // 상인 대화 애니메이터 종료
