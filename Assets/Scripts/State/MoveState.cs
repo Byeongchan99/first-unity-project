@@ -7,6 +7,8 @@ namespace CharacterController
     public class MoveState : BaseState
     {
         public bool isVertical;
+        private float footstepTimer;
+        public float footstepInterval = 0.5f; // 발자국 소리 간격(초)
 
         // 생성자, 기반 클래스인 BaseState 생성자 호출
         public MoveState(PlayerController controller) : base(controller)
@@ -31,6 +33,14 @@ namespace CharacterController
             // 각도에 맞는 애니메이션
             PlayerStat.Instance.animator.SetFloat("MoveDirection.X", Controller.inputVec.x);
             PlayerStat.Instance.animator.SetFloat("MoveDirection.Y", Controller.inputVec.y);
+            // 발자국 사운드
+            // 발자국 소리 타이머 업데이트
+            footstepTimer += Time.fixedDeltaTime;
+            if (Controller.inputVec.magnitude > 0.1f && footstepTimer >= footstepInterval)
+            {
+                PlayerStat.Instance.playerAudioManager.PlayWalkSound();
+                footstepTimer = 0;
+            }
             // 속도 애니메이션 설정
             PlayerStat.Instance.animator.SetFloat("Speed", Controller.inputVec.magnitude);
             // 파티클 애니메이션 설정
