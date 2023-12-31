@@ -45,8 +45,6 @@ public class BossMonster : MonoBehaviour
     public BoxCollider2D laserColider2; // 중앙 레이저 콜라이더
     public SpriteRenderer laserAttackAreaSpriteRenderer2;   // 중앙 레이저 공격 범위 스프라이트
     public Transform laserStart; // 레이저 시작점
-    public AudioSource laserAudioSource1;
-    public AudioSource laserAudioSource2;
 
     public float defDistanceRay = 100;
     public float laserDuration; // 레이저 지속 시간
@@ -55,6 +53,14 @@ public class BossMonster : MonoBehaviour
     public Ellipse[] ellipseObjects;
     public int bulletID;   // 사용하는 총알의 프리팹 ID
     public Vector2 spawnPosition;   // 낙석 생성 위치
+
+    [Header("사운드 관련")]
+    protected AudioSource audioSource;
+    public AudioClip attackSound;
+    public AudioClip hitSound;
+    public AudioClip deathSound;
+    public AudioClip laser1;
+    public AudioClip laser2;
 
     enum BossState
     {
@@ -67,6 +73,7 @@ public class BossMonster : MonoBehaviour
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         animator = GetComponentInChildren<Animator>();
         leftHandAnimator = leftHand.GetComponent<Animator>();
         rightHandAnimator = rightHand.GetComponent<Animator>();
@@ -112,10 +119,6 @@ public class BossMonster : MonoBehaviour
             cameraShake = cinemachineVirtualCamera.GetComponent<CameraShake>();
 
         }
-
-        // 각 AudioSource 컴포넌트를 할당합니다.
-        laserAudioSource1 = GetComponents<AudioSource>()[0];
-        laserAudioSource2 = GetComponents<AudioSource>()[1];
     }
 
         public void ActivateBossMonster()
@@ -452,7 +455,9 @@ public class BossMonster : MonoBehaviour
         MoveParticle(firstHandParticle, firstHand.transform.position + new Vector3(0, -2f, 0));
         yield return new WaitForSeconds(0.2f);
         firstHandAttackArea.enabled = false;
-        StartCoroutine(ActiveParticle(firstHandParticle));    
+        StartCoroutine(ActiveParticle(firstHandParticle));
+        audioSource.volume = 0.8f;
+        audioSource.PlayOneShot(attackSound);
         cameraShake.ShakeCamera(0.3f, 2f, 2.0f); // 카메라 흔들기
         
 
@@ -475,6 +480,8 @@ public class BossMonster : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         secondHandAttackArea.enabled = false;
         StartCoroutine(ActiveParticle(secondHandParticle));
+        audioSource.volume = 0.8f;
+        audioSource.PlayOneShot(attackSound);
         cameraShake.ShakeCamera(0.3f, 2f, 2.0f); // 카메라 흔들기
 
         // 손 원래 위치로 복귀
@@ -551,6 +558,8 @@ public class BossMonster : MonoBehaviour
             MoveParticle(rightHandParticle, originalPositionRight);
             StartCoroutine(ActiveParticle(leftHandParticle));
             StartCoroutine(ActiveParticle(rightHandParticle));
+            audioSource.volume = 0.8f;
+            audioSource.PlayOneShot(attackSound);
             cameraShake.ShakeCamera(0.3f, 2f, 2.0f); // 카메라 흔들기
             if (isDeadWhileCoroutine)
             {
@@ -647,7 +656,9 @@ public class BossMonster : MonoBehaviour
         laserStart.transform.rotation = Quaternion.FromToRotation(Vector3.right, startDirection);
         lineRenderer1.enabled = true;
         laserColider1.enabled = true;
-        laserAudioSource1.Play();
+        audioSource.pitch = 2;
+        audioSource.volume = 0.3f;
+        audioSource.PlayOneShot(laser2);
 
         float elapsedTime = 0; // 경과 시간
 
@@ -694,6 +705,7 @@ public class BossMonster : MonoBehaviour
             // 조건이 충족되어 코루틴 종료
             yield break;
         }
+        audioSource.pitch = 1f;
         isPatternActive = false; // 패턴 종료
     }
 
@@ -747,7 +759,8 @@ public class BossMonster : MonoBehaviour
         }
         lineRenderer2.enabled = true;
         laserColider2.enabled = true;
-        laserAudioSource2.Play();
+        audioSource.volume = 0.4f;
+        audioSource.PlayOneShot(laser1);
 
         float elapsedTime = 0;   // 경과 시간
 
@@ -815,6 +828,8 @@ public class BossMonster : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             MoveParticle(leftHandParticle, originalPositionLeft);
             StartCoroutine(ActiveParticle(leftHandParticle));
+            audioSource.volume = 0.8f;
+            audioSource.PlayOneShot(attackSound);
             cameraShake.ShakeCamera(0.3f, 2f, 2.0f); // 카메라 흔들기
             rightHandAttackArea.enabled = true;
             leftHandAttackArea.enabled = false;
@@ -822,6 +837,8 @@ public class BossMonster : MonoBehaviour
             yield return StartCoroutine(WaitForConditionOrTime(0.2f));
             MoveParticle(rightHandParticle, originalPositionRight);
             StartCoroutine(ActiveParticle(rightHandParticle));
+            audioSource.volume = 0.8f;
+            audioSource.PlayOneShot(attackSound);
             cameraShake.ShakeCamera(0.3f, 2f, 2.0f); // 카메라 흔들기
             if (isDeadWhileCoroutine)
             {
@@ -933,7 +950,7 @@ public class BossMonster : MonoBehaviour
     public IEnumerator ExecuteRandomPattern()
     {
         // 패턴 1을 제외한 나머지 중에서 랜덤하게 실행
-        int pattern = Random.Range(5, 6); // 2부터 5 사이의 랜덤한 숫자
+        int pattern = Random.Range(2, 6); // 2부터 5 사이의 랜덤한 숫자
 
         switch (pattern)
         {
@@ -977,6 +994,8 @@ public class BossMonster : MonoBehaviour
         if (attackID != lastAttackID || attackID == -1)
         {
             health -= damage;
+            audioSource.volume = 0.5f;
+            audioSource.PlayOneShot(hitSound);
             if (health > 0)
             {               
                 Debug.Log("체력 감소! 남은 체력 " + health);
@@ -1009,6 +1028,8 @@ public class BossMonster : MonoBehaviour
         PlayerStat.Instance.Gold += randomGold;
 
         // 몬스터 상태 초기화 및 애니메이션 처리 (예: 사망 애니메이션 재생)
+        audioSource.volume = 0.6f;
+        audioSource.PlayOneShot(deathSound);
         shoulderSprite.SetActive(false);   // 사망 애니메이션 적용할 때 어깨 스프라이트 비활성화
         animator.SetTrigger("Dead");
         Debug.Log("카메라 흔들기");

@@ -11,11 +11,14 @@ public class FallingRock : MonsterBullet
     private CircleCollider2D AttackAreaColider;
     private BoxCollider2D StandAreaCollider;
     public SpriteRenderer FallingRockShadow;
+    protected AudioSource audioSource;
+    public AudioClip fallSound;
 
     protected override void Awake()
     {
         base.Awake(); // Call the base class Awake method
         AttackAreaColider = GetComponent<CircleCollider2D>();
+        audioSource = GetComponent<AudioSource>();
         Transform childTransform = transform.Find("StandArea");
         if (childTransform != null)
         {
@@ -78,6 +81,7 @@ public class FallingRock : MonsterBullet
         }
         // 낙석이 땅에 닿았으므로 추가 작업을 수행
         // 예를 들면, 낙석을 비활성화하거나, 플레이어의 이동 경로에 장애물로 남겨두는 로직 등
+        audioSource.PlayOneShot(fallSound);
         AttackAreaColider.enabled = false;
         StandAreaCollider.enabled = true;
         rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;   // 위치 고정
