@@ -12,6 +12,7 @@ public class GoblinWarrior : MonsterBase
         anim.SetFloat("Direction.Y", attackDirection.y);
 
         yield return new WaitForSeconds(attackTiming);  // 공격 타이밍에 공격 범위 콜라이더 활성화
+        audioSource.PlayOneShot(attackSound);
         MoveForward();   // 약간 전진
         monsterAttackArea.ActivateAttackRange(attackDirection);   // 공격 범위 활성화
 

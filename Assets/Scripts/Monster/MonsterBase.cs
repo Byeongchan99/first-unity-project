@@ -9,14 +9,18 @@ public abstract class MonsterBase : MonoBehaviour
     protected Transform target;
     protected Animator anim;
     public Rigidbody2D rb;
+    private Astar astarComponent;
+    protected MonsterAttackArea monsterAttackArea;
     SpriteRenderer spriteRenderer;
     WaitForFixedUpdate wait;   // 다음 FixedUpdate까지 기다림
 
+    [Header("스텟 관련")]
     protected bool IsLive;
     public float speed;
     public float health;
     public float maxHealth;
 
+    [Header("공격 관련")]
     public float attackDetectionRange;   // 공격 인식 범위
     public float attackRange;
     private int lastAttackID = -1;  // 이전에 받은 AttackArea의 공격 ID
@@ -30,8 +34,13 @@ public abstract class MonsterBase : MonoBehaviour
 
     public Vector2 moveDirection;
 
-    private Astar astarComponent;
-    protected MonsterAttackArea monsterAttackArea;
+    [Header("사운드 관련")]
+    public AudioClip spawnSound;
+    public AudioClip attackSound;
+    public AudioClip hitSound;
+    public AudioClip deathSound;
+    protected AudioSource audioSource;
+
 
     enum MonsterState
     {
@@ -50,6 +59,7 @@ public abstract class MonsterBase : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         monsterAttackArea = gameObject.GetComponentInChildren<MonsterAttackArea>();
         wait = new WaitForFixedUpdate();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnEnable()
@@ -61,6 +71,7 @@ public abstract class MonsterBase : MonoBehaviour
     // 몬스터를 활성화하는 코드
     public void ActivateMonster()
     {
+        audioSource.PlayOneShot(spawnSound);
         target = PlayerStat.Instance.transform;
         monsterState = MonsterState.CHASE;
         StartCoroutine(StateMachine());
@@ -184,6 +195,7 @@ public abstract class MonsterBase : MonoBehaviour
         if (attackID != lastAttackID || attackID == -1)
         {
             health -= damage;
+            audioSource.PlayOneShot(hitSound);
             if (health > 0)
             {
                 StartCoroutine(FlashSprite());
@@ -242,6 +254,7 @@ public abstract class MonsterBase : MonoBehaviour
     {
         Debug.Log("몬스터 사망");
         IsLive = false;
+        audioSource.PlayOneShot(deathSound);
         WaveManager.Instance.OnMonsterDeath();
         int randomGold = Random.Range(10, 16);  // 10에서 15 사이의 값을 얻기 위해
         PlayerStat.Instance.Gold += randomGold;

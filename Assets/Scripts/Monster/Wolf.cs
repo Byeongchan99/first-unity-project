@@ -37,6 +37,7 @@ public class Wolf : MonsterBase
         anim.SetBool("IsAttack", true);
         anim.SetFloat("Direction.X", chargeDirection.x);
         anim.SetFloat("Direction.Y", chargeDirection.y);
+        audioSource.PlayOneShot(attackSound);
         rb.velocity = chargeDirection * rushSpeed;
 
         for (float t = 0; t < rushDuration; t += Time.deltaTime)
