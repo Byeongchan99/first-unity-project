@@ -27,6 +27,7 @@ public class PauseMenu : MonoBehaviour
     public void Show()
     {
         rect.localScale = Vector3.one;
+        isPaused=true;
         GameManager.instance.Stop();
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
         // AudioManager.instance.EffectBgm(true);
@@ -35,6 +36,7 @@ public class PauseMenu : MonoBehaviour
     public void Hide()
     {
         rect.localScale = Vector3.zero;
+        isPaused=false;
         GameManager.instance.Resume();
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         // AudioManager.instance.EffectBgm(false);

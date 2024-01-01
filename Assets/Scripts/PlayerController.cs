@@ -104,16 +104,19 @@ public class PlayerController : MonoBehaviour
             if (UIManager.instance.pauseMenuUI.isOpenedSoundSetting)   // 사운드 설정 창이 켜져있을 때
             {
                 UIManager.instance.pauseMenuUI.soundSettingPanel.OnExitButton();
+                AudioManager.Instance.PlayUISound(5);
                 UIManager.instance.pauseMenuUI.isOpenedSoundSetting = false;
             }
             else if (UIManager.instance.pauseMenuUI.isOpenedMainMenuConfirm)   // 메인메뉴 나가기 확인 창이 켜져있을 때
             {
                 UIManager.instance.pauseMenuUI.MainMenuCancel();
+                AudioManager.Instance.PlayUISound(5);
                 UIManager.instance.pauseMenuUI.isOpenedMainMenuConfirm = false;
             }
             else if (UIManager.instance.pauseMenuUI.isOpenedGameExitConfirm)   // 게임종료 확인 창이 켜져있을 때
             {
                 UIManager.instance.pauseMenuUI.GameExitCancel();
+                AudioManager.Instance.PlayUISound(5);
                 UIManager.instance.pauseMenuUI.isOpenedGameExitConfirm = false;
             }
             else   // 일시정지 창만 켜져있을 때
@@ -130,8 +133,6 @@ public class PlayerController : MonoBehaviour
                 UIManager.instance.pauseMenuUI.Show();
             }
         }
-
-        UIManager.instance.pauseMenuUI.isPaused = !UIManager.instance.pauseMenuUI.isPaused;
     }
 
     // 상호작용
