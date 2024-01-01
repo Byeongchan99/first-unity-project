@@ -6,7 +6,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     private AudioSource source;
-    public AudioClip[] audioClips;
+    public AudioClip[] audioClips;   // 기타 효과음
+    public AudioClip[] audioClipsUI;   // UI 효과음
 
     void Awake()
     {
@@ -29,9 +30,10 @@ public class AudioManager : MonoBehaviour
         Instance = null;
     }
 
+    // 기타 효과음 실행
     public void PlaySound(int audioIndex)
     {
-        Debug.Log("음악 실행" + audioIndex);
+        Debug.Log("효과음 실행" + audioIndex);
         if (audioIndex >= 0 && audioIndex < audioClips.Length)
         {
             source.PlayOneShot(audioClips[audioIndex]);
@@ -39,6 +41,15 @@ public class AudioManager : MonoBehaviour
         else
         {
             Debug.LogWarning("Audio index out of range: " + audioIndex);
+        }
+    }
+
+    // UI 효과음 실행
+    public void PlayUISound(int audioIndex)
+    {
+        if (!source.isPlaying && audioIndex >= 0 && audioIndex < audioClips.Length)
+        {
+            source.PlayOneShot(audioClips[audioIndex]);
         }
     }
 

@@ -677,6 +677,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: abdbbfd33a46f4549987385f85c536b5, type: 3}
   - {fileID: 8300000, guid: cfce0cea076109f478783201b2a9f57f, type: 3}
   - {fileID: 8300000, guid: 8ff2a2d7e79f81c40ac447512f879374, type: 3}
+  - {fileID: 8300000, guid: b7b5a6156961bac44a67504d42ce6fcf, type: 3}
+  audioClipsUI: []
 --- !u!4 &511604349
 Transform:
   m_ObjectHideFlags: 0
@@ -1321,6 +1323,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &824252492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2909348009964713684, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+    type: 3}
+  m_PrefabInstance: {fileID: 7454217726384657885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &824252497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824252492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8753584b8dae8c847b44ad04fda12043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &867402004
 GameObject:
   m_ObjectHideFlags: 0
@@ -3620,6 +3640,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2909348009964713684, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 824252497}
     - targetCorrespondingSourceObject: {fileID: 6449636375505251058, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
       insertIndex: -1

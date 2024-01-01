@@ -28,16 +28,21 @@ public class Dialogue : MonoBehaviour
     }
 
     // 자식 오브젝트인 Dialogue에 대사 업데이트
-    public void Show(string dialogue)
+    public void Show(string dialogue, bool useTypingEffect)
     {
-        Debug.Log("Dialogue Show()");
         rect.localScale = Vector3.one;
         isOpened = true;
         typingEffect.fullText = dialogue;
-        typingEffect.StartCoroutine(typingEffect.ShowText());
-        //GameManager.instance.Stop();
-        // AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
-        // AudioManager.instance.EffectBgm(true);
+
+        // 타이핑 이펙트 사용 여부
+        if (useTypingEffect)
+        {
+            typingEffect.StartCoroutine(typingEffect.ShowText());
+        }
+        else
+        {
+            typingEffect.CompleteInstantly(); // 즉시 텍스트를 전부 표시하는 함수
+        }
 
         StartCoroutine(WaitForInput()); // 입력 대기 코루틴 시작
     }

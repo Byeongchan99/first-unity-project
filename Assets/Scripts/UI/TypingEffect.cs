@@ -22,6 +22,15 @@ public class TypingEffect : MonoBehaviour
         readyForInput = false;
     }
 
+    // 타이핑 이펙트 스킵
+    public void CompleteInstantly()
+    {
+        complete = true;
+        txt.text = fullText;
+        readyForInput = true;
+    }
+
+
     // 타이핑 효과 코루틴
     public IEnumerator ShowText()
     {
