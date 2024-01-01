@@ -14,6 +14,9 @@ public class TypingEffect : MonoBehaviour
     public bool usingDialoguePanel;   // 대화창 사용 여부 - 튜토리얼에서 사용
     private bool justStartedDialogue = false;
 
+    public AudioSource typingSoundSource; // 효과음을 재생할 AudioSource 컴포넌트
+    public AudioClip typingSound; // 재생할 효과음
+
     // 초기화
     void Init()
     {
@@ -30,7 +33,6 @@ public class TypingEffect : MonoBehaviour
         readyForInput = true;
     }
 
-
     // 타이핑 효과 코루틴
     public IEnumerator ShowText()
     {
@@ -40,7 +42,14 @@ public class TypingEffect : MonoBehaviour
         {
             if (complete) // 전체 텍스트가 표시되면 반복 중단
                 break;
+
             txt.text = fullText.Substring(0, i);
+
+            if (typingSound != null && typingSoundSource != null)
+            {
+                typingSoundSource.PlayOneShot(typingSound); // 효과음 재생
+            }
+
             yield return new WaitForSeconds(delay);
         }
         txt.text = fullText; // 반복이 끝나면 전체 텍스트 표시
@@ -48,6 +57,7 @@ public class TypingEffect : MonoBehaviour
         // 타이핑 효과가 완료되면 입력 준비 상태를 true로 설정
         readyForInput = true;
     }
+
 
     void Update()
     {  

@@ -35,9 +35,13 @@ public class Shop : MonoBehaviour
     void Awake()
     {
         rect = GetComponent<RectTransform>();
-        if (itemDetailPanel != null)
-            itemDetailPanel.SetActive(false);  // 상세정보 창 비활성화
 
+        if (itemDetailPanel != null)
+            itemDetailPanel.SetActive(false);  // 상세정보 창 비활성화       
+    }
+
+    void OnEnable()
+    {
         if (UIManager.instance != null)   // UI 매니저를 통해 참조
         {
             UIManager.instance.SetShopUI(this);
@@ -142,6 +146,7 @@ public class Shop : MonoBehaviour
             itemDetailButton.onClick.RemoveAllListeners();
 
             // 리스너 추가
+            purchaseButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
             itemDetailButton.onClick.AddListener(() => DisplayItemDescription(item));
         }
 
@@ -178,6 +183,7 @@ public class Shop : MonoBehaviour
 
                 // 리스너 추가
                 purchaseButton.onClick.AddListener(() => PurchaseItem(currentItem.itemID));
+                purchaseButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
             }
         }
     }
@@ -205,6 +211,7 @@ public class Shop : MonoBehaviour
         // 품절일 때
         if (IsItemPurchased(itemToPurchase.itemID))
         {
+            AudioManager.Instance.PlayUISound(7);
             Debug.LogWarning("Item already purchased!");
             return;
         }
@@ -245,6 +252,7 @@ public class Shop : MonoBehaviour
         }
         else
         {
+            AudioManager.Instance.PlayUISound(7);
             Debug.Log("Not enough gold to purchase the item!");
             // 골드가 부족한 경우의 메시지 또는 애니메이션 추가 (옵션)
         }
@@ -269,6 +277,7 @@ public class Shop : MonoBehaviour
             if (playerGold >= 200)
             {
                 // 리스너 추가
+                purchaseButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
                 purchaseButton.onClick.AddListener(() => abilityChoice.Show());
                 purchaseButton.onClick.AddListener(() => abilityChoice.DisplayRandomAbilities());
                 purchaseButton.onClick.AddListener(() => UseGold(200));
@@ -276,6 +285,7 @@ public class Shop : MonoBehaviour
             }
             else
             {
+                AudioManager.Instance.PlayUISound(7);
                 Debug.Log("골드가 부족합니다.");
             }
         }

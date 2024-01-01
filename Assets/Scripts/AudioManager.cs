@@ -47,9 +47,9 @@ public class AudioManager : MonoBehaviour
     // UI 효과음 실행
     public void PlayUISound(int audioIndex)
     {
-        if (!source.isPlaying && audioIndex >= 0 && audioIndex < audioClips.Length)
+        if (audioIndex >= 0 && audioIndex < audioClipsUI.Length)
         {
-            source.PlayOneShot(audioClips[audioIndex]);
+            source.PlayOneShot(audioClipsUI[audioIndex]);
         }
     }
 

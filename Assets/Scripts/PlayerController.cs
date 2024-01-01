@@ -118,14 +118,19 @@ public class PlayerController : MonoBehaviour
             }
             else   // 일시정지 창만 켜져있을 때
             {
+                AudioManager.Instance.PlayUISound(5);
                 UIManager.instance.pauseMenuUI.Hide();
             }
         }
         else   // 일시정지 창이 꺼져있을 때
         {
-            if (GameManager.instance.isLive) 
+            if (GameManager.instance.isLive)
+            {
+                AudioManager.Instance.PlayUISound(4);
                 UIManager.instance.pauseMenuUI.Show();
+            }
         }
+
         UIManager.instance.pauseMenuUI.isPaused = !UIManager.instance.pauseMenuUI.isPaused;
     }
 
@@ -134,6 +139,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isNearShop)
         {
+            AudioManager.Instance.PlayUISound(6);
             UIManager.instance.shopUI.Show();
             //UIManager.instance.shopUI.DisplayRandomShopItems();
         }
@@ -180,10 +186,12 @@ public class PlayerController : MonoBehaviour
     {
         if (UIManager.instance.mapBackgroundUI.isOpened)   // 맵이 켜져있을 때
         {
+            AudioManager.Instance.PlayUISound(3);
             UIManager.instance.mapBackgroundUI.Hide();
         }
         else   // 맵이 꺼져있을 때
         {
+            AudioManager.Instance.PlayUISound(2);
             UIManager.instance.mapBackgroundUI.Show();
         }
     }
