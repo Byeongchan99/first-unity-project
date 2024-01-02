@@ -10,6 +10,10 @@ public class AbilityChoice : MonoBehaviour
 
     // 구매 확인
     public GameObject purchaseConfirmationPanel;
+    public Button closeButton;   // 닫기 버튼
+
+    // 리롤 버튼
+    public Button rerollButton;
 
     void Awake()
     {
@@ -43,6 +47,19 @@ public class AbilityChoice : MonoBehaviour
         for (int i = 0; i < chosenAbilities.Count; i++)
         {
             UpdateAbilityUI(chosenAbilities[i], i);
+        }
+
+        // 리롤 비용보다 보유 골드가 적다면 리롤 버튼 비활성화
+        if (rerollButton != null)
+        {
+            if (PlayerStat.Instance.Gold < 20)
+            {
+                rerollButton.interactable = false;
+            }
+            else
+            {
+                rerollButton.interactable = true;
+            }
         }
     }
 
@@ -100,6 +117,7 @@ public class AbilityChoice : MonoBehaviour
             abilityButton.onClick.RemoveAllListeners();
 
             // 리스너 추가
+            abilityButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(8));
             abilityButton.onClick.AddListener(() => DisplayPurchaseConfirmation(ability.abilityID));
         }
     }
@@ -119,6 +137,13 @@ public class AbilityChoice : MonoBehaviour
 
             // 리스너 추가
             purchaseButton.onClick.AddListener(() => ActivateChosenAbility(abilityID));
+            purchaseButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
+        }
+
+        if (closeButton != null)
+        {
+            closeButton.onClick.RemoveAllListeners();
+            closeButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
         }
     }
 

@@ -1402,14 +1402,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fc4d731efba92c2418fb1bfccb180e0e, type: 2}
   - {fileID: 11400000, guid: f760850590fc68842a43a696d428c7ce, type: 2}
   - {fileID: 11400000, guid: 745bb4d84b4dfa94e964a7907d36647e, type: 2}
+  exitButton: {fileID: 3973529901689425789}
   itemDetailPanel: {fileID: 3973529903180195953}
   itemDetailImage: {fileID: 3973529901505537285}
   itemDetailName: {fileID: 3973529901713917571}
   itemDetailPrice: {fileID: 3973529901832723774}
   itemDetailDescription: {fileID: 3973529903369943003}
   purchaseButton: {fileID: 3973529902969971769}
+  closeButtonItem: {fileID: 3973529903161794771}
+  AbilityButton: {fileID: 3973529902477792476}
   purchaseConfirmationPanel: {fileID: 3973529903270393991}
   abilityChoice: {fileID: 0}
+  closeButtonAbility: {fileID: 3973529901985921992}
   merchantAnimator: {fileID: 3973529903075743993}
 --- !u!1 &3973529901788506362
 GameObject:
@@ -1688,7 +1692,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d577f4b062ba4b842839cc5c83613804, type: 3}
-    m_FontSize: 5
+    m_FontSize: 4
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2532,7 +2536,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d577f4b062ba4b842839cc5c83613804, type: 3}
-    m_FontSize: 5
+    m_FontSize: 4
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -3772,7 +3776,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d577f4b062ba4b842839cc5c83613804, type: 3}
-    m_FontSize: 5
+    m_FontSize: 4
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0

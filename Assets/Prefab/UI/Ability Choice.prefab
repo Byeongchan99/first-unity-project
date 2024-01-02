@@ -482,6 +482,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c72d6e1ba70043e47b710c1373c47568, type: 2}
   - {fileID: 11400000, guid: 8e9ee4190d88a2b409a0794bc63aa821, type: 2}
   purchaseConfirmationPanel: {fileID: 4646648386186215255}
+  closeButton: {fileID: 4646648387306512531}
+  rerollButton: {fileID: 4646648387288878430}
 --- !u!114 &4646648386729955476
 MonoBehaviour:
   m_ObjectHideFlags: 0

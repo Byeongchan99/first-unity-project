@@ -10,6 +10,7 @@ public class Shop : MonoBehaviour
     RectTransform rect;
     public ShopItemData[] allShopItems;   // 상점 아이템 배열
     List<ShopItemData> chosenItems;   // 랜덤으로 선택된 아이템들
+    public Button exitButton;   // 상점 나가기 버튼
 
     // 아이템의 구매 여부를 추적하는 딕셔너리
     private Dictionary<int, bool> purchasedItems = new Dictionary<int, bool>();
@@ -21,13 +22,18 @@ public class Shop : MonoBehaviour
     public TextMeshProUGUI itemDetailPrice;
     public Text itemDetailDescription;
     public Button purchaseButton;   // 구매하기 버튼
+    public Button closeButtonItem;   // 닫기 버튼
 
     // 현재 표시된 아이템 정보
-    private ShopItemData currentItem; 
-    
-    // 어빌리티 구매확인 패널
+    private ShopItemData currentItem;
+
+    // 어빌리티 구매 버튼
+    public Button AbilityButton;
+
+    // 어빌리티 구매 확인 패널
     public GameObject purchaseConfirmationPanel;
     public AbilityChoice abilityChoice;
+    public Button closeButtonAbility;   // 닫기 버튼
 
     // 상인 애니메이터
     public Animator merchantAnimator;   
@@ -38,6 +44,19 @@ public class Shop : MonoBehaviour
 
         if (itemDetailPanel != null)
             itemDetailPanel.SetActive(false);  // 상세정보 창 비활성화       
+
+        // 상점 나가기 버튼
+        if (exitButton != null)
+        {
+            // 버튼이 존재할 경우, Onclick 이벤트에 Hide 메서드를 연결합니다.
+            exitButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
+        }
+
+        // 어빌리티 구매 버튼
+        if (AbilityButton != null)
+        {
+            AbilityButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
+        }
     }
 
     void OnEnable()
@@ -146,7 +165,7 @@ public class Shop : MonoBehaviour
             itemDetailButton.onClick.RemoveAllListeners();
 
             // 리스너 추가
-            purchaseButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
+            itemDetailButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
             itemDetailButton.onClick.AddListener(() => DisplayItemDescription(item));
         }
 
@@ -162,11 +181,12 @@ public class Shop : MonoBehaviour
         }
     }
 
-    // 아이템 상세정보 창 디스플레이
+    // 선택한 아이템 상세정보 창 디스플레이
     public void DisplayItemDescription(ShopItemData currentItem)
     {
         if (currentItem != null)
         {
+            // 아이템 상세정보 업데이트
             itemDetailImage.sprite = currentItem.itemImage;
             itemDetailName.text = currentItem.itemName;
             itemDetailPrice.text = "<color=#FFD700>" + currentItem.itemPrice + "G</color>";
@@ -174,16 +194,32 @@ public class Shop : MonoBehaviour
 
             if (itemDetailPanel != null)
                 itemDetailPanel.SetActive(true);  // 패널을 표시
-
-            Button purchaseButton = itemDetailPanel.GetComponentInChildren<Button>();
+           
+            // 구매 버튼
             if (purchaseButton != null)
             {
-                // 리스너를 먼저 제거하고 새로 추가 (이전 리스너가 남아있지 않도록)
-                purchaseButton.onClick.RemoveAllListeners();
+                // 선택한 아이템의 가격이 보유 골드보다 비쌀 시 구매 버튼 비활성화
+                if (currentItem.itemPrice > PlayerStat.Instance.Gold)
+                {
+                    purchaseButton.interactable = false;
+                }
+                else
+                {
+                    purchaseButton.interactable = true;
 
-                // 리스너 추가
-                purchaseButton.onClick.AddListener(() => PurchaseItem(currentItem.itemID));
-                purchaseButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
+                    // 리스너를 먼저 제거하고 새로 추가 (이전 리스너가 남아있지 않도록)
+                    purchaseButton.onClick.RemoveAllListeners();
+                    // 리스너 추가
+                    purchaseButton.onClick.AddListener(() => PurchaseItem(currentItem.itemID));
+                    purchaseButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
+                }
+            }
+
+            // 닫기 버튼
+            if (closeButtonItem != null)
+            {
+                closeButtonItem.onClick.RemoveAllListeners();
+                closeButtonItem.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
             }
         }
     }
@@ -270,6 +306,7 @@ public class Shop : MonoBehaviour
         {
             // 리스너를 먼저 제거하고 새로 추가 (이전 리스너가 남아있지 않도록)
             purchaseButton.onClick.RemoveAllListeners();
+            purchaseButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
 
             // 현재 골드
             int playerGold = PlayerStat.Instance.Gold;
@@ -277,7 +314,7 @@ public class Shop : MonoBehaviour
             if (playerGold >= 200)
             {
                 // 리스너 추가
-                purchaseButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
+                purchaseButton.interactable = true;
                 purchaseButton.onClick.AddListener(() => abilityChoice.Show());
                 purchaseButton.onClick.AddListener(() => abilityChoice.DisplayRandomAbilities());
                 purchaseButton.onClick.AddListener(() => UseGold(200));
@@ -285,9 +322,16 @@ public class Shop : MonoBehaviour
             }
             else
             {
-                AudioManager.Instance.PlayUISound(7);
+                purchaseButton.interactable = false;
                 Debug.Log("골드가 부족합니다.");
             }
+        }
+
+        // 닫기 버튼
+        if (closeButtonAbility != null)
+        {
+            closeButtonAbility.onClick.RemoveAllListeners();
+            closeButtonAbility.onClick.AddListener(() => AudioManager.Instance.PlayUISound(0));
         }
     }
 

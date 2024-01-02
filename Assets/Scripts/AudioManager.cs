@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
     private AudioSource source;
     public AudioClip[] audioClips;   // 기타 효과음
-    public AudioClip[] audioClipsUI;   // UI 효과음
+    public AudioClip[] audioClipsUI;   // UI 효과음 - UI 버튼 클릭, 무기 장착, 맵 열기, 맵 닫기, 일시정지 메뉴 활성화, 일시정지 메뉴 비활성화, 업적 해금, 거부, 어빌리티 선택
 
     void Awake()
     {
