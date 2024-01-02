@@ -3833,6 +3833,11 @@ PrefabInstance:
       propertyPath: BackGroundSource
       value: 
       objectReference: {fileID: 519420038}
+    - target: {fileID: 4492096145061479056, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: SoundEffectSource
+      value: 
+      objectReference: {fileID: 511604347}
     - target: {fileID: 5035965347279253318, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
       propertyPath: mainMenuConfirmPanel

@@ -7,8 +7,7 @@ public class SoundSettingMenu : MonoBehaviour
 {
     RectTransform rect;
     public Slider SoundEffectVolumeSlider, BackGroundVolumeSlider;
-    // public AudioSource SoundEffectSource, BackGroundSource;
-    public AudioSource BackGroundSource;
+    public AudioSource SoundEffectSource, BackGroundSource;
     private float soundEffectTempVolume, backGroundTempVolume;
 
     void Awake()
@@ -19,7 +18,7 @@ public class SoundSettingMenu : MonoBehaviour
     void Start()
     {
         // 초기 볼륨 값을 슬라이더와 오디오 소스에 설정
-        //soundEffectTempVolume = SoundEffectSource.volume;
+        soundEffectTempVolume = SoundEffectSource.volume;
         SoundEffectVolumeSlider.value = soundEffectTempVolume;
 
         backGroundTempVolume = BackGroundSource.volume;
@@ -55,14 +54,14 @@ public class SoundSettingMenu : MonoBehaviour
     public void OnConfirmButton()
     {
         // 적용 버튼을 누르면 임시 볼륨 값을 실제 오디오 소스에 적용
-        //SoundEffectSource.volume = soundEffectTempVolume;
+        SoundEffectSource.volume = soundEffectTempVolume;
         BackGroundSource.volume = backGroundTempVolume;
     }
 
     public void OnExitButton()
     {
         // 취소 버튼을 누르면 슬라이더를 이전 볼륨 값으로 되돌림
-        //SoundEffectVolumeSlider.value = SoundEffectSource.volume;
+        SoundEffectVolumeSlider.value = SoundEffectSource.volume;
         BackGroundVolumeSlider.value = BackGroundSource.volume;
         rect.localScale = Vector3.zero;
         UIManager.instance.pauseMenuUI.isOpenedSoundSetting = false;
