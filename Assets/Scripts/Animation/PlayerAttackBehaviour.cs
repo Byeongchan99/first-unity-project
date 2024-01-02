@@ -47,12 +47,14 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
     // State 업데이트 시 호출되는 메서드
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (weapon == null)
+        /*
+        if (Weapon == null)
         {
             weapon = PlayerStat.Instance.GetComponentInChildren<OneHandSwordBasic>();
         }
+        */
 
-        if (weapon.ComboCount == 3)   // 세번째 공격 모션일 때 - 1타와 2타가 있음
+        if (PlayerStat.Instance.weaponManager.Weapon.ComboCount == 3)   // 세번째 공격 모션일 때 - 1타와 2타가 있음
         {
             // 애니메이션 진행도(stateInfo.normalizedTime)를 기준으로 로직을 수행
             if (!hasDisabledCollider && stateInfo.normalizedTime >= 0.3f && stateInfo.normalizedTime <= 0.4f)
