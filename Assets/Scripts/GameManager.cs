@@ -157,7 +157,7 @@ public class GameManager : MonoBehaviour
         RollState.canRoll = true;
         AttackState.IsAttack = false;
 
-        SceneManager.LoadScene(0);   // 게임 재시작
+        LoadingSceneManager.LoadScene("MainScene");   // 게임 재시작
     }
 
     void Update()
