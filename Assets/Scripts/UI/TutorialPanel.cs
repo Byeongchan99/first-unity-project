@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TutorialPanel : MonoBehaviour
 {
-    public GameObject tutorialPanel; // 인스펙터에서 참조할 UI 요소.
+    public GameObject tutorialPanel; // 튜토리얼 가이드 패널
     private bool isTriggered = false; // 이벤트가 이미 발생했는지 추적하는 플래그.
 
     void Start()
@@ -27,12 +27,13 @@ public class TutorialPanel : MonoBehaviour
             if (tutorialPanel != null)
             {
                 tutorialPanel.SetActive(true); // UI 요소를 활성화합니다.
-                Invoke("DeactivateTutorialPanel", 3f); // 3초 후 DeactivateTutorialPanel 메서드를 호출합니다.
+                Invoke("DeactivateTutorialPanel", 3f); // 3초 후 DeactivateTutorialPanel 메서드를 호출
                 isTriggered = true;
             }
         }
     }
 
+    // 튜토리얼 가이드 패널 비활성화
     void DeactivateTutorialPanel()
     {
         if (tutorialPanel != null)

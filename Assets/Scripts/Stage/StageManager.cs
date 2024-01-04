@@ -18,6 +18,7 @@ public class StageManager : MonoBehaviour
 
     [Header("# 게임 진행 상태")]
     public Dictionary<int, bool> completedRuneStages;   // 메인 스테이지의 룬 기둥을 활성화 하기 위한 클리어한 스테이지 개수, 숲, 평원, 사막, 설원 순서
+    public bool allStageCleared = false;   // 모든 스테이지 클리어 여부
 
     private void Awake()
     {
@@ -209,5 +210,23 @@ public class StageManager : MonoBehaviour
     public bool IsRuneStageCompleted(int runeStageID)
     {
         return completedRuneStages.ContainsKey(runeStageID) && completedRuneStages[runeStageID];
+    }
+
+    public void updateAllStageCleared()
+    {
+        bool asc = true;
+        foreach (var runeStage in completedRuneStages)
+        {
+            if (!runeStage.Value)
+            {
+                asc = false;
+                break;
+            }
+        }
+
+        if (asc)
+        {
+            allStageCleared = true;
+        }
     }
 }

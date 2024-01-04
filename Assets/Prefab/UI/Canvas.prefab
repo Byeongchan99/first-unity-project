@@ -1642,7 +1642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2518473009399275355
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8274,6 +8274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundEffectVolumeSlider: {fileID: 6030551206778730111}
   BackGroundVolumeSlider: {fileID: 6139045628847781744}
+  SoundEffectSource: {fileID: 0}
   BackGroundSource: {fileID: 0}
 --- !u!1 &7214968737029138702
 GameObject:
@@ -9575,6 +9576,8 @@ MonoBehaviour:
   complete: 0
   readyForInput: 0
   usingDialoguePanel: 1
+  typingSoundSource: {fileID: 0}
+  typingSound: {fileID: 0}
 --- !u!1 &8477845166605105287
 GameObject:
   m_ObjectHideFlags: 0
@@ -12410,17 +12413,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4456159849280726323, guid: 7b6293ba6b948a945bafd9f3bb936aeb, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8091731153015379894, guid: 7b6293ba6b948a945bafd9f3bb936aeb,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6921397319969803767}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4456159849280726323, guid: 7b6293ba6b948a945bafd9f3bb936aeb,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7256041731432736862}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b6293ba6b948a945bafd9f3bb936aeb, type: 3}
 --- !u!224 &1605001963428030764 stripped
 RectTransform:
@@ -12428,27 +12428,3 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7353681464394727066}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6618870408519310249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4456159849280726323, guid: 7b6293ba6b948a945bafd9f3bb936aeb,
-    type: 3}
-  m_PrefabInstance: {fileID: 7353681464394727066}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7256041731432736862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6618870408519310249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a88cd41fd03a4845b57c574a27a69db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txt: {fileID: 0}
-  fullText: 
-  delay: 0.1
-  complete: 0
-  readyForInput: 0
-  usingDialoguePanel: 0

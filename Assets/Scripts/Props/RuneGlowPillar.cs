@@ -58,17 +58,9 @@ public class RuneGlowPillar : MonoBehaviour
         runes[runeStageID].gameObject.SetActive(true);
 
         // 모든 룬 스테이지를 클리어 했는지 확인 후 altar의 Portal 스크립트 오브젝트 활성화
-        bool allStageCleared = true;
-        foreach (var runeStage in StageManager.Instance.completedRuneStages)
-        {
-            if (!runeStage.Value)
-            {
-                allStageCleared = false;
-                break;
-            }           
-        }
+        StageManager.Instance.updateAllStageCleared();
 
-        if (allStageCleared)
+        if (StageManager.Instance.allStageCleared)
         {
             // altar의 Portal 자식 오브젝트 비활성화
             altarPortal.SetActive(true);
