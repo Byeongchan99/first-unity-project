@@ -200,6 +200,9 @@ public class PlayerController : MonoBehaviour
     // 이동
     void OnMove(InputValue value)
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         // 후처리로 normalized 해줌
         inputVec = value.Get<Vector2>();
     }
@@ -207,6 +210,9 @@ public class PlayerController : MonoBehaviour
     // 구르기
     void OnRoll()
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         if (AttackState.IsAttack || ChargeState.IsCharge || !RollState.canRoll) 
             return;
 
@@ -230,6 +236,9 @@ public class PlayerController : MonoBehaviour
     // 차지 공격
     void OnCharge()
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         if (RollState.IsRoll || AttackState.IsAttack || PlayerStat.Instance.CurrentEnergy < 1 || StageManager.Instance.currentStage.stageType == "Hub") 
             return;
 
@@ -240,6 +249,9 @@ public class PlayerController : MonoBehaviour
     // 새로운 입력 시스템의 Callback으로 사용됩니다.
     void OnAttack()
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         // UI 위에 마우스가 있으면 리턴
         if (isPointerOverUI)
         {

@@ -75,6 +75,7 @@ public class Shop : MonoBehaviour
     public void Show()
     {
         rect.localScale = Vector3.one;
+        GameManager.instance.isLive = false;
         // GameManager.instance.Stop();
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
         // AudioManager.instance.EffectBgm(true);
@@ -83,6 +84,7 @@ public class Shop : MonoBehaviour
     public void Hide()
     {
         rect.localScale = Vector3.zero;
+        GameManager.instance.isLive = true;
         // GameManager.instance.Resume();
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         // AudioManager.instance.EffectBgm(false);

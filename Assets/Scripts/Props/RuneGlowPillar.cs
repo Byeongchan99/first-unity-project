@@ -46,7 +46,7 @@ public class RuneGlowPillar : MonoBehaviour
         }
 
         // altar의 Portal 자식 오브젝트 비활성화
-        //altarPortal.SetActive(false);
+        altarPortal.SetActive(false);
     }
 
     public void ActivateRune(int runeStageID)

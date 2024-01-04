@@ -59,6 +59,17 @@ public class Dialogue : MonoBehaviour
         Hide();
     }
 
+    // 일정 시간 후 사라지는 대화창 - 봉인석 복구 메시지
+    public void ShowWithInvoke(string dialogue)
+    {
+        rect.localScale = Vector3.one;
+        isOpened = true;
+        typingEffect.fullText = dialogue;
+
+        typingEffect.CompleteInstantly();   // 즉시 텍스트를 전부 표시
+        Invoke("Hide", 3f);   // 3초 후 숨김
+    }
+
     public void Hide()
     {
         rect.localScale = Vector3.zero;

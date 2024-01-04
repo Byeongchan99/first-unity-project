@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
         PlayerStat.Instance.CurrentHP -= 1;
         PlayerStat.Instance.CurrentEnergy -= 1;
         PlayerStat.Instance.Gold += 1000;
+        isLive = true;
         Resume();
     }
 
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour
         //waveManager.StartWave();
         StageManager.Instance.TransitionToStage(0);
         BackgroundMusicController.Instance.ChangeMusic(1);
+        isLive = true;
         Resume();
     }
 
@@ -139,6 +141,7 @@ public class GameManager : MonoBehaviour
     public void GameRetry()
     {
         Debug.Log("GameRetry");
+        isLive = false;
         // 현재 실행 중인 모든 코루틴 중지
         StopAllCoroutines();
         // 모든 싱글톤 초기화

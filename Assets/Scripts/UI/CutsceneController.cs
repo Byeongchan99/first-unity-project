@@ -14,6 +14,7 @@ public class CutsceneController : MonoBehaviour
         UIManager.instance.healthUI.SetActive(false);
         UIManager.instance.energyUI.SetActive(false);
         UIManager.instance.goldUI.SetActive(false);
+        GameManager.instance.isLive = false;
 
         // 모든 컷신을 비활성화
         foreach (GameObject cutscene in cutscenes)
@@ -70,6 +71,7 @@ public class CutsceneController : MonoBehaviour
             UIManager.instance.healthUI.SetActive(true);
             UIManager.instance.energyUI.SetActive(true);
             UIManager.instance.goldUI.SetActive(true);
+            GameManager.instance.isLive = true;
         }
     }
 }

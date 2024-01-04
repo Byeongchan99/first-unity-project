@@ -55,7 +55,6 @@ public class AltarCutscene : MonoBehaviour
         if (director == playableDirector)
         {
             GameManager.instance.isLive = true; // 컷신이 끝나면 isLive를 true로 설정
-            isPlayed = false; // 재생 가능 상태로 리셋
             playableDirector.gameObject.SetActive(false);
         }
     }
