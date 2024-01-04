@@ -81,6 +81,9 @@ public class EnergyManager : MonoBehaviour
     // 필요한 경우에만 에너지를 다시 추가/제거하는 로직
     public void AdjustEnergy()
     {
+        if (PlayerStat.Instance.MaxEnergy < 1)
+            PlayerStat.Instance.MaxEnergy = 1;
+
         int difference = PlayerStat.Instance.MaxEnergy - playerEnergy.Count;
 
         if (difference > 0)

@@ -85,6 +85,9 @@ public class HealthManager : MonoBehaviour
     // 필요한 경우에만 하트를 다시 추가/제거하는 로직
     public void AdjustHearts()
     {
+        if (PlayerStat.Instance.MaxHP < 1)
+            PlayerStat.Instance.MaxHP = 1;
+
         int difference = PlayerStat.Instance.MaxHP - playerHealth.Count;
 
         // 최대 체력이 늘었을 때
