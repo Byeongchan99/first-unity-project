@@ -22,15 +22,15 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 1.6333333333333333
+    m_Start: 1
     m_ClipIn: 0
     m_Asset: {fileID: 768647800724251728}
-    m_Duration: 3.8666666666666667
+    m_Duration: 4
     m_TimeScale: 1
     m_ParentTrack: {fileID: -172757522550084228}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 2.433333333333333
+    m_BlendInDuration: 3.0666666666666664
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
@@ -64,7 +64,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 2.433333333333333
+    m_BlendOutDuration: 3.0666666666666664
     m_MixInCurve:
       serializedVersion: 2
       m_Curve: []
