@@ -28,6 +28,12 @@ namespace CharacterController
 
         public override void OnFixedUpdateState()
         {
+            if (!GameManager.instance.isLive)
+            {
+                PlayerStat.Instance.rigidBody.velocity = Vector2.zero;
+                return;
+            }
+
             // 플레이어 이동(속도 변경 방식)
             PlayerStat.Instance.rigidBody.velocity = Controller.inputVec * PlayerStat.Instance.MoveSpeed * Time.fixedDeltaTime;
             // 각도에 맞는 애니메이션

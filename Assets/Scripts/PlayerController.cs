@@ -201,8 +201,11 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue value)
     {
         if (!GameManager.instance.isLive)
+        {
+            inputVec = Vector2.zero;
             return;
-
+        }
+           
         // 후처리로 normalized 해줌
         inputVec = value.Get<Vector2>();
     }
@@ -296,6 +299,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.CompareTag("ShopInteractionRange")) // 상점 상호작용 범위 확인
         {
+            Debug.Log("상점 상호작용 범위 안");
             HandleShopInteraction();
             return;
         }
