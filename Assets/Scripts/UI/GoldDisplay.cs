@@ -10,7 +10,7 @@ public class GoldDisplay : MonoBehaviour
     {
         if (PlayerStat.Instance != null)
         {
-            goldText.text = "ÇöÀç °ñµå: <color=#FFD700>" + PlayerStat.Instance.Gold + "G</color>";
+            goldText.text = "<color=#FFD700>       " + PlayerStat.Instance.Gold + "G</color>";
         }
         else
         {

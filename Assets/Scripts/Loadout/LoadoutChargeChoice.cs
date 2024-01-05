@@ -14,7 +14,7 @@ public class LoadoutChargeChoice : MonoBehaviour
     // 상단 무기 아이콘들
     Transform weaponIcons;
     // 무기 정보 배경 - 검은 벽
-    Transform weaponInformationBackground;
+    Transform weaponChargeBackground;
     // 무기 정보 - 패널
     Transform weaponInformation;
     // 무기 이름
@@ -28,8 +28,8 @@ public class LoadoutChargeChoice : MonoBehaviour
     {
         rect = GetComponent<RectTransform>();
         weaponIcons = transform.Find("Weapon Icon");
-        weaponInformationBackground = transform.Find("Weapon Information Background");
-        weaponInformation = weaponInformationBackground.Find("Weapon Information");
+        weaponChargeBackground = transform.Find("Weapon Charge Background");
+        weaponInformation = weaponChargeBackground.Find("Weapon Information");
         weaponName = weaponInformation.Find("Weapon Name");
         weaponDescription = weaponInformation.Find("Weapon Description");
         weaponImage = weaponInformation.Find("Weapon Image");
@@ -159,9 +159,9 @@ public class LoadoutChargeChoice : MonoBehaviour
     // 무기 정보 업데이트
     private void UpdateWeaponInformation(LoadoutData loadout)
     {
-        if (weaponInformationBackground == null)
+        if (weaponChargeBackground == null)
         {
-            Debug.LogError("No Weapon Infomation Background found!");
+            Debug.LogError("No Weapon Charge Background found!");
             return;
         }      
 

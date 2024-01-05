@@ -36,7 +36,7 @@ namespace CharacterController
             // 발자국 사운드
             // 발자국 소리 타이머 업데이트
             footstepTimer += Time.fixedDeltaTime;
-            if (Controller.inputVec.magnitude > 0.1f && footstepTimer >= footstepInterval)
+            if (Controller.inputVec.magnitude > 0.1f && footstepTimer >= footstepInterval && GameManager.instance.isLive)
             {
                 PlayerStat.Instance.playerAudioManager.PlayWalkSound();
                 footstepTimer = 0;
