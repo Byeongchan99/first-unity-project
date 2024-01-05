@@ -51049,6 +51049,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7275354728930455933}
     m_Modifications:
+    - target: {fileID: 953138137607732151, guid: b7aa100b3601b85409162bf90adbd48f,
+        type: 3}
+      propertyPath: dialogues.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953138137607732151, guid: b7aa100b3601b85409162bf90adbd48f,
+        type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: "\uC88B\uC740 \uAC70\uB798\uC600\uC5B4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 953138137607732151, guid: b7aa100b3601b85409162bf90adbd48f,
+        type: 3}
+      propertyPath: dialogues.Array.data[1]
+      value: "\uD658\uBD88\uC740 \uACE4\uB780\uD574"
+      objectReference: {fileID: 0}
+    - target: {fileID: 953138137607732151, guid: b7aa100b3601b85409162bf90adbd48f,
+        type: 3}
+      propertyPath: dialogues.Array.data[2]
+      value: "\uD658\uBD88\uC740 \uACE4\uB780\uD574"
+      objectReference: {fileID: 0}
     - target: {fileID: 5164144523543668905, guid: b7aa100b3601b85409162bf90adbd48f,
         type: 3}
       propertyPath: m_SortingLayer
