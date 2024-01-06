@@ -28,6 +28,7 @@ public class PauseMenu : MonoBehaviour
     {
         rect.localScale = Vector3.one;
         isPaused=true;
+        UIManager.instance.InventoryIconUI.Show();   // 장비 아이콘창도 같이 열고 닫음
         GameManager.instance.Stop();
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
         // AudioManager.instance.EffectBgm(true);
@@ -37,6 +38,7 @@ public class PauseMenu : MonoBehaviour
     {
         rect.localScale = Vector3.zero;
         isPaused=false;
+        UIManager.instance.InventoryIconUI.Hide();
         GameManager.instance.Resume();
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         // AudioManager.instance.EffectBgm(false);

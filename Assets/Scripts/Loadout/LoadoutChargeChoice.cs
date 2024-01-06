@@ -185,5 +185,6 @@ public class LoadoutChargeChoice : MonoBehaviour
     {
         Debug.Log("EquipSelectedWeapon called");
         PlayerStat.Instance.chargeWeaponManager.EquipWeapon(selectedLoadout.weaponPrefab);
+        UIManager.instance.InventoryIconUI.UpdateChargeWeaponIcon(selectedLoadout.weaponIcon);   // 장비창 아이콘 UI 업데이트
     }
 }

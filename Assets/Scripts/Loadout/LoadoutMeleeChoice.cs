@@ -196,5 +196,6 @@ public class LoadoutMeleeChoice : MonoBehaviour
     {   
         // Debug.Log("EquipSelectedWeapon called");
         PlayerStat.Instance.weaponManager.EquipWeapon(selectedLoadout.weaponPrefab);
+        UIManager.instance.InventoryIconUI.UpdateMeleeWeaponIcon(selectedLoadout.weaponIcon);   // 장비창 아이콘 UI 업데이트
     }
 }

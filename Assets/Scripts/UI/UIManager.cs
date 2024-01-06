@@ -65,5 +65,7 @@ public class UIManager : MonoBehaviour
     public GameObject energyUI;
     // 현재 골드 UI
     public GameObject goldUI;
+    // 현재 장비창 아이콘 UI
+    public InventoryIcon InventoryIconUI;
 }
 
