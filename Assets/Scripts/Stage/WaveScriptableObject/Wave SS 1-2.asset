@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d06819c9353bc1f488d6d66b9b3febb8, type: 3}
-  m_Name: Wave FS 2
+  m_Name: Wave SS 1-2
   m_EditorClassIdentifier: 
   spawnInfos:
   - monstersToSpawn:
-    - monsterPrefab: {fileID: 6775636773419384046, guid: 1b96233f3cbf5194db9ae385c4a04a2d,
+    - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
         type: 3}
       count: 1
-    spawnPointIndex: 0
+    spawnPointIndex: 3
   - monstersToSpawn:
-    - monsterPrefab: {fileID: 6775636773419384046, guid: 1b96233f3cbf5194db9ae385c4a04a2d,
+    - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
+        type: 3}
+      count: 1
+    spawnPointIndex: 4
+  - monstersToSpawn:
+    - monsterPrefab: {fileID: 6499440422579365713, guid: fbb91cccd299bb14c82bd2d974809dc8,
         type: 3}
       count: 1
     spawnPointIndex: 1
-  - monstersToSpawn:
-    - monsterPrefab: {fileID: 3510155503548329890, guid: 610674db1d91f5d4e85a52c4e8caf90d,
-        type: 3}
-      count: 1
-    spawnPointIndex: 2
   spawnPointsPositions:
-  - {x: 3.71, y: 9.16}
-  - {x: 9.03, y: 8.48}
-  - {x: 3.71, y: 4.74}
-  - {x: 5.52, y: 2.51}
-  - {x: 9.02, y: 4.49}
+  - {x: 2.65, y: 6.79}
+  - {x: 5.73, y: 7.87}
+  - {x: 8.17, y: 6.01}
+  - {x: 2.72, y: 3.47}
+  - {x: 6.89, y: 2.88}

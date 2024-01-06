@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d06819c9353bc1f488d6d66b9b3febb8, type: 3}
-  m_Name: Wave SS 4
+  m_Name: Wave SS 3-1
   m_EditorClassIdentifier: 
   spawnInfos:
   - monstersToSpawn:
@@ -22,20 +22,23 @@ MonoBehaviour:
     - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
         type: 3}
       count: 1
-    spawnPointIndex: 1
+    spawnPointIndex: 2
   - monstersToSpawn:
     - monsterPrefab: {fileID: 6499440422579365713, guid: fbb91cccd299bb14c82bd2d974809dc8,
         type: 3}
       count: 1
-    spawnPointIndex: 2
+    spawnPointIndex: 5
   - monstersToSpawn:
     - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
         type: 3}
       count: 1
-    spawnPointIndex: 3
+    spawnPointIndex: 7
   spawnPointsPositions:
-  - {x: 3.43, y: 9.77}
-  - {x: 6.65, y: 9.18}
-  - {x: 3.65, y: 6.68}
-  - {x: 2.79, y: 3.68}
-  - {x: 6.14, y: 3.4}
+  - {x: 4.21, y: 10.67}
+  - {x: 9.27, y: 12.62}
+  - {x: 13.83, y: 11.7}
+  - {x: 2.92, y: 6.89}
+  - {x: 16.2, y: 7.93}
+  - {x: 5.46, y: 3.04}
+  - {x: 11.55, y: 3.17}
+  - {x: 15.31, y: 4.39}

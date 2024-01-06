@@ -17,6 +17,7 @@ MonoBehaviour:
   stageID: 6
   waves:
   - {fileID: 11400000, guid: 1c6952c09febd824ea673babe4cdf159, type: 2}
+  - {fileID: 11400000, guid: 496b5188081245747b3f08ded442a6cf, type: 2}
   stagePrefab: {fileID: 122958307212806171, guid: 5f7bf8a5d292d764ea234509365d47ea,
     type: 3}
   startPosition: {x: 1.3, y: 5.5}
