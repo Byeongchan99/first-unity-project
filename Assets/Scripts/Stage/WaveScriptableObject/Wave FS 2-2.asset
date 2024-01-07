@@ -17,12 +17,17 @@ MonoBehaviour:
     - monsterPrefab: {fileID: 6775636773419384046, guid: 1b96233f3cbf5194db9ae385c4a04a2d,
         type: 3}
       count: 1
-    spawnPointIndex: 0
+    spawnPointIndex: 2
   - monstersToSpawn:
     - monsterPrefab: {fileID: 6775636773419384046, guid: 1b96233f3cbf5194db9ae385c4a04a2d,
         type: 3}
       count: 1
     spawnPointIndex: 1
+  - monstersToSpawn:
+    - monsterPrefab: {fileID: 3510155503548329890, guid: 610674db1d91f5d4e85a52c4e8caf90d,
+        type: 3}
+      count: 1
+    spawnPointIndex: 0
   spawnPointsPositions:
   - {x: 3.71, y: 9.16}
   - {x: 9.03, y: 8.48}

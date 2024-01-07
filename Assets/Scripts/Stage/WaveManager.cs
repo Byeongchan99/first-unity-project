@@ -183,7 +183,8 @@ public class WaveManager : MonoBehaviour
             MonsterBase monsterComponent = monsterToSpawn.GetComponent<MonsterBase>();
             Astar Astar = monsterToSpawn.GetComponent<Astar>();
             if (monsterComponent != null)
-            {              
+            {
+                AudioManager.Instance.PlaySound(7);
                 GameObject monsterSpawnEffect = GameManager.instance.pool.Get(4);   // 몬스터 소환 애니메이션 활성화
                 monsterSpawnEffect.transform.position = spawnPointPosition;
                 DeactivateSpawnEffect(monsterSpawnEffect); // 몬스터 소환 애니메이션 비활성화 코루틴 호출

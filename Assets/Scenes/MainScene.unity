@@ -1286,6 +1286,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8ff2a2d7e79f81c40ac447512f879374, type: 3}
   - {fileID: 8300000, guid: b7b5a6156961bac44a67504d42ce6fcf, type: 3}
   - {fileID: 8300000, guid: c5cb2ac29e89dbf43a9b644caaad45e6, type: 3}
+  - {fileID: 8300000, guid: 21c4a490b24ba2045bc815f7626a40ef, type: 3}
   audioClipsUI:
   - {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
   - {fileID: 8300000, guid: 490bfbc72255342408984f60044487de, type: 3}
@@ -2776,22 +2777,22 @@ MonoBehaviour:
   monsterPools:
   - monsterPrefab: {fileID: 7285737326918540868, guid: a43e28856feb0164db9bb179e43ad5fd,
       type: 3}
-    poolSize: 3
+    poolSize: 4
   - monsterPrefab: {fileID: 3510155503548329890, guid: 610674db1d91f5d4e85a52c4e8caf90d,
       type: 3}
-    poolSize: 3
+    poolSize: 4
   - monsterPrefab: {fileID: 6775636773419384046, guid: 1b96233f3cbf5194db9ae385c4a04a2d,
       type: 3}
-    poolSize: 3
+    poolSize: 4
   - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
       type: 3}
-    poolSize: 3
+    poolSize: 4
   - monsterPrefab: {fileID: 7298701620345412785, guid: 7617e83684b4b9d4fb2050401b3613f6,
       type: 3}
-    poolSize: 3
+    poolSize: 4
   - monsterPrefab: {fileID: 6499440422579365713, guid: fbb91cccd299bb14c82bd2d974809dc8,
       type: 3}
-    poolSize: 3
+    poolSize: 4
   - monsterPrefab: {fileID: 2336405463250997864, guid: d724c08dcc44bc448bc15514505eaa36,
       type: 3}
     poolSize: 1
@@ -5200,7 +5201,7 @@ MonoBehaviour:
   attackPower: 0
   level: 0
   kill: 0
-  gold: 1000
+  gold: 100
   moveSpeed: 150
   rollSpeed: 0.02
   rollCooltime: 0.1

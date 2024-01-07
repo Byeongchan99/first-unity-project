@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         BackgroundMusicController.Instance.ChangeMusic(1);
         PlayerStat.Instance.CurrentHP -= 1;
         PlayerStat.Instance.CurrentEnergy -= 1;
-        PlayerStat.Instance.Gold += 1000;
+        PlayerStat.Instance.Gold += 900;
         isLive = true;
         Resume();
     }
@@ -145,7 +145,6 @@ public class GameManager : MonoBehaviour
         // 현재 실행 중인 모든 코루틴 중지
         StopAllCoroutines();
         // 모든 싱글톤 초기화
-        GameManager.instance.DestroyInstance();
         InventoryManager.Instance.DestroyInstance();
         AchieveManager.instance.DestroyInstance();
         StageManager.Instance.DestroyInstance();
@@ -155,6 +154,7 @@ public class GameManager : MonoBehaviour
         PlayerStat.Instance.DestroyInstance();
         BackgroundMusicController.Instance.DestroyInstance();
         AudioManager.Instance.DestroyInstance();
+        GameManager.instance.DestroyInstance();
         // static 변수 초기화
         RollState.IsRoll = false;
         RollState.canRoll = true;

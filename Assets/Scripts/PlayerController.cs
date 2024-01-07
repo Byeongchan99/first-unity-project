@@ -292,17 +292,25 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (!GameManager.instance.isLive)
             return;
 
         if (collision.CompareTag("ShopInteractionRange")) // 상점 상호작용 범위 확인
         {
-            Debug.Log("상점 상호작용 범위 안");
-            HandleShopInteraction();
+            Debug.Log("상점 상호작용 범위 안 (지속)");
+            isNearShop = true;
             return;
         }
+
+        // 기타 충돌 처리 로직...
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!GameManager.instance.isLive)
+            return;     
 
         if (collision.CompareTag("NPCInteractionRange")) // NPC 상호작용 범위 확인
         {

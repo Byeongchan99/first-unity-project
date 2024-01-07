@@ -35,7 +35,7 @@ public abstract class MonsterBase : MonoBehaviour
     public Vector2 moveDirection;
 
     [Header("사운드 관련")]
-    public AudioClip spawnSound;
+    //public AudioClip spawnSound;
     public AudioClip attackSound;
     public AudioClip hitSound;
     public AudioClip deathSound;
@@ -71,7 +71,7 @@ public abstract class MonsterBase : MonoBehaviour
     // 몬스터를 활성화하는 코드
     public void ActivateMonster()
     {
-        audioSource.PlayOneShot(spawnSound);
+        //audioSource.PlayOneShot(spawnSound);
         target = PlayerStat.Instance.transform;
         monsterState = MonsterState.CHASE;
         StartCoroutine(StateMachine());
