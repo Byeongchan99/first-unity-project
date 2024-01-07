@@ -94,7 +94,8 @@ public class GameManager : MonoBehaviour
         UIManager.instance.gameOverUI.SetActive(true);
         AudioManager.Instance.PlaySound(1);
         // 사망 애니메이션을 적용하기 위한 딜레이
-        yield return new WaitForSeconds(1f);   // 사망 애니메이션 재생 시간 0.5초
+        yield return new WaitForSeconds(1.5f);   // 사망 애니메이션 재생 시간 0.5초
+        UIManager.instance.gameResultUI.SetActive(true);
 
         Stop();
         /*
@@ -121,7 +122,8 @@ public class GameManager : MonoBehaviour
 
         UIManager.instance.gameVictoryUI.SetActive(true);
         AudioManager.Instance.PlaySound(0);
-        yield return null; 
+        yield return new WaitForSeconds(1.5f);   // 사망 애니메이션 재생 시간 0.5초
+        UIManager.instance.gameResultUI.SetActive(true);
 
         /*
         enemyCleaner.SetActive(true);

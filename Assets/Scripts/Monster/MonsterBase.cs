@@ -256,7 +256,7 @@ public abstract class MonsterBase : MonoBehaviour
         IsLive = false;
         audioSource.PlayOneShot(deathSound);
         WaveManager.Instance.OnMonsterDeath();
-        int randomGold = Random.Range(10, 16);  // 10에서 15 사이의 값을 얻기 위해
+        int randomGold = Random.Range(9, 16);  // 9에서 15 사이의 값을 얻기 위해
         PlayerStat.Instance.Gold += randomGold;
 
         // 몬스터 상태 초기화 및 애니메이션 처리 (예: 사망 애니메이션 재생)
