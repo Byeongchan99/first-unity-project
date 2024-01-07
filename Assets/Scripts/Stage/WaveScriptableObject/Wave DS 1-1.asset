@@ -22,6 +22,11 @@ MonoBehaviour:
     - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
         type: 3}
       count: 1
+    spawnPointIndex: 3
+  - monstersToSpawn:
+    - monsterPrefab: {fileID: 3943278433207950623, guid: cdfcbdcde7e3ea740b6bb8e139b8e31e,
+        type: 3}
+      count: 1
     spawnPointIndex: 4
   spawnPointsPositions:
   - {x: 3.65, y: 7.22}

@@ -78,10 +78,10 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
                 hasDisabledCollider = true;
             }
 
-            if (!hasFinishedAttack && stateInfo.normalizedTime >= 0.95f)   // 세번째 공격의 애니메이션 = 2초
+            if (!hasFinishedAttack && stateInfo.normalizedTime >= 0.95f)   // 세번째 공격의 애니메이션 = 2초, 재생 속도 2.5배 -> 0.8초
             {
                 hasFinishedAttack = true;
-                PlayerStat.Instance.StartCoroutine(DelayedOnFinishedAttack(0.1f));  // (2초의 5퍼 = 0.1)초 지연 후 OnFinishedAttack 호출
+                PlayerStat.Instance.StartCoroutine(DelayedOnFinishedAttack(0.04f));  // (0.8초의 5퍼 = 0.04)초 지연 후 OnFinishedAttack 호출
             }
         }
         else   // 첫번째와 두번째 공격 모션일 때
@@ -104,13 +104,13 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
             if (!hasFinishedAttack && stateInfo.normalizedTime >= 0.95f)
             {
                 hasFinishedAttack = true;
-                if (PlayerStat.Instance.weaponManager.Weapon.ComboCount == 1)   // 첫번째
+                if (PlayerStat.Instance.weaponManager.Weapon.ComboCount == 1)   // 첫번째 공격의 애니메이션 = 1.5초, 재생 속도 3배 -> 0.5초
                 {
-                    PlayerStat.Instance.StartCoroutine(DelayedOnFinishedAttack(0.075f));  // (1.5초의 5퍼 = 0.075)초 지연 후 OnFinishedAttack 호출
+                    PlayerStat.Instance.StartCoroutine(DelayedOnFinishedAttack(0.025f));  // (0.55초의 5퍼 = 0.025)초 지연 후 OnFinishedAttack 호출
                 }
-                else if (PlayerStat.Instance.weaponManager.Weapon.ComboCount == 2)   // 두번째
+                else if (PlayerStat.Instance.weaponManager.Weapon.ComboCount == 2)   // 두번째 공격의 애니메이션 = 1초, 재생 속도 2배 -> 0.5초
                 {
-                    PlayerStat.Instance.StartCoroutine(DelayedOnFinishedAttack(0.05f));  // (1초의 5퍼 = 0.05)초 지연 후 OnFinishedAttack 호출
+                    PlayerStat.Instance.StartCoroutine(DelayedOnFinishedAttack(0.05f));  // (0.5초의 5퍼 = 0.025)초 지연 후 OnFinishedAttack 호출
                 }
             }
         }

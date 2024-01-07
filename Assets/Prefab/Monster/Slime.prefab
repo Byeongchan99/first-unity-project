@@ -417,8 +417,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   speed: 3
-  health: 10
-  maxHealth: 10
+  health: 5
+  maxHealth: 5
   attackDetectionRange: 1
   attackRange: 1
   attackTiming: 0.4
