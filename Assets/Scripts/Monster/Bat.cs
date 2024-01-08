@@ -8,6 +8,7 @@ public class Bat : MonsterBase
     public float rushSpeed;   // 돌진 속도
     public float rushDuration; // 돌진하는 시간
     public float stunTime;   // 경직 시간
+    public GameObject Colider;   // 몬스터 콜라이더
 
     public override IEnumerator AttackPattern()
     {
@@ -32,8 +33,9 @@ public class Bat : MonsterBase
         // 돌진
         // 돌진 방향 설정
         Vector2 chargeDirection = (target.position - transform.position).normalized;
-        // 돌진하는 동안 공격 범위 콜라이더 활성화
+        // 돌진하는 동안 공격 범위 콜라이더 활성화 및 몬스터 콜라이더 비활성화
         monsterAttackArea.ActivateAttackRange(chargeDirection);
+        Colider.SetActive(false);
         anim.SetBool("IsAttack", true);
         anim.SetFloat("Direction.X", chargeDirection.x);
         anim.SetFloat("Direction.Y", chargeDirection.y);
@@ -51,8 +53,9 @@ public class Bat : MonsterBase
             yield return null; // 다음 프레임까지 대기
         }
 
-        // 공격 범위 콜라이더 비활성화
+        // 공격 범위 콜라이더 비활성화 및 몬스터 콜라이더 활성화
         monsterAttackArea.attackRangeCollider.enabled = false;
+        Colider.SetActive(true);
         anim.SetBool("IsAttack", false);
 
         // 경직

@@ -389,6 +389,7 @@ MonoBehaviour:
   rushSpeed: 5
   rushDuration: 0.5
   stunTime: 0.5
+  Colider: {fileID: 6021635065136990304}
 --- !u!82 &4558021153861405020
 AudioSource:
   m_ObjectHideFlags: 0
