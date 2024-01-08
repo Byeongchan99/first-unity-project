@@ -93,8 +93,10 @@ namespace CharacterController
             else
             {
                 // 마우스 버튼을 뗀 경우 화살 발사           
-                Vector2 bowWorldPosition = PlayerStat.Instance.transform.position + (Vector3)PlayerStat.Instance.chargeWeaponManager.Weapon.HandleData.localPosition;
+                // Vector2 bowWorldPosition = PlayerStat.Instance.transform.position + (Vector3)PlayerStat.Instance.chargeWeaponManager.Weapon.HandleData.localPosition;
+                Vector2 bowWorldPosition = PlayerStat.Instance.transform.position + PlayerStat.Instance.chargeWeaponManager.chargeWeaponPosition.localPosition;
                 direction = mousePosition - bowWorldPosition;
+                Debug.Log("방향:" + direction.normalized);
                 rightHandRenderer.sortingOrder = 10;
 
                 // 차지 사운드 페이드 아웃

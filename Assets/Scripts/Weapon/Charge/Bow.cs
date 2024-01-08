@@ -119,7 +119,8 @@ public class Bow : BaseChargeWeapon
         Transform bulletTransform = GameManager.instance.pool.Get(bulletID).transform;
         Bullet bulletComponent = bulletTransform.GetComponent<Bullet>();
 
-        bulletTransform.position = PlayerStat.Instance.transform.position + (Vector3)PlayerStat.Instance.chargeWeaponManager.Weapon.HandleData.localPosition;
+        // bulletTransform.position = PlayerStat.Instance.transform.position + (Vector3)PlayerStat.Instance.chargeWeaponManager.Weapon.HandleData.localPosition;
+        bulletTransform.position = PlayerController.ChargeWeaponPosition.position;
         bulletTransform.rotation = Quaternion.FromToRotation(Vector3.up, dir);
 
         // chargeLevel에 따라 데미지 계수를 결정

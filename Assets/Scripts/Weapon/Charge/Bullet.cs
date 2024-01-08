@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    protected Rigidbody2D rb;
+
     public float Damage;
     public int Per;
     public float originalDamage; // 원래 설정한 Damage 값 저장용
@@ -13,7 +15,6 @@ public class Bullet : MonoBehaviour
     // 기본 발사 속도 (chargeLevel = 1일 때의 속도)
     public float baseSpeed = 15f;
 
-    protected Rigidbody2D rb;
     [Header("Sound Effects")]
     public AudioClip flyingSound;    // 날아가는 효과음
     protected AudioSource audioSource; // AudioSource 컴포넌트

@@ -10,7 +10,7 @@ public class ChargeWeaponManager
     // Action<T>를 사용하면 특정 함수를 참조하거나 "가리키는" 변수처럼 사용 가능
     public Action<GameObject> unRegisterWeapon { get; set; }
     // 무기를 쥐는 손의 트랜스폼
-    private Transform chargeWeaponPosition;
+    public Transform chargeWeaponPosition;
     // 현재 내 무기 오브젝트
     private GameObject weaponObject;
     // 현재 WeaponManager에 등록된 무기 리스트
