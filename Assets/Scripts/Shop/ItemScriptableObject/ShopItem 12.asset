@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66aea5492bbc7af4caea667c6d0dda21, type: 3}
+  m_Name: ShopItem 12
+  m_EditorClassIdentifier: 
+  itemID: 12
+  itemName: "\uCCB4\uB825 \uD3EC\uC158(\uC18C)"
+  itemPrice: 50
+  itemDesc: "\uCCB4\uB825\uC744 1 \uD68C\uBCF5\uC2DC\uCF1C\uC90D\uB2C8\uB2E4"
+  itemImage: {fileID: 21300000, guid: 310711d3c2747b9448a81c0f64c03b3d, type: 3}

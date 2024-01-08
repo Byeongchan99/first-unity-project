@@ -174,7 +174,7 @@ public class Shop : MonoBehaviour
         // 이미 품절일 때
         if (IsItemPurchased(item.itemID))
         {
-            // 구매한 아이템의 구매 버튼 비활성화 -> 나중에 품절 스프라이트 표시
+            // 선택한 아이템의 구매 버튼 비활성화 -> 나중에 품절 스프라이트 표시
             itemUI.GetComponent<Button>().interactable = false;
         }
         else
@@ -200,8 +200,8 @@ public class Shop : MonoBehaviour
             // 구매 버튼
             if (purchaseButton != null)
             {
-                // 선택한 아이템의 가격이 보유 골드보다 비쌀 시 구매 버튼 비활성화
-                if (currentItem.itemPrice > PlayerStat.Instance.Gold)
+                // 선택한 아이템의 가격이 보유 골드보다 비싸거나, 플레이어의 체력이 가득 차 있을 때 구매 버튼 비활성화
+                if (currentItem.itemPrice > PlayerStat.Instance.Gold || PlayerStat.Instance.CurrentHP == PlayerStat.Instance.MaxHP)
                 {
                     purchaseButton.interactable = false;
                 }
