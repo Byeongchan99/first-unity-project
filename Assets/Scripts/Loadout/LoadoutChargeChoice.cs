@@ -79,7 +79,7 @@ public class LoadoutChargeChoice : MonoBehaviour
     // 무기 아이콘 활성화
     public void DisplayWeaponIcon()
     {
-        Debug.Log("DisplayWeaponIcon called");
+        //Debug.Log("DisplayWeaponIcon called");
 
         for (int i = 0; i < chargeLoadouts.Length; i++)
         {
@@ -144,7 +144,7 @@ public class LoadoutChargeChoice : MonoBehaviour
     // 무기 정보 활성화 - 무기 아이콘 눌렀을 때 실행
     public void DisplayWeaponInformation(int weaponID)
     {
-        Debug.Log("DisplayWeaponInformation called for weaponID: " + weaponID);
+        //Debug.Log("DisplayWeaponInformation called for weaponID: " + weaponID);
         LoadoutData loadout = GetLoadoutDataByWeaponID(weaponID);
         if (loadout != null)
         {

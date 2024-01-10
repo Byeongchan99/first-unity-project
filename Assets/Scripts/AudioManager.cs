@@ -9,6 +9,15 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] audioClips;   // 기타 효과음 - 승리, 패배, 골드 사용, 체력 회복, 포탈, 수리 애니메이션, 업적창, 몬스터 소환
     public AudioClip[] audioClipsUI;   // UI 효과음 - UI 버튼 클릭, 무기 장착, 맵 열기, 맵 닫기, 일시정지 메뉴 활성화, 일시정지 메뉴 비활성화, 업적 해금, 거부, 어빌리티 선택
 
+    // 인스펙터에서 설정할 추가 볼륨 값
+    [SerializeField] private float additionalVolume = 0.5f;
+
+    // 인스펙터 이벤트용 메서드
+    public void PlayUISoundWithAdditionalVolume(int audioIndex)
+    {
+        PlayUISound(audioIndex, additionalVolume);
+    }
+
     void Awake()
     {
         // 싱글톤 패턴 구현
@@ -73,8 +82,20 @@ public class AudioManager : MonoBehaviour
     {
         if (audioIndex >= 0 && audioIndex < audioClipsUI.Length)
         {
-            float finalVolume = Mathf.Clamp(source.volume + volume, 0f, 1f); // 볼륨 범위를 0과 1 사이로 제한
-            source.PlayOneShot(audioClipsUI[audioIndex], finalVolume);
+            float originalVolume = source.volume;
+            source.volume = Mathf.Clamp(source.volume + volume, 0f, 1f);
+            Debug.Log(source.volume);
+
+            source.PlayOneShot(audioClipsUI[audioIndex]);
+            StartCoroutine(AdjustVolume(originalVolume, audioClipsUI[audioIndex].length));
         }
+    }
+
+    private IEnumerator AdjustVolume(float originalVolume, float clipLength)
+    {
+        Debug.Log("AdjustVolume 코루틴 실행" + originalVolume + " " + clipLength);
+        yield return new WaitForSeconds(clipLength);
+        source.volume = originalVolume;
+        Debug.Log(source.volume);
     }
 }
