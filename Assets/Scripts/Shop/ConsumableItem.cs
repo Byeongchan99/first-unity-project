@@ -29,7 +29,7 @@ public class ConsumableItem : MonoBehaviour
     {
         PlayerStat.Instance.CurrentHP += value;
         // 체력 회복 사운드
-        AudioManager.Instance.PlaySound(3);
+        AudioManager.Instance.PlaySound(3, 0.3f);
         HealthManager.Instance.AdjustHearts();
     }
 }

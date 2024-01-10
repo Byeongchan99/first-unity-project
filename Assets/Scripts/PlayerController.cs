@@ -104,24 +104,24 @@ public class PlayerController : MonoBehaviour
             if (UIManager.instance.pauseMenuUI.isOpenedSoundSetting)   // 사운드 설정 창이 켜져있을 때
             {
                 UIManager.instance.pauseMenuUI.soundSettingPanel.OnExitButton();
-                AudioManager.Instance.PlayUISound(5);
+                AudioManager.Instance.PlayUISound(5, 0.3f);
                 UIManager.instance.pauseMenuUI.isOpenedSoundSetting = false;
             }
             else if (UIManager.instance.pauseMenuUI.isOpenedMainMenuConfirm)   // 메인메뉴 나가기 확인 창이 켜져있을 때
             {
                 UIManager.instance.pauseMenuUI.MainMenuCancel();
-                AudioManager.Instance.PlayUISound(5);
+                AudioManager.Instance.PlayUISound(5, 0.3f);
                 UIManager.instance.pauseMenuUI.isOpenedMainMenuConfirm = false;
             }
             else if (UIManager.instance.pauseMenuUI.isOpenedGameExitConfirm)   // 게임종료 확인 창이 켜져있을 때
             {
                 UIManager.instance.pauseMenuUI.GameExitCancel();
-                AudioManager.Instance.PlayUISound(5);
+                AudioManager.Instance.PlayUISound(5, 0.3f);
                 UIManager.instance.pauseMenuUI.isOpenedGameExitConfirm = false;
             }
             else   // 일시정지 창만 켜져있을 때
             {
-                AudioManager.Instance.PlayUISound(5);
+                AudioManager.Instance.PlayUISound(5 , 0.3f);
                 UIManager.instance.pauseMenuUI.Hide();
             }
         }
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
         {
             if (GameManager.instance.isLive)
             {
-                AudioManager.Instance.PlayUISound(4);
+                AudioManager.Instance.PlayUISound(4, 0.3f);
                 UIManager.instance.pauseMenuUI.Show();
             }
         }
@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (!GameManager.instance.isBattle)   // 전투 중이 아닐 때에만
             {
-                AudioManager.Instance.PlaySound(4);
+                AudioManager.Instance.PlaySound(4, 0.3f);
                 StageManager.Instance.TransitionToStage(transitionToStageIndex);
             }
         }

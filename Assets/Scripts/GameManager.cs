@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
         isLive = false;
 
         UIManager.instance.gameOverUI.SetActive(true);
-        AudioManager.Instance.PlaySound(1);
+        AudioManager.Instance.PlaySound(1, 0.3f);
         // 사망 애니메이션을 적용하기 위한 딜레이
         yield return new WaitForSeconds(1.5f);   // 사망 애니메이션 재생 시간 0.5초
         UIManager.instance.gameResultUI.SetActive(true);
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
         isLive = false;
 
         UIManager.instance.gameVictoryUI.SetActive(true);
-        AudioManager.Instance.PlaySound(0);
+        AudioManager.Instance.PlaySound(0, 0.3f);
         yield return new WaitForSeconds(1.5f);   // 사망 애니메이션 재생 시간 0.5초
         UIManager.instance.gameResultUI.SetActive(true);
 

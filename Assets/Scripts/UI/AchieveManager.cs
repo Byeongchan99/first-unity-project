@@ -124,7 +124,7 @@ public class AchieveManager : MonoBehaviour
     {
         Debug.Log("공지창 활성화");
         uiNotice.SetActive(true);
-        AudioManager.Instance.PlaySound(6);
+        AudioManager.Instance.PlaySound(6, 0.3f);
         // AudioManager.instance.PlaySfx(AudioManager.Sfx.LevelUp);
 
         yield return wait;

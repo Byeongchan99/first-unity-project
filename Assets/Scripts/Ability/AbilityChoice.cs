@@ -117,7 +117,7 @@ public class AbilityChoice : MonoBehaviour
             abilityButton.onClick.RemoveAllListeners();
 
             // 리스너 추가
-            abilityButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(8));
+            abilityButton.onClick.AddListener(() => AudioManager.Instance.PlayUISound(8, 0.3f));
             abilityButton.onClick.AddListener(() => DisplayPurchaseConfirmation(ability.abilityID));
         }
     }
@@ -157,7 +157,7 @@ public class AbilityChoice : MonoBehaviour
         {
             PlayerStat.Instance.Gold -= 20;
             // 구매 사운드
-            AudioManager.Instance.PlaySound(2);
+            AudioManager.Instance.PlaySound(2, 0.3f);
             DisplayRandomAbilities();
         }
         else

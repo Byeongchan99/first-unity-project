@@ -6,6 +6,6 @@ public class RepairAnimation : MonoBehaviour
 {
     void playRepairSound()
     {
-        AudioManager.Instance.PlaySound(5);
+        AudioManager.Instance.PlaySound(5, 0.5f);
     }
 }

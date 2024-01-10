@@ -249,7 +249,7 @@ public class Shop : MonoBehaviour
         // 품절일 때
         if (IsItemPurchased(itemToPurchase.itemID))
         {
-            AudioManager.Instance.PlayUISound(7);
+            AudioManager.Instance.PlayUISound(7, 0.3f);
             Debug.LogWarning("Item already purchased!");
             return;
         }
@@ -262,7 +262,7 @@ public class Shop : MonoBehaviour
             PlayerStat.Instance.Gold -= itemToPurchase.itemPrice;
 
             // 구매 사운드
-            AudioManager.Instance.PlaySound(2);
+            AudioManager.Instance.PlaySound(2, 0.3f);
 
             // 아이템 효과 실행
             ConsumableItem consumableItem = GetComponent<ConsumableItem>();
@@ -290,7 +290,7 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            AudioManager.Instance.PlayUISound(7);
+            AudioManager.Instance.PlayUISound(7, 0.3f);
             Debug.Log("Not enough gold to purchase the item!");
             // 골드가 부족한 경우의 메시지 또는 애니메이션 추가 (옵션)
         }
@@ -341,7 +341,7 @@ public class Shop : MonoBehaviour
     {
         PlayerStat.Instance.Gold -= amount;
         // 구매 사운드
-        AudioManager.Instance.PlaySound(2);
+        AudioManager.Instance.PlaySound(2, 0.3f);
     }
 
     // 상인 대화 애니메이터 종료
