@@ -8,6 +8,8 @@ public class LoadoutChargeChoice : MonoBehaviour
     RectTransform rect;
     LoadoutData selectedLoadout;
     public LoadoutData[] chargeLoadouts;
+    [SerializeField]
+    int lastClickedWeaponID = 10;   // 마지막으로 클릭한 무기 아이디
     // 무기 장착 버튼
     public Button equipButton;
 
@@ -116,7 +118,23 @@ public class LoadoutChargeChoice : MonoBehaviour
             {
                 DisplayWeaponInformation(localLoadout.weaponID);
                 selectedLoadout = localLoadout;
+                lastClickedWeaponID = localLoadout.weaponID;
+                DisplayWeaponIcon();   // 무기 아이콘 다시 디스플레이
             });
+        }
+
+        // 선택 이펙트 활성화
+        ColorBlock currentColor = weaponButton.colors;
+
+        if (lastClickedWeaponID == loadout.weaponID)   // 마지막으로 클릭한 무기의 ID와 같을 시
+        {
+            currentColor.normalColor = new Color(0.565f, 0.0f, 0.125f, 1.0f);   // 붉은색으로 변경
+            weaponButton.colors = currentColor;
+        }
+        else
+        {
+            currentColor.normalColor = Color.black;   // 검은색으로 변경
+            weaponButton.colors = currentColor;
         }
 
         // 장착 표시 이미지 업데이트

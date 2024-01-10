@@ -38,15 +38,16 @@ public class BackgroundMusicController : MonoBehaviour
         }
     }
 
-    // 페이드 효과와 함께 음악을 바꾸는 코루틴
     IEnumerator FadeChangeMusic(AudioClip newClip)
     {
+        float originalVolume = musicSource.volume; // 현재 볼륨을 저장
+
         if (musicSource.isPlaying)
         {
             // 페이드아웃
             for (float t = 0; t < fadeTime; t += Time.deltaTime)
             {
-                musicSource.volume = (1 - (t / fadeTime));
+                musicSource.volume = originalVolume * (1 - (t / fadeTime));
                 yield return null;
             }
         }
@@ -58,11 +59,11 @@ public class BackgroundMusicController : MonoBehaviour
         // 페이드인
         for (float t = 0; t < fadeTime; t += Time.deltaTime)
         {
-            musicSource.volume = (t / fadeTime);
+            musicSource.volume = originalVolume * (t / fadeTime);
             yield return null;
         }
 
-        musicSource.volume = 1f; // 페이드인이 끝난 후 볼륨을 다시 1로 설정
+        musicSource.volume = originalVolume; // 페이드인이 끝난 후 볼륨을 원래대로 설정
     }
 
     // 배경음악을 멈추는 메서드
@@ -74,14 +75,16 @@ public class BackgroundMusicController : MonoBehaviour
     // 페이드아웃 효과와 함께 음악을 멈추는 코루틴
     IEnumerator FadeOutMusic()
     {
+        float originalVolume = musicSource.volume; // 현재 볼륨을 저장
+
         // 페이드아웃
         for (float t = 0; t < fadeTime; t += Time.deltaTime)
         {
-            musicSource.volume = 1 - (t / fadeTime);
+            musicSource.volume = originalVolume * (1 - (t / fadeTime));
             yield return null;
         }
 
         musicSource.Stop(); // 음악 정지
-        musicSource.volume = 1f; // 볼륨을 원래대로 복구 (다음 재생을 위해)
+        musicSource.volume = originalVolume; // 볼륨을 원래대로 복구 (다음 재생을 위해)
     }
 }
