@@ -95,7 +95,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.09, z: 0}
-  m_LocalScale: {x: 0.56, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6775636773419384032}
@@ -383,7 +383,6 @@ MonoBehaviour:
   attackBasePosition: {x: 0, y: 0.2618}
   attackColliderOffset: 0.4
   moveDirection: {x: 0, y: 0}
-  spawnSound: {fileID: 8300000, guid: 21c4a490b24ba2045bc815f7626a40ef, type: 3}
   attackSound: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
   hitSound: {fileID: 8300000, guid: 8b23b175a78d6b5458322e3a6c9905d0, type: 3}
   deathSound: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
