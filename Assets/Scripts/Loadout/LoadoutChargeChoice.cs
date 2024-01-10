@@ -128,12 +128,14 @@ public class LoadoutChargeChoice : MonoBehaviour
 
         if (lastClickedWeaponID == loadout.weaponID)   // 마지막으로 클릭한 무기의 ID와 같을 시
         {
-            currentColor.normalColor = new Color(0.565f, 0.0f, 0.125f, 1.0f);   // 붉은색으로 변경
+            currentColor.normalColor = new Color(0.565f, 0.0f, 0.125f, 1.0f);   // 노말 컬러를 붉은색으로 변경
+            currentColor.highlightedColor = currentColor.normalColor;   // 하이라이트 컬러 변경
             weaponButton.colors = currentColor;
         }
         else
         {
-            currentColor.normalColor = Color.black;   // 검은색으로 변경
+            currentColor.normalColor = Color.black;   // 노말 컬러를 검은색으로 변경
+            currentColor.highlightedColor = currentColor.normalColor;   // 하이라이트 컬러 변경
             weaponButton.colors = currentColor;
         }
 

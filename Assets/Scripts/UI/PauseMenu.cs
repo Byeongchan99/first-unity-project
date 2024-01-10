@@ -73,6 +73,7 @@ public class PauseMenu : MonoBehaviour
 
     public void GameExitCancel()
     {
+        Debug.Log("GameExitCancel");
         if (gameExitConfirmPanel != null)
         {
             gameExitConfirmPanel.SetActive(false);

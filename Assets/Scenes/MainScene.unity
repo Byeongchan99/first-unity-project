@@ -1766,7 +1766,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cf6c0e7fbef9449c98a0cdb5ea0c4d9f, type: 3}
   - {fileID: 8300000, guid: 1ed8fb76fc64e4e46847348138782234, type: 3}
   - {fileID: 8300000, guid: 78ad99fd0a0a5144280b07bbdba84815, type: 3}
-  AdditionalVolume: 0.5
+  additionalVolume: 0.5
 --- !u!4 &511604349
 Transform:
   m_ObjectHideFlags: 0
@@ -6748,6 +6748,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 118627249495072796, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 570317410}
+    - target: {fileID: 118627249495072796, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GameExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 118627249495072796, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 320055774054829810, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
       propertyPath: m_UiScaleMode
@@ -8453,6 +8468,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7130521132548091320, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 570317410}
+    - target: {fileID: 7130521132548091320, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GameExitCancel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130521132548091320, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7275327176556971387, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -8716,9 +8746,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7662475364625574088, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 570317410}
+    - target: {fileID: 7662475364625574088, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2062460084}
+      objectReference: {fileID: 1333735400}
     - target: {fileID: 7662475364625574088, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -8731,8 +8766,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7662475364625574088, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Show
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662475364625574088, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: GameRetry
+      value: Hide
       objectReference: {fileID: 0}
     - target: {fileID: 7662475364625574088, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
@@ -8741,8 +8781,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7662475364625574088, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainScreen, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662475364625574088, guid: bd13f97f349b4fe48adba1e53a6d9c42,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
+      value: LoadoutChoice, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7662475364625574088, guid: bd13f97f349b4fe48adba1e53a6d9c42,
         type: 3}
