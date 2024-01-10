@@ -16,8 +16,8 @@ MonoBehaviour:
   stageType: battle
   stageID: 8
   waves:
-  - {fileID: 11400000, guid: 0b5d4a5af4dabcd4f848f9168f8ea0a8, type: 2}
   - {fileID: 11400000, guid: 9c8c1da8b1e699945aad737c556f2271, type: 2}
+  - {fileID: 11400000, guid: 0b5d4a5af4dabcd4f848f9168f8ea0a8, type: 2}
   stagePrefab: {fileID: 122958307212806171, guid: 19e9f6991521c5242b7a678c75a0daed,
     type: 3}
   startPosition: {x: 1.2, y: 5.56}

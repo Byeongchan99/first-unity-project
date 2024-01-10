@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class AudioManager : MonoBehaviour
 {
@@ -11,8 +12,9 @@ public class AudioManager : MonoBehaviour
 
     // 인스펙터에서 설정할 추가 볼륨 값
     [SerializeField] private float additionalVolume = 0.5f;
+    float originalVolume;
 
-    // 인스펙터 이벤트용 메서드
+    // 인스펙터 Onclick 이벤트용 메서드
     public void PlayUISoundWithAdditionalVolume(int audioIndex)
     {
         PlayUISound(audioIndex, additionalVolume);
@@ -26,6 +28,7 @@ public class AudioManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 파괴되지 않도록 설정
             source = GetComponent<AudioSource>();
+            originalVolume = source.volume;
         }
         else
         {
@@ -59,8 +62,7 @@ public class AudioManager : MonoBehaviour
         //Debug.Log("효과음 실행" + audioIndex);
         if (audioIndex >= 0 && audioIndex < audioClips.Length)
         {
-            float finalVolume = Mathf.Clamp(source.volume + volume, 0f, 1f); // 볼륨 범위를 0과 1 사이로 제한
-            source.PlayOneShot(audioClips[audioIndex], finalVolume);
+            StartCoroutine(AdjustVolume(audioClips[audioIndex], volume));
         }
         else
         {
@@ -80,21 +82,20 @@ public class AudioManager : MonoBehaviour
     // 추가 볼륨으로 효과음 실행
     public void PlayUISound(int audioIndex, float volume)
     {
+        Debug.Log("PlayUISound");
         if (audioIndex >= 0 && audioIndex < audioClipsUI.Length)
-        {
-            float originalVolume = source.volume;
-            source.volume = Mathf.Clamp(source.volume + volume, 0f, 1f);
-            Debug.Log(source.volume);
-
-            source.PlayOneShot(audioClipsUI[audioIndex]);
-            StartCoroutine(AdjustVolume(originalVolume, audioClipsUI[audioIndex].length));
+        {           
+            StartCoroutine(AdjustVolume(audioClipsUI[audioIndex], volume));
         }
     }
 
-    private IEnumerator AdjustVolume(float originalVolume, float clipLength)
+    // 오디오 클립을 재생 후 원래 볼륨으로 변경
+    private IEnumerator AdjustVolume(AudioClip audioClip, float volume)
     {
-        Debug.Log("AdjustVolume 코루틴 실행" + originalVolume + " " + clipLength);
-        yield return new WaitForSeconds(clipLength);
+        Debug.Log("AdjustVolume");
+        source.volume = Mathf.Clamp(source.volume + volume, 0f, 1f);   // 볼륨 범위를 0과 1 사이로 제한
+        source.PlayOneShot(audioClip);
+        yield return new WaitForSecondsRealtime(audioClip.length);
         source.volume = originalVolume;
         Debug.Log(source.volume);
     }
