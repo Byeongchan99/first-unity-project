@@ -2,6 +2,7 @@ using CharacterController;
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     public bool isBattle;   // 전투 상태
     public float gameTime;
     public float maxGameTime = 3 * 10f;
+    public bool gameOver = false;   // 게임 종료
 
     [Header("# Game Object")]
     public PoolManager pool;
@@ -90,11 +92,12 @@ public class GameManager : MonoBehaviour
     IEnumerator GameOverRoutine()
     {
         isLive = false;
+        gameOver = true;
 
         UIManager.instance.gameOverUI.SetActive(true);
-        AudioManager.Instance.PlaySound(1, 0.3f);
+        AudioManager.Instance.PlaySound(1, 1f);
         // 사망 애니메이션을 적용하기 위한 딜레이
-        yield return new WaitForSeconds(1.5f);   // 사망 애니메이션 재생 시간 0.5초
+        yield return new WaitForSeconds(3f);   // 사망 애니메이션 재생 시간 0.5초
         UIManager.instance.gameResultUI.SetActive(true);
 
         Stop();
@@ -119,10 +122,11 @@ public class GameManager : MonoBehaviour
     IEnumerator GameVictoryRoutine()
     {
         isLive = false;
+        gameOver = true;
 
         UIManager.instance.gameVictoryUI.SetActive(true);
         AudioManager.Instance.PlaySound(0, 0.3f);
-        yield return new WaitForSeconds(1.5f);   // 사망 애니메이션 재생 시간 0.5초
+        yield return new WaitForSeconds(3f);   // 사망 애니메이션 재생 시간 0.5초
         UIManager.instance.gameResultUI.SetActive(true);
 
         /*

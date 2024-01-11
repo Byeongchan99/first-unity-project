@@ -129,7 +129,7 @@ public class BossMonster : MonoBehaviour
 
     IEnumerator StateMachine()
     {
-        while (IsLive)
+        while (IsLive && !GameManager.instance.gameOver)
         {
             yield return StartCoroutine(bossState.ToString());
         }

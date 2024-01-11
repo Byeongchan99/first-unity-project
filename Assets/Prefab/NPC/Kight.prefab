@@ -77,7 +77,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5164144523543668904}
   - component: {fileID: 5164144523543668905}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,8 +137,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -450540567
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9472fe35e1b3fbe4197a6ee8ac647a93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -161,7 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5164144523735625666}
   - component: {fileID: 5164144523735625667}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: StandArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 5164144523751164264}
   - component: {fileID: 5164144523751164267}
   - component: {fileID: 1588470641357047548}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Kight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,8 +303,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -450540567
+  m_SortingLayer: 2
   m_SortingOrder: 10
   m_Sprite: {fileID: -1804314877, guid: 6e2d3d8b274eef44cad07221cb2bac6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -351,5 +351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues:
-  - "\uAC11\uC637\uC758 \uBB34\uAC8C\uB294, \uB0B4\uAC00 \uC9C0\uD0A4\uACE0\uC790
-    \uD558\uB294 \uAC83\uB4E4\uC758 \uC911\uC694\uC131\uC744 \uC0C1\uAE30\uC2DC\uCF1C\uC90D\uB2C8\uB2E4"
+  - "\uC774 \uC704\uCABD\uC73C\uB85C \uAC00\uBA74 \uC124\uC6D0\uC73C\uB85C \uAC00\uB294
+    \uD3EC\uD0C8\uC744 \uC774\uC6A9\uD560 \uC218 \uC788\uC5B4"
+  usingTypingEffect: 1

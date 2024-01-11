@@ -77,7 +77,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5164144523543668904}
   - component: {fileID: 5164144523543668905}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,8 +137,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -450540567
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9472fe35e1b3fbe4197a6ee8ac647a93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -161,7 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5164144523735625666}
   - component: {fileID: 5164144523735625667}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: StandArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 5164144523751164264}
   - component: {fileID: 5164144523751164267}
   - component: {fileID: 5359424339236578653}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,8 +303,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -450540567
+  m_SortingLayer: 2
   m_SortingOrder: 10
   m_Sprite: {fileID: 1069848971, guid: fa52f37c8997e41428cd5009df640f0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -351,4 +351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogues:
-  - "\uC800\uC758 \uD654\uC0B4\uC740 \uD45C\uC801\uC744 \uB193\uCE58\uC9C0 \uC54A\uC544\uC694"
+  - "\uC774 \uC55E\uC758 \uC0C1\uC810\uC5D0\uC11C\uB294 \uC5B4\uBE4C\uB9AC\uD2F0\uB97C
+    \uAD6C\uB9E4\uD558\uAC70\uB098 \uBB3C\uC57D\uC744 \uAD6C\uB9E4\uD560 \uC218 \uC788\uC5B4"
+  - "\uC694\uC998 \uC232\uC758 \uBAAC\uC2A4\uD130\uB4E4\uC774 \uB09C\uD3ED\uD574\uC9C4
+    \uAC83 \uAC19\uC544"
+  usingTypingEffect: 1

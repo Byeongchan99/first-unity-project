@@ -79,7 +79,7 @@ public abstract class MonsterBase : MonoBehaviour
 
     IEnumerator StateMachine()
     {     
-        while (IsLive)
+        while (IsLive && !GameManager.instance.gameOver)
         {
             yield return StartCoroutine(monsterState.ToString());
         }
