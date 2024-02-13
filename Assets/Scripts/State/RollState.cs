@@ -62,6 +62,5 @@ namespace CharacterController
             RollState.canRoll = true;
             Debug.Log("구르기 가능");
         }
-
     }
 }

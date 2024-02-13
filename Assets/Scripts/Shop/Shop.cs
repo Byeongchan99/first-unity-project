@@ -130,7 +130,7 @@ public class Shop : MonoBehaviour
             chosen.Add(allShopItems[index]);
         }
 
-        // Debug.Log("선택된 어빌리티 개수: " + chosen.Count);
+        // Debug.Log("선택된 아이템 개수: " + chosen.Count);
         return chosen;
     }
 
