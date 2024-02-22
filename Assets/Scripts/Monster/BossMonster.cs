@@ -273,7 +273,7 @@ public class BossMonster : MonoBehaviour
         SetHandAnimatorRockToPaper2();
     }
 
-    // 손 이동 코루틴
+    // 선택한 손 이동 코루틴
     IEnumerator MoveHandRoutine(GameObject hand, Vector3 start, Vector3 end, float time)
     {
         float elapsedTime = 0;   // 경과 시간
