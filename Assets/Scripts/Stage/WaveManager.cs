@@ -11,7 +11,7 @@ public class WaveManager : MonoBehaviour
     private int currentWave = 0;  // 현재 웨이브 ID
     private int remainingMonsters; // 현재 웨이브의 남은 몬스터 수
 
-    public GameObject monsterSpawnEffect;   // 몬스터 소환 이펙트
+    protected GameObject monsterSpawnEffect;   // 몬스터 소환 이펙트
 
     [System.Serializable]
     public class MonsterPool
