@@ -8,6 +8,7 @@ public class StageManager : MonoBehaviour
 {
     public static StageManager Instance { get; private set; }
 
+    public Transform stageParent; // 스테이지 오브젝트들의 부모
     //public PolygonCollider2D boundingShape; // Cinemachine Confiner 컴포넌트 참조 용 콜라이더
     public List<StageData> stages; // 모든 스테이지의 데이터 리스트
     public StageData currentStage; // 현재 활성화된 스테이지 데이터
@@ -48,7 +49,7 @@ public class StageManager : MonoBehaviour
         {
             if (stages[i] != null)
             {
-                GameObject stageInstance = Instantiate(stages[i].stagePrefab);
+                GameObject stageInstance = Instantiate(stages[i].stagePrefab, stageParent);
                 stageInstance.SetActive(i == 0); // 첫 번째 스테이지만 활성화
                 stageInstances.Add(i, stageInstance); // 인스턴스 저장
             }
