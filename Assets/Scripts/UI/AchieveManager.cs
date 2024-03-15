@@ -89,15 +89,13 @@ public class AchieveManager : MonoBehaviour
         // 업적 해금 확인
         switch (loadout.weaponID)
         {
-            case 1:
+            case 1: // 플레이어 공격력 10 이상
                 isAchieve = PlayerStat.Instance.AttackPower >= 10;
                 break;
-            case 2:
-
+            case 2: // 플레이어 이동속도 300 이상
                 isAchieve = PlayerStat.Instance.MoveSpeed >= 300;
                 break;
-            case 3:
-
+            case 3: // 플레이어 최대 에너지 7 이상
                 isAchieve = PlayerStat.Instance.MaxEnergy >= 7;
                 break;
         }
