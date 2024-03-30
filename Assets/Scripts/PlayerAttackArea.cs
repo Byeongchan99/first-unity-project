@@ -95,7 +95,6 @@ public class PlayerAttackArea : BaseAttackArea
             Vector2 attackDirectionNormalized = (other.ClosestPoint(transform.position) - (Vector2)transform.position).normalized;
             Vector2 colliderEndPoint = transform.position + (Vector3)(attackDirectionNormalized * PlayerStat.Instance.weaponManager.Weapon.AttackRange);
 
-
             // 적중 위치에 타격 이펙트 활성화
             GameObject hitEffect = GameManager.instance.pool.Get(5);
             hitEffect.transform.position = colliderEndPoint;
