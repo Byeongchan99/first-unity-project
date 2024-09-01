@@ -164,6 +164,7 @@ public class Astar : MonoBehaviour
         }
     }
 
+    // 경로를 기즈모로 보여주는 메서드
     void OnDrawGizmos()
     {
         if (FinalNodeList != null && FinalNodeList.Count != 0)

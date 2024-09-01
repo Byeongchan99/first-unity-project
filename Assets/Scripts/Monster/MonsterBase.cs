@@ -41,7 +41,7 @@ public abstract class MonsterBase : MonoBehaviour
     public AudioClip deathSound;
     protected AudioSource audioSource;
 
-
+    // 몬스터 상태
     enum MonsterState
     {
         CHASE,
@@ -58,8 +58,8 @@ public abstract class MonsterBase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         monsterAttackArea = gameObject.GetComponentInChildren<MonsterAttackArea>();
-        wait = new WaitForFixedUpdate();
         audioSource = GetComponent<AudioSource>();
+        wait = new WaitForFixedUpdate();
     }
 
     void OnEnable()
@@ -77,6 +77,7 @@ public abstract class MonsterBase : MonoBehaviour
         StartCoroutine(StateMachine());
     }
 
+    // 상태 머신
     IEnumerator StateMachine()
     {     
         while (IsLive && !GameManager.instance.gameOver)
@@ -85,18 +86,24 @@ public abstract class MonsterBase : MonoBehaviour
         }
     }
 
+    // 추적 상태
     IEnumerator CHASE()
     {
         while (monsterState == MonsterState.CHASE)
         {
+            // 몬스터와 플레이어의 현재 위치 계산
             Vector2Int monsterPos = astarComponent.WorldToTilemapPosition(transform.position);
             Vector2Int playerPos = astarComponent.WorldToTilemapPosition(target.position);
 
-            List<Node> path = astarComponent.PathFinding(monsterPos, playerPos);
+            List<Node> path = astarComponent.PathFinding(monsterPos, playerPos);   // Astar 알고리즘으로 길 찾기
 
+            // 플레이어가 벽에 들어가 있을 때
             if (astarComponent.playerInWall)
             {
+                // 플레이어를 향해 직선으로 이동
                 moveDirection = (target.position - transform.position).normalized;
+                anim.SetFloat("Direction.X", moveDirection.x);
+                anim.SetFloat("Direction.Y", moveDirection.y);
                 rb.velocity = moveDirection * speed;
 
                 if (Vector2.Distance(transform.position, target.position) < attackDetectionRange)
@@ -104,7 +111,7 @@ public abstract class MonsterBase : MonoBehaviour
                     ChangeState(MonsterState.ATTACK);
                 }
             }
-            else if (path != null && path.Count > 1)
+            else if (path != null && path.Count > 1)   // 길이 있을 때
             {
                 Vector2 nextPosition = astarComponent.TilemapToWorldPosition(new Vector2Int(path[1].x, path[1].y));
                 moveDirection = (nextPosition - (Vector2)transform.position).normalized;
@@ -118,19 +125,19 @@ public abstract class MonsterBase : MonoBehaviour
                 }
             }
 
-            yield return new WaitForSeconds(0.1f); // 코루틴이 일정 시간마다 대기
+            yield return new WaitForSeconds(0.1f);   // 코루틴이 일정 시간마다 대기
         }
     }
 
-
+    // 공격 상태
     IEnumerator ATTACK()
     {
         rb.velocity = Vector2.zero;
-        rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;   // 위치 고정    
+        rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;  // 위치 고정    
 
-        yield return StartCoroutine(AttackPattern());
+        yield return StartCoroutine(AttackPattern());  // 몬스터 공격 패턴 실행
 
-        /*
+        /* 공격 패턴 예시
         yield return new WaitForSeconds(attackTiming);  // 공격 타이밍에 공격 범위 콜라이더 활성화
         monsterAttackArea.ActivateAttackRange(attackDirection);   // 공격 범위 활성화
 
@@ -142,9 +149,9 @@ public abstract class MonsterBase : MonoBehaviour
         */
 
         if (health <= 0)
-            ChangeState(MonsterState.DEAD);   // DEAD 상태로 전환
+            ChangeState(MonsterState.DEAD);  // DEAD 상태로 전환
         else
-            ChangeState(MonsterState.CHASE);   // CHASE 상태로 전환
+            ChangeState(MonsterState.CHASE);  // CHASE 상태로 전환
     }
 
     public abstract IEnumerator AttackPattern();  // 몬스터 공격 패턴
@@ -154,7 +161,7 @@ public abstract class MonsterBase : MonoBehaviour
     protected void MoveForward()
     {
         // Debug.Log("약간 전진");
-        float advanceDistance = 0.1f;
+        float advanceDistance = 0.1f;   // 조절 가능한 전진 거리
         Vector2 targetPos = (Vector2)transform.position + attackDirection * advanceDistance;
         int layerMask = 1 << LayerMask.NameToLayer("Wall");
 
@@ -170,25 +177,27 @@ public abstract class MonsterBase : MonoBehaviour
         }
     }
 
+    // 충돌 처리
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.gameObject.tag)
         {
-            case "PlayerAttackArea":
+            case "PlayerAttackArea":  // 플레이어의 근접 공격에 맞았을 때
                 ProcessDamage(collision.GetComponent<PlayerAttackArea>().GetAttackID(),
                     PlayerStat.Instance.weaponManager.Weapon.AttackDamage + PlayerStat.Instance.AttackPower);
                 break;
 
-            case "Bullet":
+            case "Bullet":  // 플레이어의 원거리 공격에 맞았을 때
                 ProcessDamage(-1, collision.GetComponent<Bullet>().Damage); // -1은 고유 ID가 없음을 나타냄
                 break;
 
-            case "ExplosionArea":
+            case "ExplosionArea":  // 폭발 범위에 맞았을 때
                 ProcessDamage(-1, collision.transform.parent.GetComponent<FireBolt>().explosionDamage);
                 break;         
         }
     }
 
+    // 피해 처리
     private void ProcessDamage(int attackID, float damage)
     {
         // 공격 ID가 다르거나 ID가 없는 경우에만 피해 처리
@@ -250,6 +259,7 @@ public abstract class MonsterBase : MonoBehaviour
         yield return new WaitForSeconds(0.1f);  // 넉백 지속 시간 (0.1초로 설정)   
     }
 
+    // 사망 상태
     IEnumerator DEAD()
     {
         Debug.Log("몬스터 사망");
@@ -270,6 +280,7 @@ public abstract class MonsterBase : MonoBehaviour
         gameObject.SetActive(false);  // 오브젝트 비활성화
     }
 
+    // 상태 전환
     void ChangeState(MonsterState newMonsterState)
     {
         // Debug.Log("상태 전환 " + newMonsterState);
