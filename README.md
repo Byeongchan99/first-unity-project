@@ -47,17 +47,17 @@ https://github.com/Byeongchan99/first-unity-project
 
 # 주요 기능
 
-1. **일반 몬스터 구현**
-
-![ChaseState](https://github.com/user-attachments/assets/f78ffbb9-fb10-4d19-97b0-5871953ae22e)
-
-[룬 크로니클 개발 일지 12 - 일반 몬스터](https://www.notion.so/12-3e4accb6fc904a8693b47f92cda9f706?pvs=21) 
-
-2. **플레이어 근접 공격 구현**
+1. **플레이어 근접 공격 구현**
 
 ![PlayerAttack-ezgif com-resize](https://github.com/user-attachments/assets/89d706dd-75cd-4833-9762-60a7233e4d84)
 
 [룬 크로니클 개발 일지 7 - 공격 로직 및 무기 구현(1)](https://www.notion.so/7-1-0432376d0f0d4fd4a56f20c7104dcb8d?pvs=21) 
+
+2. **일반 몬스터 구현**
+
+![ChaseState](https://github.com/user-attachments/assets/f78ffbb9-fb10-4d19-97b0-5871953ae22e)
+
+[룬 크로니클 개발 일지 12 - 일반 몬스터](https://www.notion.so/12-3e4accb6fc904a8693b47f92cda9f706?pvs=21) 
 
 3. **보스 몬스터 구현**
 
