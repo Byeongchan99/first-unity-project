@@ -248,8 +248,10 @@ public class PlayerController : MonoBehaviour
         playerStat.stateMachine.ChangeState(StateName.CHARGE);
     }
 
+    // 플래그 변수
     private bool comboAttackTriggered = false;
-    // 새로운 입력 시스템의 Callback으로 사용됩니다.
+
+    // 새로운 입력 시스템의 Callback으로 사용
     void OnAttack()
     {
         if (!GameManager.instance.isLive)

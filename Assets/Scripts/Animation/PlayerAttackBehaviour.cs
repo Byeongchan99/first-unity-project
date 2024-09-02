@@ -54,9 +54,10 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
         }
         */
 
-        if (PlayerStat.Instance.weaponManager.Weapon.ComboCount == 3)   // 세번째 공격 모션일 때 - 1타와 2타가 있음
+        if (PlayerStat.Instance.weaponManager.Weapon.ComboCount == 3)   // 세 번째 공격 모션일 때 - 1타와 2타가 있음
         {
             // 애니메이션 진행도(stateInfo.normalizedTime)를 기준으로 로직을 수행
+            // 애니메이션 진행도 30% ~ 40% 사이일 때
             if (!hasDisabledCollider && stateInfo.normalizedTime >= 0.3f && stateInfo.normalizedTime <= 0.4f)
             {
                 MoveForward();
@@ -65,12 +66,15 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
                 hasDisabledCollider = true;
             }
 
-            if (hasDisabledCollider && stateInfo.normalizedTime > triggerPercentage && stateInfo.normalizedTime < triggerPercentage + 0.1f)   // 3번째 공격 모션에서는 추가 입력 X
+            // 3번째 공격 모션에서는 추가 입력 X
+            // 애니메이션 진행도 40% ~ 50%일 때 2타 공격 범위 활성화(triggerPercentage의 값을 0.4로 설정)
+            if (hasDisabledCollider && stateInfo.normalizedTime > triggerPercentage && stateInfo.normalizedTime < triggerPercentage + 0.1f)  
             {
                 playerAttackArea.ActivateAttackRange(PlayerController.Instance.attackDirection);   // 2타 공격 범위 콜라이더 활성화
                 hasDisabledCollider = false;
             }
 
+            // 애니메이션 진행도 50% ~ 60%일 때 2타 공격 범위 비활성화
             if (!hasDisabledCollider && stateInfo.normalizedTime > triggerPercentage + 0.1f && stateInfo.normalizedTime < triggerPercentage + 0.2f)   
             {
                 // Debug.Log("콜라이더 비활성화 " + PlayerStat.Instance.weaponManager.Weapon.ComboCount);
@@ -78,15 +82,17 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
                 hasDisabledCollider = true;
             }
 
+            // 애니메이션 진행도 95% 이상일 때 공격 종료
             if (!hasFinishedAttack && stateInfo.normalizedTime >= 0.95f)   // 세번째 공격의 애니메이션 = 2초, 재생 속도 2.5배 -> 0.8초
             {
                 hasFinishedAttack = true;
                 PlayerStat.Instance.StartCoroutine(DelayedOnFinishedAttack(0.04f));  // (0.8초의 5퍼 = 0.04)초 지연 후 OnFinishedAttack 호출
             }
         }
-        else   // 첫번째와 두번째 공격 모션일 때
+        else   // 첫 번째와 두 번째 공격 모션일 때
         {
             // 애니메이션 진행도(stateInfo.normalizedTime)를 기준으로 로직을 수행
+            // 애니메이션 진행도 50% ~ 60% 사이일 때(triggerPercentage의 값을 0.5로 설정)
             if (!hasCheckedInput && stateInfo.normalizedTime > triggerPercentage && stateInfo.normalizedTime < triggerPercentage + 0.1f)
             {
                 MoveForward();
@@ -94,6 +100,7 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
                 hasCheckedInput = true;
             }
 
+            // 애니메이션 진행도 60% ~ 70% 사이일 때
             if (!hasDisabledCollider && stateInfo.normalizedTime > triggerPercentage + 0.1f && stateInfo.normalizedTime < triggerPercentage + 0.2f)
             {
                 // Debug.Log("콜라이더 비활성화 " + PlayerStat.Instance.weaponManager.Weapon.ComboCount);
@@ -101,9 +108,11 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
                 hasDisabledCollider = true;
             }
 
+            // 애니메이션 진행도 95% 이상일 때
             if (!hasFinishedAttack && stateInfo.normalizedTime >= 0.95f)
             {
                 hasFinishedAttack = true;
+                // 현재 콤보 카운트에 따라 다음 콤보 공격 실행
                 if (PlayerStat.Instance.weaponManager.Weapon.ComboCount == 1)   // 첫번째 공격의 애니메이션 = 1.5초, 재생 속도 3배 -> 0.5초
                 {
                     PlayerStat.Instance.StartCoroutine(DelayedOnFinishedAttack(0.025f));  // (0.55초의 5퍼 = 0.025)초 지연 후 OnFinishedAttack 호출
@@ -119,8 +128,9 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
     // State 종료 시 호출되는 메서드
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        hasCheckedInput = false; // Reset the flag
-        hasDisabledCollider = false; // Reset the flag
+        // 플래그 초기화
+        hasCheckedInput = false;
+        hasDisabledCollider = false;
         hasFinishedAttack = false;
         attackReceived = false;
     }
@@ -130,7 +140,7 @@ public class PlayerAttackBehaviour : StateMachineBehaviour
     public void CheckAttackInput()
     {
         // Debug.Log("CheckAttackInput 실행");
-
+        // 코루틴 중복 방지
         if (isCoroutineRunning)
         {
             // Debug.Log("checkAttackInputCoroutine 이미 실행 중");
