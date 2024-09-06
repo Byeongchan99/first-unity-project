@@ -50,7 +50,7 @@ public class Astar : MonoBehaviour
         return new Vector2(tilemapPos.x * 0.5f + bottomLeft.x, tilemapPos.y * 0.5f + bottomLeft.y);
     }
 
-    public List<Node> PathFinding(Vector2Int startPos, Vector2Int targetPos)   // 시작 타일맵 좌표, 목표 타일맵 좌표
+    public List<Node> PathFinding(Vector2Int startPos, Vector2Int targetPos, int monsterChaseType)   // 시작 타일맵 좌표, 목표 타일맵 좌표
     {
         /* 초기화 부분은 StageManager에서 수행
         sizeX = Mathf.Abs(topRight.x - bottomLeft.x) * 2;  // 타일맵 가로 크기
@@ -120,6 +120,7 @@ public class Astar : MonoBehaviour
                 return FinalNodeList;  // 반환값 수정
             }
 
+            /*
             if (allowDiagonal)
             {
                 OpenListAdd(CurNode.x + 1, CurNode.y + 1);
@@ -132,9 +133,53 @@ public class Astar : MonoBehaviour
             OpenListAdd(CurNode.x + 1, CurNode.y);
             OpenListAdd(CurNode.x, CurNode.y - 1);
             OpenListAdd(CurNode.x - 1, CurNode.y);
+            */
+
+            AddAdjacentNodes(CurNode, allowDiagonal, monsterChaseType);  // 몬스터 추적 타입 추가
         }
 
         return FinalNodeList;  // 여기도 반환값 추가
+    }
+
+    // 몬스터 추적 타입에 따른 경로 노드 추가 순서
+    void AddAdjacentNodes(Node curNode, bool allowDiagonal, int monsterChaseType)
+    {
+        int x = curNode.x;
+        int y = curNode.y;
+
+        switch (monsterChaseType)
+        {
+            case 1:
+                OpenListAdd(x, y + 1);
+                OpenListAdd(x + 1, y + 1);
+                OpenListAdd(x + 1, y);
+                OpenListAdd(x + 1, y - 1);
+                OpenListAdd(x, y - 1);
+                OpenListAdd(x - 1, y - 1);
+                OpenListAdd(x - 1, y);
+                OpenListAdd(x - 1, y + 1);
+                break;
+            case 2:
+                OpenListAdd(x + 1, y);
+                OpenListAdd(x + 1, y + 1);
+                OpenListAdd(x, y + 1);
+                OpenListAdd(x - 1, y + 1);
+                OpenListAdd(x - 1, y);
+                OpenListAdd(x - 1, y - 1);
+                OpenListAdd(x, y - 1);
+                OpenListAdd(x + 1, y - 1);
+                break;
+            default:
+                OpenListAdd(x, y + 1);
+                OpenListAdd(x + 1, y);
+                OpenListAdd(x, y - 1);
+                OpenListAdd(x - 1, y);
+                OpenListAdd(x + 1, y + 1);
+                OpenListAdd(x - 1, y - 1);
+                OpenListAdd(x - 1, y + 1);
+                OpenListAdd(x + 1, y - 1);
+                break;
+        }
     }
 
     void OpenListAdd(int checkX, int checkY)

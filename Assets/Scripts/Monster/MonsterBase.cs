@@ -19,6 +19,7 @@ public abstract class MonsterBase : MonoBehaviour
     public float speed;
     public float health;
     public float maxHealth;
+    public int chaseType; // A* 알고리즘 추적 타입
 
     [Header("공격 관련")]
     public float attackDetectionRange;   // 공격 인식 범위
@@ -66,6 +67,7 @@ public abstract class MonsterBase : MonoBehaviour
     {
         IsLive = true;
         health = maxHealth;
+        chaseType = Random.Range(0, 3);  // 0 ~ 2 사이의 랜덤한 값으로 추적 타입 설정
     }
 
     // 몬스터를 활성화하는 코드
@@ -95,7 +97,7 @@ public abstract class MonsterBase : MonoBehaviour
             Vector2Int monsterPos = astarComponent.WorldToTilemapPosition(transform.position);
             Vector2Int playerPos = astarComponent.WorldToTilemapPosition(target.position);
 
-            List<Node> path = astarComponent.PathFinding(monsterPos, playerPos);   // Astar 알고리즘으로 길 찾기
+            List<Node> path = astarComponent.PathFinding(monsterPos, playerPos, chaseType);   // Astar 알고리즘으로 길 찾기
 
             // 플레이어가 벽에 들어가 있을 때
             if (astarComponent.playerInWall)
