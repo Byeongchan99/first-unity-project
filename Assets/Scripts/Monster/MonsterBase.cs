@@ -268,15 +268,15 @@ public abstract class MonsterBase : MonoBehaviour
         IsLive = false;
         audioSource.PlayOneShot(deathSound);
         WaveManager.Instance.OnMonsterDeath();
-        int randomGold = Random.Range(9, 16);  // 9에서 15 사이의 값을 얻기 위해
+        int randomGold = Random.Range(9, 16);  // 9에서 15 사이의 값 사용
         PlayerStat.Instance.Gold += randomGold;
 
-        // 몬스터 상태 초기화 및 애니메이션 처리 (예: 사망 애니메이션 재생)
+        // 몬스터 상태 초기화 및 애니메이션 처리
         rb.velocity = Vector2.zero;
         spriteRenderer.color = Color.white;  // 스프라이트 색상을 원래대로 (흰색) 변경
         rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;   // 위치 고정
         anim.SetTrigger("Dead");
-        yield return new WaitForSeconds(1); // 사망 애니메이션 재생 시간 (예: 1초)
+        yield return new WaitForSeconds(1); // 사망 애니메이션 재생 시간
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;   // 위치 고정 해제
 
         gameObject.SetActive(false);  // 오브젝트 비활성화
