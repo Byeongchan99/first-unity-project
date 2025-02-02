@@ -29,6 +29,8 @@ https://github.com/Byeongchan99/first-unity-project
 
 ### 플레이 영상
 
+[룬 크로니클 플레이 영상](https://youtu.be/1B79nPlY3kg?si=RU_ph8WGZINtLdmP)
+
 </br>
 
 # 게임 구조
