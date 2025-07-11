@@ -23,10 +23,6 @@ Window로 빌드되어 아래 사이트에서 다운받아 직접 플레이해�
 
 [룬 크로니클](https://harrrypoter.itch.io/rune-chronicle)
 
-### GitHub Repository
-
-https://github.com/Byeongchan99/first-unity-project
-
 ### 플레이 영상
 
 [룬 크로니클 플레이 영상](https://youtu.be/1B79nPlY3kg?si=RU_ph8WGZINtLdmP)
